@@ -106,9 +106,10 @@ def test_state_and_render(tmp_path: Path):
     k = key_of("x", canonical_url("https://www.example.com/a/?utm_source=x&id=2#frag"))
     assert canonical_url("https://www.example.com/a/?utm_source=x&id=2#frag") == "https://example.com/a?id=2"
     st.mark(k, "gdelt")
-    assert not st.is_seen(k)          # nothing persisted until commit (after alerts are sent)
+    assert st.is_seen(k)              # visible within the run (no duplicates across sources)
+    assert not State(tmp_path / "s.db").is_seen(k)   # but persisted only at commit (after alerts)
     st.commit()
-    assert st.is_seen(k)
+    assert State(tmp_path / "s.db").is_seen(k)
 
     r = recs()
     rep = Report(run_date="2026-10-12")
@@ -158,3 +159,47 @@ def test_identifier_matching():
     from monitor.matching import find_identifiers
     assert find_identifiers("passport no. OB-0243318 was used", ["OB0243318"]) == ["OB0243318"]
     assert find_identifiers("vessel (IMO: 9118135) loaded coal", ["IMO 9118135"]) == ["IMO 9118135"]
+
+
+def test_gkg_file_processing(monkeypatch):
+    import io
+    import zipfile
+
+    import requests
+
+    from monitor import gkg
+    from monitor.matching import context_terms, fold, nickname_terms, search_names
+
+    recs = unlist.parse(SAMPLE)
+    names, nicks = {}, {}
+    for ref, rec in recs.items():
+        for n in search_names(rec, limit=100):
+            names.setdefault(fold(n), []).append(ref)
+        for n in nickname_terms(rec, 50):
+            nicks.setdefault(fold(n), []).append((ref, tuple(fold(c) for c in context_terms(rec))))
+    gkg._init(names, nicks)
+
+    def row(url, allnames, locs="", title="T"):
+        c = [""] * 27
+        c[1], c[3], c[4], c[9], c[23] = "20261005120000", "news.example", url, locs, allnames
+        c[26] = f"<PAGE_TITLE>{title}</PAGE_TITLE>"
+        return "\t".join(c)
+
+    body = "\n".join([
+        row("https://n.example/1", "General Sultani Makenga,10;Goma,40", title="M23 chief speaks"),
+        row("https://n.example/2", "ADF,5", "1#Democratic Republic of the Congo#CG#"),
+        row("https://n.example/3", "ADF,5", "1#Australia#AS#"),          # ADF = Australian forces
+        row("https://n.example/4", "Weather,1"),
+    ])
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w") as z:
+        z.writestr("x.gkg.csv", body)
+
+    class R:
+        status_code, content = 200, buf.getvalue()
+    monkeypatch.setattr(requests, "get", lambda url, timeout=0: R())
+    stream, ts, rows, out = gkg.process_file("english", "20261005120000")
+    assert rows == 4
+    got = {(o["ref"], o["url"]) for o in out}
+    assert got == {("CDi.008", "https://n.example/1"), ("CDe.001", "https://n.example/2")}
+    assert [o["title"] for o in out if o["ref"] == "CDi.008"] == ["M23 chief speaks"]

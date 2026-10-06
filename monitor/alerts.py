@@ -117,6 +117,7 @@ def render_markdown(rep: Report) -> str:
         c = rep.coverage
         out += ["## Coverage this run", "",
                 f"- Parties searched: {c['searched']} of {c['parties']}",
+                f"- GDELT worldwide news articles scanned: {c.get('gdelt_articles', 0):,}",
                 f"- Searches run: {c['queries']} ({c['failed_queries']} failed); raw results: {c['raw_results']}; "
                 f"new items reviewed: {c['new_items']}",
                 "- Per-party detail: `data/coverage.csv`"]

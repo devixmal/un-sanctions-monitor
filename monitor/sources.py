@@ -233,16 +233,18 @@ def read_feed(url: str) -> list[Hit]:
 _SYMBOL = re.compile(r"\bS/(?:19|20)\d{2}/\d{1,4}\b")
 
 
-def list_report_links(page_url: str) -> list[tuple[str, str]]:
+def list_report_links(page_url: str, quiet: bool = False) -> list[tuple[str, str]]:
     """[(id, url)] for every report on a listing page (PDF links or S/YYYY/NNN symbols)."""
     try:
         r = get(page_url, timeout=60)
         if r.status_code != 200:
             raise RuntimeError(f"HTTP {r.status_code}")
-        STATS.ok("report_pages")
+        if not quiet:
+            STATS.ok("report_pages")
     except Exception as e:  # noqa: BLE001
-        STATS.fail("report_pages", e)
-        log.warning("Report page %s failed: %s", page_url, e)
+        if not quiet:
+            STATS.fail("report_pages", e)
+            log.warning("Report page %s failed: %s", page_url, e)
         return []
     soup = BeautifulSoup(r.text, "html.parser")
     found: dict[str, str] = {}
@@ -326,19 +328,29 @@ def opensanctions_datasets(url: str, records: dict[str, dict]) -> dict[str, list
             by_name.setdefault(fold(n), ref)
 
     out: dict[str, set[str]] = {}
+    is_un = re.compile(r"un_sc_sanctions|UN Security Council", re.I)
+    rows = un_rows = 0
     try:
         r = get(url, timeout=600, stream=True)
         r.raise_for_status()
         lines = (ln.decode("utf-8", "replace") for ln in r.iter_lines())
         reader = csv.DictReader(lines)
+        col = next((c for c in ("dataset", "datasets") if c in (reader.fieldnames or [])), None)
+        if not col:
+            raise RuntimeError(f"unexpected columns: {reader.fieldnames}")
         for row in reader:
-            datasets = [d for d in (row.get("dataset") or "").split(";") if d]
-            if "un_sc_sanctions" not in datasets:
+            rows += 1
+            datasets = [d.strip() for d in (row.get(col) or "").split(";") if d.strip()]
+            if not any(is_un.search(d) for d in datasets):
                 continue
+            un_rows += 1
             names = [row.get("name", "")] + (row.get("aliases") or "").split(";")
             ref = next((by_name[fold(n)] for n in names if fold(n) in by_name), None)
             if ref:
-                out.setdefault(ref, set()).update(d for d in datasets if d != "un_sc_sanctions")
+                out.setdefault(ref, set()).update(d for d in datasets if not is_un.search(d))
+        log.info("OpenSanctions: %d rows read, %d UN rows, %d matched to the UN list", rows, un_rows, len(out))
+        if rows and not un_rows:
+            raise RuntimeError("no UN rows recognised in the file (format changed?)")
         STATS.ok("opensanctions")
     except Exception as e:  # noqa: BLE001
         STATS.fail("opensanctions", e)

@@ -40,9 +40,12 @@ class State:
             """
         )
         self._pending: list[tuple] = []
+        self._pending_keys: set[str] = set()
 
     # ---- seen items -------------------------------------------------------
     def is_seen(self, k: str) -> bool:
+        if k in self._pending_keys:
+            return True
         return self.db.execute("SELECT 1 FROM seen WHERE k=?", (k,)).fetchone() is not None
 
     def source_initialised(self, source: str) -> bool:
@@ -51,6 +54,7 @@ class State:
     def mark(self, k: str, source: str, ref: str = "", url: str = "") -> None:
         """Queued; only written by commit(), i.e. after alerts were delivered."""
         self._pending.append((k, source, ref, url, datetime.now(timezone.utc).isoformat()))
+        self._pending_keys.add(k)
 
     # ---- cross-list references ---------------------------------------------
     def get_xref(self) -> dict[str, list[str]]:
@@ -74,6 +78,7 @@ class State:
     def commit(self, prune_days: int = 400) -> None:
         self.db.executemany("INSERT OR IGNORE INTO seen VALUES (?,?,?,?,?)", self._pending)
         self._pending.clear()
+        self._pending_keys.clear()
         # Keep the DB small: news older than ~a year will never resurface in a 7-day window.
         self.db.execute(
             "DELETE FROM seen WHERE source IN ('gdelt','google_news','feed') "

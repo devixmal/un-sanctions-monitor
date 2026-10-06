@@ -122,9 +122,25 @@ def un_reports(cfg: dict, st: State, rep: Report, records, index: NameIndex) -> 
     if not c.get("enabled"):
         return
     budget = int(c.get("max_new_reports_per_run", 100))
-    for page in c.get("pages", []):
-        links = sources.list_report_links(page)
-        init_key = "init:report:" + page
+    pages: list[list[str]] = []
+    base = c.get("committee_base", "https://main.un.org/securitycouncil/en/sanctions/{n}/")
+    for n in c.get("committees", []) or []:
+        pages.append([base.format(n=n) + v for v in c.get("page_variants", [])])
+    pages += [[p] for p in c.get("pages", []) or []]
+    for variants in pages:
+        links, page = [], variants[0]
+        for v in variants:                       # UN site paths differ by committee: try each form
+            links = sources.list_report_links(v, quiet=True)
+            if links:
+                page = v
+                break
+        if links:
+            STATS.ok("report_pages")
+        else:
+            STATS.fail("report_pages", f"no reports found at {variants[0]} (or its variants)")
+            log.warning("No report listing found for %s", variants[0])
+            continue
+        init_key = "init:report:" + variants[0]
         first = not st.get_meta(init_key, False)
         for rid, url in links:
             k = key_of("report", rid)
@@ -148,8 +164,44 @@ def un_reports(cfg: dict, st: State, rep: Report, records, index: NameIndex) -> 
             for ref, found in index.scan(text).items():
                 rep.report_mentions.append((rid, url, records[ref], found))
             log.info("Scanned report %s (%d chars)", rid, len(text))
-        if links:
-            st.set_meta(init_key, True)
+        log.info("Reports page %s: %d documents listed", page, len(links))
+        st.set_meta(init_key, True)
+
+
+# --------------------------------------------------------------------- step 5a
+def gdelt_bulk(cfg: dict, st: State, rep: Report, targets: list[dict]) -> dict[str, list[Hit]]:
+    """All GDELT-monitored news since the last run, matched against every name at once."""
+    c = cfg["sources"].get("gdelt", {})
+    if not c.get("bulk", True):
+        return {}
+    from . import gkg
+
+    now = gkg.now_utc()
+    last = st.get_meta("gkg_last")
+    start = datetime.fromisoformat(last) if last else now - timedelta(days=int(cfg["lookback_days"]))
+    start = max(start, now - timedelta(days=int(cfg.get("max_catchup_days", 30))))
+    retry = st.get_meta("gkg_retry", []) or []
+    streams = tuple(c.get("streams", ["english", "translated"]))
+    hits, stats = gkg.scan({r["ref"]: r for r in targets}, start, now, streams,
+                           workers=int(c.get("workers", os.cpu_count() or 4)),
+                           min_len=int(cfg.get("matching", {}).get("min_name_length", 8)), retry=retry)
+    for _ in range(stats["ok"]):
+        STATS.ok("gdelt_bulk")
+    for e in stats["errors"]:
+        STATS.fail("gdelt_bulk", e)
+    # Files that failed are re-read next run, so a GDELT/network hiccup never leaves a gap.
+    st.set_meta("gkg_retry", stats["failed_jobs"][-2000:])
+    st.set_meta("gkg_last", now.isoformat())
+    if stats["failed"]:
+        rep.notes.append(f"GDELT: {stats['failed']} of {stats['files']} 15-minute files could not be read; "
+                         "they will be re-read next run")
+    rep.coverage["gdelt_articles"] = stats["rows"]
+    out: dict[str, list[Hit]] = {}
+    for h in hits:
+        out.setdefault(h["ref"], []).append(Hit(
+            "GDELT", h["title"], h["url"], h["date"], h["domain"],
+            "translated" if h["stream"] == "translated" else "en", matched=[h["name"]]))
+    return out
 
 
 # --------------------------------------------------------------------- step 5
@@ -165,7 +217,8 @@ def editions_for(rec: dict, gn: dict) -> list[dict]:
     return eds
 
 
-def news_sweep(cfg: dict, st: State, rep: Report, targets: list[dict], scorer, started: float) -> None:
+def news_sweep(cfg: dict, st: State, rep: Report, targets: list[dict], scorer, started: float,
+               bulk: dict[str, list[Hit]] | None = None) -> None:
     mcfg = cfg.get("matching", {})
     min_len, per_q = int(mcfg.get("min_name_length", 8)), int(mcfg.get("max_names_per_query", 4))
     gd, gn = cfg["sources"].get("gdelt", {}), cfg["sources"].get("google_news", {})
@@ -188,7 +241,7 @@ def news_sweep(cfg: dict, st: State, rep: Report, targets: list[dict], scorer, s
         return now - timedelta(days=default_days)
 
     plans = {r["ref"]: plan_queries(r, min_len, per_q) for r in targets}
-    raw: dict[str, list[Hit]] = {r["ref"]: [] for r in targets}
+    raw: dict[str, list[Hit]] = {r["ref"]: list((bulk or {}).get(r["ref"], [])) for r in targets}
     cov = {r["ref"]: {"queries": 0, "failed": 0, "raw": 0, "done": set()} for r in targets}
     lock = threading.Lock()
 
@@ -233,7 +286,7 @@ def news_sweep(cfg: dict, st: State, rep: Report, targets: list[dict], scorer, s
 
     enabled = []
     workers = []
-    if gd.get("enabled", True):
+    if gd.get("doc_api", False):
         enabled.append("gdelt")
         workers.append(threading.Thread(target=run_gdelt, daemon=True))
     if gn.get("enabled", True):
@@ -264,6 +317,8 @@ def news_sweep(cfg: dict, st: State, rep: Report, targets: list[dict], scorer, s
             fresh.setdefault(ref, []).append(h)
     cap = int(cfg.get("scoring", {}).get("max_hits_per_entity", 100))
     for ref in fresh:
+        names_f = [fold(n) for n in news_match_names(by_ref[ref], min_len)]
+        fresh[ref].sort(key=lambda h: (not any(n in fold(h.title) for n in names_f), h.source != "GDELT"))
         if len(fresh[ref]) > cap:
             rep.notes.append(f"{by_ref[ref]['name']} ({ref}): {len(fresh[ref])} new items, "
                              f"only the first {cap} were reviewed (raise scoring.max_hits_per_entity)")
@@ -325,14 +380,14 @@ def news_sweep(cfg: dict, st: State, rep: Report, targets: list[dict], scorer, s
             "near_misses": len(rep.near_misses.get(ref, (None, []))[1]), "status": status,
         })
     st.set_meta("last_searched", last)
-    rep.coverage = {
+    rep.coverage.update({
         "parties": len(targets), "searched": len(targets) - len(deferred) - len(failed),
         "queries": sum(c["queries"] for c in cov.values()),
         "failed_queries": sum(c["failed"] for c in cov.values()),
         "raw_results": sum(c["raw"] for c in cov.values()),
         "new_items": sum(len(v) for v in fresh.values()),
         "deferred": [f"{r['name']} ({r['ref']})" for r in deferred],
-    }
+    })
     if failed:
         rep.health["Parties not searched"] = (
             f"{len(failed)} parties had every search fail; they are retried first next run: "
@@ -380,7 +435,8 @@ def main(argv=None) -> int:
         ("Other sanctions lists", lambda: cross_lists(cfg, st, rep, records)),
         ("Watched feeds", lambda: watched_feeds(cfg, st, rep, records, index, scorer)),
         ("UN reports", lambda: un_reports(cfg, st, rep, records, index)),
-        ("News sweep", lambda: news_sweep(cfg, st, rep, targets, scorer, started)),
+        ("News sweep", lambda: news_sweep(cfg, st, rep, targets, scorer, started,
+                                          gdelt_bulk(cfg, st, rep, targets))),
     )
     for name, step in steps:
         t0 = time.time()

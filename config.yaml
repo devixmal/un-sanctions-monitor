@@ -12,10 +12,16 @@ list:
   regimes: []
 
 sources:
-  gdelt:                      # global news, 65+ languages, machine-translated into English
-    enabled: true
-    max_records: 250          # GDELT maximum; full windows are automatically split and re-queried
-    delay_seconds: 5.5        # GDELT allows ~1 request / 5 s
+  gdelt:
+    # Bulk mode: every 15-minute GDELT knowledge-graph file since the last run (all news GDELT
+    # monitors worldwide, English + machine-translated from 65+ languages) is downloaded and matched
+    # against every name, alias and context-qualified nickname. No rate limits, no per-name quota.
+    bulk: true
+    streams: [english, translated]
+    # Per-name DOC API search. GDELT heavily rate-limits GitHub's servers, so it is off by default.
+    doc_api: false
+    max_records: 250
+    delay_seconds: 5.5
   google_news:
     enabled: true
     delay_seconds: 2.0
@@ -50,8 +56,7 @@ sources:
          Ecuador, Bolivia, Argentina, Chile]}
 
   # RSS/Atom feeds whose every new item is scanned for ANY listed name.
-  feeds:
-    - https://www.un.org/securitycouncil/feed/1.0/updates_unsc_consolidated_list
+  feeds: []   # (the UN SC list-update RSS blocks automated clients; list changes come from the XML)
   # Google News searches turned into feeds and scanned the same way.
   topic_queries:
     - '"Security Council" sanctions committee'
@@ -59,24 +64,24 @@ sources:
     - 'OFAC designates'
     - '"sanctions evasion"'
     - 'Interpol "UN Security Council Special Notice"'
+    - '"Security Council" committee amends sanctions list entry'
 
   # Listing pages of UN sanctions reports. Each NEW report (PDF) is downloaded and its full text
   # scanned for every listed name. First run only records existing reports as a baseline.
   reports:
     enabled: true
     max_new_reports_per_run: 100   # scanned PDFs are OCR'd automatically
+    # Each committee's report listing; the UN site uses different path styles, all are tried.
+    committees: [1267, 1988, 1518, 1533, 1591, 1718, 1970, 2127, 2140, 2206, 2653, 2713, 2745]
+    committee_base: "https://main.un.org/securitycouncil/en/sanctions/{n}/"
+    page_variants:
+      - panel_experts/reports
+      - panel-of-experts/reports
+      - panel-experts/reports
+      - monitoring-team/reports
+      - monitoring_team/reports
+      - reports
     pages:
-      - https://main.un.org/securitycouncil/en/sanctions/1267/monitoring-team/reports   # ISIL/Al-Qaida
-      - https://main.un.org/securitycouncil/en/sanctions/1988/monitoring-team/reports   # Taliban
-      - https://main.un.org/securitycouncil/en/sanctions/1533/panel_experts/reports     # DRC
-      - https://main.un.org/securitycouncil/en/sanctions/1591/panel_experts/reports     # Sudan
-      - https://main.un.org/securitycouncil/en/sanctions/1718/panel_experts/reports     # DPRK
-      - https://main.un.org/securitycouncil/en/sanctions/1970/panel_experts/reports     # Libya
-      - https://main.un.org/securitycouncil/en/sanctions/2127/panel_experts/reports     # CAR
-      - https://main.un.org/securitycouncil/en/sanctions/2140/panel_experts/reports     # Yemen
-      - https://main.un.org/securitycouncil/en/sanctions/2206/panel_experts/reports     # South Sudan
-      - https://main.un.org/securitycouncil/en/sanctions/2653/panel_experts/reports     # Haiti
-      - https://main.un.org/securitycouncil/en/sanctions/2713/panel_experts/reports     # Al-Shabaab
       - https://www.securitycouncilreport.org/un_documents_type/sanctions-committee-documents/
 
   # Flags when a UN-listed party is newly added to another authority's list (OFAC, EU, UK, etc.).
