@@ -21,6 +21,11 @@ def _stub(monkeypatch, tmp_path, xml, news, feed_items=(), reports=(), report_te
 
     def fake_gnews(terms, start, end, ed, context=None):
         calls.append(("gnews", ed["hl"], tuple(terms), tuple(context or ())))
+        if tuple(terms) == ("ADF",) and ed["hl"] == "en-US":
+            return [Hit("Google News", "ADF troops in joint drills with US marines", "https://au.example/1",
+                        snippet="Australian Defence Force exercise"),
+                    Hit("Google News", "ADF rebels kill 12 near Beni, Congo", "https://cd.example/2",
+                        snippet="ADF militia attack in North Kivu, Congo")]
         return []
 
     from monitor import gkg
@@ -61,6 +66,9 @@ def test_two_runs(monkeypatch, tmp_path):
     assert any(c[0] == "gkg" for c in m.CALLS)
     cov = (tmp_path / "data/coverage.csv").read_text()
     assert cov.count("searched") == 3
+    rep1 = next((tmp_path / "reports").glob("*.md")).read_text()
+    assert "ADF rebels kill 12" in rep1 and "joint drills" not in rep1   # acronym needs Congo context
+    assert (tmp_path / "data/alerts").exists()
     first = list((tmp_path / "reports").glob("*.md"))
     assert len(first) == 1 and "Makenga in Goma" in first[0].read_text()
     assert "Changes to the UN Consolidated List" not in first[0].read_text()

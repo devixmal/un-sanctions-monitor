@@ -72,9 +72,12 @@ sources:
     enabled: true
     max_new_reports_per_run: 100   # scanned PDFs are OCR'd automatically
     # Each committee's report listing; the UN site uses different path styles, all are tried.
-    committees: [1267, 1988, 1518, 1533, 1591, 1718, 1970, 2127, 2140, 2206, 2653, 2713, 2745]
+    committees: [1267, 1988, 1533, 1591, 1718, 1970, 2127, 2140, 2206, 2653, 2713, 2745]
     committee_base: "https://main.un.org/securitycouncil/en/sanctions/{n}/"
     page_variants:
+      - panel-of-experts/expert-reports
+      - panel-of-experts/work-and-mandate/reports
+      - PoE/Reports
       - panel_experts/reports
       - panel-of-experts/reports
       - panel-experts/reports

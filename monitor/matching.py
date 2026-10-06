@@ -182,16 +182,22 @@ def context_terms(rec: dict, limit: int = 6) -> list[str]:
 
 
 def nickname_terms(rec: dict, limit: int = 8) -> list[str]:
-    """Low-quality aliases worth searching *only* together with context terms."""
+    """Low-quality aliases worth searching *only* together with context terms.
+
+    Kept as written, titles included ("Commandant Jérôme", "General Nkunda"), because the bare
+    remainder is often a common first name. Single words need 6+ letters, except entity acronyms
+    (ADF, TPD) which are always checked against context afterwards.
+    """
     out, seen = [], set()
     for n in rec.get("low_aliases", []) + [a for a in rec.get("aliases", []) if not is_searchable(
             _strip_titles(display_name(a)), rec["kind"], 8)]:
-        n = _strip_titles(display_name(n))
+        n = display_name(n)
         f = fold(n)
+        toks = f.split()
         acronym = rec["kind"] == "entity" and n.isupper() and n.isalnum() and len(n) >= 3
-        if not f or f in seen or f in _WEAK_ALIAS or (len(f) < 5 and not acronym):
+        if not f or f in seen or f in _WEAK_ALIAS or all(t in _WEAK_ALIAS for t in toks):
             continue
-        if all(t in _WEAK_ALIAS for t in f.split()):
+        if len(toks) == 1 and len(f) < 6 and not acronym:
             continue
         seen.add(f)
         out.append(n)

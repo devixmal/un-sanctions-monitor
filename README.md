@@ -9,7 +9,7 @@ something new and relevant turns up**. Quiet weeks produce no notification.
 | Layer | Source | What triggers an alert |
 |---|---|---|
 | List changes | Official UN consolidated XML | New designation, delisting, or amended entry (aliases, address, notes…) |
-| Global news | GDELT (65+ languages, translated) + Google News, every name and good-quality alias, plus original-script names | A new article about the listed party in the last 7 days |
+| Global news | **GDELT bulk feed**: every article GDELT processed worldwide since the last run (≈2 million a week, English + translated from 65+ languages), matched against every name, alias and nickname. **Google News**: per-party searches in English and the party's local languages, including document numbers and original-script names | A new article about the listed party since the last run |
 | Official feeds | UN SC list-update RSS + Google News topic feeds (sanctions committees, Panel of Experts, OFAC…) | Any listed name appears in a new item |
 | UN reports | Panel of Experts / Monitoring Team report pages for every regime | A **new** report's full PDF text mentions any listed name |
 | Other authorities | OpenSanctions cross-reference (OFAC, EU, UK, etc.) | A UN-listed party is newly listed elsewhere |
@@ -72,7 +72,8 @@ news from the past 7 days. From then on it runs every **Monday 07:17 IST** by it
 ## Outputs
 
 - **GitHub Issue** per week with alerts (plus email / Slack / Telegram if configured)
-- `reports/YYYY-MM-DD.md` — the full weekly report, kept in the repo as an audit trail
+- `reports/YYYY-MM-DD.md` — the weekly report (top 10 items per party), kept as an audit trail
+- `data/alerts/YYYY-MM-DD.csv` — every alerted and borderline item, for sorting and filtering
 - `data/un_consolidated_list.csv` — the complete current list of every sanctioned individual and entity
 - `state/` — the monitor's memory (list snapshot, items already seen). Don't delete it.
 
@@ -95,19 +96,23 @@ python -m pytest -q                            # offline tests
 
 ## Good to know
 
-- **Runtime**: a full sweep of ~1,000 parties with every alias, nickname and document number is
-  roughly 3,000+ GDELT searches (one every ~5.5 seconds), so a run can take 4–5 hours. The
+- **Runtime**: the GDELT bulk scan takes ~5 minutes whatever the number of parties. Google News
+  searches take ~5–6 seconds per party, so a full run of ~1,000 parties is about 2–3 hours. The
   `max_sweep_minutes` budget (270) keeps it inside GitHub's 6-hour limit; anything not reached is
   searched first the following week with no gap. Private repos on the free plan get 2,000 Actions
-  minutes a month, so weekly runs (~1,200 min/month) fit, but leave little room for other workflows.
+  minutes a month, which covers weekly runs.
+- **GDELT's per-name search API** rate-limits GitHub's servers, which is why the bulk feed is used
+  instead (`gdelt.doc_api` is off). Bulk files that fail to download are re-read on the next run.
 - **Scheduled workflows** are paused by GitHub after 60 days without repo activity; the weekly state
   commit normally keeps the repo active. If runs stop, re-enable the workflow in the Actions tab.
 - **Coverage limits**: no system can literally read the whole web. This covers worldwide news, UN
   documents, official feeds and other sanctions lists. It does not log in to social media, Telegram
   channels, paywalled sites, corporate registries, leak databases, court records or vessel-tracking
   (AIS) services; those need API keys and can be added as extra sources in `monitor/sources.py`.
-- **Report pages**: the 1267 and 1988 monitoring-team page addresses follow the UN site's pattern but
-  may differ; after the first run, check the job log for `Report page … failed` and fix any URL.
+- **Report pages**: the UN site uses different page paths per committee, so several are tried for
+  each. If a committee shows "No report listing found" in `logs/last_run.log`, add its reports page
+  under `reports.pages` in `config.yaml`.
+- **Run log**: every run saves `logs/last_run.log` to the repo, with timings per step.
 - **OpenSanctions licence**: free for non-commercial use (CC BY-NC 4.0). Commercial users should buy
   a licence or set `opensanctions.enabled: false`.
 - Alerts are automated screening, not determinations. Verify identity before acting on any match.

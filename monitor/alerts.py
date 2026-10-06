@@ -1,8 +1,10 @@
 """Render the weekly report and deliver it — only when there is something to say."""
 from __future__ import annotations
 
+import csv
 import logging
 import os
+import re
 import smtplib
 from dataclasses import dataclass, field
 from datetime import date
@@ -61,6 +63,14 @@ class Report:
         return "; ".join(parts)
 
 
+def nice_date(d: str) -> str:
+    """'20261002180000' or 'Tue, 06 Oct 2026 01:15:00 GMT' -> '2026-10-02' / '06 Oct 2026'."""
+    if re.fullmatch(r"\d{14}", d or ""):
+        return f"{d[:4]}-{d[4:6]}-{d[6:8]}"
+    m = re.search(r"\d{1,2} \w{3} \d{4}", d or "")
+    return m.group(0) if m else (d or "")
+
+
 def _who(rec: dict) -> str:
     return f"**{rec['name']}** ({rec['ref']}, {rec.get('regime') or rec['kind']})"
 
@@ -97,19 +107,26 @@ def render_markdown(rep: Report) -> str:
         out += ["## News & web activity", ""]
         for ref, (r, hits) in sorted(rep.news.items(), key=lambda kv: -max(h.score for h in kv[1][1])):
             out.append(f"### {r['name']} ({ref}, {r.get('regime') or r['kind']})")
-            for h in sorted(hits, key=lambda h: -h.score):
+            ranked = sorted(hits, key=lambda h: -h.score)
+            for h in ranked[:TOP_PER_PARTY]:
                 tag = f"[{h.category}] " if h.category else ""
-                out.append(f"- {tag}[{h.title or h.url}]({h.url}) — {h.domain or h.source}, {h.date} "
-                           f"(confidence {h.score:.2f})")
+                out.append(f"- {tag}[{h.title or h.url}]({h.url}) — {h.domain or h.source}, "
+                           f"{nice_date(h.date)} (confidence {h.score:.2f})")
                 if h.summary:
                     out.append(f"  - {h.summary}")
+            if len(ranked) > TOP_PER_PARTY:
+                out.append(f"- …and {len(ranked) - TOP_PER_PARTY} more in `data/alerts/{rep.run_date}.csv`")
             out.append("")
     if rep.near_misses:
         out += ["## Borderline — below the confidence threshold, review if relevant", "",
                 "_These matched a name, nickname or document number but the filter was not confident "
                 "they concern the listed party. Listed so nothing is discarded silently._", ""]
         for ref, (r, hits) in sorted(rep.near_misses.items(), key=lambda kv: -max(h.score for h in kv[1][1])):
-            for h in sorted(hits, key=lambda h: -h.score)[:10]:
+            ranked = sorted(hits, key=lambda h: -h.score)
+            if len(ranked) > 5:
+                out.append(f"- {r['name']} ({ref}): {len(ranked) - 5} more borderline items in "
+                           f"`data/alerts/{rep.run_date}.csv`")
+            for h in ranked[:5]:
                 out.append(f"- {r['name']} ({ref}) — [{h.title or h.url}]({h.url}) "
                            f"({h.domain or h.source}, {h.score:.2f}){' — ' + h.summary if h.summary else ''}")
         out.append("")
@@ -120,6 +137,9 @@ def render_markdown(rep: Report) -> str:
                 f"- GDELT worldwide news articles scanned: {c.get('gdelt_articles', 0):,}",
                 f"- Searches run: {c['queries']} ({c['failed_queries']} failed); raw results: {c['raw_results']}; "
                 f"new items reviewed: {c['new_items']}",
+                f"- Discarded automatically: {c.get('dropped_no_context', 0)} nickname/acronym matches with no "
+                f"link to the party's organisation or country; {c.get('dropped_republished', 0)} old articles "
+                "re-published",
                 "- Per-party detail: `data/coverage.csv`"]
         if c.get("deferred"):
             out.append(f"- Deferred to next run (time budget), searched first then with a window back to "
@@ -132,10 +152,29 @@ def render_markdown(rep: Report) -> str:
 
 
 # ------------------------------------------------------------------ delivery
+TOP_PER_PARTY = 10
+
+
 def write_report(rep: Report, md: str, folder: Path) -> Path:
     folder.mkdir(parents=True, exist_ok=True)
     path = folder / f"{rep.run_date}.md"
     path.write_text(md, encoding="utf-8")
+    # Every alerted and borderline item, for filtering/sorting in a spreadsheet.
+    data = folder.parent / "data" / "alerts" / f"{rep.run_date}.csv"
+    data.parent.mkdir(parents=True, exist_ok=True)
+    with data.open("w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["status", "ref", "name", "regime", "confidence", "category", "date", "source",
+                    "title", "url", "summary", "matched"])
+        for status, group in (("alert", rep.news), ("borderline", rep.near_misses)):
+            for ref, (r, hits) in group.items():
+                for h in sorted(hits, key=lambda h: -h.score):
+                    w.writerow([status, ref, r["name"], r.get("regime", ""), f"{h.score:.2f}", h.category,
+                                nice_date(h.date), h.domain or h.source, h.title, h.url, h.summary,
+                                "; ".join(h.matched)])
+        for r, h in rep.feed_mentions:
+            w.writerow(["feed", r["ref"], r["name"], r.get("regime", ""), f"{h.score:.2f}", h.category,
+                        nice_date(h.date), h.domain or h.source, h.title, h.url, h.summary, "; ".join(h.matched)])
     return path
 
 

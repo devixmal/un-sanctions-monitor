@@ -141,7 +141,9 @@ def test_query_plan_covers_everything():
     assert nick and "ABU WAQAS" in nick[0].terms and "ADF" in nick[0].context and "Congo" in nick[0].context
     assert "Tanzania" in nick[0].context
     assert identifiers(rec) == ["AB850901", "AB187304"]
-    assert "JUNDI" in nickname_terms(rec)
+    assert "MARABOU" in nickname_terms(rec) and "JUNDI" not in nickname_terms(rec)  # 5-letter word: too common
+    jer = {"kind": "individual", "aliases": [], "low_aliases": ["Commandant Jérôme", "Mr Omari", "Omari"]}
+    assert nickname_terms(jer) == ["Commandant Jérôme"]          # title kept: bare "Jérôme" is too common
 
 
 def test_local_editions():

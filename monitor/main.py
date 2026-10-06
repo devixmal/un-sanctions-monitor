@@ -18,8 +18,8 @@ import yaml
 
 from . import sources, unlist
 from .alerts import Report, dispatch, render_markdown
-from .matching import (NameIndex, context_snippet, find_identifiers, find_mentions, fold, identifiers,
-                       news_match_names, plan_queries)
+from .matching import (NameIndex, all_match_names, context_snippet, context_terms, find_identifiers,
+                       find_mentions, fold, identifiers, news_match_names, plan_queries)
 from .scoring import make_scorer
 from .sources import STATS, Hit
 from .state import State, canonical_url, key_of
@@ -344,6 +344,33 @@ def news_sweep(cfg: dict, st: State, rep: Report, targets: list[dict], scorer, s
             h.matched = find_mentions(text, names) + [f"id:{i}" for i in find_identifiers(text, ids)]
             if body:
                 h.snippet = context_snippet(body, names) or h.snippet
+
+    # Nickname/acronym matches only count if a context term (organisation, country) is present;
+    # republished old articles (URL dated well before the window) are dropped.
+    dropped_ctx = dropped_old = 0
+    for ref in list(fresh):
+        rec = by_ref[ref]
+        full = {fold(n) for n in all_match_names(rec, min_len)}
+        ctx = [fold(c) for c in context_terms(rec)]
+        oldest = window(ref) - timedelta(days=30)
+        keep = []
+        for h in fresh[ref]:
+            names_hit = [m for m in h.matched if not m.startswith("id:")]
+            ids_hit = [m for m in h.matched if m.startswith("id:")]
+            text = " " + fold(f"{h.title} {h.snippet} {page.get(id(h), '')}") + " "
+            if names_hit and not ids_hit and not (set(names_hit) & full) and not any(
+                    f" {c} " in text for c in ctx):
+                dropped_ctx += 1
+                continue
+            m = re.search(r"/(20\d{2})/(\d{1,2})/", h.url)
+            if m and 1 <= int(m.group(2)) <= 12 and datetime(int(m.group(1)), int(m.group(2)), 28,
+                                                            tzinfo=timezone.utc) < oldest:
+                dropped_old += 1
+                continue
+            keep.append(h)
+        fresh[ref] = keep
+    rep.coverage["dropped_no_context"] = dropped_ctx
+    rep.coverage["dropped_republished"] = dropped_old
 
     def judge(item):
         ref, hs = item
