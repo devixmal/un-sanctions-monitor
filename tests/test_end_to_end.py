@@ -109,3 +109,34 @@ def test_time_budget_defers_without_gaps(monkeypatch, tmp_path):
     assert cov.count("deferred") == 3
     from monitor.state import State
     assert State(tmp_path / "state/monitor.db").get_meta("last_searched", {}) == {}   # retried first next run
+
+
+def test_gdelt_window_is_per_party(monkeypatch, tmp_path):
+    from datetime import datetime, timedelta, timezone
+
+    import yaml
+
+    from monitor import gkg, unlist
+    from monitor.alerts import Report
+    from monitor.state import State
+    import monitor.main as m
+
+    now = datetime(2026, 10, 6, 12, 0, tzinfo=timezone.utc)
+    monkeypatch.setattr(gkg, "now_utc", lambda: now)
+    recs = unlist.parse(SAMPLE)
+    st = State(tmp_path / "s.db")
+    st.set_meta("gkg_last_by_ref", {"CDi.008": (now - timedelta(hours=2)).isoformat()})
+    seen = {}
+
+    def fake_scan(records, start, end, streams, workers=4, min_len=8, retry=None):
+        seen["start"] = start
+        three_days_ago = (now - timedelta(days=3)).strftime("%Y%m%d%H%M%S")
+        return ([{"ref": ref, "name": "x", "url": f"https://e/{ref}", "domain": "e", "date": three_days_ago,
+                  "title": "t", "stream": "english"} for ref in ("CDi.008", "CDi.005")],
+                {"files": 1, "ok": 1, "missing": 0, "failed": 0, "rows": 1, "errors": [], "failed_jobs": []})
+    monkeypatch.setattr(gkg, "scan", fake_scan)
+    cfg = yaml.safe_load(open("config.yaml"))
+    out = m.gdelt_bulk(cfg, st, Report(), [recs["CDi.008"], recs["CDi.005"]])
+    assert seen["start"] == now - timedelta(days=7)        # widest window needed (new party)
+    assert set(out) == {"CDi.005"}                          # CDi.008 already covered up to 2h ago
+    assert set(st.get_meta("gkg_last_by_ref")) == {"CDi.008", "CDi.005"}

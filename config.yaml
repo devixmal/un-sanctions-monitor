@@ -78,6 +78,7 @@ sources:
       - panel-of-experts/expert-reports
       - panel-of-experts/work-and-mandate/reports
       - PoE/Reports
+      - work-and-mandate/reports
       - panel_experts/reports
       - panel-of-experts/reports
       - panel-experts/reports

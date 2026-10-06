@@ -177,9 +177,16 @@ def gdelt_bulk(cfg: dict, st: State, rep: Report, targets: list[dict]) -> dict[s
     from . import gkg
 
     now = gkg.now_utc()
-    last = st.get_meta("gkg_last")
-    start = datetime.fromisoformat(last) if last else now - timedelta(days=int(cfg["lookback_days"]))
-    start = max(start, now - timedelta(days=int(cfg.get("max_catchup_days", 30))))
+    floor = now - timedelta(days=int(cfg.get("max_catchup_days", 30)))
+    default = now - timedelta(days=int(cfg["lookback_days"]))
+    # Tracked per party, so a party that is new to the sweep (newly listed, regime filter changed,
+    # test runs) still gets its full look-back instead of inheriting someone else's window.
+    last_by_ref = st.get_meta("gkg_last_by_ref", {}) or {}
+    since = {r["ref"]: max(datetime.fromisoformat(last_by_ref[r["ref"]]) if r["ref"] in last_by_ref
+                           else default, floor) for r in targets}
+    if not since:
+        return {}
+    start = min(since.values())
     retry = st.get_meta("gkg_retry", []) or []
     streams = tuple(c.get("streams", ["english", "translated"]))
     hits, stats = gkg.scan({r["ref"]: r for r in targets}, start, now, streams,
@@ -191,11 +198,22 @@ def gdelt_bulk(cfg: dict, st: State, rep: Report, targets: list[dict]) -> dict[s
         STATS.fail("gdelt_bulk", e)
     # Files that failed are re-read next run, so a GDELT/network hiccup never leaves a gap.
     st.set_meta("gkg_retry", stats["failed_jobs"][-2000:])
-    st.set_meta("gkg_last", now.isoformat())
+    for ref in since:
+        last_by_ref[ref] = now.isoformat()
+    st.set_meta("gkg_last_by_ref", last_by_ref)
     if stats["failed"]:
         rep.notes.append(f"GDELT: {stats['failed']} of {stats['files']} 15-minute files could not be read; "
                          "they will be re-read next run")
     rep.coverage["gdelt_articles"] = stats["rows"]
+
+    def in_window(h) -> bool:
+        try:
+            when = datetime.strptime(h["date"], "%Y%m%d%H%M%S").replace(tzinfo=timezone.utc)
+        except ValueError:
+            return True
+        return when > since[h["ref"]] - timedelta(minutes=15)
+
+    hits = [h for h in hits if in_window(h)]
     out: dict[str, list[Hit]] = {}
     for h in hits:
         out.setdefault(h["ref"], []).append(Hit(
