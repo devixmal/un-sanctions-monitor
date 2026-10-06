@@ -1,48 +1,47 @@
-2026-10-06 17:11:13,143 INFO Relevance filter: keyword heuristic (set ANTHROPIC_API_KEY for far fewer false positives)
-2026-10-06 17:11:14,159 INFO UN list: 1010 records (736 individuals, 274 entities)
-2026-10-06 17:11:14,365 INFO == Other sanctions lists: starting
-2026-10-06 17:11:16,749 INFO == Other sanctions lists: finished in 0.0 min
-2026-10-06 17:11:16,749 INFO == Watched feeds: starting
-2026-10-06 17:11:16,909 WARNING Feed https://www.un.org/securitycouncil/feed/1.0/updates_unsc_consolidated_list failed: HTTP 403
-2026-10-06 17:11:18,440 INFO == Watched feeds: finished in 0.0 min
-2026-10-06 17:11:18,441 INFO == UN reports: starting
-2026-10-06 17:11:18,820 WARNING Report page https://main.un.org/securitycouncil/en/sanctions/1533/panel_experts/reports failed: HTTP 404
-2026-10-06 17:11:18,836 WARNING Report page https://main.un.org/securitycouncil/en/sanctions/1591/panel_experts/reports failed: HTTP 404
-2026-10-06 17:11:18,940 WARNING Report page https://main.un.org/securitycouncil/en/sanctions/1970/panel_experts/reports failed: HTTP 404
-2026-10-06 17:11:18,956 WARNING Report page https://main.un.org/securitycouncil/en/sanctions/2127/panel_experts/reports failed: HTTP 404
-2026-10-06 17:11:18,971 WARNING Report page https://main.un.org/securitycouncil/en/sanctions/2140/panel_experts/reports failed: HTTP 404
-2026-10-06 17:11:18,986 WARNING Report page https://main.un.org/securitycouncil/en/sanctions/2206/panel_experts/reports failed: HTTP 404
-2026-10-06 17:11:19,002 WARNING Report page https://main.un.org/securitycouncil/en/sanctions/2653/panel_experts/reports failed: HTTP 404
-2026-10-06 17:11:19,018 WARNING Report page https://main.un.org/securitycouncil/en/sanctions/2713/panel_experts/reports failed: HTTP 404
-2026-10-06 17:11:19,438 INFO == UN reports: finished in 0.0 min
-2026-10-06 17:11:19,438 INFO == News sweep: starting
-2026-10-06 17:11:25,646 INFO Google News progress 0/25
-2026-10-06 17:12:53,382 WARNING GDELT failed for ['Allied Democratic Forces', 'Forces Démocratiques Alliées-Armée Nationale de Libération de l’Ouganda', 'ADF/NALU']: HTTP 429
-2026-10-06 17:14:15,531 WARNING GDELT failed for ['NALU']: HTTP 429
-2026-10-06 17:14:15,532 INFO GDELT progress 0/25
-2026-10-06 17:14:15,586 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%22BUTEMBO+AIRLINES+%28BAL%29%22&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
-2026-10-06 17:17:37,253 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%22CONGOMET+TRADING+HOUSE%22&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
-2026-10-06 17:18:44,631 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%22Mouvement+du+23+mars%22&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
-2026-10-06 17:20:21,639 WARNING GDELT failed for ['Mouvement du 23 mars']: HTTP 429
-2026-10-06 17:21:47,607 WARNING GDELT failed for ['MACHANGA LTD']: HTTP 429
-2026-10-06 17:23:27,288 WARNING GDELT failed for ['TPD']: HTTP 429
-2026-10-06 17:24:51,242 WARNING GDELT failed for ['UGANDA COMMERCIAL IMPEX (UCI) LTD']: HTTP 429
-2026-10-06 17:24:51,468 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%22ALLIANCE+FLEUVE+CONGO+%28AFC%29%22&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
-2026-10-06 17:26:26,391 WARNING GDELT failed for ['TWIRWANEHO']: HTTP 429
-2026-10-06 17:26:26,401 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%22ERIC+BADEGE%22&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
-2026-10-06 17:27:55,375 WARNING GDELT failed for ['ERIC BADEGE']: HTTP 429
-2026-10-06 17:27:55,379 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%28%22FRANK+KAKOLELE+BWAMBALE%22+OR+%22FRANK+KAKORERE%22+OR+%22FRANK+KAKORERE+BWAMBALE%22+OR+%22AIGLE+BLANC%22%29&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
-2026-10-06 17:29:22,171 WARNING GDELT failed for ['FRANK KAKOLELE BWAMBALE', 'FRANK KAKORERE', 'FRANK KAKORERE BWAMBALE', 'AIGLE BLANC']: HTTP 429
-2026-10-06 17:29:22,236 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%28%22GASTON+IYAMUREMYE%22+OR+%22Byiringiro+Victor+Rumuli%22+OR+%22Victor+Rumuri%22+OR+%22Michel+Byiringiro%22%29&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
-2026-10-06 17:30:55,599 WARNING GDELT failed for ['GASTON IYAMUREMYE', 'Byiringiro Victor Rumuli', 'Victor Rumuri', 'Michel Byiringiro']: HTTP 429
-2026-10-06 17:30:55,609 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=Rumuli+%28FDLR+OR+%22FDLR-%22+OR+FOCA+OR+Rwanda+OR+Congo%29&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
-2026-10-06 17:32:12,244 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%28%22jerome+kakwavu+bukande%22+OR+%22jerome+kakwavu%22%29&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
-2026-10-06 17:33:47,768 WARNING GDELT failed for ['JÉRÔME KAKWAVU BUKANDE', 'Jérôme Kakwavu']: HTTP 429
-2026-10-06 17:35:52,851 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%22THOMAS+LUBANGA%22&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
-2026-10-06 17:37:27,212 WARNING GDELT failed for ['THOMAS LUBANGA']: HTTP 429
-2026-10-06 17:37:27,230 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%28%22SULTANI+MAKENGA%22+OR+%22EMMANUEL+SULTANI+MAKENGA%22%29&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
-2026-10-06 17:37:43,288 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%28%22KHAWA+PANGA+MANDRO%22+OR+%22Kawa+Panga%22+OR+%22Kawa+Panga+Mandro%22+OR+%22Kawa+Mandro%22%29&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
-2026-10-06 17:39:13,589 WARNING GDELT failed for ['KHAWA PANGA MANDRO', 'Kawa Panga', 'Kawa Panga Mandro', 'Kawa Mandro']: HTTP 429
-2026-10-06 17:39:13,620 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%28%22Yves+Andoul+Karim%22+OR+%22Mandro+Panga+Kahwa%22+OR+%22Yves+Khawa+Panga+Mandro%22%29&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
-2026-10-06 17:40:45,846 WARNING GDELT failed for ['Yves Andoul Karim', 'Mandro Panga Kahwa', 'Yves Khawa Panga Mandro']: HTTP 429
-2026-10-06 17:40:45,852 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%22Chief+Kahwa%22+%28DRC+OR+%22UN-%22+OR+Congo+OR+Uganda%29&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
+2026-10-06 17:49:49,258 INFO Relevance filter: keyword heuristic (set ANTHROPIC_API_KEY for far fewer false positives)
+2026-10-06 17:49:50,447 INFO UN list: 1010 records (736 individuals, 274 entities)
+2026-10-06 17:49:50,606 INFO == Other sanctions lists: starting
+2026-10-06 17:49:53,832 INFO OpenSanctions: 73278 rows read, 1064 UN rows, 999 matched to the UN list
+2026-10-06 17:49:53,840 INFO OpenSanctions: 999 UN parties linked to other lists
+2026-10-06 17:49:53,840 INFO == Other sanctions lists: finished in 0.1 min
+2026-10-06 17:49:53,841 INFO == Watched feeds: starting
+2026-10-06 17:49:55,568 INFO == Watched feeds: finished in 0.0 min
+2026-10-06 17:49:55,568 INFO == UN reports: starting
+2026-10-06 17:49:59,084 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1267/monitoring-team/reports: 66 documents listed
+2026-10-06 17:50:01,555 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1988/monitoring-team/reports: 30 documents listed
+2026-10-06 17:50:06,463 WARNING No report listing found for https://main.un.org/securitycouncil/en/sanctions/1518/panel_experts/reports
+2026-10-06 17:50:10,861 WARNING No report listing found for https://main.un.org/securitycouncil/en/sanctions/1533/panel_experts/reports
+2026-10-06 17:50:11,155 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1591/panel-of-experts/reports: 32 documents listed
+2026-10-06 17:50:11,229 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1718/panel_experts/reports: 33 documents listed
+2026-10-06 17:50:11,719 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1970/panel-experts/reports: 25 documents listed
+2026-10-06 17:50:11,980 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2127/panel-of-experts/reports: 35 documents listed
+2026-10-06 17:50:16,651 WARNING No report listing found for https://main.un.org/securitycouncil/en/sanctions/2140/panel_experts/reports
+2026-10-06 17:50:16,899 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2206/panel-of-experts/reports: 35 documents listed
+2026-10-06 17:50:22,017 WARNING No report listing found for https://main.un.org/securitycouncil/en/sanctions/2653/panel_experts/reports
+2026-10-06 17:50:25,850 WARNING No report listing found for https://main.un.org/securitycouncil/en/sanctions/2713/panel_experts/reports
+2026-10-06 17:50:26,869 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2745/panel-of-experts/reports: 35 documents listed
+2026-10-06 17:50:27,495 INFO Reports page https://www.securitycouncilreport.org/un_documents_type/sanctions-committee-documents/: 13 documents listed
+2026-10-06 17:50:27,496 INFO == UN reports: finished in 0.5 min
+2026-10-06 17:50:27,496 INFO == News sweep: starting
+2026-10-06 17:50:27,546 INFO GDELT GKG: scanning 1344 files (2026-09-29T17:50:27+00:00 → 2026-10-06T17:50:27+00:00) for 48 names + 16 nicknames
+2026-10-06 17:50:43,302 INFO GDELT GKG progress 100/1344 files, 125289 articles, 3 matches
+2026-10-06 17:50:58,629 INFO GDELT GKG progress 200/1344 files, 250194 articles, 5 matches
+2026-10-06 17:51:13,114 INFO GDELT GKG progress 300/1344 files, 366816 articles, 7 matches
+2026-10-06 17:51:25,317 INFO GDELT GKG progress 400/1344 files, 437913 articles, 7 matches
+2026-10-06 17:51:36,260 INFO GDELT GKG progress 500/1344 files, 489381 articles, 8 matches
+2026-10-06 17:51:49,058 INFO GDELT GKG progress 600/1344 files, 589921 articles, 11 matches
+2026-10-06 17:52:03,472 INFO GDELT GKG progress 700/1344 files, 718682 articles, 13 matches
+2026-10-06 17:52:24,063 INFO GDELT GKG progress 800/1344 files, 958502 articles, 14 matches
+2026-10-06 17:52:44,788 INFO GDELT GKG progress 900/1344 files, 1192187 articles, 15 matches
+2026-10-06 17:53:03,574 INFO GDELT GKG progress 1000/1344 files, 1405987 articles, 15 matches
+2026-10-06 17:53:18,821 INFO GDELT GKG progress 1100/1344 files, 1551942 articles, 15 matches
+2026-10-06 17:53:34,769 INFO GDELT GKG progress 1200/1344 files, 1701395 articles, 17 matches
+2026-10-06 17:53:53,506 INFO GDELT GKG progress 1300/1344 files, 1930999 articles, 19 matches
+2026-10-06 17:54:02,777 INFO GDELT GKG done: 1344 files ok, 0 missing, 0 failed, 2071632 articles scanned, 19 matches
+2026-10-06 17:54:09,014 INFO Google News progress 0/25
+2026-10-06 17:56:21,066 INFO 314 new candidate items across 13 parties
+2026-10-06 17:56:47,486 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='aa.com.tr', port=443): Read timed out. (read timeout=25)")': /en/world/un-holds-4th-straw-poll-in-race-to-succeed-secretary-general-guterres/4073180
+2026-10-06 17:57:17,402 WARNING Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='aa.com.tr', port=443): Read timed out. (read timeout=25)")': /en/world/un-holds-4th-straw-poll-in-race-to-succeed-secretary-general-guterres/4073180
+2026-10-06 17:57:43,210 INFO == News sweep: finished in 7.3 min
+2026-10-06 17:57:43,210 INFO Done in 7.9 min. 59 news items on 6 parties; 138 borderline items to review
+2026-10-06 17:57:44,180 INFO Alerts delivered via: report file, GitHub issue
