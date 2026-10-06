@@ -30,6 +30,11 @@ nur noor shah mir sheikh syed ibrahim jalal kamal farouk farooq faruk anwar bakr
 muslim imam mullah maulana qari george arthur john james michael michel david peter paul joseph
 jean pierre marie andre daniel thomas charles william robert richard emmanuel innocent victor
 mighty kim lee park choi jong sung il yong chol nam ri pak han
+zafar iqbal javed javaid shahid imran irfan nawaz shafiq rafiq akhtar arshad asif abbas raza rizwan
+saleem waheed zahid bilal hamza usama osama salman sami nadeem naeem qasim kashif hafeez majid
+sajid waseem wasim yasir yaser younis younus yunus zubair haq ullah gul jan noor zaman rahim
+abdulrahman abdulaziz abdulkarim abdurahman abdirahman abdi mohamud
+mohamoud ahmedi hasani husseini sadiq siddiq siddique hakim hakeem latif nabi rasul habib
 """.split())
 # Short English words that look like acronyms in upper-case text but match everything.
 _ENGLISH_SHORT = set("""
@@ -87,7 +92,7 @@ def _strip_titles(n: str) -> str:
 def is_searchable(n: str, kind: str, min_len: int) -> bool:
     f = fold(n)
     toks = f.split()
-    if not toks or len(toks) > 8 or re.search(r"\d{5,}", f):   # UN alias fields sometimes hold notes
+    if not toks or len(toks) > 12 or re.search(r"\d{5,}", f):   # UN alias fields sometimes hold notes
         return False
     if kind == "entity":
         meaningful = [t for t in toks if t not in _GENERIC]
@@ -103,10 +108,12 @@ def is_common_name(n: str) -> bool:
 
 
 def is_thin_name(n: str) -> bool:
-    """Names with only one short distinctive word ('Abu Anas', 'Abd al-Muhsin', 'Matiur Rahman',
-    'Kim Kwang Il'): shared by many real people, so they are searched only with context."""
-    rest = [t for t in fold(n).split() if t not in _COMMON_GIVEN and t not in _TITLES]
-    return len(rest) == 1 and len(rest[0]) < 7 and len(fold(n).split()) > 1
+    """Names shared by many real people, searched only with context: one short distinctive word
+    ('Abu Anas', 'Abd al-Muhsin', 'Matiur Rahman', 'Kim Kwang Il') or a single word ('Hidayatullah')."""
+    toks = fold(n).split()
+    rest = [t for t in toks if t not in _COMMON_GIVEN and t not in _TITLES]
+    # 4+ word full names ("Hamza Usama Muhammad bin Laden") are specific enough on their own.
+    return len(toks) == 1 or (len(rest) == 1 and len(rest[0]) < 7 and 1 < len(toks) <= 3)
 
 
 def is_generic_name(n: str) -> bool:

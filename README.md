@@ -23,6 +23,12 @@ something new and relevant turns up**. Quiet weeks produce no notification.
   party's organisation acronyms and countries, e.g. `"Tiger One" AND (M23 OR Congo)`, so they find
   real coverage without flooding you with namesakes.
 - **Document numbers**: passport / national-ID numbers and vessel IMO numbers are searched as well.
+- **Ambiguous names need independent context**: names made only of common given names ("Abdul
+  Rahman", "Hassan") are never matched on their own; short or single-word names ("Abu Anas",
+  "Matiur Rahman", "Hidayatullah") and generic institutional names ("Ministry of National Defence")
+  only count when the article also mentions the party's organisation, another of its names, or its
+  country. A name never counts as its own context. A party whose listed names are all too common to
+  search (currently one) is flagged in `data/coverage.csv`.
 - **Local-language press**: besides English, each party is searched in the Google News edition for
   its countries (French for DRC/CAR/Mali/Haiti, Arabic for Yemen/Libya/Sudan/Iraq/Syria, Korean for
   DPRK, Russian, Turkish, Chinese, Spanish, Portuguese, Indonesian). GDELT adds 65+ languages.
@@ -86,6 +92,12 @@ news from the past 7 days. From then on it runs every **Monday 07:17 IST** by it
 - `scoring.threshold` — raise to get fewer, higher-confidence alerts
 - Change the schedule in `.github/workflows/weekly-monitor.yml` (cron is in UTC)
 
+## Re-checking a week with new rules
+
+Actions → *Weekly UN sanctions monitor* → *Run workflow* → mode **replay**. It re-scans the last week
+of GDELT with the current configuration, sends nothing and leaves the saved state untouched; the
+result is written to `logs/replay_report.md` and `logs/replay_items.csv`.
+
 ## Run locally
 
 ```bash
@@ -96,8 +108,10 @@ python -m pytest -q                            # offline tests
 
 ## Good to know
 
-- **Runtime**: the GDELT bulk scan takes ~5 minutes whatever the number of parties. Google News
-  searches take ~5–6 seconds per party, so a full run of ~1,000 parties is about 2–3 hours. The
+- **Runtime**: the GDELT bulk scan takes ~5 minutes whatever the number of parties. Google News is
+  paced at one search every 4 seconds; Google blocks heavy automated use, so when it does the run
+  pauses 15 minutes, then stops Google News and carries the remaining parties to the next run (they
+  go first, searched back to their last search). A typical run is 30 minutes to 3 hours. The
   `max_sweep_minutes` budget (270) keeps it inside GitHub's 6-hour limit; anything not reached is
   searched first the following week with no gap. Private repos on the free plan get 2,000 Actions
   minutes a month, which covers weekly runs.

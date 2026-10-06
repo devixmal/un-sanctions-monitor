@@ -492,7 +492,7 @@ def main(argv=None) -> int:
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s",
                         handlers=[logging.StreamHandler(),
                                   logging.FileHandler(ROOT / "logs/last_run.log", mode="w", encoding="utf-8")])
-    logging.getLogger("urllib3").setLevel(logging.WARNING)
+    logging.getLogger("urllib3").setLevel(logging.ERROR)   # per-article fetch retries are noise
     started = time.time()
 
     cfg = load_config(Path(args.config))
