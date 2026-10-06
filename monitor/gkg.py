@@ -122,18 +122,18 @@ def scan(records: dict[str, dict], start: datetime, end: datetime, streams=("eng
 
     stats["failed_jobs"] lists files that could not be read; the caller retries them next run.
     """
-    from .matching import context_terms, nickname_terms, search_names
+    from .matching import context_for, context_terms, nickname_terms, search_names
 
     names: dict[str, list[str]] = {}
     nicks: dict[str, list[tuple[str, tuple[str, ...]]]] = {}
     for ref, rec in records.items():
         for n in search_names(rec, min_len=min_len, limit=100):
             names.setdefault(fold(n), []).append(ref)
-        ctx = tuple(fold(c) for c in context_terms(rec))
-        if ctx:
-            for n in nickname_terms(rec, limit=50):
-                if fold(n) not in names:
-                    nicks.setdefault(fold(n), []).append((ref, ctx))
+        ctx = context_terms(rec)
+        for n in nickname_terms(rec, limit=50):
+            c = tuple(fold(x) for x in context_for(n, ctx))
+            if c and fold(n) not in names:
+                nicks.setdefault(fold(n), []).append((ref, c))
 
     jobs = [(s, ts) for s in streams for ts in slots(start, end)]
     jobs += [tuple(j) for j in (retry or []) if tuple(j) not in set(jobs)]

@@ -17,6 +17,48 @@ _GENERIC = {"group", "company", "limited", "ltd", "corporation", "trading", "gen
             "foundation", "organization", "organisation", "front", "army", "brigade", "movement"}
 
 
+# Given names and name particles so common that, on their own, they identify no one.
+_COMMON_GIVEN = set("""
+muhammad mohammad mohammed mohamed mohamad muhammed mohd ahmad ahmed ahmet ali hassan hasan hussein
+husain hussain husayn abdullah abdallah abdulla abdelrahman abdurrahman abdulrahman rahman rehman
+abdel abdul abd abu ibn bin bint al el ul ur ud din uddin karim kareem hadi samad aziz ibrahim
+ibraheem ismail ismael omar umar othman osman usman uthman khalid khaled said saeed sayed sayyid
+salem salim yusuf yousef yousif youssef musa moussa isa issa mustafa mostafa mahmoud mahmud hamid
+hameed hamed rashid rasheed jamal nasser nasir naser malik amir khan aslam akbar ashraf asad
+hafiz hafez zaid zayd yasin yassin yahya idris tariq tarek faisal fahad fahd saleh salih sultan
+nur noor shah mir sheikh syed ibrahim jalal kamal farouk farooq faruk anwar bakr bakar haji
+muslim imam mullah maulana qari george arthur john james michael michel david peter paul joseph
+jean pierre marie andre daniel thomas charles william robert richard emmanuel innocent victor
+mighty kim lee park choi jong sung il yong chol nam ri pak han
+""".split())
+# Short English words that look like acronyms in upper-case text but match everything.
+_ENGLISH_SHORT = set("""
+mid man war new all can use act aid may red sun air arm art bad big box car day end far few fit
+fun god gun hot law low map oil one own pay per put run say see set sir six ten top two way win
+yes yet age ago bit cut die dog eat eye fly job key kid lot off old out sea sit son tax tea tie
+try via sin are was has had his her him its our who why how not but any its led
+""".split())
+_GENERIC_ORG = set("""
+the of and for in on at to de la le les des du et y a an
+ministry ministere department departement office bureau directorate agency authority administration
+committee council commission service services national state public people peoples popular general
+central first second third defence defense security military army armed forces force guard guards
+navy naval air airforce munitions munition industry industries industrial factory factories works
+academy natural science sciences institute institution research development technology technical
+technologies engineering center centre university college school bank banking finance financial
+investment investments trading trade commercial commerce company companies corporation corp co
+ltd limited inc group holding holdings enterprise enterprises international global import export
+shipping maritime marine ocean sea transport logistics airlines airline aviation construction
+energy oil petroleum gas mining minerals mineral gold metal metals steel chemical chemicals
+equipment machinery materials material products product supply supplies network association union
+federation foundation organization organisation society charity relief humanitarian welfare
+islamic democratic republic revolutionary liberation movement front party brigade brigades
+battalion unit units regiment division command operations operation special branch machine
+machines alliance armee forces mouvement parti populaire nationale paix pour tous developpement
+democratiques democratique liberation ansar
+""".split())
+
+
 def fold(s: str) -> str:
     """Lower-case, strip accents and punctuation, collapse whitespace."""
     s = unicodedata.normalize("NFKD", s)
@@ -45,7 +87,7 @@ def _strip_titles(n: str) -> str:
 def is_searchable(n: str, kind: str, min_len: int) -> bool:
     f = fold(n)
     toks = f.split()
-    if not toks:
+    if not toks or len(toks) > 8 or re.search(r"\d{5,}", f):   # UN alias fields sometimes hold notes
         return False
     if kind == "entity":
         meaningful = [t for t in toks if t not in _GENERIC]
@@ -54,8 +96,31 @@ def is_searchable(n: str, kind: str, min_len: int) -> bool:
     return (len(toks) >= 2 and len(f) >= min_len) or (len(toks) == 1 and len(f) >= 9)
 
 
+def is_common_name(n: str) -> bool:
+    """'Abdul Rahman', 'Hassan', 'George' — identifies no one on its own."""
+    toks = fold(n).split()
+    return bool(toks) and all(t in _COMMON_GIVEN or t in _TITLES for t in toks)
+
+
+def is_thin_name(n: str) -> bool:
+    """Names with only one short distinctive word ('Abu Anas', 'Abd al-Muhsin', 'Matiur Rahman',
+    'Kim Kwang Il'): shared by many real people, so they are searched only with context."""
+    rest = [t for t in fold(n).split() if t not in _COMMON_GIVEN and t not in _TITLES]
+    return len(rest) == 1 and len(rest[0]) < 7 and len(fold(n).split()) > 1
+
+
+def is_generic_name(n: str) -> bool:
+    """'Ministry of National Defence', 'Second Academy of Natural Sciences' — needs context."""
+    toks = fold(n).split()
+    return bool(toks) and all(t in _GENERIC_ORG for t in toks)
+
+
 def search_names(rec: dict, min_len: int = 8, limit: int = 4, include_low: bool = False) -> list[str]:
-    """Primary name + good-quality aliases, de-duplicated, best first."""
+    """Distinctive names: primary name + good-quality aliases, de-duplicated, best first.
+
+    Names made only of common given names or generic institutional words are excluded here;
+    generic ones are searched with context via nickname_terms(), common ones are not searchable.
+    """
     raw = [rec["name"], *rec.get("aliases", [])]
     if include_low:
         raw += rec.get("low_aliases", [])
@@ -63,7 +128,9 @@ def search_names(rec: dict, min_len: int = 8, limit: int = 4, include_low: bool 
     for n in raw:
         n = _strip_titles(display_name(n))
         key = fold(n)
-        if key and key not in seen and is_searchable(n, rec["kind"], min_len):
+        if (key and key not in seen and is_searchable(n, rec["kind"], min_len)
+                and not is_common_name(n) and not is_generic_name(n)
+                and not (rec["kind"] == "individual" and is_thin_name(n))):
             seen.add(key)
             out.append(n)
     return out[:limit]
@@ -167,35 +234,61 @@ def short_country(c: str) -> str:
 
 
 def context_terms(rec: dict, limit: int = 6) -> list[str]:
-    """Organisation acronyms (M23, FDLR, AQAP…) and countries tied to the party."""
+    """Terms that tie an ambiguous name to this party.
+
+    Organisation acronyms (M23, FDLR, AQAP…), distinctive words from the party's other names
+    (e.g. a rare surname), and — for organisations only — their countries. Countries are too broad
+    to corroborate a person's nickname (half of all news mentions "Pakistan" or "Iraq").
+    """
     text = " ".join([*rec.get("designation", []), rec.get("comments", "")])
     acronyms = []
-    for a in re.findall(r"\b[A-Z][A-Z0-9-]{1,7}\b", text):
-        if a not in _NOT_CONTEXT and any(c.isalpha() for c in a) and a not in acronyms and len(a) >= 3:
+    for a in re.findall(r"\b[A-Z][A-Z0-9]{2,7}\b", text):
+        if (a not in _NOT_CONTEXT and fold(a) not in _ENGLISH_SHORT and any(c.isalpha() for c in a)
+                and a not in acronyms):
             acronyms.append(a)
+    distinctive = []
+    for n in [rec["name"], *rec.get("aliases", [])]:
+        for t in fold(_strip_titles(display_name(n))).split():
+            if (len(t) >= 5 and t not in _COMMON_GIVEN and t not in _GENERIC_ORG and t not in _TITLES
+                    and t not in distinctive):
+                distinctive.append(t)
     countries = []
     for c in [*rec.get("nationality", []), *rec.get("countries", [])]:
         s = short_country(c)
         if s and s not in countries:
             countries.append(s)
-    return (acronyms[:3] + countries)[:limit]
+    return (acronyms[:3] + distinctive[:3] + countries[:2])[:limit]
+
+
+def context_for(name: str, ctx: list[str]) -> list[str]:
+    """Context terms usable for one ambiguous name: excludes words of the name itself, so the
+    name cannot corroborate itself."""
+    own = set(fold(name).split())
+    return [c for c in ctx if not set(fold(c).split()) <= own]
 
 
 def nickname_terms(rec: dict, limit: int = 8) -> list[str]:
-    """Low-quality aliases worth searching *only* together with context terms.
+    """Ambiguous names searched *only* together with context terms.
 
-    Kept as written, titles included ("Commandant Jérôme", "General Nkunda"), because the bare
-    remainder is often a common first name. Single words need 6+ letters, except entity acronyms
-    (ADF, TPD) which are always checked against context afterwards.
+    Low-quality aliases, aliases too short to search alone, and generic institutional names
+    ("Ministry of National Defence"). Kept as written, titles included ("Commandant Jérôme").
+    Names made only of common given names ("Hassan", "Abdul Rahman") are dropped: no context
+    can make them identify one person.
     """
     out, seen = [], set()
-    for n in rec.get("low_aliases", []) + [a for a in rec.get("aliases", []) if not is_searchable(
-            _strip_titles(display_name(a)), rec["kind"], 8)]:
+    pool = rec.get("low_aliases", []) + [
+        a for a in [rec.get("name", ""), *rec.get("aliases", [])] if a
+        if not is_searchable(_strip_titles(display_name(a)), rec["kind"], 8)
+        or is_generic_name(_strip_titles(display_name(a)))
+        or (rec["kind"] == "individual" and is_thin_name(_strip_titles(display_name(a))))]
+    for n in pool:
         n = display_name(n)
         f = fold(n)
         toks = f.split()
         acronym = rec["kind"] == "entity" and n.isupper() and n.isalnum() and len(n) >= 3
         if not f or f in seen or f in _WEAK_ALIAS or all(t in _WEAK_ALIAS for t in toks):
+            continue
+        if is_common_name(n) and not acronym:
             continue
         if len(toks) == 1 and len(f) < 6 and not acronym:
             continue
@@ -240,9 +333,10 @@ def plan_queries(rec: dict, min_len: int = 8, per_query: int = 4) -> list[Query]
         qs.append(Query("names", names[i:i + per_query]))
     ctx = context_terms(rec)
     nicks = nickname_terms(rec)
-    if nicks and ctx:
-        for i in range(0, len(nicks), per_query):
-            qs.append(Query("nicknames", nicks[i:i + per_query], ctx))
+    for n in nicks:
+        c = context_for(n, ctx)
+        if c:
+            qs.append(Query("nicknames", [n], c))
     ids = identifiers(rec)
     for i in range(0, len(ids), per_query):
         qs.append(Query("identifiers", ids[i:i + per_query]))

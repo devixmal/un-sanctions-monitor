@@ -18,8 +18,9 @@ import yaml
 
 from . import sources, unlist
 from .alerts import Report, dispatch, render_markdown
-from .matching import (NameIndex, all_match_names, context_snippet, context_terms, find_identifiers,
-                       find_mentions, fold, identifiers, news_match_names, plan_queries)
+from .matching import (NameIndex, all_match_names, context_for, context_snippet, context_terms,
+                       find_identifiers, find_mentions, fold, identifiers, news_match_names, plan_queries,
+                       search_names)
 from .scoring import make_scorer
 from .sources import STATS, Hit
 from .state import State, canonical_url, key_of
@@ -223,6 +224,10 @@ def gdelt_bulk(cfg: dict, st: State, rep: Report, targets: list[dict]) -> dict[s
 
 
 # --------------------------------------------------------------------- step 5
+def c_total(cov: dict) -> int:
+    return sum(c["queries"] - c["failed"] for c in cov.values())
+
+
 def editions_for(rec: dict, gn: dict) -> list[dict]:
     """Base editions + local-language editions matching the party's countries."""
     eds = list(gn.get("editions") or [{"hl": "en-US", "gl": "US", "ceid": "US:en"}])
@@ -237,6 +242,7 @@ def editions_for(rec: dict, gn: dict) -> list[dict]:
 
 def news_sweep(cfg: dict, st: State, rep: Report, targets: list[dict], scorer, started: float,
                bulk: dict[str, list[Hit]] | None = None) -> None:
+    gkg_ok = bulk is not None and rep.coverage.get("gdelt_articles", 0) > 0
     mcfg = cfg.get("matching", {})
     min_len, per_q = int(mcfg.get("min_name_length", 8)), int(mcfg.get("max_names_per_query", 4))
     gd, gn = cfg["sources"].get("gdelt", {}), cfg["sources"].get("google_news", {})
@@ -285,18 +291,31 @@ def news_sweep(cfg: dict, st: State, rep: Report, targets: list[dict], scorer, s
             if i % 100 == 0:
                 log.info("GDELT progress %d/%d", i, len(targets))
 
+    base_eds = gn.get("editions") or [{"hl": "en-US", "gl": "US", "ceid": "US:en"}]
+    english_names = bool(gn.get("english_names", False)) or not gkg_ok
+
     def run_gnews():
         for i, r in enumerate(targets):
             if time.time() > deadline:
                 log.warning("Time budget reached: Google News stopped at %d/%d", i, len(targets))
                 return
+            if sources.STATS.is_tripped("google_news"):
+                log.warning("Google News unavailable: stopped at %d/%d; the rest go first next run",
+                            i, len(targets))
+                return
             for ed in editions_for(r, gn):
                 for j, q in enumerate(plans[r["ref"]]):
+                    # English-language news for plain names is already covered by the GDELT bulk
+                    # feed; Google News' limited quota goes to local languages, nicknames and IDs.
+                    if q.kind == "names" and ed in base_eds and not english_names:
+                        continue
                     terms = list(q.terms)
                     if j == 0 and r.get("original_script") and gn.get("include_original_script", True):
                         terms.append(r["original_script"])
                     record(r["ref"], sources.google_news(terms, window(r["ref"]), now, ed, q.context),
                            "google_news")
+            if sources.STATS.is_tripped("google_news"):
+                return                      # this party's searches were cut short: not done
             with lock:
                 cov[r["ref"]]["done"].add("google_news")
             if i % 100 == 0:
@@ -369,13 +388,14 @@ def news_sweep(cfg: dict, st: State, rep: Report, targets: list[dict], scorer, s
     for ref in list(fresh):
         rec = by_ref[ref]
         full = {fold(n) for n in all_match_names(rec, min_len)}
-        ctx = [fold(c) for c in context_terms(rec)]
+        ctx_all = context_terms(rec)
         oldest = window(ref) - timedelta(days=30)
         keep = []
         for h in fresh[ref]:
             names_hit = [m for m in h.matched if not m.startswith("id:")]
             ids_hit = [m for m in h.matched if m.startswith("id:")]
             text = " " + fold(f"{h.title} {h.snippet} {page.get(id(h), '')}") + " "
+            ctx = {fold(c) for n in names_hit for c in context_for(n, ctx_all)}
             if names_hit and not ids_hit and not (set(names_hit) & full) and not any(
                     f" {c} " in text for c in ctx):
                 dropped_ctx += 1
@@ -401,21 +421,28 @@ def news_sweep(cfg: dict, st: State, rep: Report, targets: list[dict], scorer, s
             if near:
                 rep.near_misses[ref] = (by_ref[ref], near)
 
-    # Coverage bookkeeping: who was fully searched, who failed, who is deferred to next run.
+    # Coverage bookkeeping. GDELT bulk covers every party each run; Google News works through the
+    # parties oldest-first and anything it did not reach goes first next run, with its window
+    # reaching back to its last search, so nothing is skipped.
     rows, failed, deferred = [], [], []
     for r in targets:
         c, ref = cov[r["ref"]], r["ref"]
         complete = set(enabled) <= c["done"]
-        status = "searched"
+        gdelt_note = "GDELT bulk: scanned" if gkg_ok else "GDELT bulk: NOT scanned"
         if not complete:
-            status = "deferred (time budget) — searched first next run"
+            status = f"{gdelt_note}; Google News: pending, searched first next run"
             deferred.append(r)
         elif c["queries"] and c["failed"] == c["queries"]:
-            status = "FAILED — every query errored"
+            status = f"{gdelt_note}; Google News: every query failed, retried first next run"
             failed.append(r)
         elif c["failed"]:
-            status = f"partial — {c['failed']}/{c['queries']} queries failed"
-        if complete and status != "FAILED — every query errored":
+            status = f"{gdelt_note}; Google News: {c['failed']}/{c['queries']} queries failed"
+        else:
+            status = f"{gdelt_note}; Google News: searched"
+        if not search_names(r, min_len, 50) and not any(q.kind == "nicknames" for q in plans[ref]) \
+                and not identifiers(r):
+            status += " (only very common names on the list — cannot be searched reliably)"
+        if complete and ref not in {x["ref"] for x in failed}:
             last[ref] = now.isoformat()
         rows.append({
             "ref": ref, "name": r["name"], "regime": r.get("regime", ""),
@@ -426,18 +453,21 @@ def news_sweep(cfg: dict, st: State, rep: Report, targets: list[dict], scorer, s
         })
     st.set_meta("last_searched", last)
     rep.coverage.update({
-        "parties": len(targets), "searched": len(targets) - len(deferred) - len(failed),
+        "parties": len(targets), "gdelt_ok": gkg_ok,
+        "searched": len(targets) - len(deferred) - len(failed),
         "queries": sum(c["queries"] for c in cov.values()),
         "failed_queries": sum(c["failed"] for c in cov.values()),
         "raw_results": sum(c["raw"] for c in cov.values()),
         "new_items": sum(len(v) for v in fresh.values()),
         "deferred": [f"{r['name']} ({r['ref']})" for r in deferred],
     })
-    if failed:
-        rep.health["Parties not searched"] = (
-            f"{len(failed)} parties had every search fail; they are retried first next run: "
-            + ", ".join(f"{r['name']} ({r['ref']})" for r in failed[:30])
-            + (" …" if len(failed) > 30 else ""))
+    if not gkg_ok:
+        rep.health["GDELT bulk feed"] = "no articles were scanned this run; affected parties are re-scanned next run"
+    if failed or (deferred and sources.STATS.is_tripped("google_news")):
+        rep.health["Google News"] = (
+            f"Google News refused requests (rate limiting) after {c_total(cov)} searches. "
+            f"{len(failed) + len(deferred)} parties' Google News searches are carried over and done first "
+            f"next run{' — GDELT bulk coverage of all parties was complete' if gkg_ok else ''}.")
     path = ROOT / "data/coverage.csv"
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as f:
@@ -453,6 +483,10 @@ def main(argv=None) -> int:
     ap.add_argument("--limit", type=int, default=int(os.environ.get("MONITOR_LIMIT", "0") or 0),
                     help="only sweep the first N parties (testing)")
     ap.add_argument("--dry-run", action="store_true", help="print the report, send nothing, save no state")
+    ap.add_argument("--replay", action="store_true",
+                    help="dry run against an empty temporary state (re-scans the last week as if new); "
+                         "the report is written to logs/replay_report.md")
+    ap.add_argument("--skip-google-news", action="store_true", help="GDELT bulk only (faster)")
     args = ap.parse_args(argv)
     (ROOT / "logs").mkdir(parents=True, exist_ok=True)
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s",
@@ -462,8 +496,16 @@ def main(argv=None) -> int:
     started = time.time()
 
     cfg = load_config(Path(args.config))
+    if args.replay:
+        args.dry_run = True
+    if args.skip_google_news:
+        cfg["sources"].setdefault("google_news", {})["enabled"] = False
     STATS.breaker = int(cfg.get("circuit_breaker_failures", 15))
-    st = State(ROOT / "state/monitor.db")
+    if args.replay:
+        import tempfile
+        st = State(Path(tempfile.mkdtemp()) / "replay.db")
+    else:
+        st = State(ROOT / "state/monitor.db")
     rep = Report(near_triggers=bool(cfg.get("scoring", {}).get("near_misses_trigger_alert", True)))
     scorer = make_scorer(cfg.get("scoring", {}))
 
@@ -493,11 +535,22 @@ def main(argv=None) -> int:
             rep.health[name] = f"crashed: {e}"
         log.info("== %s: finished in %.1f min", name, (time.time() - t0) / 60)
 
-    rep.health.update(STATS.unhealthy(float(cfg.get("health_failure_ratio", 0.5))))
+    problems = STATS.unhealthy(float(cfg.get("health_failure_ratio", 0.5)))
+    if "Google News" in rep.health:          # already explained, with what happens next
+        problems.pop("google_news", None)
+    rep.health.update(problems)
     log.info("Done in %.1f min. %s", (time.time() - started) / 60, rep.headline() or "No new alerts.")
 
     if args.dry_run:
-        print(render_markdown(rep) if rep.count else "No new alerts.")
+        md = render_markdown(rep) if rep.count else "No new alerts."
+        print(md)
+        if args.replay:
+            (ROOT / "logs/replay_report.md").write_text(md, encoding="utf-8")
+            from .alerts import write_report
+            import shutil, tempfile
+            tmp = Path(tempfile.mkdtemp()) / "reports"
+            write_report(rep, md, tmp)
+            shutil.copy(tmp.parent / "data" / "alerts" / f"{rep.run_date}.csv", ROOT / "logs/replay_items.csv")
         return 0
 
     if rep.count:

@@ -61,11 +61,11 @@ def test_two_runs(monkeypatch, tmp_path):
     # and the French edition was used for these Congolese parties.
     terms = {t for c in m.CALLS if c[0] == "gnews" for t in c[2]}
     assert {"SULTANI MAKENGA", "EMMANUEL SULTANI MAKENGA", "OB0243318", "ADF"} <= terms
-    assert ("gnews", "fr", ("ADF",), ("Congo",)) in m.CALLS
+    assert any(c[:3] == ("gnews", "fr", ("ADF",)) and "Congo" in c[3] for c in m.CALLS)
     assert {c[1] for c in m.CALLS if c[0] == "gnews"} == {"en-US", "fr"}
     assert any(c[0] == "gkg" for c in m.CALLS)
     cov = (tmp_path / "data/coverage.csv").read_text()
-    assert cov.count("searched") == 3
+    assert cov.count("Google News: searched") == 3 and cov.count("GDELT bulk: scanned") == 3
     rep1 = next((tmp_path / "reports").glob("*.md")).read_text()
     assert "ADF rebels kill 12" in rep1 and "joint drills" not in rep1   # acronym needs Congo context
     assert (tmp_path / "data/alerts").exists()
@@ -106,7 +106,7 @@ def test_time_budget_defers_without_gaps(monkeypatch, tmp_path):
     m, args = _stub(monkeypatch, tmp_path, SAMPLE, [], extra_cfg="\nmax_sweep_minutes: 0\n")
     assert m.main(args) == 0
     cov = (tmp_path / "data/coverage.csv").read_text()
-    assert cov.count("deferred") == 3
+    assert cov.count("Google News: pending") == 3
     from monitor.state import State
     assert State(tmp_path / "state/monitor.db").get_meta("last_searched", {}) == {}   # retried first next run
 

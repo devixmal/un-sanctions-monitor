@@ -64,6 +64,14 @@ class SourceStats:
     def is_tripped(self, src) -> bool:
         return src in self.tripped
 
+    def breaker_trip(self, src, err):
+        self.calls[src] = self.calls.get(src, 0) + 1
+        self.fails[src] = self.fails.get(src, 0) + 1
+        self.errors[src] = str(err)[:300]
+        if src not in self.tripped:
+            self.tripped.add(src)
+            log.error("%s switched off for this run: %s", src, err)
+
     def unhealthy(self, threshold: float = 0.5) -> dict[str, str]:
         out = {
             s: f"{self.fails.get(s, 0)}/{n} requests failed (last error: {self.errors.get(s, '')})"
@@ -96,7 +104,8 @@ class RateLimiter:
 
 
 GDELT_LIMIT = RateLimiter(5.5)    # GDELT allows ~1 request / 5 s
-GNEWS_LIMIT = RateLimiter(2.0)
+GNEWS_LIMIT = RateLimiter(4.0)
+GNEWS_BLOCK = {"paused": False, "pause_minutes": 15}
 
 
 def _q(term: str) -> str:
@@ -180,7 +189,17 @@ def google_news(terms: list[str], start: datetime, end: datetime, edition: dict,
         {"q": q, "hl": edition["hl"], "gl": edition["gl"], "ceid": edition["ceid"]})
     GNEWS_LIMIT.wait()
     try:
-        r = get(url, timeout=30, rate_limit_waits=(20, 40))
+        r = get(url, timeout=30, rate_limit_waits=())
+        if r.status_code in (429, 503) and not GNEWS_BLOCK["paused"]:
+            # Google's temporary block: back off once for a while, then carry on.
+            GNEWS_BLOCK["paused"] = True
+            log.warning("Google News is rate-limiting (HTTP %s); pausing %d min", r.status_code,
+                        GNEWS_BLOCK["pause_minutes"])
+            time.sleep(60 * GNEWS_BLOCK["pause_minutes"])
+            r = get(url, timeout=30, rate_limit_waits=())
+        if r.status_code in (429, 503) and GNEWS_BLOCK["paused"]:
+            STATS.breaker_trip("google_news", f"HTTP {r.status_code} (blocked again after pausing)")
+            return None
         if r.status_code != 200:
             raise RuntimeError(f"HTTP {r.status_code}")
         feed = feedparser.parse(r.content)

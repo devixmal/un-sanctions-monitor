@@ -10,6 +10,12 @@ on:
         description: "Only sweep the first N parties (blank = all). Useful for a quick test."
         required: false
         default: ""
+      mode:
+        description: "normal = real run. replay = re-check the last week with current rules; sends nothing, saves only logs/"
+        required: false
+        default: normal
+        type: choice
+        options: [normal, replay]
 
 permissions:
   contents: write   # commit state/ and reports/ back to the repo
@@ -50,14 +56,19 @@ jobs:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python -m monitor.main
+        run: |
+          if [ "${{ github.event.inputs.mode }}" = "replay" ]; then
+            python -m monitor.main --replay --skip-google-news
+          else
+            python -m monitor.main
+          fi
 
       - name: Save state and reports
         if: always()
         run: |
           git config user.name  "sanctions-monitor[bot]"
           git config user.email "sanctions-monitor[bot]@users.noreply.github.com"
-          git add state data reports logs
+          if [ "${{ github.event.inputs.mode }}" = "replay" ]; then git add logs; else git add state data reports logs; fi
           if git diff --cached --quiet; then
             echo "No state changes."
           else

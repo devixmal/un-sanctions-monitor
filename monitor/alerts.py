@@ -133,7 +133,10 @@ def render_markdown(rep: Report) -> str:
     if rep.coverage:
         c = rep.coverage
         out += ["## Coverage this run", "",
-                f"- Parties searched: {c['searched']} of {c['parties']}",
+                f"- GDELT bulk feed (all GDELT-monitored news, every party): "
+                f"{'complete' if c.get('gdelt_ok') else 'NOT complete'}",
+                f"- Google News per-party searches completed: {c['searched']} of {c['parties']} parties"
+                + (" (the rest continue first next run)" if c['searched'] < c['parties'] else ""),
                 f"- GDELT worldwide news articles scanned: {c.get('gdelt_articles', 0):,}",
                 f"- Searches run: {c['queries']} ({c['failed_queries']} failed); raw results: {c['raw_results']}; "
                 f"new items reviewed: {c['new_items']}",
@@ -141,9 +144,8 @@ def render_markdown(rep: Report) -> str:
                 f"link to the party's organisation or country; {c.get('dropped_republished', 0)} old articles "
                 "re-published",
                 "- Per-party detail: `data/coverage.csv`"]
-        if c.get("deferred"):
-            out.append(f"- Deferred to next run (time budget), searched first then with a window back to "
-                       f"their last search: {', '.join(c['deferred'][:20])}{' …' if len(c['deferred']) > 20 else ''}")
+        if c.get("deferred") and len(c["deferred"]) <= 20:
+            out.append(f"- Google News carried over to next run: {', '.join(c['deferred'])}")
         out.append("")
     if rep.notes:
         out += ["## Limits reached", ""] + [f"- {n}" for n in rep.notes] + [""]

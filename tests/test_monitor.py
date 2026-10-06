@@ -136,10 +136,11 @@ def test_query_plan_covers_everything():
     }
     qs = plan_queries(rec)
     names = [t for q in qs if q.kind == "names" for t in q.terms]
-    assert len(names) == 5                                   # primary + all 4 aliases, over 2 queries
-    nick = [q for q in qs if q.kind == "nicknames"]
-    assert nick and "ABU WAQAS" in nick[0].terms and "ADF" in nick[0].context and "Congo" in nick[0].context
-    assert "Tanzania" in nick[0].context
+    # every distinctive variant is searched; "AHMAD MAHMOUD HASSAN" / "AHMED MAHMOUD HASSAN" are made
+    # only of very common given names, so on their own they would match thousands of people
+    assert names == ["AHMAD MAHMOOD HASSAN", "AHMED MAHAMUD HASSAN ALIYANI", "AHMAD MAHAMOOD HASSAN"]
+    nick = {q.terms[0]: q.context for q in qs if q.kind == "nicknames"}
+    assert "ADF" in nick["ABU WAQAS"] and "Congo" in nick["ABU WAQAS"] and "Tanzania" in nick["ABU WAQAS"]
     assert identifiers(rec) == ["AB850901", "AB187304"]
     assert "MARABOU" in nickname_terms(rec) and "JUNDI" not in nickname_terms(rec)  # 5-letter word: too common
     jer = {"kind": "individual", "aliases": [], "low_aliases": ["Commandant Jérôme", "Mr Omari", "Omari"]}
@@ -205,3 +206,35 @@ def test_gkg_file_processing(monkeypatch):
     got = {(o["ref"], o["url"]) for o in out}
     assert got == {("CDi.008", "https://n.example/1"), ("CDe.001", "https://n.example/2")}
     assert [o["title"] for o in out if o["ref"] == "CDi.008"] == ["M23 chief speaks"]
+
+
+def test_ambiguous_names_need_independent_context():
+    from monitor.matching import context_for, is_common_name, is_generic_name, is_thin_name, search_names
+    assert is_common_name("Abdul Rahman") and is_common_name("George") and not is_common_name("Makenga")
+    assert is_generic_name("MINISTRY OF NATIONAL DEFENCE") and not is_generic_name("THE HOUTHIS")
+    assert is_thin_name("Abu Anas") and is_thin_name("Matiur Rahman") and not is_thin_name("Lova Madayev")
+    rec = {"kind": "entity", "name": "MINISTRY OF NATIONAL DEFENCE", "aliases": ["MINISTRY OF THE PEOPLE'S ARMED FORCES (MPAF)"]}
+    assert search_names(rec) == ["MINISTRY OF THE PEOPLE'S ARMED FORCES (MPAF)"]
+    # a name cannot corroborate itself
+    assert context_for("Matiur Rahman", ["matiur", "ustad", "Pakistan"]) == ["ustad", "Pakistan"]
+
+
+def test_google_news_pauses_once_then_stops(monkeypatch):
+    from datetime import datetime, timezone
+
+    from monitor import sources
+
+    calls = []
+
+    class R:
+        status_code, content, text = 503, b"", ""
+    monkeypatch.setattr(sources, "get", lambda *a, **k: calls.append(1) or R())
+    monkeypatch.setattr(sources.time, "sleep", lambda s: calls.append(("sleep", s)))
+    monkeypatch.setattr(sources, "GNEWS_LIMIT", sources.RateLimiter(0))
+    monkeypatch.setitem(sources.GNEWS_BLOCK, "paused", False)
+    monkeypatch.setattr(sources, "STATS", sources.SourceStats())
+    ed = {"hl": "en-US", "gl": "US", "ceid": "US:en"}
+    t = datetime(2026, 10, 1, tzinfo=timezone.utc)
+    assert sources.google_news(["X Y"], t, t, ed) is None
+    assert ("sleep", 900) in calls and sources.STATS.is_tripped("google_news")
+    assert sources.google_news(["X Y"], t, t, ed) is None and calls.count(1) == 2   # no more requests

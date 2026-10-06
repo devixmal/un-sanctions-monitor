@@ -24,7 +24,11 @@ sources:
     delay_seconds: 5.5
   google_news:
     enabled: true
-    delay_seconds: 2.0
+    delay_seconds: 4.0        # Google blocks fast clients; on a block the run pauses 15 min, then
+                              # stops Google News and carries the remaining parties to next run
+    # Plain names in English are already covered by the GDELT bulk feed; by default Google News is
+    # used for local-language editions, nicknames-with-context and document numbers.
+    english_names: false
     include_original_script: true   # also search Arabic/Korean/etc. spellings from the UN list
     editions:                 # searched for every party
       - {hl: en-US, gl: US, ceid: "US:en"}
