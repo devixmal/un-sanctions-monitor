@@ -1,0 +1,48 @@
+2026-10-06 17:11:13,143 INFO Relevance filter: keyword heuristic (set ANTHROPIC_API_KEY for far fewer false positives)
+2026-10-06 17:11:14,159 INFO UN list: 1010 records (736 individuals, 274 entities)
+2026-10-06 17:11:14,365 INFO == Other sanctions lists: starting
+2026-10-06 17:11:16,749 INFO == Other sanctions lists: finished in 0.0 min
+2026-10-06 17:11:16,749 INFO == Watched feeds: starting
+2026-10-06 17:11:16,909 WARNING Feed https://www.un.org/securitycouncil/feed/1.0/updates_unsc_consolidated_list failed: HTTP 403
+2026-10-06 17:11:18,440 INFO == Watched feeds: finished in 0.0 min
+2026-10-06 17:11:18,441 INFO == UN reports: starting
+2026-10-06 17:11:18,820 WARNING Report page https://main.un.org/securitycouncil/en/sanctions/1533/panel_experts/reports failed: HTTP 404
+2026-10-06 17:11:18,836 WARNING Report page https://main.un.org/securitycouncil/en/sanctions/1591/panel_experts/reports failed: HTTP 404
+2026-10-06 17:11:18,940 WARNING Report page https://main.un.org/securitycouncil/en/sanctions/1970/panel_experts/reports failed: HTTP 404
+2026-10-06 17:11:18,956 WARNING Report page https://main.un.org/securitycouncil/en/sanctions/2127/panel_experts/reports failed: HTTP 404
+2026-10-06 17:11:18,971 WARNING Report page https://main.un.org/securitycouncil/en/sanctions/2140/panel_experts/reports failed: HTTP 404
+2026-10-06 17:11:18,986 WARNING Report page https://main.un.org/securitycouncil/en/sanctions/2206/panel_experts/reports failed: HTTP 404
+2026-10-06 17:11:19,002 WARNING Report page https://main.un.org/securitycouncil/en/sanctions/2653/panel_experts/reports failed: HTTP 404
+2026-10-06 17:11:19,018 WARNING Report page https://main.un.org/securitycouncil/en/sanctions/2713/panel_experts/reports failed: HTTP 404
+2026-10-06 17:11:19,438 INFO == UN reports: finished in 0.0 min
+2026-10-06 17:11:19,438 INFO == News sweep: starting
+2026-10-06 17:11:25,646 INFO Google News progress 0/25
+2026-10-06 17:12:53,382 WARNING GDELT failed for ['Allied Democratic Forces', 'Forces Démocratiques Alliées-Armée Nationale de Libération de l’Ouganda', 'ADF/NALU']: HTTP 429
+2026-10-06 17:14:15,531 WARNING GDELT failed for ['NALU']: HTTP 429
+2026-10-06 17:14:15,532 INFO GDELT progress 0/25
+2026-10-06 17:14:15,586 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%22BUTEMBO+AIRLINES+%28BAL%29%22&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
+2026-10-06 17:17:37,253 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%22CONGOMET+TRADING+HOUSE%22&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
+2026-10-06 17:18:44,631 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%22Mouvement+du+23+mars%22&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
+2026-10-06 17:20:21,639 WARNING GDELT failed for ['Mouvement du 23 mars']: HTTP 429
+2026-10-06 17:21:47,607 WARNING GDELT failed for ['MACHANGA LTD']: HTTP 429
+2026-10-06 17:23:27,288 WARNING GDELT failed for ['TPD']: HTTP 429
+2026-10-06 17:24:51,242 WARNING GDELT failed for ['UGANDA COMMERCIAL IMPEX (UCI) LTD']: HTTP 429
+2026-10-06 17:24:51,468 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%22ALLIANCE+FLEUVE+CONGO+%28AFC%29%22&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
+2026-10-06 17:26:26,391 WARNING GDELT failed for ['TWIRWANEHO']: HTTP 429
+2026-10-06 17:26:26,401 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%22ERIC+BADEGE%22&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
+2026-10-06 17:27:55,375 WARNING GDELT failed for ['ERIC BADEGE']: HTTP 429
+2026-10-06 17:27:55,379 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%28%22FRANK+KAKOLELE+BWAMBALE%22+OR+%22FRANK+KAKORERE%22+OR+%22FRANK+KAKORERE+BWAMBALE%22+OR+%22AIGLE+BLANC%22%29&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
+2026-10-06 17:29:22,171 WARNING GDELT failed for ['FRANK KAKOLELE BWAMBALE', 'FRANK KAKORERE', 'FRANK KAKORERE BWAMBALE', 'AIGLE BLANC']: HTTP 429
+2026-10-06 17:29:22,236 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%28%22GASTON+IYAMUREMYE%22+OR+%22Byiringiro+Victor+Rumuli%22+OR+%22Victor+Rumuri%22+OR+%22Michel+Byiringiro%22%29&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
+2026-10-06 17:30:55,599 WARNING GDELT failed for ['GASTON IYAMUREMYE', 'Byiringiro Victor Rumuli', 'Victor Rumuri', 'Michel Byiringiro']: HTTP 429
+2026-10-06 17:30:55,609 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=Rumuli+%28FDLR+OR+%22FDLR-%22+OR+FOCA+OR+Rwanda+OR+Congo%29&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
+2026-10-06 17:32:12,244 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%28%22jerome+kakwavu+bukande%22+OR+%22jerome+kakwavu%22%29&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
+2026-10-06 17:33:47,768 WARNING GDELT failed for ['JÉRÔME KAKWAVU BUKANDE', 'Jérôme Kakwavu']: HTTP 429
+2026-10-06 17:35:52,851 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%22THOMAS+LUBANGA%22&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
+2026-10-06 17:37:27,212 WARNING GDELT failed for ['THOMAS LUBANGA']: HTTP 429
+2026-10-06 17:37:27,230 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%28%22SULTANI+MAKENGA%22+OR+%22EMMANUEL+SULTANI+MAKENGA%22%29&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
+2026-10-06 17:37:43,288 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%28%22KHAWA+PANGA+MANDRO%22+OR+%22Kawa+Panga%22+OR+%22Kawa+Panga+Mandro%22+OR+%22Kawa+Mandro%22%29&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
+2026-10-06 17:39:13,589 WARNING GDELT failed for ['KHAWA PANGA MANDRO', 'Kawa Panga', 'Kawa Panga Mandro', 'Kawa Mandro']: HTTP 429
+2026-10-06 17:39:13,620 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%28%22Yves+Andoul+Karim%22+OR+%22Mandro+Panga+Kahwa%22+OR+%22Yves+Khawa+Panga+Mandro%22%29&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
+2026-10-06 17:40:45,846 WARNING GDELT failed for ['Yves Andoul Karim', 'Mandro Panga Kahwa', 'Yves Khawa Panga Mandro']: HTTP 429
+2026-10-06 17:40:45,852 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /api/v2/doc/doc?query=%22Chief+Kahwa%22+%28DRC+OR+%22UN-%22+OR+Congo+OR+Uganda%29&mode=ArtList&format=json&maxrecords=250&startdatetime=20260929171119&enddatetime=20261006171119&sort=DateDesc
