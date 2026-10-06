@@ -2,12 +2,15 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import logging
 import os
+import re
 import sys
 import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlencode
 
@@ -15,7 +18,8 @@ import yaml
 
 from . import sources, unlist
 from .alerts import Report, dispatch, render_markdown
-from .matching import NameIndex, all_match_names, context_snippet, find_mentions, fold, search_names
+from .matching import (NameIndex, context_snippet, find_identifiers, find_mentions, fold, identifiers,
+                       news_match_names, plan_queries)
 from .scoring import make_scorer
 from .sources import STATS, Hit
 from .state import State, canonical_url, key_of
@@ -103,8 +107,11 @@ def watched_feeds(cfg: dict, st: State, rep: Report, records, index: NameIndex, 
                 rec = records[ref]
                 hit = Hit(**{**h.__dict__, "ref": ref, "matched": [n for n, _ in found],
                              "snippet": found[0][1]})
-                for kept in scorer(rec, [hit]):
-                    rep.feed_mentions.append((rec, kept))
+                kept, near = scorer(rec, [hit])
+                for k in kept:
+                    rep.feed_mentions.append((rec, k))
+                for n in near:
+                    rep.near_misses.setdefault(ref, (rec, []))[1].append(n)
         if items:
             st.set_meta(init_key, True)
 
@@ -114,7 +121,7 @@ def un_reports(cfg: dict, st: State, rep: Report, records, index: NameIndex) -> 
     c = cfg["sources"].get("reports", {})
     if not c.get("enabled"):
         return
-    budget = int(c.get("max_new_reports_per_run", 15))
+    budget = int(c.get("max_new_reports_per_run", 100))
     for page in c.get("pages", []):
         links = sources.list_report_links(page)
         init_key = "init:report:" + page
@@ -127,6 +134,7 @@ def un_reports(cfg: dict, st: State, rep: Report, records, index: NameIndex) -> 
                 st.mark(k, "report", url=url)
                 continue
             if budget <= 0:
+                rep.notes.append("Report limit reached; remaining new reports will be scanned next run")
                 break
             budget -= 1
             try:
@@ -145,40 +153,91 @@ def un_reports(cfg: dict, st: State, rep: Report, records, index: NameIndex) -> 
 
 
 # --------------------------------------------------------------------- step 5
-def news_sweep(cfg: dict, st: State, rep: Report, targets: list[dict], scorer) -> None:
-    days = int(cfg["lookback_days"])
+def editions_for(rec: dict, gn: dict) -> list[dict]:
+    """Base editions + local-language editions matching the party's countries."""
+    eds = list(gn.get("editions") or [{"hl": "en-US", "gl": "US", "ceid": "US:en"}])
+    countries = " | ".join(fold(c) for c in rec.get("countries", []) + rec.get("nationality", []))
+    for ed in (gn.get("local_editions") or {}).values():
+        if any(re.search(rf"(?<!\w){re.escape(fold(k))}(?!\w)", countries) for k in ed.get("countries", [])):
+            e = {k: ed[k] for k in ("hl", "gl", "ceid")}
+            if e not in eds:
+                eds.append(e)
+    return eds
+
+
+def news_sweep(cfg: dict, st: State, rep: Report, targets: list[dict], scorer, started: float) -> None:
     mcfg = cfg.get("matching", {})
+    min_len, per_q = int(mcfg.get("min_name_length", 8)), int(mcfg.get("max_names_per_query", 4))
     gd, gn = cfg["sources"].get("gdelt", {}), cfg["sources"].get("google_news", {})
+    sources.GDELT_LIMIT.interval = float(gd.get("delay_seconds", 5.5))
+    sources.GNEWS_LIMIT.interval = float(gn.get("delay_seconds", 2.0))
+    now = datetime.now(timezone.utc).replace(microsecond=0)
+    default_days = int(cfg["lookback_days"])
+    max_days = int(cfg.get("max_catchup_days", 30))
+    deadline = started + 60 * float(cfg.get("max_sweep_minutes", 270))
+
+    # Oldest-searched first, so anything deferred by the time budget goes first next week, and its
+    # window then reaches back to its last successful search: no gaps in coverage.
+    last = st.get_meta("last_searched", {}) or {}
+    targets = sorted(targets, key=lambda r: (last.get(r["ref"], ""), r["ref"]))
+
+    def window(ref: str) -> datetime:
+        if ref in last:
+            since = datetime.fromisoformat(last[ref]) - timedelta(days=1)   # 1-day overlap
+            return max(since, now - timedelta(days=max_days))
+        return now - timedelta(days=default_days)
+
+    plans = {r["ref"]: plan_queries(r, min_len, per_q) for r in targets}
     raw: dict[str, list[Hit]] = {r["ref"]: [] for r in targets}
+    cov = {r["ref"]: {"queries": 0, "failed": 0, "raw": 0, "done": set()} for r in targets}
     lock = threading.Lock()
+
+    def record(ref, hs, src):
+        with lock:
+            cov[ref]["queries"] += 1
+            if hs is None:
+                cov[ref]["failed"] += 1
+            else:
+                cov[ref]["raw"] += len(hs)
+                raw[ref].extend(hs)
 
     def run_gdelt():
         for i, r in enumerate(targets):
-            names = search_names(r, mcfg.get("min_name_length", 8), mcfg.get("max_names_per_query", 4))
-            hs = sources.gdelt(names, days, gd.get("max_records", 75)) if names else []
+            if time.time() > deadline:
+                log.warning("Time budget reached: GDELT stopped at %d/%d", i, len(targets))
+                return
+            for q in plans[r["ref"]]:
+                record(r["ref"], sources.gdelt(q.terms, window(r["ref"]), now, q.context,
+                                               int(gd.get("max_records", 250))), "gdelt")
             with lock:
-                raw[r["ref"]].extend(hs)
+                cov[r["ref"]]["done"].add("gdelt")
             if i % 100 == 0:
                 log.info("GDELT progress %d/%d", i, len(targets))
-            sources.polite_sleep(float(gd.get("delay_seconds", 5.5)))
 
     def run_gnews():
-        eds = gn.get("editions") or [{"hl": "en-US", "gl": "US", "ceid": "US:en"}]
         for i, r in enumerate(targets):
-            names = search_names(r, mcfg.get("min_name_length", 8), mcfg.get("max_names_per_query", 4))
-            if r.get("original_script") and gn.get("include_original_script", True):
-                names = names + [r["original_script"]]
-            hs = sources.google_news(names, days, eds) if names else []
+            if time.time() > deadline:
+                log.warning("Time budget reached: Google News stopped at %d/%d", i, len(targets))
+                return
+            for ed in editions_for(r, gn):
+                for j, q in enumerate(plans[r["ref"]]):
+                    terms = list(q.terms)
+                    if j == 0 and r.get("original_script") and gn.get("include_original_script", True):
+                        terms.append(r["original_script"])
+                    record(r["ref"], sources.google_news(terms, window(r["ref"]), now, ed, q.context),
+                           "google_news")
             with lock:
-                raw[r["ref"]].extend(hs)
+                cov[r["ref"]]["done"].add("google_news")
             if i % 100 == 0:
                 log.info("Google News progress %d/%d", i, len(targets))
-            sources.polite_sleep(float(gn.get("delay_seconds", 2.0)))
 
+    enabled = []
     workers = []
     if gd.get("enabled", True):
+        enabled.append("gdelt")
         workers.append(threading.Thread(target=run_gdelt, daemon=True))
     if gn.get("enabled", True):
+        enabled.append("google_news")
         workers.append(threading.Thread(target=run_gnews, daemon=True))
     for t in workers:
         t.start()
@@ -194,31 +253,40 @@ def news_sweep(cfg: dict, st: State, rep: Report, targets: list[dict], scorer) -
             cu = canonical_url(h.url)
             tk = fold(h.title)[:120]
             ku, kt = key_of(ref, cu), key_of(ref, "t", tk)
-            if cu in seen_local or tk in seen_local or st.is_seen(ku) or (tk and st.is_seen(kt)):
+            if cu in seen_local or (tk and tk in seen_local) or st.is_seen(ku) or (tk and st.is_seen(kt)):
                 continue
             seen_local.update({cu, tk})
-            st.mark(ku, "gdelt" if h.source == "GDELT" else "google_news", ref, h.url)
+            src = "gdelt" if h.source == "GDELT" else "google_news"
+            st.mark(ku, src, ref, h.url)
             if tk:
-                st.mark(kt, "gdelt" if h.source == "GDELT" else "google_news", ref, h.url)
+                st.mark(kt, src, ref, h.url)
             h.ref = ref
             fresh.setdefault(ref, []).append(h)
-    cap = int(cfg.get("scoring", {}).get("max_hits_per_entity", 25))
+    cap = int(cfg.get("scoring", {}).get("max_hits_per_entity", 100))
     for ref in fresh:
-        fresh[ref] = fresh[ref][:cap]
-    total = sum(len(v) for v in fresh.values())
-    log.info("%d new candidate items across %d parties", total, len(fresh))
+        if len(fresh[ref]) > cap:
+            rep.notes.append(f"{by_ref[ref]['name']} ({ref}): {len(fresh[ref])} new items, "
+                             f"only the first {cap} were reviewed (raise scoring.max_hits_per_entity)")
+            fresh[ref] = fresh[ref][:cap]
+    log.info("%d new candidate items across %d parties", sum(len(v) for v in fresh.values()), len(fresh))
 
     # Pull article text so the filter sees the actual sentence mentioning the name.
     fcfg = cfg.get("fetch", {})
-    to_fetch = [h for hs in fresh.values() for h in hs if h.source == "GDELT"][: int(fcfg.get("max_page_fetches", 600))]
-    with ThreadPoolExecutor(int(fcfg.get("workers", 8))) as ex:
+    gd_hits = [h for hs in fresh.values() for h in hs if h.source == "GDELT"]
+    limit = int(fcfg.get("max_page_fetches", 3000))
+    if len(gd_hits) > limit:
+        rep.notes.append(f"{len(gd_hits) - limit} articles were judged on headline only (fetch.max_page_fetches)")
+    to_fetch = gd_hits[:limit]
+    with ThreadPoolExecutor(int(fcfg.get("workers", 16))) as ex:
         texts = list(ex.map(lambda h: sources.page_text(h.url), to_fetch))
     page = {id(h): t for h, t in zip(to_fetch, texts)}
     for ref, hs in fresh.items():
-        names = all_match_names(by_ref[ref], mcfg.get("min_name_length", 8))
+        rec = by_ref[ref]
+        names, ids = news_match_names(rec, min_len), identifiers(rec)
         for h in hs:
             body = page.get(id(h), "")
-            h.matched = find_mentions(f"{h.title} {h.snippet} {body}", names)
+            text = f"{h.title} {h.snippet} {body}"
+            h.matched = find_mentions(text, names) + [f"id:{i}" for i in find_identifiers(text, ids)]
             if body:
                 h.snippet = context_snippet(body, names) or h.snippet
 
@@ -227,9 +295,55 @@ def news_sweep(cfg: dict, st: State, rep: Report, targets: list[dict], scorer) -
         return ref, scorer(by_ref[ref], hs)
 
     with ThreadPoolExecutor(int(cfg.get("scoring", {}).get("workers", 4))) as ex:
-        for ref, kept in ex.map(judge, fresh.items()):
+        for ref, (kept, near) in ex.map(judge, fresh.items()):
             if kept:
                 rep.news[ref] = (by_ref[ref], kept)
+            if near:
+                rep.near_misses[ref] = (by_ref[ref], near)
+
+    # Coverage bookkeeping: who was fully searched, who failed, who is deferred to next run.
+    rows, failed, deferred = [], [], []
+    for r in targets:
+        c, ref = cov[r["ref"]], r["ref"]
+        complete = set(enabled) <= c["done"]
+        status = "searched"
+        if not complete:
+            status = "deferred (time budget) — searched first next run"
+            deferred.append(r)
+        elif c["queries"] and c["failed"] == c["queries"]:
+            status = "FAILED — every query errored"
+            failed.append(r)
+        elif c["failed"]:
+            status = f"partial — {c['failed']}/{c['queries']} queries failed"
+        if complete and status != "FAILED — every query errored":
+            last[ref] = now.isoformat()
+        rows.append({
+            "ref": ref, "name": r["name"], "regime": r.get("regime", ""),
+            "window_start": window(ref).date().isoformat(),
+            "queries": c["queries"], "failed": c["failed"], "raw_results": c["raw"],
+            "new_items": len(fresh.get(ref, [])), "alerts": len(rep.news.get(ref, (None, []))[1]),
+            "near_misses": len(rep.near_misses.get(ref, (None, []))[1]), "status": status,
+        })
+    st.set_meta("last_searched", last)
+    rep.coverage = {
+        "parties": len(targets), "searched": len(targets) - len(deferred) - len(failed),
+        "queries": sum(c["queries"] for c in cov.values()),
+        "failed_queries": sum(c["failed"] for c in cov.values()),
+        "raw_results": sum(c["raw"] for c in cov.values()),
+        "new_items": sum(len(v) for v in fresh.values()),
+        "deferred": [f"{r['name']} ({r['ref']})" for r in deferred],
+    }
+    if failed:
+        rep.health["Parties not searched"] = (
+            f"{len(failed)} parties had every search fail; they are retried first next run: "
+            + ", ".join(f"{r['name']} ({r['ref']})" for r in failed[:30])
+            + (" …" if len(failed) > 30 else ""))
+    path = ROOT / "data/coverage.csv"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=list(rows[0]) if rows else ["ref"])
+        w.writeheader()
+        w.writerows(rows)
 
 
 # ------------------------------------------------------------------------ main
@@ -245,7 +359,7 @@ def main(argv=None) -> int:
 
     cfg = load_config(Path(args.config))
     st = State(ROOT / "state/monitor.db")
-    rep = Report()
+    rep = Report(near_triggers=bool(cfg.get("scoring", {}).get("near_misses_trigger_alert", True)))
     scorer = make_scorer(cfg.get("scoring", {}))
 
     records = sync_list(cfg, st, rep, save=not args.dry_run)
@@ -261,7 +375,7 @@ def main(argv=None) -> int:
         ("Other sanctions lists", lambda: cross_lists(cfg, st, rep, records)),
         ("Watched feeds", lambda: watched_feeds(cfg, st, rep, records, index, scorer)),
         ("UN reports", lambda: un_reports(cfg, st, rep, records, index)),
-        ("News sweep", lambda: news_sweep(cfg, st, rep, targets, scorer)),
+        ("News sweep", lambda: news_sweep(cfg, st, rep, targets, scorer, started)),
     )
     for name, step in steps:
         try:

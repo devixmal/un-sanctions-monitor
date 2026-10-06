@@ -62,8 +62,10 @@ def parse(xml_bytes: bytes) -> dict[str, dict]:
                 v = _t(d, "DATE") or _t(d, "YEAR") or rng or _t(d, "NOTE")
                 if v:
                     dobs.append(v)
-            docs = []
+            docs, doc_numbers = [], []
             for d in el.findall("INDIVIDUAL_DOCUMENT"):
+                if _t(d, "NUMBER"):
+                    doc_numbers.append(_t(d, "NUMBER"))
                 v = " ".join(filter(None, [_t(d, "TYPE_OF_DOCUMENT"), _t(d, "NUMBER"), _t(d, "ISSUING_COUNTRY")]))
                 if v:
                     docs.append(v)
@@ -87,6 +89,7 @@ def parse(xml_bytes: bytes) -> dict[str, dict]:
                 "countries": sorted(countries),
                 "dobs": dobs,
                 "documents": docs,
+                "doc_numbers": doc_numbers,
                 "designation": _vals(el, "DESIGNATION/VALUE"),
                 "comments": _t(el, "COMMENTS1"),
             }

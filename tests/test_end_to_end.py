@@ -6,23 +6,32 @@ from monitor.sources import Hit
 from tests.test_monitor import SAMPLE
 
 
-def _stub(monkeypatch, tmp_path, xml, news, feed_items=(), reports=(), report_text="", xref=None):
+def _stub(monkeypatch, tmp_path, xml, news, feed_items=(), reports=(), report_text="", xref=None, extra_cfg=""):
     monkeypatch.setenv("MONITOR_ROOT", str(tmp_path))
     for k in ("GITHUB_TOKEN", "ANTHROPIC_API_KEY", "SMTP_HOST", "SLACK_WEBHOOK_URL", "TELEGRAM_BOT_TOKEN"):
         monkeypatch.delenv(k, raising=False)
     import monitor.main as m
     m = importlib.reload(m)
     monkeypatch.setattr(m.unlist, "fetch_xml", lambda url: xml)
-    monkeypatch.setattr(sources, "gdelt", lambda names, days, n=75: [h for h in news if h.source == "GDELT"])
-    monkeypatch.setattr(sources, "google_news", lambda names, days, eds: [])
+    calls = []
+
+    def fake_gdelt(terms, start, end, context=None, n=250):
+        calls.append(("gdelt", tuple(terms), tuple(context or ())))
+        return [Hit(**h.__dict__) for h in news if h.source == "GDELT" and any("MAKENGA" in t for t in terms)]
+
+    def fake_gnews(terms, start, end, ed, context=None):
+        calls.append(("gnews", ed["hl"], tuple(terms)))
+        return []
+    monkeypatch.setattr(sources, "gdelt", fake_gdelt)
+    monkeypatch.setattr(sources, "google_news", fake_gnews)
+    m.CALLS = calls
     monkeypatch.setattr(sources, "read_feed", lambda url: list(feed_items))
     monkeypatch.setattr(sources, "list_report_links", lambda page: list(reports))
     monkeypatch.setattr(sources, "document_text", lambda url: report_text)
     monkeypatch.setattr(sources, "opensanctions_datasets", lambda url, recs: xref or {})
     monkeypatch.setattr(sources, "page_text", lambda url: "Rebel commander Sultani Makenga of the M23 was seen in Goma, DRC.")
-    monkeypatch.setattr(sources, "polite_sleep", lambda s: None)
     cfg = tmp_path / "config.yaml"
-    cfg.write_text(open("config.yaml").read())
+    cfg.write_text(open("config.yaml").read() + extra_cfg)
     return m, ["--config", str(cfg)]
 
 
@@ -33,6 +42,14 @@ def test_two_runs(monkeypatch, tmp_path):
     m, args = _stub(monkeypatch, tmp_path, SAMPLE, news, reports=report_link,
                     xref={"CDi.008": ["us_ofac_sdn"]})
     assert m.main(args) == 0
+    # Every name variant, the nickname-with-context and the passport number were searched,
+    # and the French edition was used for these Congolese parties.
+    terms = {t for c in m.CALLS if c[0] == "gdelt" for t in c[1]}
+    assert {"SULTANI MAKENGA", "EMMANUEL SULTANI MAKENGA", "OB0243318", "ADF"} <= terms
+    assert ("gdelt", ("ADF",), ("Congo",)) in m.CALLS
+    assert {c[1] for c in m.CALLS if c[0] == "gnews"} == {"en-US", "fr"}
+    cov = (tmp_path / "data/coverage.csv").read_text()
+    assert cov.count("searched") == 3
     first = list((tmp_path / "reports").glob("*.md"))
     assert len(first) == 1 and "Makenga in Goma" in first[0].read_text()
     assert "Changes to the UN Consolidated List" not in first[0].read_text()
@@ -62,3 +79,12 @@ def test_two_runs(monkeypatch, tmp_path):
                     xref={"CDi.008": ["us_ofac_sdn", "gb_hmt_sanctions"]})
     assert m.main(args) == 0
     assert not list((tmp_path / "reports").glob("*.md"))
+
+
+def test_time_budget_defers_without_gaps(monkeypatch, tmp_path):
+    m, args = _stub(monkeypatch, tmp_path, SAMPLE, [], extra_cfg="\nmax_sweep_minutes: 0\n")
+    assert m.main(args) == 0
+    cov = (tmp_path / "data/coverage.csv").read_text()
+    assert cov.count("deferred") == 3
+    from monitor.state import State
+    assert State(tmp_path / "state/monitor.db").get_meta("last_searched", {}) == {}   # retried first next run

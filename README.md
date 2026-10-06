@@ -15,11 +15,33 @@ something new and relevant turns up**. Quiet weeks produce no notification.
 | Other authorities | OpenSanctions cross-reference (OFAC, EU, UK, etc.) | A UN-listed party is newly listed elsewhere |
 | Monitor health | All of the above | A source failed on ≥50% of requests, so you know coverage had a gap |
 
-Noise control: names shorter than 8 characters and low-quality aliases are not searched, accents and
-"Surname, Firstname" forms are normalised, the article text is fetched so the filter sees the actual
-sentence, and anything reported before is never re-sent. With an `ANTHROPIC_API_KEY`, Claude reads
-each candidate against the listing profile (nationality, DOB, role, notes) and drops namesakes;
-without it, a keyword filter requires the name plus a corroborating signal.
+### How it avoids missing things
+
+- **Every name variant is searched**: the primary name and *all* good-quality aliases (spread over as
+  many queries as needed), plus the original-script spelling (Arabic, Korean, etc.).
+- **Nicknames and short aliases** ("Tiger One", "Abu Waqas", "ADF") are searched together with the
+  party's organisation acronyms and countries, e.g. `"Tiger One" AND (M23 OR Congo)`, so they find
+  real coverage without flooding you with namesakes.
+- **Document numbers**: passport / national-ID numbers and vessel IMO numbers are searched as well.
+- **Local-language press**: besides English, each party is searched in the Google News edition for
+  its countries (French for DRC/CAR/Mali/Haiti, Arabic for Yemen/Libya/Sudan/Iraq/Syria, Korean for
+  DPRK, Russian, Turkish, Chinese, Spanish, Portuguese, Indonesian). GDELT adds 65+ languages.
+- **No silent truncation**: when a search returns the maximum number of results, the time window is
+  split and re-queried until everything is retrieved. Any limit that is still hit is listed in the report.
+- **No gaps**: if the run's time budget runs out, the remaining parties are searched first next run,
+  with a window reaching back to their last successful search. Parties whose searches all failed are
+  flagged and retried the same way.
+- **Scanned reports**: UN report PDFs without a text layer are OCR'd.
+- **Nothing discarded silently**: items the filter scores below the alert threshold but above 0.3
+  appear in a "Borderline — review" section.
+- **Coverage audit**: each run writes `data/coverage.csv` (per party: search window, searches run,
+  failures, raw results, new items, alerts, status), and the report summarises it.
+
+Noise control: accents and "Surname, Firstname" forms are normalised, the article text is fetched so
+the filter sees the actual sentence, and anything reported before is never re-sent. With an
+`ANTHROPIC_API_KEY`, Claude reads each candidate against the listing profile (nationality, DOB, role,
+notes) and judges whether it is really this party; without it, a keyword filter requires the name
+plus a corroborating signal.
 
 ## Setup (about 10 minutes)
 
@@ -73,15 +95,17 @@ python -m pytest -q                            # offline tests
 
 ## Good to know
 
-- **Runtime**: a full sweep of ~1,000 parties takes roughly 2–3 hours (GDELT allows one query
-  every ~5 seconds). That is within GitHub's 6-hour job limit. Public repos have unlimited Actions
-  minutes; private repos on the free plan get 2,000 minutes a month, which covers weekly runs.
+- **Runtime**: a full sweep of ~1,000 parties with every alias, nickname and document number is
+  roughly 3,000+ GDELT searches (one every ~5.5 seconds), so a run can take 4–5 hours. The
+  `max_sweep_minutes` budget (270) keeps it inside GitHub's 6-hour limit; anything not reached is
+  searched first the following week with no gap. Private repos on the free plan get 2,000 Actions
+  minutes a month, so weekly runs (~1,200 min/month) fit, but leave little room for other workflows.
 - **Scheduled workflows** are paused by GitHub after 60 days without repo activity; the weekly state
   commit normally keeps the repo active. If runs stop, re-enable the workflow in the Actions tab.
 - **Coverage limits**: no system can literally read the whole web. This covers worldwide news, UN
   documents, official feeds and other sanctions lists. It does not log in to social media, Telegram
-  channels, paywalled sites, corporate registries or vessel-tracking (AIS) services; those need paid
-  APIs and can be added as extra sources in `monitor/sources.py`.
+  channels, paywalled sites, corporate registries, leak databases, court records or vessel-tracking
+  (AIS) services; those need API keys and can be added as extra sources in `monitor/sources.py`.
 - **Report pages**: the 1267 and 1988 monitoring-team page addresses follow the UN site's pattern but
   may differ; after the first run, check the job log for `Report page … failed` and fix any URL.
 - **OpenSanctions licence**: free for non-commercial use (CC BY-NC 4.0). Commercial users should buy

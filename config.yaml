@@ -2,6 +2,8 @@
 # Everything here is optional to change; the defaults run the full sweep.
 
 lookback_days: 7            # window searched each run (matches the weekly schedule)
+max_catchup_days: 30        # a party missed last run is searched back to its last search (up to this)
+max_sweep_minutes: 270      # time budget; parties not reached are searched FIRST next run, no gap
 
 list:
   url: https://scsanctions.un.org/resources/xml/en/consolidated.xml
@@ -12,17 +14,40 @@ list:
 sources:
   gdelt:                      # global news, 65+ languages, machine-translated into English
     enabled: true
-    max_records: 75
+    max_records: 250          # GDELT maximum; full windows are automatically split and re-queried
     delay_seconds: 5.5        # GDELT allows ~1 request / 5 s
   google_news:
     enabled: true
     delay_seconds: 2.0
     include_original_script: true   # also search Arabic/Korean/etc. spellings from the UN list
-    editions:
+    editions:                 # searched for every party
       - {hl: en-US, gl: US, ceid: "US:en"}
-      # Add more editions for regional coverage, e.g.:
-      # - {hl: fr, gl: FR, ceid: "FR:fr"}
-      # - {hl: ar, gl: EG, ceid: "EG:ar"}
+    # Added automatically for a party whose nationality/address matches one of the countries.
+    local_editions:
+      french:
+        {hl: fr, gl: FR, ceid: "FR:fr", countries: [Congo, Central African Republic, Mali, Haiti, Rwanda,
+         Burundi, "Côte d'Ivoire", Niger, Burkina Faso, Chad, Cameroon, Senegal, Guinea, Togo, Benin,
+         Gabon, Madagascar, Lebanon, Algeria, Tunisia, Morocco, Mauritania, France, Belgium, Djibouti, Comoros]}
+      arabic:
+        {hl: ar, gl: EG, ceid: "EG:ar", countries: [Iraq, Syria, Syrian Arab Republic, Yemen, Libya, Sudan,
+         Somalia, Saudi Arabia, Kuwait, Jordan, Egypt, Lebanon, Qatar, United Arab Emirates, Bahrain, Oman,
+         Algeria, Tunisia, Morocco, Mauritania, Palestine, Djibouti, Comoros]}
+      korean:
+        {hl: ko, gl: KR, ceid: "KR:ko", countries: [Korea, North Korea, South Korea]}
+      russian:
+        {hl: ru, gl: RU, ceid: "RU:ru", countries: [Russian Federation, Russia, Ukraine, Kazakhstan,
+         Uzbekistan, Tajikistan, Kyrgyzstan, Belarus, Azerbaijan, Georgia, Turkmenistan]}
+      turkish:
+        {hl: tr, gl: TR, ceid: "TR:tr", countries: [Turkey, Türkiye]}
+      indonesian:
+        {hl: id, gl: ID, ceid: "ID:id", countries: [Indonesia, Malaysia]}
+      chinese:
+        {hl: zh-Hans, gl: CN, ceid: "CN:zh-Hans", countries: [China]}
+      portuguese:
+        {hl: pt-BR, gl: BR, ceid: "BR:pt-419", countries: [Mozambique, Angola, Brazil, Guinea-Bissau]}
+      spanish:
+        {hl: es-419, gl: MX, ceid: "MX:es-419", countries: [Colombia, Venezuela, Mexico, Spain, Peru,
+         Ecuador, Bolivia, Argentina, Chile]}
 
   # RSS/Atom feeds whose every new item is scanned for ANY listed name.
   feeds:
@@ -39,7 +64,7 @@ sources:
   # scanned for every listed name. First run only records existing reports as a baseline.
   reports:
     enabled: true
-    max_new_reports_per_run: 15
+    max_new_reports_per_run: 100   # scanned PDFs are OCR'd automatically
     pages:
       - https://main.un.org/securitycouncil/en/sanctions/1267/monitoring-team/reports   # ISIL/Al-Qaida
       - https://main.un.org/securitycouncil/en/sanctions/1988/monitoring-team/reports   # Taliban
@@ -62,18 +87,23 @@ sources:
     url: https://data.opensanctions.org/datasets/latest/sanctions/targets.simple.csv
 
 matching:
-  min_name_length: 8          # shorter names/aliases are too ambiguous to search
-  max_names_per_query: 4      # primary name + best aliases OR-ed into one query
+  # Every good-quality alias is searched (spread over as many queries as needed).
+  # Nicknames / low-quality aliases are searched together with the party's organisation acronyms
+  # and countries (e.g. "Tiger One" AND (M23 OR Congo)). Passport/ID and IMO numbers are searched too.
+  min_name_length: 8          # shorter plain names are searched only as nicknames-with-context
+  max_names_per_query: 4      # name variants OR-ed into one query
 
 fetch:
-  max_page_fetches: 600       # article pages read to extract the sentence naming the party
-  workers: 8
+  max_page_fetches: 3000      # article pages read to extract the sentence naming the party
+  workers: 16
 
 scoring:
   use_llm: true               # used only if the ANTHROPIC_API_KEY secret is set
   model: claude-haiku-4-5-20251001
   threshold: 0.6              # minimum confidence for an item to be alerted
-  max_hits_per_entity: 25
+  near_miss_floor: 0.3        # items between this and threshold are listed as "borderline"
+  near_misses_trigger_alert: true   # send the report even if only borderline items were found
+  max_hits_per_entity: 100    # new items reviewed per party per run (excess is reported, not hidden)
   workers: 4
 
 health_failure_ratio: 0.5     # alert if a source fails on >= 50% of requests (coverage gap)

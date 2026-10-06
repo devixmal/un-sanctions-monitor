@@ -26,12 +26,21 @@ class Report:
     report_mentions: list = field(default_factory=list)  # (report_id, url, record, [(name, snippet)])
     feed_mentions: list = field(default_factory=list)    # (record, Hit)
     health: dict = field(default_factory=dict)            # source -> problem
+    near_misses: dict = field(default_factory=dict)       # ref -> (record, [Hit]) below threshold
+    coverage: dict = field(default_factory=dict)          # run-wide search statistics
+    notes: list = field(default_factory=list)             # limits hit during the run
+    near_triggers: bool = True                            # do near-misses alone justify an alert?
+
+    @property
+    def near_count(self) -> int:
+        return sum(len(h) for _, h in self.near_misses.values())
 
     @property
     def count(self) -> int:
         return (len(self.list_added) + len(self.list_removed) + len(self.list_amended)
                 + len(self.xref_added) + sum(len(h) for _, h in self.news.values())
-                + len(self.report_mentions) + len(self.feed_mentions) + len(self.health))
+                + len(self.report_mentions) + len(self.feed_mentions) + len(self.health)
+                + (self.near_count if self.near_triggers else 0))
 
     def headline(self) -> str:
         parts = []
@@ -45,6 +54,8 @@ class Report:
             parts.append(f"{len(self.feed_mentions)} official-feed mentions")
         if self.xref_added:
             parts.append(f"{len(self.xref_added)} newly listed by other authorities")
+        if self.near_misses:
+            parts.append(f"{self.near_count} borderline items to review")
         if self.health:
             parts.append(f"⚠ {len(self.health)} source problem(s)")
         return "; ".join(parts)
@@ -93,6 +104,28 @@ def render_markdown(rep: Report) -> str:
                 if h.summary:
                     out.append(f"  - {h.summary}")
             out.append("")
+    if rep.near_misses:
+        out += ["## Borderline — below the confidence threshold, review if relevant", "",
+                "_These matched a name, nickname or document number but the filter was not confident "
+                "they concern the listed party. Listed so nothing is discarded silently._", ""]
+        for ref, (r, hits) in sorted(rep.near_misses.items(), key=lambda kv: -max(h.score for h in kv[1][1])):
+            for h in sorted(hits, key=lambda h: -h.score)[:10]:
+                out.append(f"- {r['name']} ({ref}) — [{h.title or h.url}]({h.url}) "
+                           f"({h.domain or h.source}, {h.score:.2f}){' — ' + h.summary if h.summary else ''}")
+        out.append("")
+    if rep.coverage:
+        c = rep.coverage
+        out += ["## Coverage this run", "",
+                f"- Parties searched: {c['searched']} of {c['parties']}",
+                f"- Searches run: {c['queries']} ({c['failed_queries']} failed); raw results: {c['raw_results']}; "
+                f"new items reviewed: {c['new_items']}",
+                "- Per-party detail: `data/coverage.csv`"]
+        if c.get("deferred"):
+            out.append(f"- Deferred to next run (time budget), searched first then with a window back to "
+                       f"their last search: {', '.join(c['deferred'][:20])}{' …' if len(c['deferred']) > 20 else ''}")
+        out.append("")
+    if rep.notes:
+        out += ["## Limits reached", ""] + [f"- {n}" for n in rep.notes] + [""]
     out.append("_Automated OSINT screening. Verify before acting; name matches can be namesakes._")
     return "\n".join(out)
 

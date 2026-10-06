@@ -94,8 +94,11 @@ def test_heuristic_filter():
     good = Hit("GDELT", "M23 commander Sultani Makenga seen in Goma", "https://a.example/1",
                snippet="sultani makenga the m23 rebel commander", matched=["sultani makenga"])
     noise = Hit("GDELT", "Weather today", "https://a.example/2", snippet="", matched=[])
-    kept = heuristic(rec, [good, noise])
+    weak = Hit("GDELT", "Sultani Makenga wins local chess cup", "https://a.example/3",
+               snippet="sultani makenga won the cup", matched=["sultani makenga"])
+    kept, near = heuristic(rec, [good, noise, weak])
     assert kept == [good] and good.score > 0.5
+    assert near == [weak]                     # shown as borderline, not silently dropped
 
 
 def test_state_and_render(tmp_path: Path):
@@ -117,3 +120,41 @@ def test_state_and_render(tmp_path: Path):
     md = render_markdown(rep)
     assert rep.count == 2
     assert "Added" in md and "Makenga in Goma" in md and "[location]" in md
+
+
+def test_query_plan_covers_everything():
+    from monitor.matching import identifiers, nickname_terms, plan_queries
+    rec = {
+        "ref": "CDi.040", "kind": "individual", "name": "AHMAD MAHMOOD HASSAN",
+        "aliases": ["AHMED MAHAMUD HASSAN ALIYANI", "AHMAD MAHMOUD HASSAN", "AHMAD MAHAMOOD HASSAN",
+                    "AHMED MAHMOUD HASSAN"],
+        "low_aliases": ["ABU WAQAS", "SAINT JOYAGE", "JUNDI", "MARABOU", "LEBLANC"],
+        "designation": ["Senior leader of the Allied Democratic Forces (ADF) (CDe.001)"],
+        "comments": "", "nationality": ["United Republic of Tanzania"],
+        "countries": ["Democratic Republic of the Congo"], "doc_numbers": ["AB850901", "AB187304 "],
+    }
+    qs = plan_queries(rec)
+    names = [t for q in qs if q.kind == "names" for t in q.terms]
+    assert len(names) == 5                                   # primary + all 4 aliases, over 2 queries
+    nick = [q for q in qs if q.kind == "nicknames"]
+    assert nick and "ABU WAQAS" in nick[0].terms and "ADF" in nick[0].context and "Congo" in nick[0].context
+    assert "Tanzania" in nick[0].context
+    assert identifiers(rec) == ["AB850901", "AB187304"]
+    assert "JUNDI" in nickname_terms(rec)
+
+
+def test_local_editions():
+    import yaml
+    from monitor.main import editions_for
+    gn = yaml.safe_load(open("config.yaml"))["sources"]["google_news"]
+    drc = {"countries": ["Democratic Republic of the Congo"], "nationality": []}
+    dprk = {"countries": [], "nationality": ["Democratic People's Republic of Korea"]}
+    assert [e["hl"] for e in editions_for(drc, gn)] == ["en-US", "fr"]
+    assert [e["hl"] for e in editions_for(dprk, gn)] == ["en-US", "ko"]
+    assert [e["hl"] for e in editions_for({"countries": ["Nigeria"], "nationality": []}, gn)] == ["en-US"]
+
+
+def test_identifier_matching():
+    from monitor.matching import find_identifiers
+    assert find_identifiers("passport no. OB-0243318 was used", ["OB0243318"]) == ["OB0243318"]
+    assert find_identifiers("vessel (IMO: 9118135) loaded coal", ["IMO 9118135"]) == ["IMO 9118135"]

@@ -5,8 +5,10 @@ import csv
 import io
 import logging
 import re
+import threading
 import time
 from dataclasses import dataclass, field
+from datetime import datetime, timedelta
 from urllib.parse import urlencode, urljoin
 
 import feedparser
@@ -61,70 +63,122 @@ class SourceStats:
 STATS = SourceStats()
 
 
-def _or_query(names: list[str], quote: str = '"') -> str:
-    terms = [f"{quote}{n}{quote}" for n in names]
-    return terms[0] if len(terms) == 1 else "(" + " OR ".join(terms) + ")"
+class RateLimiter:
+    """Minimum interval between calls to one service, shared across threads."""
+
+    def __init__(self, interval: float):
+        self.interval = interval
+        self._lock = threading.Lock()
+        self._last = 0.0
+
+    def wait(self):
+        with self._lock:
+            delay = self._last + self.interval - time.monotonic()
+            if delay > 0:
+                time.sleep(delay)
+            self._last = time.monotonic()
+
+
+GDELT_LIMIT = RateLimiter(5.5)    # GDELT allows ~1 request / 5 s
+GNEWS_LIMIT = RateLimiter(2.0)
+
+
+def _q(term: str) -> str:
+    return f'"{term}"' if " " in term or not term.isalnum() else term
+
+
+def _or_query(terms: list[str]) -> str:
+    t = [_q(x) for x in terms]
+    return t[0] if len(t) == 1 else "(" + " OR ".join(t) + ")"
+
+
+def build_query(terms: list[str], context: list[str] | None = None, ascii_only: bool = False) -> str:
+    if ascii_only:
+        terms = [fold(t) if not t.isascii() else t for t in terms]
+        terms = [t for t in terms if t.isascii() and len(t) >= 3]
+    if not terms:
+        return ""
+    q = _or_query(terms)
+    if context:
+        q += " " + _or_query(context)
+    return q
 
 
 # --------------------------------------------------------------------------- GDELT
-def gdelt(names: list[str], days: int, max_records: int = 75) -> list[Hit]:
-    """GDELT DOC 2.0: global news in 65+ languages (machine-translated), 15-min refresh."""
-    ascii_names = [fold(n) for n in names if fold(n).isascii() and len(fold(n)) >= 5]
-    if not ascii_names:
+def gdelt(terms: list[str], start: datetime, end: datetime, context=None,
+          max_records: int = 250, depth: int = 0) -> list[Hit] | None:
+    """GDELT DOC 2.0: global news in 65+ languages (machine-translated), 15-min refresh.
+
+    If a window returns the maximum number of records, it is split in two and re-queried,
+    so busy names are not truncated. Returns None if the source failed.
+    """
+    query = build_query(terms, context, ascii_only=True)
+    if not query:
         return []
     params = {
-        "query": _or_query(ascii_names),
-        "mode": "ArtList",
-        "format": "json",
-        "maxrecords": max_records,
-        "timespan": f"{days * 24}h",
+        "query": query, "mode": "ArtList", "format": "json", "maxrecords": max_records,
+        "startdatetime": start.strftime("%Y%m%d%H%M%S"), "enddatetime": end.strftime("%Y%m%d%H%M%S"),
         "sort": "DateDesc",
     }
+    GDELT_LIMIT.wait()
     try:
         r = get("https://api.gdeltproject.org/api/v2/doc/doc", params=params, timeout=60)
         if r.status_code != 200:
             raise RuntimeError(f"HTTP {r.status_code}")
         if not r.text.strip().startswith("{"):
-            # GDELT returns plain-text errors (e.g. query too short); not a source outage.
-            log.debug("GDELT message for %s: %s", names, r.text[:200])
+            # Plain-text message, e.g. a term is too short/common: not an outage.
+            log.debug("GDELT message for %s: %s", terms, r.text[:200])
             STATS.ok("gdelt")
             return []
         data = r.json()
         STATS.ok("gdelt")
     except Exception as e:  # noqa: BLE001
         STATS.fail("gdelt", e)
-        log.warning("GDELT failed for %s: %s", names, e)
-        return []
-    return [
-        Hit("GDELT", a.get("title", ""), a.get("url", ""), a.get("seendate", ""),
-            a.get("domain", ""), a.get("language", ""))
-        for a in data.get("articles", [])
-        if a.get("url")
-    ]
+        log.warning("GDELT failed for %s: %s", terms, e)
+        return None
+    arts = data.get("articles", [])
+    hits = [Hit("GDELT", a.get("title", ""), a.get("url", ""), a.get("seendate", ""),
+                a.get("domain", ""), a.get("language", "")) for a in arts if a.get("url")]
+    if len(arts) >= max_records and depth < 4 and (end - start) > timedelta(hours=6):
+        mid = start + (end - start) / 2
+        a = gdelt(terms, start, mid, context, max_records, depth + 1)
+        b = gdelt(terms, mid, end, context, max_records, depth + 1)
+        hits = (a or []) + (b or []) or hits
+    return hits
 
 
 # --------------------------------------------------------------------- Google News
-def google_news(names: list[str], days: int, editions: list[dict]) -> list[Hit]:
+def google_news(terms: list[str], start: datetime, end: datetime, edition: dict, context=None,
+                depth: int = 0) -> list[Hit] | None:
+    """Google News RSS (max ~100 items per query). Full windows are split by date."""
+    query = build_query(terms, context)
+    if not query:
+        return []
+    q = f"{query} after:{start:%Y-%m-%d} before:{(end + timedelta(days=1)):%Y-%m-%d}"
+    url = "https://news.google.com/rss/search?" + urlencode(
+        {"q": q, "hl": edition["hl"], "gl": edition["gl"], "ceid": edition["ceid"]})
+    GNEWS_LIMIT.wait()
+    try:
+        r = get(url, timeout=45)
+        if r.status_code != 200:
+            raise RuntimeError(f"HTTP {r.status_code}")
+        feed = feedparser.parse(r.content)
+        STATS.ok("google_news")
+    except Exception as e:  # noqa: BLE001
+        STATS.fail("google_news", e)
+        log.warning("Google News failed for %s: %s", terms, e)
+        return None
     hits = []
-    q = _or_query(names) + f" when:{days}d"
-    for ed in editions:
-        url = "https://news.google.com/rss/search?" + urlencode(
-            {"q": q, "hl": ed["hl"], "gl": ed["gl"], "ceid": ed["ceid"]})
-        try:
-            r = get(url, timeout=45)
-            if r.status_code != 200:
-                raise RuntimeError(f"HTTP {r.status_code}")
-            feed = feedparser.parse(r.content)
-            STATS.ok("google_news")
-        except Exception as e:  # noqa: BLE001
-            STATS.fail("google_news", e)
-            log.warning("Google News failed for %s: %s", names, e)
-            continue
-        for e in feed.entries:
-            src = getattr(e, "source", {}) or {}
-            desc = BeautifulSoup(getattr(e, "summary", "") or "", "html.parser").get_text(" ")
-            hits.append(Hit("Google News", e.get("title", ""), e.get("link", ""),
-                            e.get("published", ""), src.get("title", ""), ed["hl"], desc))
+    for e in feed.entries:
+        src = getattr(e, "source", {}) or {}
+        desc = BeautifulSoup(getattr(e, "summary", "") or "", "html.parser").get_text(" ")
+        hits.append(Hit("Google News", e.get("title", ""), e.get("link", ""),
+                        e.get("published", ""), src.get("title", ""), edition["hl"], desc))
+    if len(feed.entries) >= 95 and depth < 3 and (end - start) >= timedelta(days=2):
+        mid = start + (end - start) / 2
+        a = google_news(terms, start, mid, edition, context, depth + 1)
+        b = google_news(terms, mid + timedelta(days=1), end, edition, context, depth + 1)
+        hits = hits + (a or []) + (b or [])
     return hits
 
 
@@ -185,15 +239,40 @@ def list_report_links(page_url: str) -> list[tuple[str, str]]:
     return list(found.items())
 
 
-def document_text(url: str, max_pages: int = 800) -> str:
-    """Download a PDF (or HTML page) and return its plain text."""
+def ocr_pdf(data: bytes, max_pages: int = 400) -> str:
+    """OCR for scanned PDFs (needs tesseract + poppler, installed by the workflow)."""
+    try:
+        import pytesseract
+        from pdf2image import convert_from_bytes
+    except ImportError:
+        log.warning("OCR libraries missing; scanned PDF text not extracted")
+        return ""
+    out = []
+    try:
+        for first in range(1, max_pages + 1, 20):
+            pages = convert_from_bytes(data, dpi=200, first_page=first, last_page=first + 19)
+            if not pages:
+                break
+            out += [pytesseract.image_to_string(p) for p in pages]
+    except Exception as e:  # noqa: BLE001
+        log.warning("OCR stopped: %s", e)
+    return "\n".join(out)
+
+
+def document_text(url: str, max_pages: int = 1500) -> str:
+    """Download a PDF (or HTML page) and return its plain text, OCR-ing scanned PDFs."""
     from pypdf import PdfReader
 
-    r = get(url, timeout=180, allow_redirects=True)
+    r = get(url, timeout=300, allow_redirects=True)
     r.raise_for_status()
     if r.content[:4] == b"%PDF":
         reader = PdfReader(io.BytesIO(r.content))
-        return "\n".join((p.extract_text() or "") for p in reader.pages[:max_pages])
+        pages = reader.pages[:max_pages]
+        text = "\n".join((p.extract_text() or "") for p in pages)
+        if len(text.strip()) < 200 * max(1, len(pages)) * 0.25:   # little text -> scanned image PDF
+            log.info("Low text yield from %s; running OCR", url)
+            text = (text + "\n" + ocr_pdf(r.content)).strip()
+        return text
     return BeautifulSoup(r.text, "html.parser").get_text(" ")
 
 
@@ -247,6 +326,3 @@ def opensanctions_datasets(url: str, records: dict[str, dict]) -> dict[str, list
     return {k: sorted(v) for k, v in out.items()}
 
 
-def polite_sleep(seconds: float) -> None:
-    if seconds > 0:
-        time.sleep(seconds)
