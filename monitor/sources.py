@@ -39,25 +39,41 @@ class Hit:
 class SourceStats:
     """Counts calls/failures per source so silent breakage becomes an alert."""
 
-    def __init__(self):
+    def __init__(self, breaker: int = 15):
         self.calls: dict[str, int] = {}
         self.fails: dict[str, int] = {}
         self.errors: dict[str, str] = {}
+        self.streak: dict[str, int] = {}
+        self.breaker = breaker            # consecutive failures before a source is switched off
+        self.tripped: set[str] = set()
 
     def ok(self, src):
         self.calls[src] = self.calls.get(src, 0) + 1
+        self.streak[src] = 0
 
     def fail(self, src, err):
-        self.ok(src)
+        self.calls[src] = self.calls.get(src, 0) + 1
         self.fails[src] = self.fails.get(src, 0) + 1
         self.errors[src] = str(err)[:300]
+        self.streak[src] = self.streak.get(src, 0) + 1
+        if self.breaker and self.streak[src] >= self.breaker and src not in self.tripped:
+            self.tripped.add(src)
+            log.error("%s switched off for this run after %d consecutive failures (last: %s)",
+                      src, self.streak[src], self.errors[src])
+
+    def is_tripped(self, src) -> bool:
+        return src in self.tripped
 
     def unhealthy(self, threshold: float = 0.5) -> dict[str, str]:
-        return {
+        out = {
             s: f"{self.fails.get(s, 0)}/{n} requests failed (last error: {self.errors.get(s, '')})"
             for s, n in self.calls.items()
             if n and self.fails.get(s, 0) / n >= threshold
         }
+        for s in self.tripped:
+            out[s] = (f"switched off after {self.breaker} consecutive failures (last error: "
+                      f"{self.errors.get(s, '')}); affected parties are retried first next run")
+        return out
 
 
 STATS = SourceStats()
@@ -112,6 +128,8 @@ def gdelt(terms: list[str], start: datetime, end: datetime, context=None,
     If a window returns the maximum number of records, it is split in two and re-queried,
     so busy names are not truncated. Returns None if the source failed.
     """
+    if STATS.is_tripped("gdelt"):
+        return None
     query = build_query(terms, context, ascii_only=True)
     if not query:
         return []
@@ -122,7 +140,8 @@ def gdelt(terms: list[str], start: datetime, end: datetime, context=None,
     }
     GDELT_LIMIT.wait()
     try:
-        r = get("https://api.gdeltproject.org/api/v2/doc/doc", params=params, timeout=60)
+        r = get("https://api.gdeltproject.org/api/v2/doc/doc", params=params, timeout=45,
+                rate_limit_waits=(20, 40))
         if r.status_code != 200:
             raise RuntimeError(f"HTTP {r.status_code}")
         if not r.text.strip().startswith("{"):
@@ -151,6 +170,8 @@ def gdelt(terms: list[str], start: datetime, end: datetime, context=None,
 def google_news(terms: list[str], start: datetime, end: datetime, edition: dict, context=None,
                 depth: int = 0) -> list[Hit] | None:
     """Google News RSS (max ~100 items per query). Full windows are split by date."""
+    if STATS.is_tripped("google_news"):
+        return None
     query = build_query(terms, context)
     if not query:
         return []
@@ -159,7 +180,7 @@ def google_news(terms: list[str], start: datetime, end: datetime, edition: dict,
         {"q": q, "hl": edition["hl"], "gl": edition["gl"], "ceid": edition["ceid"]})
     GNEWS_LIMIT.wait()
     try:
-        r = get(url, timeout=45)
+        r = get(url, timeout=30, rate_limit_waits=(20, 40))
         if r.status_code != 200:
             raise RuntimeError(f"HTTP {r.status_code}")
         feed = feedparser.parse(r.content)

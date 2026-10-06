@@ -354,10 +354,15 @@ def main(argv=None) -> int:
                     help="only sweep the first N parties (testing)")
     ap.add_argument("--dry-run", action="store_true", help="print the report, send nothing, save no state")
     args = ap.parse_args(argv)
-    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
+    (ROOT / "logs").mkdir(parents=True, exist_ok=True)
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s",
+                        handlers=[logging.StreamHandler(),
+                                  logging.FileHandler(ROOT / "logs/last_run.log", mode="w", encoding="utf-8")])
+    logging.getLogger("urllib3").setLevel(logging.WARNING)
     started = time.time()
 
     cfg = load_config(Path(args.config))
+    STATS.breaker = int(cfg.get("circuit_breaker_failures", 15))
     st = State(ROOT / "state/monitor.db")
     rep = Report(near_triggers=bool(cfg.get("scoring", {}).get("near_misses_trigger_alert", True)))
     scorer = make_scorer(cfg.get("scoring", {}))
@@ -378,11 +383,14 @@ def main(argv=None) -> int:
         ("News sweep", lambda: news_sweep(cfg, st, rep, targets, scorer, started)),
     )
     for name, step in steps:
+        t0 = time.time()
+        log.info("== %s: starting", name)
         try:
             step()
         except Exception as e:  # noqa: BLE001 — one broken source must not kill the run
             log.exception("%s step failed", name)
             rep.health[name] = f"crashed: {e}"
+        log.info("== %s: finished in %.1f min", name, (time.time() - t0) / 60)
 
     rep.health.update(STATS.unhealthy(float(cfg.get("health_failure_ratio", 0.5))))
     log.info("Done in %.1f min. %s", (time.time() - started) / 60, rep.headline() or "No new alerts.")

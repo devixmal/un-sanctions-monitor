@@ -16,7 +16,7 @@ USER_AGENT = (
 def make_session() -> requests.Session:
     s = requests.Session()
     retry = Retry(
-        total=3,
+        total=2,
         backoff_factor=2,
         status_forcelist=(500, 502, 503, 504),
         allowed_methods=("GET", "POST"),

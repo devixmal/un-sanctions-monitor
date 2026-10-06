@@ -107,3 +107,4 @@ scoring:
   workers: 4
 
 health_failure_ratio: 0.5     # alert if a source fails on >= 50% of requests (coverage gap)
+circuit_breaker_failures: 15  # switch a source off for the run after this many failures in a row
