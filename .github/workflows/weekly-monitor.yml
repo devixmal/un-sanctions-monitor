@@ -1,0 +1,65 @@
+name: Weekly UN sanctions monitor
+
+on:
+  schedule:
+    # Every Monday 01:47 UTC = 07:17 IST (GitHub cron is always UTC)
+    - cron: "47 1 * * 1"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Only sweep the first N parties (blank = all). Useful for a quick test."
+        required: false
+        default: ""
+
+permissions:
+  contents: write   # commit state/ and reports/ back to the repo
+  issues: write     # open an issue when there are alerts
+
+concurrency:
+  group: sanctions-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install
+        run: pip install -r requirements.txt
+
+      - name: Run monitor
+        env:
+          MONITOR_LIMIT: ${{ github.event.inputs.limit }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          SMTP_FROM: ${{ secrets.SMTP_FROM }}
+          ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python -m monitor.main
+
+      - name: Save state and reports
+        if: always()
+        run: |
+          git config user.name  "sanctions-monitor[bot]"
+          git config user.email "sanctions-monitor[bot]@users.noreply.github.com"
+          git add state data reports
+          if git diff --cached --quiet; then
+            echo "No state changes."
+          else
+            git commit -m "Monitor run $(date -u +%F)"
+            git pull --rebase --autostash || true
+            git push
+          fi

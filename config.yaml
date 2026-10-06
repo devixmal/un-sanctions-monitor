@@ -1,0 +1,79 @@
+# UN sanctions OSINT monitor — configuration
+# Everything here is optional to change; the defaults run the full sweep.
+
+lookback_days: 7            # window searched each run (matches the weekly schedule)
+
+list:
+  url: https://scsanctions.un.org/resources/xml/en/consolidated.xml
+  # Limit the OSINT sweep to some regimes (UN_LIST_TYPE values, see data/un_consolidated_list.csv,
+  # e.g. DRC, DPRK, Al-Qaida, Libya...). Empty = monitor everyone. List changes are always tracked.
+  regimes: []
+
+sources:
+  gdelt:                      # global news, 65+ languages, machine-translated into English
+    enabled: true
+    max_records: 75
+    delay_seconds: 5.5        # GDELT allows ~1 request / 5 s
+  google_news:
+    enabled: true
+    delay_seconds: 2.0
+    include_original_script: true   # also search Arabic/Korean/etc. spellings from the UN list
+    editions:
+      - {hl: en-US, gl: US, ceid: "US:en"}
+      # Add more editions for regional coverage, e.g.:
+      # - {hl: fr, gl: FR, ceid: "FR:fr"}
+      # - {hl: ar, gl: EG, ceid: "EG:ar"}
+
+  # RSS/Atom feeds whose every new item is scanned for ANY listed name.
+  feeds:
+    - https://www.un.org/securitycouncil/feed/1.0/updates_unsc_consolidated_list
+  # Google News searches turned into feeds and scanned the same way.
+  topic_queries:
+    - '"Security Council" sanctions committee'
+    - '"Panel of Experts" report'
+    - 'OFAC designates'
+    - '"sanctions evasion"'
+    - 'Interpol "UN Security Council Special Notice"'
+
+  # Listing pages of UN sanctions reports. Each NEW report (PDF) is downloaded and its full text
+  # scanned for every listed name. First run only records existing reports as a baseline.
+  reports:
+    enabled: true
+    max_new_reports_per_run: 15
+    pages:
+      - https://main.un.org/securitycouncil/en/sanctions/1267/monitoring-team/reports   # ISIL/Al-Qaida
+      - https://main.un.org/securitycouncil/en/sanctions/1988/monitoring-team/reports   # Taliban
+      - https://main.un.org/securitycouncil/en/sanctions/1533/panel_experts/reports     # DRC
+      - https://main.un.org/securitycouncil/en/sanctions/1591/panel_experts/reports     # Sudan
+      - https://main.un.org/securitycouncil/en/sanctions/1718/panel_experts/reports     # DPRK
+      - https://main.un.org/securitycouncil/en/sanctions/1970/panel_experts/reports     # Libya
+      - https://main.un.org/securitycouncil/en/sanctions/2127/panel_experts/reports     # CAR
+      - https://main.un.org/securitycouncil/en/sanctions/2140/panel_experts/reports     # Yemen
+      - https://main.un.org/securitycouncil/en/sanctions/2206/panel_experts/reports     # South Sudan
+      - https://main.un.org/securitycouncil/en/sanctions/2653/panel_experts/reports     # Haiti
+      - https://main.un.org/securitycouncil/en/sanctions/2713/panel_experts/reports     # Al-Shabaab
+      - https://www.securitycouncilreport.org/un_documents_type/sanctions-committee-documents/
+
+  # Flags when a UN-listed party is newly added to another authority's list (OFAC, EU, UK, etc.).
+  # NOTE: OpenSanctions data is free for non-commercial use only (CC BY-NC 4.0);
+  # commercial users need a licence from opensanctions.org or should set enabled: false.
+  opensanctions:
+    enabled: true
+    url: https://data.opensanctions.org/datasets/latest/sanctions/targets.simple.csv
+
+matching:
+  min_name_length: 8          # shorter names/aliases are too ambiguous to search
+  max_names_per_query: 4      # primary name + best aliases OR-ed into one query
+
+fetch:
+  max_page_fetches: 600       # article pages read to extract the sentence naming the party
+  workers: 8
+
+scoring:
+  use_llm: true               # used only if the ANTHROPIC_API_KEY secret is set
+  model: claude-haiku-4-5-20251001
+  threshold: 0.6              # minimum confidence for an item to be alerted
+  max_hits_per_entity: 25
+  workers: 4
+
+health_failure_ratio: 0.5     # alert if a source fails on >= 50% of requests (coverage gap)
