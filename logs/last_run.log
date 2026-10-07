@@ -1,68 +1,52 @@
-2026-10-06 21:11:06,008 INFO Relevance filter: keyword heuristic (set ANTHROPIC_API_KEY for far fewer false positives)
-2026-10-06 21:11:07,677 INFO UN list: 1010 records (736 individuals, 274 entities)
-2026-10-06 21:11:07,901 INFO == Other sanctions lists: starting
-2026-10-06 21:11:10,591 INFO OpenSanctions: 72976 rows read, 1063 UN rows, 999 matched to the UN list
-2026-10-06 21:11:10,602 INFO OpenSanctions: 999 UN parties linked to other lists
-2026-10-06 21:11:10,603 INFO == Other sanctions lists: finished in 0.0 min
-2026-10-06 21:11:10,603 INFO == Watched feeds: starting
-2026-10-06 21:11:12,598 INFO == Watched feeds: finished in 0.0 min
-2026-10-06 21:11:12,598 INFO == UN reports: starting
-2026-10-06 21:11:16,682 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1267/monitoring-team/reports: 66 documents listed
-2026-10-06 21:11:19,926 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1988/monitoring-team/reports: 30 documents listed
-2026-10-06 21:11:20,105 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1533/panel-of-experts/expert-reports: 56 documents listed
-2026-10-06 21:11:22,459 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1591/panel-of-experts/reports: 32 documents listed
-2026-10-06 21:11:23,640 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1718/panel_experts/reports: 33 documents listed
-2026-10-06 21:11:26,149 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1970/panel-experts/reports: 25 documents listed
-2026-10-06 21:11:28,547 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2127/panel-of-experts/reports: 35 documents listed
-2026-10-06 21:11:29,722 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2140/panel-of-experts/work-and-mandate/reports: 28 documents listed
-2026-10-06 21:11:32,061 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2206/panel-of-experts/reports: 35 documents listed
-2026-10-06 21:11:33,851 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2653/PoE/Reports: 20 documents listed
-2026-10-06 21:11:35,993 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2713/work-and-mandate/reports: 39 documents listed
-2026-10-06 21:11:38,218 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2745/panel-of-experts/reports: 35 documents listed
-2026-10-06 21:11:38,670 INFO Reports page https://www.securitycouncilreport.org/un_documents_type/sanctions-committee-documents/: 13 documents listed
-2026-10-06 21:11:38,670 INFO == UN reports: finished in 0.4 min
-2026-10-06 21:11:38,670 INFO == News sweep: starting
-2026-10-06 21:11:38,965 INFO GDELT GKG: scanning 1344 files (2026-09-29T21:11:38+00:00 → 2026-10-06T21:11:38+00:00) for 2440 names + 1021 nicknames
-2026-10-06 21:11:55,116 INFO GDELT GKG progress 100/1344 files, 123905 articles, 131 matches
-2026-10-06 21:12:11,066 INFO GDELT GKG progress 200/1344 files, 247993 articles, 278 matches
-2026-10-06 21:12:24,537 INFO GDELT GKG progress 300/1344 files, 361145 articles, 387 matches
-2026-10-06 21:12:33,750 INFO GDELT GKG progress 400/1344 files, 423333 articles, 488 matches
-2026-10-06 21:12:42,101 INFO GDELT GKG progress 500/1344 files, 475331 articles, 604 matches
-2026-10-06 21:12:54,665 INFO GDELT GKG progress 600/1344 files, 581522 articles, 909 matches
-2026-10-06 21:13:09,251 INFO GDELT GKG progress 700/1344 files, 705123 articles, 1135 matches
-2026-10-06 21:13:33,614 INFO GDELT GKG progress 800/1344 files, 946633 articles, 1344 matches
-2026-10-06 21:13:57,301 INFO GDELT GKG progress 900/1344 files, 1182343 articles, 1540 matches
-2026-10-06 21:14:19,060 INFO GDELT GKG progress 1000/1344 files, 1393241 articles, 1721 matches
-2026-10-06 21:14:35,758 INFO GDELT GKG progress 1100/1344 files, 1539307 articles, 1928 matches
-2026-10-06 21:14:53,264 INFO GDELT GKG progress 1200/1344 files, 1701337 articles, 2098 matches
-2026-10-06 21:15:14,196 INFO GDELT GKG progress 1300/1344 files, 1938976 articles, 2469 matches
-2026-10-06 21:15:23,948 INFO GDELT GKG done: 1342 files ok, 2 missing, 0 failed, 2066828 articles scanned, 2615 matches
-2026-10-06 21:15:24,703 INFO 994 new candidate items across 99 parties
-2026-10-06 21:15:45,934 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /news/3246521
-2026-10-06 21:15:50,806 WARNING Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /news/3246521
-2026-10-06 21:15:53,403 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='aa.com.tr', port=443): Read timed out. (read timeout=25)")': /en/world/timeline-us-ends-military-presence-in-iraq-after-23-years/4073521
-2026-10-06 21:16:04,521 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<HTTPSConnection(host='www.heraldk.com', port=443) at 0x7f7027a08710>, 'Connection to www.heraldk.com timed out. (connect timeout=25)')': /article/2026100519380443723
-2026-10-06 21:16:04,992 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.dailynayadiganta.com'. (_ssl.c:1010)"))': /post/other/1057681
-2026-10-06 21:16:05,945 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))': /2208935
-2026-10-06 21:16:06,286 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))': /2209706
-2026-10-06 21:16:09,488 WARNING Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.dailynayadiganta.com'. (_ssl.c:1010)"))': /post/other/1057681
-2026-10-06 21:16:10,269 WARNING Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))': /2208935
-2026-10-06 21:16:10,621 WARNING Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)'))': /2209706
-2026-10-06 21:16:11,248 WARNING Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPConnectionPool(host='www.bignewsnetwork.com', port=80): Read timed out. (read timeout=25)")': /news/279343243/mali-has-taken-its-case-against-ukraine-to-the-un-what-is-behind-it
-2026-10-06 21:16:12,434 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='www.aa.com.tr', port=443): Read timed out. (read timeout=25)")': /tr/gundem/tutun-kullanimi-akciger-kanseri-riskini-20-kata-kadar-artiriyor/4073420
-2026-10-06 21:16:13,899 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPConnectionPool(host='www.bignewsnetwork.com', port=80): Read timed out. (read timeout=25)")': /news/279344746/9-killed-11-injured-in-pakistani-airstrikes-in-afghanistan-helmand
-2026-10-06 21:16:16,144 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /en/index.php/news/107768
-2026-10-06 21:16:19,968 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.dailynayadiganta.com'. (_ssl.c:1010)"))': /post/religion-philosophy/1058101
-2026-10-06 21:16:20,253 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.dailynayadiganta.com'. (_ssl.c:1010)"))': /post/country/1058425
-2026-10-06 21:16:20,373 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.dailynayadiganta.com'. (_ssl.c:1010)"))': /post/country/1058446
-2026-10-06 21:16:20,494 WARNING Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /tr/gundem/tutun-kullanimi-akciger-kanseri-riskini-20-kata-kadar-artiriyor/4073420
-2026-10-06 21:16:20,706 WARNING Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'RemoteDisconnected('Remote end closed connection without response')': /en/index.php/news/107768
-2026-10-06 21:16:23,468 WARNING Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='aa.com.tr', port=443): Read timed out. (read timeout=25)")': /en/world/timeline-us-ends-military-presence-in-iraq-after-23-years/4073521
-2026-10-06 21:16:24,542 WARNING Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.dailynayadiganta.com'. (_ssl.c:1010)"))': /post/religion-philosophy/1058101
-2026-10-06 21:16:24,777 WARNING Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.dailynayadiganta.com'. (_ssl.c:1010)"))': /post/country/1058425
-2026-10-06 21:16:24,857 WARNING Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLCertVerificationError(1, "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'www.dailynayadiganta.com'. (_ssl.c:1010)"))': /post/country/1058446
-2026-10-06 21:16:34,126 WARNING Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectTimeoutError(<HTTPSConnection(host='www.heraldk.com', port=443) at 0x7f7026b42b70>, 'Connection to www.heraldk.com timed out. (connect timeout=25)')': /article/2026100519380443723
-2026-10-06 21:16:43,291 WARNING Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='aa.com.tr', port=443): Read timed out. (read timeout=25)")': /en/eurasia/russia-proposes-restoring-cooperation-with-afghanistan-through-sco/4079920
-2026-10-06 21:17:13,510 WARNING Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='aa.com.tr', port=443): Read timed out. (read timeout=25)")': /en/eurasia/russia-proposes-restoring-cooperation-with-afghanistan-through-sco/4079920
-2026-10-06 21:17:43,966 INFO == News sweep: finished in 6.1 min
-2026-10-06 21:17:43,966 INFO Done in 6.6 min. 430 news items on 60 parties; 81 borderline items to review
+2026-10-07 02:13:11,452 INFO Relevance filter: keyword heuristic (set ANTHROPIC_API_KEY for far fewer false positives)
+2026-10-07 02:13:12,399 INFO UN list: 1010 records (736 individuals, 274 entities)
+2026-10-07 02:13:12,604 INFO == Other sanctions lists: starting
+2026-10-07 02:13:15,088 INFO OpenSanctions: 72922 rows read, 1063 UN rows, 999 matched to the UN list
+2026-10-07 02:13:15,098 INFO OpenSanctions: 999 UN parties linked to other lists
+2026-10-07 02:13:15,098 INFO == Other sanctions lists: finished in 0.0 min
+2026-10-07 02:13:15,098 INFO == Watched feeds: starting
+2026-10-07 02:13:16,906 INFO == Watched feeds: finished in 0.0 min
+2026-10-07 02:13:16,906 INFO == Official releases: starting
+2026-10-07 02:13:17,073 WARNING Official source UN Security Council press releases (incl. sanctions committees): no items found
+2026-10-07 02:14:59,387 INFO Official source US Treasury press releases: 10 listed, 10 new read
+2026-10-07 02:16:39,211 INFO Official source US OFAC recent actions: 10 listed, 10 new read
+2026-10-07 02:16:41,179 INFO Official source US Justice Department press releases: 25 listed, 15 new read
+2026-10-07 02:16:41,214 WARNING Official source US Justice Department, National Security Division failed: HTTP 403
+2026-10-07 02:16:41,615 WARNING Official source US State Department releases (incl. terrorist designations) failed: HTTP 403
+2026-10-07 02:17:41,887 INFO Official source FBI press releases: 50 listed, 15 new read
+2026-10-07 02:17:47,791 INFO Official source UK Office of Financial Sanctions Implementation: 10 listed, 10 new read
+2026-10-07 02:17:47,791 INFO == Official releases: finished in 4.5 min
+2026-10-07 02:17:47,791 INFO == UN reports: starting
+2026-10-07 02:17:49,764 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1267/monitoring-team/reports: 66 documents listed
+2026-10-07 02:17:51,326 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1988/monitoring-team/reports: 30 documents listed
+2026-10-07 02:17:51,400 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1533/panel-of-experts/expert-reports: 56 documents listed
+2026-10-07 02:17:52,356 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1591/panel-of-experts/reports: 32 documents listed
+2026-10-07 02:17:54,143 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1718/panel_experts/reports: 33 documents listed
+2026-10-07 02:17:55,591 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1970/panel-experts/reports: 25 documents listed
+2026-10-07 02:17:56,810 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2127/panel-of-experts/reports: 35 documents listed
+2026-10-07 02:17:57,064 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2140/panel-of-experts/work-and-mandate/reports: 28 documents listed
+2026-10-07 02:17:58,159 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2206/panel-of-experts/reports: 35 documents listed
+2026-10-07 02:17:58,663 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2653/PoE/Reports: 20 documents listed
+2026-10-07 02:17:59,457 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2713/work-and-mandate/reports: 39 documents listed
+2026-10-07 02:18:00,746 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2745/panel-of-experts/reports: 35 documents listed
+2026-10-07 02:18:01,208 INFO Reports page https://www.securitycouncilreport.org/un_documents_type/sanctions-committee-documents/: 13 documents listed
+2026-10-07 02:18:01,208 INFO == UN reports: finished in 0.2 min
+2026-10-07 02:18:01,208 INFO == News sweep: starting
+2026-10-07 02:18:01,446 INFO GDELT GKG: scanning 1344 files (2026-09-30T02:18:01+00:00 → 2026-10-07T02:18:01+00:00) for 2473 names + 960 nicknames
+2026-10-07 02:18:21,565 INFO GDELT GKG progress 100/1344 files, 120692 articles, 125 matches
+2026-10-07 02:18:41,357 INFO GDELT GKG progress 200/1344 files, 242554 articles, 256 matches
+2026-10-07 02:18:59,936 INFO GDELT GKG progress 300/1344 files, 349602 articles, 366 matches
+2026-10-07 02:19:15,256 INFO GDELT GKG progress 400/1344 files, 406519 articles, 459 matches
+2026-10-07 02:19:30,532 INFO GDELT GKG progress 500/1344 files, 461882 articles, 585 matches
+2026-10-07 02:19:48,688 INFO GDELT GKG progress 600/1344 files, 572486 articles, 888 matches
+2026-10-07 02:20:09,502 INFO GDELT GKG progress 700/1344 files, 726362 articles, 1090 matches
+2026-10-07 02:20:36,660 INFO GDELT GKG progress 800/1344 files, 973570 articles, 1331 matches
+2026-10-07 02:21:03,074 INFO GDELT GKG progress 900/1344 files, 1211402 articles, 1499 matches
+2026-10-07 02:21:26,473 INFO GDELT GKG progress 1000/1344 files, 1403429 articles, 1716 matches
+2026-10-07 02:21:46,811 INFO GDELT GKG progress 1100/1344 files, 1548874 articles, 1910 matches
+2026-10-07 02:22:09,640 INFO GDELT GKG progress 1200/1344 files, 1740160 articles, 2136 matches
+2026-10-07 02:22:35,460 INFO GDELT GKG progress 1300/1344 files, 1980511 articles, 2511 matches
+2026-10-07 02:22:44,711 INFO GDELT GKG done: 1343 files ok, 1 missing, 0 failed, 2067484 articles scanned, 2617 matches
+2026-10-07 02:22:45,631 INFO 840 new candidate items across 80 parties
+2026-10-07 02:25:18,444 INFO == News sweep: finished in 7.3 min
+2026-10-07 02:25:18,445 INFO Done in 12.1 min. 226 news items on 43 parties; 3 mentions in UN/US/UK official releases; 32 borderline items to review
