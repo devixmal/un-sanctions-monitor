@@ -1,0 +1,23 @@
+# SYLVESTRE MUDACUMURA
+
+**UN reference:** CDi.012 · **Type:** individual · **Regime:** DRC · **Listed:** 2005-11-01
+
+**Also known as:** Mupenzi Bernard; General Major Mupenzi; General Mudacumura
+**Nationality:** Rwanda
+**Countries:** Democratic Republic of the Congo; Rwanda
+**Date(s) of birth:** 1954
+**Designation:** FDLR-FOCA Commander; FDLR-FOCA Lieutenant General
+**Also sanctioned by:** Australian Sanctions Consolidated List, Belgian Financial Sanctions, EU Consolidated Travel Bans, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Japan Economic Sanctions and List of Eligible People, Monaco National Fund Freezing List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
+
+## Status
+
+- Last checked: 2026-10-07 (news since 2026-07-09)
+- Verified activity records: 0; awaiting review: 0
+
+**UN listing notes:**
+
+> The International Criminal Court issued an arrest warrant for Mudacumura on 12 July 2012 for nine counts of war crimes, including attacking civilians, murder, mutilation, cruel treatment, rape, torture, destruction of property, pillaging and outrages against personal dignity, allegedly committed between 2009 and 2010 in the DRC. INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Individuals
+
+## Verified activity history
+
+_No verified activity recorded yet._

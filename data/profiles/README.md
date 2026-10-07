@@ -1,0 +1,1014 @@
+# Party profiles
+
+| Ref | Name | Regime | Verified | Awaiting review | Last verified activity | Last checked |
+|---|---|---|---|---|---|---|
+| [CDe.001](CDe.001.md) | ADF | DRC | 0 | 23 |  | 2026-10-07 |
+| [CDe.002](CDe.002.md) | BUTEMBO AIRLINES (BAL) | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDe.003](CDe.003.md) | COMPAGNIE AERIENNE DES GRANDS LACS (CAGL) ; GREAT LAKES BUSINESS COMPANY (GLBC) | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDe.004](CDe.004.md) | CONGOMET TRADING HOUSE | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDe.005](CDe.005.md) | FORCES DEMOCRATIQUES DE LIBERATION DU RWANDA (FDLR) | DRC | 0 | 50 |  | 2026-10-07 |
+| [CDe.006](CDe.006.md) | M23 | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDe.007](CDe.007.md) | MACHANGA LTD | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDe.008](CDe.008.md) | TOUS POUR LA PAIX ET LE DEVELOPPEMENT (NGO) | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDe.009](CDe.009.md) | UGANDA COMMERCIAL IMPEX (UCI) LTD | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDe.010](CDe.010.md) | ALLIANCE FLEUVE CONGO (AFC) | DRC | 0 | 1 |  | 2026-10-07 |
+| [CDe.011](CDe.011.md) | TWIRWANEHO | DRC | 0 | 9 |  | 2026-10-07 |
+| [CDi.001](CDi.001.md) | ERIC BADEGE | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.002](CDi.002.md) | FRANK KAKOLELE BWAMBALE | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.003](CDi.003.md) | GASTON IYAMUREMYE | DRC | 0 | 1 |  | 2026-10-07 |
+| [CDi.004](CDi.004.md) | INNOCENT KAINA | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.005](CDi.005.md) | JÉRÔME KAKWAVU BUKANDE | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.006](CDi.006.md) | GERMAIN KATANGA | DRC | 0 | 1 |  | 2026-10-07 |
+| [CDi.007](CDi.007.md) | THOMAS LUBANGA | DRC | 0 | 7 |  | 2026-10-07 |
+| [CDi.008](CDi.008.md) | SULTANI MAKENGA | DRC | 0 | 1 |  | 2026-10-07 |
+| [CDi.009](CDi.009.md) | KHAWA PANGA MANDRO | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.010](CDi.010.md) | CALLIXTE MBARUSHIMANA | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.011](CDi.011.md) | IRUTA DOUGLAS MPAMO | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.012](CDi.012.md) | SYLVESTRE MUDACUMURA | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.013](CDi.013.md) | LEODOMIR MUGARAGU | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.014](CDi.014.md) | LEOPOLD MUJYAMBERE | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.015](CDi.015.md) | JAMIL MUKULU | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.016](CDi.016.md) | IGNACE MURWANASHYAKA | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.017](CDi.017.md) | STRATON MUSONI | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.018](CDi.018.md) | JULES MUTEBUTSI | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.019](CDi.019.md) | BAUDOIN NGARUYE WA MYAMURO | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.020](CDi.020.md) | MATHIEU, CHUI NGUDJOLO | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.021](CDi.021.md) | FLORIBERT NGABU NJABU | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.022](CDi.022.md) | LAURENT NKUNDA | DRC | 0 | 2 |  | 2026-10-07 |
+| [CDi.023](CDi.023.md) | FELICIEN NSANZUBUKIRE | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.024](CDi.024.md) | PACIFIQUE NTAWUNGUKA | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.025](CDi.025.md) | JAMES NYAKUNI | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.026](CDi.026.md) | STANISLAS NZEYIMANA | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.027](CDi.027.md) | DIEUDONNÉ OZIA MAZIO | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.028](CDi.028.md) | JEAN-MARIE LUGERERO RUNIGA | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.029](CDi.029.md) | NTABO NTABERI SHEKA | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.030](CDi.030.md) | BOSCO TAGANDA | DRC | 0 | 4 |  | 2026-10-07 |
+| [CDi.031](CDi.031.md) | INNOCENT ZIMURINDA | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.032](CDi.032.md) | MUHINDO AKILI MUNDOS | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.033](CDi.033.md) | GUIDON SHIMIRAY MWISSA | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.034](CDi.034.md) | LUCIEN NZAMBAMWITA | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.035](CDi.035.md) | GÉDÉON KYUNGU MUTANGA WA BAFUNKWA KANONGA | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.036](CDi.036.md) | SEKA BALUKU | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.037](CDi.037.md) | PROTOGÈNE RUVUGAYIMIKORE | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.038](CDi.038.md) | BERNARD MAHESHE BYAMUNGU | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.039](CDi.039.md) | APOLLINAIRE HAKIZIMANA | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.040](CDi.040.md) | AHMAD MAHMOOD HASSAN | DRC | 0 | 1 |  | 2026-10-07 |
+| [CDi.041](CDi.041.md) | MICHEL RUKUNDA | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.042](CDi.042.md) | MOHAMED ALI NKALUBO | DRC | 0 | 1 |  | 2026-10-07 |
+| [CDi.043](CDi.043.md) | WILLIAM AMURI YAKUTUMBA | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.044](CDi.044.md) | WILLY NGOMA | DRC | 0 | 1 |  | 2026-10-07 |
+| [CDi.045](CDi.045.md) | CORNEILLE NANGAA YOBELUO | DRC | 0 | 23 |  | 2026-10-07 |
+| [CDi.046](CDi.046.md) | SEBASTIEN UWIMBABAZI | DRC | 0 | 1 |  | 2026-10-07 |
+| [CDi.047](CDi.047.md) | MUHAMMED LUMISA | DRC | 0 | 0 |  | 2026-10-07 |
+| [CDi.048](CDi.048.md) | CHARLES SEMATAMA | DRC | 0 | 1 |  | 2026-10-07 |
+| [CDi.049](CDi.049.md) | JOHN IMANI NZENZE | DRC | 0 | 2 |  | 2026-10-07 |
+| [CDi.050](CDi.050.md) | GUSTAVE KUBWAYO | DRC | 0 | 2 |  | 2026-10-07 |
+| [CFe.002](CFe.002.md) | LORD’S RESISTANCE ARMY | CAR | 0 | 0 |  | 2026-10-07 |
+| [CFi.001](CFi.001.md) | FRANÇOIS YANGOUVONDA BOZIZÉ | CAR | 0 | 0 |  | 2026-10-07 |
+| [CFi.002](CFi.002.md) | NOURREDINE ADAM | CAR | 0 | 0 |  | 2026-10-07 |
+| [CFi.004](CFi.004.md) | ALFRED YEKATOM | CAR | 0 | 11 |  | 2026-10-07 |
+| [CFi.005](CFi.005.md) | HABIB SOUSSOU | CAR | 0 | 0 |  | 2026-10-07 |
+| [CFi.006](CFi.006.md) | OUMAR YOUNOUS ABDOULAY | CAR | 0 | 0 |  | 2026-10-07 |
+| [CFi.007](CFi.007.md) | HAROUN GAYE | CAR | 0 | 0 |  | 2026-10-07 |
+| [CFi.008](CFi.008.md) | EUGÈNE BARRET NGAÏKOSSET | CAR | 0 | 2 |  | 2026-10-07 |
+| [CFi.009](CFi.009.md) | JOSEPH KONY | CAR | 0 | 12 |  | 2026-10-07 |
+| [CFi.010](CFi.010.md) | ALI KONY | CAR | 0 | 0 |  | 2026-10-07 |
+| [CFi.011](CFi.011.md) | SALIM KONY | CAR | 0 | 0 |  | 2026-10-07 |
+| [CFi.012](CFi.012.md) | ABDOULAYE HISSENE | CAR | 0 | 0 |  | 2026-10-07 |
+| [CFi.013](CFi.013.md) | MARTIN KOUMTAMADJI | CAR | 0 | 26 |  | 2026-10-07 |
+| [CFi.014](CFi.014.md) | BI SIDI SOULEMAN | CAR | 0 | 0 |  | 2026-10-07 |
+| [CFi.015](CFi.015.md) | ALI DARASSA | CAR | 0 | 1 |  | 2026-10-07 |
+| [GBi.001](GBi.001.md) | IBRAIMA CAMARÁ | GB | 0 | 0 |  | 2026-10-07 |
+| [GBi.003](GBi.003.md) | CRANHA DANFA | GB | 0 | 0 |  | 2026-10-07 |
+| [GBi.004](GBi.004.md) | IDRISSA DJALÓ | GB | 0 | 1 |  | 2026-10-07 |
+| [GBi.005](GBi.005.md) | ANTÓNIO INJAI | GB | 0 | 0 |  | 2026-10-07 |
+| [GBi.006](GBi.006.md) | TCHIPA NA BIDON | GB | 0 | 0 |  | 2026-10-07 |
+| [GBi.007](GBi.007.md) | TCHAM NA MAN | GB | 0 | 0 |  | 2026-10-07 |
+| [GBi.008](GBi.008.md) | ESTÊVÃO NA MENA | GB | 0 | 0 |  | 2026-10-07 |
+| [GBi.009](GBi.009.md) | DABA NAUALNA | GB | 0 | 0 |  | 2026-10-07 |
+| [GBi.010](GBi.010.md) | JÚLIO NHATE | GB | 0 | 0 |  | 2026-10-07 |
+| [GBi.011](GBi.011.md) | MAMADU TURE | GB | 0 | 0 |  | 2026-10-07 |
+| [HTe.001](HTe.001.md) | GRAN GRIF | Haiti | 0 | 11 |  | 2026-10-07 |
+| [HTe.002](HTe.002.md) | VIV ANSANM | Haiti | 0 | 21 |  | 2026-10-07 |
+| [HTi.001](HTi.001.md) | JIMMY CHERIZIER | Haiti | 0 | 1 |  | 2026-10-07 |
+| [HTi.002](HTi.002.md) | JOHNSON ANDRE | Haiti | 0 | 5 |  | 2026-10-07 |
+| [HTi.003](HTi.003.md) | RENEL DESTINA | Haiti | 0 | 3 |  | 2026-10-07 |
+| [HTi.004](HTi.004.md) | WILSON JOSEPH | Haiti | 0 | 7 |  | 2026-10-07 |
+| [HTi.005](HTi.005.md) | VITELHOMME INNOCENT | Haiti | 0 | 2 |  | 2026-10-07 |
+| [HTi.006](HTi.006.md) | PROPHANE VICTOR | Haiti | 0 | 3 |  | 2026-10-07 |
+| [HTi.007](HTi.007.md) | LUCKSON ELAN | Haiti | 0 | 2 |  | 2026-10-07 |
+| [HTi.008](HTi.008.md) | DIMITRI HERARD | Haiti | 0 | 2 |  | 2026-10-07 |
+| [HTi.009](HTi.009.md) | KEMPES SANON | Haiti | 0 | 2 |  | 2026-10-07 |
+| [IQe.049](IQe.049.md) | IDLEB COMPANY FOR SPINNING | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQe.197](IQe.197.md) | AL WASEL AND BABEL GENERAL TRADING LLC | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQe.199](IQe.199.md) | AVIATRANS ANSTALT | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQe.203](IQe.203.md) | Al-ARABI TRADING COMPANY | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQe.204](IQe.204.md) | AL-BASHAIR TRADING COMPANY, LTD | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQe.205](IQe.205.md) | TRADING AND TRANSPORT SERVICES COMPANY, LTD | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQe.206](IQe.206.md) | ALFA COMPANY LIMITED FOR INTERNATIONAL TRADING AND MARKETING | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQe.207](IQe.207.md) | TECHNOLOGY AND DEVELOPMENT GROUP LIMITED | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQe.208](IQe.208.md) | T.M.G. ENGINEERING LIMITED | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.001](IQi.001.md) | SADDAM HUSSEIN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.002](IQi.002.md) | QUSAY SADDAM HUSSEIN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.003](IQi.003.md) | UDAY SADDAM HUSSEIN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.004](IQi.004.md) | ABID HAMID MAHMUD AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.005](IQi.005.md) | ALI HASSAN AL-MAJID AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.006](IQi.006.md) | IZZAT IBRAHIM AL-DURI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.007](IQi.007.md) | HANI ABD-AL-LATIF TILFAH AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.009](IQi.009.md) | MUHAMMAD HAMZA ZUBAIDI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.011](IQi.011.md) | BARZAN ABD AL-GHAFUR SULAIMAN MAJID AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.012](IQi.012.md) | MUZAHIM SA'B HASSAN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.013](IQi.013.md) | IBRAHIM AHMAD ABD AL-SATTAR MUHAMMED AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.014](IQi.014.md) | SAIF-AL-DIN FULAYYIH HASSAN TAHA AL-RAWI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.015](IQi.015.md) | RAFI ABD-AL-LATIF TILFAH AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.016](IQi.016.md) | TAHIR JALIL HABBUSH AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.017](IQi.017.md) | HAMID RAJA SHALAH AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.019](IQi.019.md) | ABD-AL-TAWWAB MULLAH HUWAYSH | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.020](IQi.020.md) | TAHA YASSIN RAMADAN AL-JIZRAWI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.021](IQi.021.md) | RUKAN RAZUKI ABD-AL-GHAFUR SULAIMAN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.022](IQi.022.md) | JAMAL MUSTAFA ABDALLAH SULTAN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.023](IQi.023.md) | MIZBAN KHADR HADI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.024](IQi.024.md) | TAHA MUHYI-AL-DIN MA'RUF | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.025](IQi.025.md) | TARIQ AZIZ | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.027](IQi.027.md) | SULTAN HASHIM AHMAD AL-TA'I | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.028](IQi.028.md) | HIKMAT MIZBAN IBRAHIM AL-AZZAWI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.036](IQi.036.md) | SAB'AWI IBRAHIM HASSAN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.037](IQi.037.md) | WATBAN IBRAHIM HASSAN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.038](IQi.038.md) | BARZAN IBRAHIM HASSAN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.039](IQi.039.md) | HUDA SALIH MAHDI AMMASH | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.044](IQi.044.md) | YAHIA ABDALLAH AL-UBAIDI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.045](IQi.045.md) | NAYIF SHINDAKH THAMIR GHALIB | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.046](IQi.046.md) | SAIF-AL-DIN AL-MASHHADANI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.047](IQi.047.md) | FADIL MAHMUD GHARIB | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.048](IQi.048.md) | MUHSIN KHADR AL-KHAFAJI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.049](IQi.049.md) | Rashid Taan Kathim | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.050](IQi.050.md) | UGLA ABID SAKR AL-ZUBAISI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.051](IQi.051.md) | GHAZI HAMMUD AL-UBAIDI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.052](IQi.052.md) | ADIL ABDALLAH MAHDI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.054](IQi.054.md) | KHAMIS SIRHAN AL-MUHAMMAD | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.055](IQi.055.md) | SA'D ABD-AL-MAJID AL-FAISAL AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.056](IQi.056.md) | SAJIDA KHAYRALLAH TILFAH | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.057](IQi.057.md) | RAGHAD SADDAM HUSSEIN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.058](IQi.058.md) | RANA SADDAM HUSSEIN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.059](IQi.059.md) | HALA SADDAM HUSSEIN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.060](IQi.060.md) | SAMIRA SHAHBANDAR | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.061](IQi.061.md) | ALI SADDAM HUSSEIN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.062](IQi.062.md) | MOHAMMAD BARZAN IBRAHIM HASAN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.063](IQi.063.md) | SAJA BARZAN IBRAHIM HASAN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.064](IQi.064.md) | ALI BARZAN IBRAHIM HASAN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.065](IQi.065.md) | NOOR BARZAN IBRAHIM HASAN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.066](IQi.066.md) | KHAWLA BARZAN IBRAHIM HASAN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.067](IQi.067.md) | THORAYA BARZAN IBRAHIM HASAN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.068](IQi.068.md) | JAWHAR MAJID AL-DURI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.069](IQi.069.md) | Sundus Abd Al-Ghafur | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.070](IQi.070.md) | NIDAL AL-RABI'I | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.071](IQi.071.md) | INTISSAR AL-UBAYDI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.073](IQi.073.md) | ADNAN S. HASAN AHMED | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.076](IQi.076.md) | ADIB SHABAN AL-ANI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.079](IQi.079.md) | ROODI SLEWA | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.080](IQi.080.md) | MUHAMMAD YUNIS AHMAD | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.081](IQi.081.md) | YASIR SABAWI IBRAHIM HASAN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.082](IQi.082.md) | OMAR SABAWI IBRAHIM HASAN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.083](IQi.083.md) | AYMAN SABAWI IBRAHIM HASAN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.084](IQi.084.md) | IBRAHIM SABAWI IBRAHIM HASAN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.085](IQi.085.md) | BASHAR SABAWI IBRAHIM HASAN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IQi.086](IQi.086.md) | SA’D SABAWI IBRAHIM HASAN AL-TIKRITI | Iraq | 0 | 0 |  | 2026-10-07 |
+| [IRe.001](IRe.001.md) | 7TH OF TIR | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.002](IRe.002.md) | ABZAR BORESH KAVEH CO. (BK CO.) | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.003](IRe.003.md) | AMIN INDUSTRIAL COMPLEX | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.004](IRe.004.md) | AMMUNITION AND METALLURGY INDUSTRIES GROUP (AMIG) | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.005](IRe.005.md) | ARMAMENT INDUSTRIES GROUP (AIG) | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.006](IRe.006.md) | ATOMIC ENERGY ORGANISATION OF IRAN (AEOI) | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.007](IRe.007.md) | BANK SEPAH AND BANK SEPAH INTERNATIONAL | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.008](IRe.008.md) | BARZAGANI TEJARAT TAVANMAD SACCAL COMPANIES | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.009](IRe.009.md) | BEHINEH TRADING CO. | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.010](IRe.010.md) | CRUISE MISSILE INDUSTRY GROUP | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.011](IRe.011.md) | DEFENCE INDUSTRIES ORGANISATION (DIO) | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.012](IRe.012.md) | DEFENSE TECHNOLOGY AND SCIENCE RESEARCH CENTER (DTSRC) | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.013](IRe.013.md) | DOOSTAN INTERNATIONAL COMPANY (DICO) | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.014](IRe.014.md) | ELECTRO SANAM COMPANY | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.015](IRe.015.md) | ESFAHAN NUCLEAR FUEL RESEARCH AND PRODUCTION CENTRE (NFRPC) AND ESFAHAN NUCLEAR TECHNOLOGY CENTRE (ENTC) | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.016](IRe.016.md) | ETTEHAD TECHNICAL GROUP | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.017](IRe.017.md) | FAJR INDUSTRIAL GROUP | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.018](IRe.018.md) | FARASAKHT INDUSTRIES | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.019](IRe.019.md) | FARAYAND TECHNIQUE | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.020](IRe.020.md) | FATER INSTITUTE | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.021](IRe.021.md) | FIRST EAST EXPORT BANK, P.L.C. | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.022](IRe.022.md) | GHARAGAHE SAZANDEGI GHAEM | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.023](IRe.023.md) | GHORB KARBALA | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.024](IRe.024.md) | GHORB NOOH | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.025](IRe.025.md) | HARA COMPANY | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.026](IRe.026.md) | IMENSAZAN CONSULTANT ENGINEERS INSTITUTE | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.027](IRe.027.md) | INDUSTRIAL FACTORIES OF PRECISION (IFP) MACHINERY | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.028](IRe.028.md) | IRANO HIND SHIPPING COMPANY | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.029](IRe.029.md) | IRISL BENELUX NV | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.030](IRe.030.md) | JABBER IBN HAYAN | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.031](IRe.031.md) | JOZA INDUSTRIAL CO. | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.032](IRe.032.md) | KALA-ELECTRIC | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.033](IRe.033.md) | KARAJ NUCLEAR RESEARCH CENTRE | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.034](IRe.034.md) | KAVEH CUTTING TOOLS COMPANY | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.035](IRe.035.md) | KAVOSHYAR COMPANY | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.036](IRe.036.md) | KHATAM AL-ANBIYA CONSTRUCTION HEADQUARTERS (KAA) | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.037](IRe.037.md) | KHORASAN METALLURGY INDUSTRIES | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.038](IRe.038.md) | M. BABAIE INDUSTRIES | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.039](IRe.039.md) | MAKIN | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.040](IRe.040.md) | MALEK ASHTAR UNIVERSITY | Iran | 0 | 12 |  | 2026-10-07 |
+| [IRe.041](IRe.041.md) | MESBAH ENERGY COMPANY | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.042](IRe.042.md) | MINISTRY OF DEFENSE LOGISTICS EXPORT | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.043](IRe.043.md) | MIZAN MACHINERY MANUFACTURING | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.044](IRe.044.md) | MODERN INDUSTRIES TECHNIQUE COMPANY (MITEC) | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.045](IRe.045.md) | NIRU BATTERY MANUFACTURING COMPANY | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.046](IRe.046.md) | NOVIN ENERGY COMPANY | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.047](IRe.047.md) | NUCLEAR RESEARCH CENTER FOR AGRICULTURE AND MEDICINE (NFRPC) | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.048](IRe.048.md) | OMRAN SAHEL | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.049](IRe.049.md) | ORIENTAL OIL KISH | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.050](IRe.050.md) | PARCHIN CHEMICAL INDUSTRIES | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.051](IRe.051.md) | PARS AVIATION SERVICES COMPANY | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.052](IRe.052.md) | PARS TRASH COMPANY | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.053](IRe.053.md) | PEJMAN INDUSTRIAL SERVICES CORPORATION | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.054](IRe.054.md) | PISHGAM ENERGY INDUSTRIES | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.055](IRe.055.md) | QODS AERONAUTICS INDUSTRIES | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.056](IRe.056.md) | RAH SAHEL | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.057](IRe.057.md) | RAHAB ENGINEERING INSTITUTE | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.058](IRe.058.md) | SABALAN COMPANY | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.059](IRe.059.md) | SAD IMPORT EXPORT COMPANY | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.060](IRe.060.md) | SAFETY EQUIPMENT PROCUREMENT (SEP) | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.061](IRe.061.md) | SAHAND ALUMINUM PARTS INDUSTRIAL COMPANY (SAPICO) | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.062](IRe.062.md) | SAHEL CONSULTANT ENGINEERS | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.063](IRe.063.md) | SANAM INDUSTRIAL GROUP | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.064](IRe.064.md) | SEPANIR | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.065](IRe.065.md) | SEPASAD ENGINEERING COMPANY | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.066](IRe.066.md) | SHAHID BAGHERI INDUSTRIAL GROUP (SBIG) | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.067](IRe.067.md) | SHAHID HEMMAT INDUSTRIAL GROUP (SHIG) | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.068](IRe.068.md) | SHAHID KARRAZI INDUSTRIES | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.069](IRe.069.md) | SHAHID SATTARI INDUSTRIES | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.070](IRe.070.md) | SHAHID SAYYADE SHIRAZI INDUSTRIES (SSSI) | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.071](IRe.071.md) | SHO'A' AVIATION | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.072](IRe.072.md) | SOUTH SHIPPING LINE IRAN (SSL) | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.073](IRe.073.md) | SPECIAL INDUSTRIES GROUP (SIG) | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.074](IRe.074.md) | TAMAS COMPANY | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.075](IRe.075.md) | TIZ PARS | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.076](IRe.076.md) | YA MAHDI INDUSTRIES GROUP | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.077](IRe.077.md) | YAS AIR | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRe.078](IRe.078.md) | YAZD METALLURGY INDUSTRIES (YMI) | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.001](IRi.001.md) | FEREIDOUN ABBASI-DAVANI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.002](IRi.002.md) | DAWOOD AGHA-JANI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.003](IRi.003.md) | AZIM AGHAJANI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.004](IRi.004.md) | ALI AKBAR AHMADIAN | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.005](IRi.005.md) | AMIR MOAYYED ALAI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.006](IRi.006.md) | BEHMAN ASGARPOUR | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.007](IRi.007.md) | MOHAMMAD FEDAI ASHIANI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.008](IRi.008.md) | ABBAS REZAEE ASHTIANI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.009](IRi.009.md) | BAHMANYAR MORTEZA BAHMANYAR | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.010](IRi.010.md) | HALEH BAKHTIAR | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.011](IRi.011.md) | MORTEZA BEHZAD | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.012](IRi.012.md) | AHMAD VAHID DASTJERDI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.013](IRi.013.md) | AHMAD DERAKHSHANDEH | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.014](IRi.014.md) | MOHAMMAD ESLAMI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.015](IRi.015.md) | REZA-GHOLI ESMAELI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.016](IRi.016.md) | MOHSEN FAKHRIZADEH-MAHABADI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.017](IRi.017.md) | MOHAMMAD HEJAZI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.018](IRi.018.md) | MOHSEN HOJATI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.019](IRi.019.md) | SEYYED HUSSEIN HOSSEINI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.020](IRi.020.md) | MEHRDADA AKHLAGHI KETABACHI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.021](IRi.021.md) | ALI HAJINIA LEILABADI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.022](IRi.022.md) | NASER MALEKI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.023](IRi.023.md) | HAMID-REZA MOHAJERANI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.024](IRi.024.md) | JAFAR MOHAMMADI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.025](IRi.025.md) | EHSAN MONAJEMI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.026](IRi.026.md) | MOHAMMAD REZA NAQDI | Iran | 0 | 33 |  | 2026-10-07 |
+| [IRi.027](IRi.027.md) | MOHAMMAD MEHDI NEJAD NOURI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.028](IRi.028.md) | HOUSHANG NOBARI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.029](IRi.029.md) | MOHAMMAD QANNADI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.030](IRi.030.md) | AMIR RAHIMI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.031](IRi.031.md) | JAVAD RAHIQI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.032](IRi.032.md) | ABBAS RASHIDI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.033](IRi.033.md) | MORTEZA REZAIE | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.034](IRi.034.md) | M. JAVAD KARIMI SABET | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.035](IRi.035.md) | MORTEZA SAFARI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.036](IRi.036.md) | YAHYA RAHIM SAFAVI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.037](IRi.037.md) | SEYED JABER SAFDARI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.038](IRi.038.md) | HOSEIN SALIMI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.039](IRi.039.md) | QASEM SOLEIMANI | Iran | 0 | 25 |  | 2026-10-07 |
+| [IRi.040](IRi.040.md) | GHASEM SOLEYMANI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.041](IRi.041.md) | ALI AKBAR TABATABAEI | Iran | 0 | 0 |  | 2026-10-07 |
+| [IRi.042](IRi.042.md) | MOHAMMAD REZA ZAHEDI | Iran | 0 | 4 |  | 2026-10-07 |
+| [IRi.043](IRi.043.md) | MOHAMMAD BAQER ZOLQADR | Iran | 0 | 22 |  | 2026-10-07 |
+| [KPe.001](KPe.001.md) | KOREA MINING DEVELOPMENT TRADING CORPORATION | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.002](KPe.002.md) | KOREA RYONBONG GENERAL CORPORATION | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.003](KPe.003.md) | TANCHON COMMERCIAL BANK | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.004](KPe.004.md) | NAMCHONGANG TRADING CORPORATION | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.005](KPe.005.md) | HONG KONG ELECTRONICS | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.006](KPe.006.md) | KOREA HYOKSIN TRADING CORPORATION | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.007](KPe.007.md) | GENERAL BUREAU OF ATOMIC ENERGY (GBAE) | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.008](KPe.008.md) | KOREAN TANGUN TRADING CORPORATION | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.009](KPe.009.md) | AMROGGANG DEVELOPMENT BANKING CORPORATION | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.010](KPe.010.md) | GREEN PINE ASSOCIATED CORPORATION | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.011](KPe.011.md) | KOREA HEUNGJIN TRADING COMPANY | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.012](KPe.012.md) | KOREAN COMMITTEE FOR SPACE TECHNOLOGY | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.013](KPe.013.md) | BANK OF EAST LAND | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.014](KPe.014.md) | KOREA KUMRYONG TRADING CORPORATION | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.015](KPe.015.md) | TOSONG TECHNOLOGY TRADING CORPORATION | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.016](KPe.016.md) | KOREA RYONHA MACHINERY JOINT VENTURE CORPORATION | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.017](KPe.017.md) | LEADER (HONG KONG) INTERNATIONAL | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.018](KPe.018.md) | SECOND ACADEMY OF NATURAL SCIENCES | DPRK | 0 | 1 |  | 2026-10-07 |
+| [KPe.019](KPe.019.md) | KOREA COMPLEX EQUIPMENT IMPORT CORPORATION | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.020](KPe.020.md) | OCEAN MARITIME MANAGEMENT COMPANY, LIMITED (OMM) | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.021](KPe.021.md) | ACADEMY OF NATIONAL DEFENSE SCIENCE | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.022](KPe.022.md) | CHONGCHONGANG SHIPPING COMPANY | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.023](KPe.023.md) | DAEDONG CREDIT BANK (DCB) | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.024](KPe.024.md) | HESONG TRADING COMPANY | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.025](KPe.025.md) | KOREA KWANGSON BANKING CORPORATION (KKBC) | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.026](KPe.026.md) | KOREA KWANGSONG TRADING CORPORATION | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.027](KPe.027.md) | MINISTRY OF ATOMIC ENERGY INDUSTRY | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.028](KPe.028.md) | MUNITIONS INDUSTRY DEPARTMENT | DPRK | 0 | 13 |  | 2026-10-07 |
+| [KPe.029](KPe.029.md) | NATIONAL AEROSPACE TECHNOLOGY ADMINISTRATION | DPRK | 0 | 1 |  | 2026-10-07 |
+| [KPe.030](KPe.030.md) | OFFICE 39 | DPRK | 0 | 3 |  | 2026-10-07 |
+| [KPe.031](KPe.031.md) | RECONNAISSANCE GENERAL BUREAU | DPRK | 0 | 13 |  | 2026-10-07 |
+| [KPe.032](KPe.032.md) | SECOND ECONOMIC COMMITTEE | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.033](KPe.033.md) | KOREA UNITED DEVELOPMENT BANK | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.034](KPe.034.md) | ILSIM INTERNATIONAL BANK | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.035](KPe.035.md) | KOREA DAESONG BANK | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.036](KPe.036.md) | SINGWANG ECONOMICS AND TRADING GENERAL CORPORATION | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.037](KPe.037.md) | KOREA FOREIGN TECHNICAL TRADE CENTER | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.038](KPe.038.md) | KOREA PUGANG TRADING CORPORATION | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.039](KPe.039.md) | KOREA INTERNATIONAL CHEMICAL JOINT VENTURE COMPANY | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.040](KPe.040.md) | DCB FINANCE LIMITED | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.041](KPe.041.md) | KOREA TAESONG TRADING COMPANY | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.042](KPe.042.md) | KOREA DAESONG GENERAL TRADING CORPORATION | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.043](KPe.043.md) | KANGBONG TRADING CORPORATION | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.044](KPe.044.md) | KOREA KUMSAN TRADING CORPORATION | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.045](KPe.045.md) | KORYO BANK | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.046](KPe.046.md) | STRATEGIC ROCKET FORCE OF THE KOREAN PEOPLE’S ARMY | DPRK | 0 | 28 |  | 2026-10-07 |
+| [KPe.047](KPe.047.md) | FOREIGN TRADE BANK (FTB) | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.048](KPe.048.md) | KOREAN NATIONAL INSURANCE COMPANY (KNIC) | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.049](KPe.049.md) | KORYO CREDIT DEVELOPMENT BANK | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.050](KPe.050.md) | MANSUDAE OVERSEAS PROJECT GROUP OF COMPANIES | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.051](KPe.051.md) | CENTRAL MILITARY COMMISSION OF THE WORKERS’ PARTY OF KOREA (CMC) | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.052](KPe.052.md) | ORGANIZATION AND GUIDANCE DEPARTMENT (OGD) | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.053](KPe.053.md) | PROPAGANDA AND AGITATION DEPARTMENT (PAD) | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.054](KPe.054.md) | MINISTRY OF NATIONAL DEFENCE | DPRK | 0 | 17 |  | 2026-10-07 |
+| [KPe.055](KPe.055.md) | CHANG AN SHIPPING & TECHNOLOGY | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.056](KPe.056.md) | CHONMYONG SHIPPING CO | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.057](KPe.057.md) | FIRST OIL JV CO LTD | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.058](KPe.058.md) | HAPJANGGANG SHIPPING CORP | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.059](KPe.059.md) | HUAXIN SHIPPING HONGKONG LTD | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.060](KPe.060.md) | KINGLY WON INTERNATIONAL CO., LTD | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.061](KPe.061.md) | KOREA ACHIM SHIPPING CO | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.062](KPe.062.md) | KOREA ANSAN SHIPPING COMPANY | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.063](KPe.063.md) | KOREA MYONGDOK SHIPPING CO | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.064](KPe.064.md) | KOREA SAMJONG SHIPPING | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.065](KPe.065.md) | KOREA SAMMA SHIPPING CO | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.066](KPe.066.md) | KOREA YUJONG SHIPPING CO LTD | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.067](KPe.067.md) | KOTI CORP | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.068](KPe.068.md) | MYOHYANG SHIPPING CO | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.069](KPe.069.md) | PAEKMA SHIPPING CO | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.070](KPe.070.md) | PHYONGCHON SHIPPING & MARINE | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.071](KPe.071.md) | PRO-GAIN GROUP CORPORATION | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.072](KPe.072.md) | SHANGHAI DONGFENG SHIPPING CO LTD | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.073](KPe.073.md) | SHEN ZHONG INTERNATIONAL SHIPPING | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.074](KPe.074.md) | WEIHAI WORLD-SHIPPING FREIGHT | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPe.075](KPe.075.md) | YUK TUNG ENERGY PTE LTD | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.001](KPi.001.md) | YUN HO-JIN | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.002](KPi.002.md) | RI JE-SON | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.003](KPi.003.md) | HWANG SOK-HWA | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.004](KPi.004.md) | RI HONG-SOP | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.005](KPi.005.md) | HAN YU-RO | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.006](KPi.006.md) | PAEK CHANG-HO | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.007](KPi.007.md) | CHANG MYONG-CHIN | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.008](KPi.008.md) | RA KY'ONG-SU | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.009](KPi.009.md) | KIM KWANG-IL | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.010](KPi.010.md) | YO'N CHO'NG NAM | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.011](KPi.011.md) | KO CH'O'L-CHAE | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.012](KPi.012.md) | MUN CHO'NG-CH'O'L | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.013](KPi.013.md) | CHOE CHUN-SIK | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.014](KPi.014.md) | CHOE SONG IL | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.015](KPi.015.md) | HYON KWANG IL | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.016](KPi.016.md) | JANG BOM SU | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.017](KPi.017.md) | JANG YONG SON | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.018](KPi.018.md) | JON MYONG GUK | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.019](KPi.019.md) | KANG MUN KIL | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.020](KPi.020.md) | KANG RYONG | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.021](KPi.021.md) | KIM JUNG JONG | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.022](KPi.022.md) | KIM KYU | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.023](KPi.023.md) | KIM TONG MY’ONG | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.024](KPi.024.md) | KIM YONG CHOL | DPRK | 0 | 1 |  | 2026-10-07 |
+| [KPi.025](KPi.025.md) | KO TAE HUN | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.026](KPi.026.md) | RI MAN GON | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.027](KPi.027.md) | RYU JIN | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.028](KPi.028.md) | YU CHOL U | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.029](KPi.029.md) | PAK CHUN IL | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.030](KPi.030.md) | KIM SONG CHOL | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.031](KPi.031.md) | SON JONG HYOK | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.032](KPi.032.md) | KIM SE GON | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.033](KPi.033.md) | RI WON HO | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.034](KPi.034.md) | JO YONG CHOL | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.035](KPi.035.md) | KIM CHOL SAM | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.036](KPi.036.md) | KIM SOK CHOL | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.037](KPi.037.md) | CHANG CHANG HA | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.038](KPi.038.md) | CHO CHUN RYONG | DPRK | 0 | 1 |  | 2026-10-07 |
+| [KPi.039](KPi.039.md) | SON MUN SAN | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.040](KPi.040.md) | CHO IL U | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.041](KPi.041.md) | CHO YON CHUN | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.042](KPi.042.md) | CHOE HWI | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.043](KPi.043.md) | JO YONG-WON | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.044](KPi.044.md) | KIM CHOL NAM | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.045](KPi.045.md) | KIM KYONG OK | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.046](KPi.046.md) | KIM TONG-HO | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.047](KPi.047.md) | MIN BYONG CHOL | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.048](KPi.048.md) | PAEK SE BONG | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.049](KPi.049.md) | PAK HAN SE | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.050](KPi.050.md) | PAK TO CHUN | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.051](KPi.051.md) | RI JAE IL | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.052](KPi.052.md) | RI SU YONG | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.053](KPi.053.md) | RI YONG MU | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.054](KPi.054.md) | CHOE CHUN YONG | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.055](KPi.055.md) | HAN JANG SU | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.056](KPi.056.md) | JANG SONG CHOL | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.057](KPi.057.md) | JANG SUNG NAM | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.058](KPi.058.md) | JO CHOL SONG | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.059](KPi.059.md) | KANG CHOL SU | DPRK | 0 | 6 |  | 2026-10-07 |
+| [KPi.060](KPi.060.md) | KIM MUN CHOL | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.061](KPi.061.md) | KIM NAM UNG | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.062](KPi.062.md) | Pak Il Kyu | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.063](KPi.063.md) | PAK YONG SIK | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.064](KPi.064.md) | CH'OE SO’K MIN | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.065](KPi.065.md) | CHU HYO’K | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.066](KPi.066.md) | KIM JONG SIK | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.067](KPi.067.md) | KIM KYONG IL | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.068](KPi.068.md) | KIM TONG CHOL | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.069](KPi.069.md) | KO CHOL MAN | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.070](KPi.070.md) | KU JA HYONG | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.071](KPi.071.md) | MUN KYONG HWAN | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.072](KPi.072.md) | PAE WON UK | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.073](KPi.073.md) | PAK BONG NAM | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.074](KPi.074.md) | RI CHUN HWAN | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.075](KPi.075.md) | RI CHUN SONG | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.076](KPi.076.md) | RI PYONG CHUL | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.077](KPi.077.md) | RI SONG HYOK | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.078](KPi.078.md) | RI U’N SO’NG | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.079](KPi.079.md) | PAK MUN IL | DPRK | 0 | 0 |  | 2026-10-07 |
+| [KPi.080](KPi.080.md) | TSANG YUNG YUAN | DPRK | 0 | 0 |  | 2026-10-07 |
+| [LYe.001](LYe.001.md) | LIBYAN INVESTMENT AUTHORITY | Libya | 0 | 6 |  | 2026-10-07 |
+| [LYe.002](LYe.002.md) | LIBYAN AFRICA INVESTMENT PORTFOLIO | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYe.006](LYe.006.md) | AVAX | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.001](LYi.001.md) | ABDULQADER MOHAMMED AL-BAGHDADI | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.002](LYi.002.md) | ABDULQADER YUSEF DIBRI | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.003](LYi.003.md) | SAYYID MOHAMMED QADHAF AL-DAM | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.004](LYi.004.md) | QUREN SALIH QUREN AL QADHAFI | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.005](LYi.005.md) | AMID HUSAIN AL KUNI | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.006](LYi.006.md) | ABU ZAYD UMAR DORDA | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.007](LYi.007.md) | ABU BAKR YUNIS JABIR | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.008](LYi.008.md) | MATUQ MOHAMMED MATUQ | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.009](LYi.009.md) | AISHA MUAMMAR MUHAMMED ABU MINYAR QADHAFI | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.010](LYi.010.md) | HANNIBAL MUAMMAR QADHAFI | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.011](LYi.011.md) | KHAMIS MUAMMAR QADHAFI | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.012](LYi.012.md) | MOHAMMED MUAMMAR QADHAFI | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.013](LYi.013.md) | MUAMMAR MOHAMMED ABU MINYAR QADHAFI | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.014](LYi.014.md) | MUTASSIM QADHAFI | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.015](LYi.015.md) | SAADI QADHAFI | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.016](LYi.016.md) | SAIF AL-ARAB QADHAFI | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.017](LYi.017.md) | SAIF AL-ISLAM QADHAFI | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.018](LYi.018.md) | ABDULLAH AL-SENUSSI | Libya | 0 | 1 |  | 2026-10-07 |
+| [LYi.019](LYi.019.md) | SAFIA FARKASH AL-BARASSI | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.021](LYi.021.md) | Ermias Alem | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.022](LYi.022.md) | Fitiwi Abdelrazak | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.023](LYi.023.md) | Ahmad Oumar Imhamad al-Fitouri | Libya | 0 | 2 |  | 2026-10-07 |
+| [LYi.024](LYi.024.md) | Mus’ab Mustafa Abu al Qassim Omar | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.025](LYi.025.md) | Mohammed Al Amin Al-Arabi Kashlaf | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.026](LYi.026.md) | Abd Al-Rahman SALIM IBRAHIM AL-MILAD | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.027](LYi.027.md) | Ibrahim Saeed Salim Jadhran | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.028](LYi.028.md) | Salah Badi | Libya | 0 | 0 |  | 2026-10-07 |
+| [LYi.029](LYi.029.md) | Osama Al Kuni Ibrahim | Libya | 0 | 0 |  | 2026-10-07 |
+| [QDe.001](QDe.001.md) | ABU SAYYAF GROUP | Al-Qaida | 0 | 8 |  | 2026-10-07 |
+| [QDe.002](QDe.002.md) | AL-ITIHAAD AL-ISLAMIYA / AIAI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.003](QDe.003.md) | EGYPTIAN ISLAMIC JIHAD | Al-Qaida | 0 | 9 |  | 2026-10-07 |
+| [QDe.004](QDe.004.md) | AL-QAIDA | Al-Qaida | 0 | 97 |  | 2026-10-07 |
+| [QDe.005](QDe.005.md) | AL RASHID TRUST | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.006](QDe.006.md) | ARMED ISLAMIC GROUP | Al-Qaida | 0 | 3 |  | 2026-10-07 |
+| [QDe.007](QDe.007.md) | ASBAT AL-ANSAR | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.008](QDe.008.md) | HARAKAT UL-MUJAHIDIN / HUM | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDe.009](QDe.009.md) | ISLAMIC ARMY OF ADEN | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDe.010](QDe.010.md) | ISLAMIC MOVEMENT OF UZBEKISTAN | Al-Qaida | 0 | 8 |  | 2026-10-07 |
+| [QDe.011](QDe.011.md) | LIBYAN ISLAMIC FIGHTING GROUP | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.012](QDe.012.md) | MAKHTAB AL-KHIDAMAT | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.014](QDe.014.md) | THE ORGANIZATION OF AL-QAIDA IN THE ISLAMIC MAGHREB | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.015](QDe.015.md) | WAFA HUMANITARIAN ORGANIZATION | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.019](QDe.019.md) | JAISH-I-MOHAMMED | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.020](QDe.020.md) | JAM'YAH TA'AWUN AL-ISLAMIA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.021](QDe.021.md) | RABITA TRUST | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.068](QDe.068.md) | UMMAH TAMEER E-NAU (UTN) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.069](QDe.069.md) | AFGHAN SUPPORT COMMITTEE (ASC) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.070](QDe.070.md) | REVIVAL OF ISLAMIC HERITAGE SOCIETY | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.088](QDe.088.md) | EASTERN TURKISTAN ISLAMIC MOVEMENT (ETIM) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.089](QDe.089.md) | MOROCCAN ISLAMIC COMBATANT GROUP | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.090](QDe.090.md) | TUNISIAN COMBATANT GROUP | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.091](QDe.091.md) | GLOBAL RELIEF FOUNDATION (GRF) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.092](QDe.092.md) | JEMAAH ISLAMIYAH | Al-Qaida | 0 | 3 |  | 2026-10-07 |
+| [QDe.093](QDe.093.md) | BENEVOLENCE INTERNATIONAL FOUNDATION | Al-Qaida | 0 | 4 |  | 2026-10-07 |
+| [QDe.096](QDe.096.md) | LASHKAR I JHANGVI (LJ) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.098](QDe.098.md) | ANSAR AL-ISLAM | Al-Qaida | 0 | 5 |  | 2026-10-07 |
+| [QDe.099](QDe.099.md) | ISLAMIC INTERNATIONAL BRIGADE (IIB) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.100](QDe.100.md) | RIYADUS-SALIKHIN RECONNAISSANCE AND SABOTAGE BATTALION OF CHECHEN MARTYRS (RSRSBCM) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.101](QDe.101.md) | SPECIAL PURPOSE ISLAMIC REGIMENT (SPIR) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.104](QDe.104.md) | AL-HARAMAIN FOUNDATION (PAKISTAN) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.105](QDe.105.md) | AL-HARAMAYN FOUNDATION (KENYA) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.106](QDe.106.md) | AL-HARAMAYN FOUNDATION (TANZANIA) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.107](QDe.107.md) | AL FURQAN | Al-Qaida | 0 | 2 |  | 2026-10-07 |
+| [QDe.108](QDe.108.md) | TAIBAH INTERNATIONAL-BOSNIA OFFICES | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.109](QDe.109.md) | AL-HARAMAIN & AL MASJED AL-AQSA CHARITY FOUNDATION | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.110](QDe.110.md) | AL-HARAMAIN: AFGHANISTAN BRANCH | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.111](QDe.111.md) | AL-HARAMAIN: ALBANIA BRANCH | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.112](QDe.112.md) | AL-HARAMAIN: BANGLADESH BRANCH | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.113](QDe.113.md) | AL-HARAMAIN: ETHIOPIA BRANCH | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.114](QDe.114.md) | AL-HARAMAIN: THE NETHERLANDS BRANCH | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.115](QDe.115.md) | AL-QAIDA IN IRAQ | Al-Qaida | 0 | 2 |  | 2026-10-07 |
+| [QDe.116](QDe.116.md) | AL-HARAMAIN FOUNDATION (UNION OF THE COMOROS) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.118](QDe.118.md) | LASHKAR-E-TAYYIBA | Al-Qaida | 0 | 13 |  | 2026-10-07 |
+| [QDe.119](QDe.119.md) | ISLAMIC JIHAD GROUP | Al-Qaida | 0 | 4 |  | 2026-10-07 |
+| [QDe.121](QDe.121.md) | AL-AKHTAR TRUST INTERNATIONAL | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.128](QDe.128.md) | RAJAH SOLAIMAN MOVEMENT | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.129](QDe.129.md) | AL-QAIDA IN THE ARABIAN PENINSULA (AQAP) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.130](QDe.130.md) | HARAKAT-UL JIHAD ISLAMI | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDe.131](QDe.131.md) | EMARAT KAVKAZ | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.132](QDe.132.md) | TEHRIK-E TALIBAN PAKISTAN (TTP) | Al-Qaida | 0 | 28 |  | 2026-10-07 |
+| [QDe.133](QDe.133.md) | JEMMAH ANSHORUT TAUHID (JAT) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.134](QDe.134.md) | MOUVEMENT POUR L’UNIFICATION ET LE JIHAD EN AFRIQUE DE L’OUEST (MUJAO) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.135](QDe.135.md) | ANSAR EDDINE | Al-Qaida | 0 | 5 |  | 2026-10-07 |
+| [QDe.136](QDe.136.md) | MUHAMMAD JAMAL NETWORK (MJN) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.138](QDe.138.md) | JAMA'ATU AHLIS SUNNA LIDDA'AWATI WAL-JIHAD | Al-Qaida | 0 | 73 |  | 2026-10-07 |
+| [QDe.139](QDe.139.md) | AL MOUAKAOUNE BIDDAM | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.140](QDe.140.md) | AL MOULATHAMOUN | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.141](QDe.141.md) | AL MOURABITOUN | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDe.142](QDe.142.md) | ANSARUL MUSLIMINA FI BILADIS SUDAN | Al-Qaida | 0 | 22 |  | 2026-10-07 |
+| [QDe.143](QDe.143.md) | ANSAR AL-SHARI’A IN TUNISIA (AAS-T) | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDe.144](QDe.144.md) | ABDALLAH AZZAM BRIGADES (AAB) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.145](QDe.145.md) | ANSAR AL CHARIA DERNA | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDe.146](QDe.146.md) | ANSAR AL CHARIA BENGHAZI | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDe.147](QDe.147.md) | HILAL AHMAR SOCIETY INDONESIA (HASI) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.148](QDe.148.md) | THE ARMY OF EMIGRANTS AND SUPPORTERS | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.149](QDe.149.md) | HARAKAT SHAM AL-ISLAM | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.150](QDe.150.md) | MUJAHIDIN INDONESIAN TIMUR (MIT) | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDe.151](QDe.151.md) | JUND AL-KHILAFAH IN ALGERIA (JAK-A) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.152](QDe.152.md) | JAMAAT-UL-AHRAR (JuA) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.153](QDe.153.md) | HANIFA MONEY EXCHANGE OFFICE (BRANCH LOCATED IN ALBU KAMAL, SYRIAN ARAB REPUBLIC) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.154](QDe.154.md) | SELSELAT AL-THAHAB | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.155](QDe.155.md) | Jaysh Khalid Ibn al Waleed | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.156](QDe.156.md) | JUND AL AQSA | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDe.157](QDe.157.md) | AL-KAWTHAR MONEY EXCHANGE | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.158](QDe.158.md) | KHATIBA IMAM AL-BUKHARI (KIB) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.159](QDe.159.md) | JAMA'A NUSRAT UL-ISLAM WA AL-MUSLIMIN (JNIM) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.160](QDe.160.md) | TARIQ GIDAR GROUP (TGG) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.161](QDe.161.md) | ISLAMIC STATE IN IRAQ AND THE LEVANT - KHORASAN (ISIL-K) | Al-Qaida | 0 | 2 |  | 2026-10-07 |
+| [QDe.162](QDe.162.md) | ISLAMIC STATE WEST AFRICA PROVINCE (ISWAP) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.163](QDe.163.md) | ISLAMIC STATE IN THE GREATER SAHARA (ISGS) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.164](QDe.164.md) | JAMAAH ANSHARUT DAULAH | Al-Qaida | 0 | 2 |  | 2026-10-07 |
+| [QDe.165](QDe.165.md) | ISLAMIC STATE IN IRAQ AND THE LEVANT - LIBYA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.166](QDe.166.md) | ISLAMIC STATE IN IRAQ AND THE LEVANT - YEMEN | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.167](QDe.167.md) | JUND AL-KHILAFAH IN TUNISIA (JAK-T) | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDe.168](QDe.168.md) | KHATIBA JAMA`AT AL-TAWHID WAL-JIHAD (KTJ) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDe.169](QDe.169.md) | Islamic State In Iraq And the Levant In South-East Asia (ISIL-SEA, ISIL-South East Asia) | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.001](QDi.001.md) | MOHAMMED SALAHALDIN ABD EL HALIM ZIDANE | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDi.002](QDi.002.md) | AMIN MUHAMMAD UL HAQ SAAM KHAN | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.003](QDi.003.md) | SALIM AHMAD SALIM HAMDAN | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.006](QDi.006.md) | AIMAN MUHAMMED RABI AL-ZAWAHIRI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.009](QDi.009.md) | BILAL BIN MARWAN | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.012](QDi.012.md) | NASHWAN ABD AL-RAZZAQ ABD AL-BAQI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.014](QDi.014.md) | TARIQ ANWAR EL SAYED AHMED | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.015](QDi.015.md) | MAHFOUZ OULD AL-WALID | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.017](QDi.017.md) | THARWAT SALAH SHIHATA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.018](QDi.018.md) | ABDUL MANAN AGHA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.019](QDi.019.md) | ABDULLAH AHMED ABDULLAH EL ALFI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.020](QDi.020.md) | MOHAMMAD HAMDI MOHAMMAD SADIQ AL-AHDAL | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.028](QDi.028.md) | AHMED KHALFAN GHAILANI | Al-Qaida | 0 | 9 |  | 2026-10-07 |
+| [QDi.029](QDi.029.md) | RAED MUHAMMAD HASAN MUHAMMAD HIJAZI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.031](QDi.031.md) | OMAR MAHMOUD UTHMAN | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.037](QDi.037.md) | ABDUL RAHMAN YASIN | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.042](QDi.042.md) | HASSAN DAHIR AWEYS | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDi.055](QDi.055.md) | MAHMOOD SULTAN BASHIR-UD-DIN | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDi.057](QDi.057.md) | IBRAHIM ALI ABU BAKR TANTOUSH | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.058](QDi.058.md) | BOUBEKEUR BOULGHITI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.059](QDi.059.md) | KHALID ABD AL-RAHMAN HAMD AL-FAWAZ | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDi.060](QDi.060.md) | MOHAMED BEN BELGACEM BEN ABDALLAH AL-AOUADI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.062](QDi.062.md) | MOHAMED LAKHAL | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.064](QDi.064.md) | SAMI BEN KHAMIS BEN SALEH ELSSEID | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.065](QDi.065.md) | ABD EL KADER MAHMOUD MOHAMED EL SAYED | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.067](QDi.067.md) | MOSTAFA KAMEL MOSTAFA IBRAHIM | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDi.068](QDi.068.md) | ADEL BEN AL-AZHAR BEN YOUSSEF HAMDI | Al-Qaida | 0 | 3 |  | 2026-10-07 |
+| [QDi.072](QDi.072.md) | MEHDI BEN MOHAMED BEN MOHAMED KAMMOUN | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.074](QDi.074.md) | TAREK BEN HABIB BEN AL-TOUMI AL-MAAROUFI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.075](QDi.075.md) | ABDELHALIM HAFED ABDELFATTAH REMADNA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.076](QDi.076.md) | ISAM ALI MOHAMED ALOUCHE | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.080](QDi.080.md) | SAID BAHAJI | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDi.081](QDi.081.md) | RAMZI MOHAMED ABDULLAH BINALSHIBH | Al-Qaida | 0 | 2 |  | 2026-10-07 |
+| [QDi.082](QDi.082.md) | MOUNIR EL MOTASSADEQ | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.083](QDi.083.md) | ZAKARYA ESSABAR | Al-Qaida | 0 | 3 |  | 2026-10-07 |
+| [QDi.086](QDi.086.md) | MOHAMAD IQBAL ABDURRAHMAN | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.087](QDi.087.md) | NURJAMAN RIDUAN ISAMUDDIN | Al-Qaida | 0 | 7 |  | 2026-10-07 |
+| [QDi.092](QDi.092.md) | MEHREZ BEN MAHMOUD BEN SASSI AL-AMDOUNI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.096](QDi.096.md) | MOUSSA BEN OMAR BEN ALI ESSAADI | Al-Qaida | 0 | 3 |  | 2026-10-07 |
+| [QDi.111](QDi.111.md) | AGUS DWIKARNA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.114](QDi.114.md) | SALIM Y SALAMUDDIN JULKIPLI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.119](QDi.119.md) | ARIS MUNANDAR | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.120](QDi.120.md) | ABDUL HAKIM MURAD | Al-Qaida | 0 | 2 |  | 2026-10-07 |
+| [QDi.122](QDi.122.md) | PARLINDUNGAN SIREGAR | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.123](QDi.123.md) | YASSIN SYAWAL | Al-Qaida | 0 | 9 |  | 2026-10-07 |
+| [QDi.124](QDi.124.md) | YAZID SUFAAT | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDi.126](QDi.126.md) | YUNOS UMPARA MOKLIS | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.129](QDi.129.md) | DJAMEL MOUSTFA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.135](QDi.135.md) | DAWOOD IBRAHIM KASKAR | Al-Qaida | 0 | 4 |  | 2026-10-07 |
+| [QDi.136](QDi.136.md) | MOKHTAR BELMOKHTAR | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.139](QDi.139.md) | IMED BEN MEKKI ZARKAOUI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.140](QDi.140.md) | KAMAL BEN MAOELDI BEN HASSAN AL-HAMRAOUI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.141](QDi.141.md) | MAXAMED CABDULLAAH CIISE | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.142](QDi.142.md) | RADI ABD EL SAMIE ABOU EL YAZID EL AYASHI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.143](QDi.143.md) | HAMADI BEN ABDUL AZIZ BEN ALI BOUYEHIA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.144](QDi.144.md) | MOHAMMAD TAHIR HAMMID HUSSEIN | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.147](QDi.147.md) | MOHAMED AMIN MOSTAFA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.149](QDi.149.md) | NOUREDDINE BEN ALI BEN BELKASSEM AL-DRISSI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.150](QDi.150.md) | AL-AZHAR BEN KHALIFA BEN AHMED ROUINE | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDi.152](QDi.152.md) | SAIFI AMMARI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.154](QDi.154.md) | SULAIMAN JASSEM SULAIMAN ALI ABO GHAITH | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.155](QDi.155.md) | DJAMEL LOUNICI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.156](QDi.156.md) | ABD-AL-MAJID AZIZ AL-ZINDANI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.167](QDi.167.md) | KAMEL DJERMANE | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.177](QDi.177.md) | HABIB BEN AHMED AL-LOUBIRI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.184](QDi.184.md) | MUHSIN FADHIL AYED ASHOUR AL-FADHLI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.186](QDi.186.md) | ABU RUSDAN | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.187](QDi.187.md) | ARIS SUMARSONO | Al-Qaida | 0 | 7 |  | 2026-10-07 |
+| [QDi.188](QDi.188.md) | FAYCAL BOUGHANEMI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.190](QDi.190.md) | ABDELKADER LAAGOUB | Al-Qaida | 0 | 27 |  | 2026-10-07 |
+| [QDi.192](QDi.192.md) | ABD ALLAH MOHAMED RAGAB ABDEL RAHMAN | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.193](QDi.193.md) | ZAKI EZAT ZAKI AHMED | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.196](QDi.196.md) | ALI SAYYID MUHAMED MUSTAFA BAKRI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.198](QDi.198.md) | HANI AL-SAYYID AL-SEBAI YUSIF | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.203](QDi.203.md) | FARHAD KANABI AHMAD | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.204](QDi.204.md) | ISNILON TOTONI HAPILON | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.208](QDi.208.md) | RADULAN SAHIRON | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.216](QDi.216.md) | ABDULLAH ANSHORI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.217](QDi.217.md) | ABU BAKAR BA'ASYIR | Al-Qaida | 0 | 3 |  | 2026-10-07 |
+| [QDi.218](QDi.218.md) | GUN GUN RUSMAN GUNAWAN | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.219](QDi.219.md) | TAUFIK RIFKI | Al-Qaida | 0 | 2 |  | 2026-10-07 |
+| [QDi.222](QDi.222.md) | NESSIM BEN ROMDHANE SAHRAOUI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.223](QDi.223.md) | MERAI ABDEFATTAH KHALIL ZOGHBI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.226](QDi.226.md) | NAJMUDDIN FARAJ AHMAD | Al-Qaida | 0 | 2 |  | 2026-10-07 |
+| [QDi.228](QDi.228.md) | MOHAMMED AL GHABRA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.229](QDi.229.md) | ALY SOLIMAN MASSOUD ABDUL SAYED | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.231](QDi.231.md) | SALEM NOR ELDIN AMOHAMED AL-DABSKI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.232](QDi.232.md) | ABDELMALEK DROUKDEL | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.236](QDi.236.md) | HAMID ABDALLAH AHMAD AL-ALI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.237](QDi.237.md) | JABER ABDALLAH JABER AHMAD AL-JALAHMAH | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDi.238](QDi.238.md) | MUBARAK MUSHAKHAS SANAD MUBARAK AL-BATHALI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.241](QDi.241.md) | ANGELO RAMIREZ TRINIDAD | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.242](QDi.242.md) | DINNO AMOR ROSALEJOS PAREJA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.243](QDi.243.md) | FELICIANO SEMBORIO DELOS REYES JR. | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.244](QDi.244.md) | HILARION DEL ROSARIO SANTOS | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.245](QDi.245.md) | PIO ABOGNE DE VERA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.246](QDi.246.md) | REDENDO CAIN DELLOSA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.247](QDi.247.md) | RUBEN PESTANO LAVILLA, JR | Al-Qaida | 0 | 2 |  | 2026-10-07 |
+| [QDi.248](QDi.248.md) | RICARDO PEREZ AYERAS | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.249](QDi.249.md) | YAHIA DJOUADI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.250](QDi.250.md) | AMOR MOHAMED GHEDEIR | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.251](QDi.251.md) | SALAH EDDINE GASMI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.252](QDi.252.md) | AHMED DEGHDEGH | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.261](QDi.261.md) | ADEM YILMAZ | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.262](QDi.262.md) | REDOUANE EL HABHAB | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.263](QDi.263.md) | HAFIZ MUHAMMAD SAEED | Al-Qaida | 0 | 2 |  | 2026-10-07 |
+| [QDi.264](QDi.264.md) | ZAKI-UR-REHMAN LAKHVI | Al-Qaida | 0 | 14 |  | 2026-10-07 |
+| [QDi.265](QDi.265.md) | HAJI MUHAMMAD ASHRAF | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.266](QDi.266.md) | MAHMOUD MOHAMMAD AHMED BAHAZIQ | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.268](QDi.268.md) | ABDUL HAQ | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.271](QDi.271.md) | ARIF QASMANI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.272](QDi.272.md) | MOHAMMED YAHYA MUJAHID | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.273](QDi.273.md) | FAZEEL-A-TUL SHAYKH ABU MOHAMMED AMEEN AL-PESHAWARI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.276](QDi.276.md) | AKRAM TURKI HISHAN AL-MAZIDIH | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.277](QDi.277.md) | GHAZY FEZZA HISHAN AL-MAZIDIH | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.278](QDi.278.md) | MUTHANNA HARITH SALMAN AL-DARI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.279](QDi.279.md) | MOHAMED BELKALEM | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.280](QDi.280.md) | TAYEB NAIL | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.282](QDi.282.md) | QASIM MOHAMED MAHDI AL-RIMI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.283](QDi.283.md) | ANWAR NASSER ABDULLA AL-AULAQI | Al-Qaida | 0 | 10 |  | 2026-10-07 |
+| [QDi.289](QDi.289.md) | SAID JAN ‘ABD AL-SALAM | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.290](QDi.290.md) | DOKU KHAMATOVICH UMAROV | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.291](QDi.291.md) | IBRAHIM HASSAN TALI AL-ASIRI | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDi.292](QDi.292.md) | OTHMAN AHMED OTHMAN AL-GHAMDI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.293](QDi.293.md) | ABDUL RAHIM BA'AYSIR | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.294](QDi.294.md) | UMAR PATEK | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.295](QDi.295.md) | MUHAMMAD JIBRIL ABDUL RAHMAN | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.296](QDi.296.md) | MATI UR-REHMAN ALI MUHAMMAD | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDi.298](QDi.298.md) | ABD AL-RAHMAN OULD MUHAMMAD AL-HUSAYN OULD MUHAMMAD SALIM | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.299](QDi.299.md) | IBRAHIM AWWAD IBRAHIM ALI AL-BADRI AL-SAMARRAI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.300](QDi.300.md) | MONIR CHOUKA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.301](QDi.301.md) | YASSIN CHOUKA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.303](QDi.303.md) | FAZAL RAHIM | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDi.304](QDi.304.md) | MOCHAMMAD ACHWAN | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.305](QDi.305.md) | ABDUL ROSYID RIDHO BA'ASYIR | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.308](QDi.308.md) | ZAFAR IQBAL | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.309](QDi.309.md) | ABDUR REHMAN | Al-Qaida | 0 | 13 |  | 2026-10-07 |
+| [QDi.311](QDi.311.md) | AYYUB BASHIR | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.313](QDi.313.md) | DJAMEL AKKACHA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.314](QDi.314.md) | ABDERRAHMANE OULD EL AMAR | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.315](QDi.315.md) | HAMADA OULD MOHAMED EL KHAIRY | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.316](QDi.316.md) | IYAD AG GHALI | Al-Qaida | 0 | 3 |  | 2026-10-07 |
+| [QDi.318](QDi.318.md) | MUHAMMAD JAMAL ABD-AL RAHIM AHMAD AL-KASHIF | Al-Qaida | 0 | 9 |  | 2026-10-07 |
+| [QDi.319](QDi.319.md) | MOHAMED LAHBOUS | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.320](QDi.320.md) | ABD-AL-HAMID AL-MASLI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.322](QDi.322.md) | ABUBAKAR MOHAMMED SHEKAU | Al-Qaida | 0 | 15 |  | 2026-10-07 |
+| [QDi.323](QDi.323.md) | SAID ARIF | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDi.324](QDi.324.md) | ABDUL MOHSEN ABDALLAH IBRAHIM AL CHAREKH | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.325](QDi.325.md) | ABOU MOHAMED AL ADNANI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.326](QDi.326.md) | HAMID HAMAD HAMID AL-‘ALI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.327](QDi.327.md) | ABDELRAHMAN MOUHAMAD ZAFIR AL DABIDI AL JAHANI | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDi.329](QDi.329.md) | AHMED ABDULLAH SALEH AL-KHAZMARI AL-ZAHRANI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.330](QDi.330.md) | AZZAM ABDULLAH ZUREIK AL-MAULID AL-SUBHI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.331](QDi.331.md) | ANDERS CAMEROON OSTENSVIG DALE | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.332](QDi.332.md) | IBRAHIM SULEIMAN HAMAD AL-HABLAIN | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.333](QDi.333.md) | SEIFALLAH BEN OMAR BEN MOHAMED BEN HASSINE | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.334](QDi.334.md) | ‘ABD AL-RAHMAN BIN ‘UMAYR AL-NU’AYMI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.335](QDi.335.md) | ‘ABD AL-RAHMAN KHALAF ‘UBAYD JUDAY’ AL-‘ANIZI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.337](QDi.337.md) | MAYSAR ALI MUSA ABDALLAH AL-JUBURI | Al-Qaida | 0 | 13 |  | 2026-10-07 |
+| [QDi.338](QDi.338.md) | SHAFI SULTAN MOHAMMED SULTAN AL-AJMI | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDi.339](QDi.339.md) | ‘ABD AL-RAHMAN MUHAMMAD MUSTAFA AL-QADULI | Al-Qaida | 0 | 5 |  | 2026-10-07 |
+| [QDi.340](QDi.340.md) | EMILIE EDWIGE KONIG | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.341](QDi.341.md) | KEVIN JORDAN AXEL GUIAVARCH | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.342](QDi.342.md) | OUMAR DIABY | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.343](QDi.343.md) | ASHRAF MUHAMMAD YUSUF 'UTHMAN 'ABD AL-SALAM | Al-Qaida | 0 | 22 |  | 2026-10-07 |
+| [QDi.344](QDi.344.md) | IBRAHIM 'ISA HAJJI MUHAMMAD AL-BAKR | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.345](QDi.345.md) | TARKHAN TAYUMURAZOVICH BATIRASHVILI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.348](QDi.348.md) | ANGGA DIMAS PERSHADA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.349](QDi.349.md) | BAMBANG SUKIRNO | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.350](QDi.350.md) | WIJI JOKO SANTOSO | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.353](QDi.353.md) | ALI BEN TAHER BEN FALEH OUNI HARZI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.354](QDi.354.md) | TARAK BEN TAHER BEN FALEH OUNI HARZI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.355](QDi.355.md) | SOFIANE BEN GOUMO | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.356](QDi.356.md) | AQSA MAHMOOD | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.357](QDi.357.md) | ASEEL MUTHANA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.358](QDi.358.md) | NASSER AHMED MUTHANA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.359](QDi.359.md) | OMAR ALI HUSSAIN | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.360](QDi.360.md) | SALLY-ANNE FRANCES JONES | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.361](QDi.361.md) | AMRU AL-ABSI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.363](QDi.363.md) | MAGHOMED MAGHOMEDZAKIROVICH ABDURAKHMANOV | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.364](QDi.364.md) | ISLAM SEIT-UMAROVICH ATABIEV | Al-Qaida | 0 | 7 |  | 2026-10-07 |
+| [QDi.365](QDi.365.md) | AKHMED RAJAPOVICH CHATAEV | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.366](QDi.366.md) | TARKHAN ISMAILOVICH GAZIEV | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.367](QDi.367.md) | ZAURBEK SALIMOVICH GUCHAEV | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.368](QDi.368.md) | SHAMIL MAGOMEDOVICH ISMAILOV | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.369](QDi.369.md) | MU’TASSIM YAHYA ‘ALI AL-RUMAYSH | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.370](QDi.370.md) | TARAD MOHAMMAD Alnori Alfares ALJARBA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.371](QDi.371.md) | ABD AL-BASET AZZOUZ | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.372](QDi.372.md) | GULMUROD KHALIMOV | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.374](QDi.374.md) | NUSRET IMAMOVIC | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.375](QDi.375.md) | BOUBAKER BEN HABIB BEN AL-HAKIM | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.376](QDi.376.md) | PETER CHERIF | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.377](QDi.377.md) | MUHANNAD AL-NAJDI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.378](QDi.378.md) | MAXIME HAUCHARD | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.380](QDi.380.md) | ABD AL-LATIF BIN ABDALLAH SALIH MUHAMMAD AL-KAWARI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.382](QDi.382.md) | SA'D BIN SA'D MUHAMMAD SHARIYAN AL-KA'BI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.383](QDi.383.md) | MORAD LAABOUDI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.384](QDi.384.md) | ALI MUSA AL-SHAWAKH | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDi.385](QDi.385.md) | HASAN AL-SALAHAYN SALIH AL-SHA’ARI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.386](QDi.386.md) | MOUNIR BEN DHAOU BEN BRAHIM BEN HELAL | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.387](QDi.387.md) | MOHAMMED ABDEL-HALIM HEMAIDA SALEH | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.388](QDi.388.md) | SALIM BENGHALEM | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.389](QDi.389.md) | ABU UBAYDAH YUSUF AL-ANABI | Al-Qaida | 0 | 2 |  | 2026-10-07 |
+| [QDi.392](QDi.392.md) | FAYSAL AHMAD BIN ALI AL-ZAHRANI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.394](QDi.394.md) | HUSAYN JUAYTHINI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.395](QDi.395.md) | MUHAMMAD SHOLEH IBRAHIM | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.396](QDi.396.md) | ASLAN AVGAZAROVICH BYUTUKAEV | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.397](QDi.397.md) | AYRAT NASIMOVICH VAKHITOV | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.398](QDi.398.md) | RUSTAM MAGOMEDOVICH ASELDEROV | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.399](QDi.399.md) | BASSAM AHMAD AL-HASRI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.400](QDi.400.md) | IYAD NAZMI SALIH KHALIL | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.401](QDi.401.md) | GHALIB ABDULLAH AL-ZAIDI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.403](QDi.403.md) | FARED SAAL | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.404](QDi.404.md) | MUHAMMAD BAHRUM NAIM ANGGIH TAMTOMO | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.405](QDi.405.md) | Malik Ruslanovich Barkhanoev | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.406](QDi.406.md) | Murad Iraklievich Margoshvili | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.407](QDi.407.md) | OMAN ROCHMAN | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.408](QDi.408.md) | ALEXANDA AMON KOTEY | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.409](QDi.409.md) | ELSHAFEE EL SHEIKH | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDi.410](QDi.410.md) | SHANE DOMINIC CRAWFORD | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.411](QDi.411.md) | SALIM MUSTAFA MUHAMMAD AL-MANSUR | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.412](QDi.412.md) | UMAR MAHMUD IRHAYYIM AL-KUBAYSI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.413](QDi.413.md) | MYRNA AJIJUL MABANZA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.414](QDi.414.md) | ABDULPATTA ESCALON ABUBAKAR | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.415](QDi.415.md) | ADNAN ABOU WALID AL-SAHRAOUI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.416](QDi.416.md) | MOHAMMED YUSIP KARIM | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.417](QDi.417.md) | MOHAMAD RAFI BIN UDIN | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.418](QDi.418.md) | MUHAMMED REZA LAHAMAN KIRAM | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.419](QDi.419.md) | ANJEM CHOUDARY | Al-Qaida | 0 | 4 |  | 2026-10-07 |
+| [QDi.420](QDi.420.md) | TAHA IBRAHIM ABDALLAH BAKR AL KHUWAYT | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.421](QDi.421.md) | HAMZA USAMA MUHAMMAD BIN LADEN | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.422](QDi.422.md) | MOHAMMED MASOOD AZHAR ALVI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.423](QDi.423.md) | ALI MAYCHOU | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.424](QDi.424.md) | BAH AG MOUSSA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.425](QDi.425.md) | AMADOU KOUFA | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDi.426](QDi.426.md) | Amir Muhammad Sa’id Abdal-Rahman al-Salbi | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDi.427](QDi.427.md) | NOOR WALI MEHSUD | Al-Qaida | 0 | 7 |  | 2026-10-07 |
+| [QDi.428](QDi.428.md) | JAMAL HUSSEIN HASSAN ZEINIYE | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.429](QDi.429.md) | MOHAMMAD ALI AL HABBO | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.430](QDi.430.md) | EMRAAN ALI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.431](QDi.431.md) | SANAULLAH GHAFARI | Al-Qaida | 0 | 5 |  | 2026-10-07 |
+| [QDi.432](QDi.432.md) | ASHRAF AL-QIZANI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.434](QDi.434.md) | MAULAWI RAJAB | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.435](QDi.435.md) | SULTAN AZIZ AZAM | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.436](QDi.436.md) | ABUBAKAR SWALLEH | Al-Qaida | 0 | 1 |  | 2026-10-07 |
+| [QDi.437](QDi.437.md) | SAMI JASIM MUHAMMAD JAATA AL-JABURI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.438](QDi.438.md) | ABD EL HAMID SALIM IBRAHIM BRUKAN AL-KHATOUNI | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [QDi.439](QDi.439.md) | HAMIDA NABAGGALA | Al-Qaida | 0 | 0 |  | 2026-10-07 |
+| [SDi.001](SDi.001.md) | GAFFAR MOHAMMED ELHASSAN | Sudan | 0 | 0 |  | 2026-10-07 |
+| [SDi.002](SDi.002.md) | MUSA HILAL ABDALLA ALNSIEM | Sudan | 0 | 1 |  | 2026-10-07 |
+| [SDi.004](SDi.004.md) | JIBRIL ABDULKARIM IBRAHIM MAYU | Sudan | 0 | 0 |  | 2026-10-07 |
+| [SDi.005](SDi.005.md) | ABDEL RAHMAN JUMA BARKALLA | Sudan | 0 | 0 |  | 2026-10-07 |
+| [SDi.006](SDi.006.md) | OSMAN MOHAMED HAMID MOHAMED | Sudan | 0 | 0 |  | 2026-10-07 |
+| [SDi.007](SDi.007.md) | GEDO HAMDAN AHMED | Sudan | 0 | 2 |  | 2026-10-07 |
+| [SDi.008](SDi.008.md) | ABDUL RAHIM HAMDAN DAGALO | Sudan | 0 | 3 |  | 2026-10-07 |
+| [SDi.009](SDi.009.md) | AL-FATEH ABDULLAH IDRIS | Sudan | 0 | 7 |  | 2026-10-07 |
+| [SDi.010](SDi.010.md) | TIJANI IBRAHIM MOUSSA MOHAMED | Sudan | 0 | 0 |  | 2026-10-07 |
+| [SDi.011](SDi.011.md) | AL-GONEY HAMDAN DAGALO | Sudan | 0 | 9 |  | 2026-10-07 |
+| [SDi.012](SDi.012.md) | ALVARO ANDRES QUIJANO BECERRA | Sudan | 0 | 1 |  | 2026-10-07 |
+| [SDi.013](SDi.013.md) | CLAUDIA VIVIANA OLIVEROS FORERO | Sudan | 0 | 1 |  | 2026-10-07 |
+| [SDi.014](SDi.014.md) | MATEO ANDRES DUQUE BOTERO | Sudan | 0 | 0 |  | 2026-10-07 |
+| [SOe.001](SOe.001.md) | AL-SHABAAB | Somalia | 0 | 37 |  | 2026-10-07 |
+| [SOi.001](SOi.001.md) | Yasin Ali Baynah | Somalia | 0 | 0 |  | 2026-10-07 |
+| [SOi.002](SOi.002.md) | HASSAN DAHIR AWEYS | Somalia | 0 | 1 |  | 2026-10-07 |
+| [SOi.003](SOi.003.md) | HASSAN ABDULLAH HERSI AL-TURKI | Somalia | 0 | 0 |  | 2026-10-07 |
+| [SOi.004](SOi.004.md) | AHMED ABDI AW-MOHAMED | Somalia | 0 | 0 |  | 2026-10-07 |
+| [SOi.005](SOi.005.md) | FUAD MOHAMED KHALAF | Somalia | 0 | 0 |  | 2026-10-07 |
+| [SOi.006](SOi.006.md) | BASHIR MOHAMED MAHAMOUD | Somalia | 0 | 0 |  | 2026-10-07 |
+| [SOi.008](SOi.008.md) | FARES MOHAMMED MANA'A | Somalia | 0 | 0 |  | 2026-10-07 |
+| [SOi.009](SOi.009.md) | HASSAN MAHAT OMAR | Somalia | 0 | 0 |  | 2026-10-07 |
+| [SOi.010](SOi.010.md) | OMAR HAMMAMI | Somalia | 0 | 0 |  | 2026-10-07 |
+| [SOi.011](SOi.011.md) | ABOUD ROGO MOHAMMED | Somalia | 0 | 1 |  | 2026-10-07 |
+| [SOi.012](SOi.012.md) | ABUBAKER SHARIFF AHMED | Somalia | 0 | 7 |  | 2026-10-07 |
+| [SOi.013](SOi.013.md) | MAALIM SALMAN | Somalia | 0 | 0 |  | 2026-10-07 |
+| [SOi.014](SOi.014.md) | AHMED DIRIYE | Somalia | 0 | 2 |  | 2026-10-07 |
+| [SOi.016](SOi.016.md) | Ahmad Iman Ali | Somalia | 0 | 0 |  | 2026-10-07 |
+| [SOi.017](SOi.017.md) | Abdifatah Abubakar Abdi | Somalia | 0 | 0 |  | 2026-10-07 |
+| [SOi.018](SOi.018.md) | ABUKAR ALI ADAN | Somalia | 0 | 0 |  | 2026-10-07 |
+| [SOi.019](SOi.019.md) | MAALIM AYMAN | Somalia | 0 | 0 |  | 2026-10-07 |
+| [SOi.020](SOi.020.md) | MAHAD KARATE | Somalia | 0 | 0 |  | 2026-10-07 |
+| [SOi.021](SOi.021.md) | ALI MOHAMED RAGE | Somalia | 0 | 0 |  | 2026-10-07 |
+| [SOi.022](SOi.022.md) | ABDULLAHI OSMAN MOHAMED CADDOW | Somalia | 0 | 0 |  | 2026-10-07 |
+| [SOi.023](SOi.023.md) | ABDIKADIR MOHAMED ABDIKADIR | Somalia | 0 | 26 |  | 2026-10-07 |
+| [SOi.024](SOi.024.md) | MOHAMED MOHAMUD MIRE | Somalia | 0 | 0 |  | 2026-10-07 |
+| [SOi.025](SOi.025.md) | MOHAMED OMAR MOHAMED | Somalia | 0 | 0 |  | 2026-10-07 |
+| [SSi.001](SSi.001.md) | GABRIEL JOK RIAK MAKOL | SouthSudan | 0 | 0 |  | 2026-10-07 |
+| [SSi.002](SSi.002.md) | SIMON GATWECH DUAL | SouthSudan | 0 | 0 |  | 2026-10-07 |
+| [SSi.003](SSi.003.md) | JAMES KOANG CHUOL | SouthSudan | 0 | 0 |  | 2026-10-07 |
+| [SSi.004](SSi.004.md) | SANTINO DENG WOL | SouthSudan | 0 | 0 |  | 2026-10-07 |
+| [SSi.005](SSi.005.md) | MARIAL CHANUONG YOL MANGOK | SouthSudan | 0 | 0 |  | 2026-10-07 |
+| [SSi.006](SSi.006.md) | PETER GADET | SouthSudan | 0 | 0 |  | 2026-10-07 |
+| [SSi.007](SSi.007.md) | MALEK REUBEN RIAK RENGU | SouthSudan | 0 | 0 |  | 2026-10-07 |
+| [SSi.008](SSi.008.md) | PAUL MALONG AWAN ANEI | SouthSudan | 0 | 0 |  | 2026-10-07 |
+| [TAe.010](TAe.010.md) | HAJI KHAIRULLAH HAJI SATTAR MONEY EXCHANGE | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAe.011](TAe.011.md) | ROSHAN MONEY EXCHANGE | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAe.012](TAe.012.md) | HAQQANI NETWORK (HQN) | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAe.013](TAe.013.md) | RAHAT LTD. | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAe.014](TAe.014.md) | HAJI BASIR AND ZARJMIL COMPANY HAWALA | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.002](TAi.002.md) | MOHAMMAD HASSAN AKHUND | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.003](TAi.003.md) | ABDUL KABIR MOHAMMAD JAN | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.004](TAi.004.md) | MOHAMMED OMAR GHULAM NABI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.005](TAi.005.md) | MUHAMMAD TAHER ANWARI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.006](TAi.006.md) | SAYYED MOHAMMED HAQQANI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.007](TAi.007.md) | ABDUL LATIF MANSUR | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.008](TAi.008.md) | SHAMS UR-RAHMAN ABDUL ZAHIR | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.009](TAi.009.md) | ATTIQULLAH AKHUND | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.011](TAi.011.md) | AKHTAR MOHAMMAD MANSOUR SHAH MOHAMMED | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.013](TAi.013.md) | MOHAMMAD NAIM BARICH KHUDAIDAD | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.014](TAi.014.md) | HIDAYATULLAH | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.015](TAi.015.md) | YAR MOHAMMAD RAHIMI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.016](TAi.016.md) | ALLAH DAD TAYEB WALI MUHAMMAD | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.019](TAi.019.md) | NIK MOHAMMAD DOST MOHAMMAD | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.020](TAi.020.md) | MATIULLAH | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.021](TAi.021.md) | ALLAH DAD MATIN | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.022](TAi.022.md) | UBAIDULLAH AKHUND YAR MOHAMMAD AKHUND | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.023](TAi.023.md) | FAZL MOHAMMAD MAZLOOM | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.024](TAi.024.md) | ABDUL GHANI BARADAR ABDUL AHMAD TURK | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.025](TAi.025.md) | ABDUL RAUF KHADEM | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.026](TAi.026.md) | AMIR KHAN MOTAQI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.027](TAi.027.md) | ABDUL SALAM HANAFI ALI MARDAN QUL | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.028](TAi.028.md) | SAID AHMED SHAHIDKHEL | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.030](TAi.030.md) | AREFULLAH AREF GHAZI MOHAMMAD | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.031](TAi.031.md) | MOHAMMAD AHMADI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.033](TAi.033.md) | ABDUL RAHMAN ZAHED | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.034](TAi.034.md) | ABDUL JALIL HAQQANI WALI MOHAMMAD | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.036](TAi.036.md) | FAIZ | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.038](TAi.038.md) | ABDUL BAQI BASIR AWAL SHAH | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.039](TAi.039.md) | MOHAMMAD JAWAD WAZIRI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.040](TAi.040.md) | JALALUDDIN HAQQANI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.042](TAi.042.md) | MOHAMMAD IBRAHIM OMARI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.043](TAi.043.md) | DIN MOHAMMAD HANIF | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.044](TAi.044.md) | HAMDULLAH NOMANI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.047](TAi.047.md) | QUDRATULLAH JAMAL | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.049](TAi.049.md) | ABDUL RAHMAN AHMAD HOTTAK | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.051](TAi.051.md) | ABDULHAI MOTMAEN | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.052](TAi.052.md) | MOHAMMAD YAQOUB | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.053](TAi.053.md) | ABDUL RAZAQ AKHUND LALA AKHUND | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.057](TAi.057.md) | SAYED MOHAMMAD AZIM AGHA | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.058](TAi.058.md) | NOORUDDIN TURABI MUHAMMAD QASIM | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.060](TAi.060.md) | MOHAMMAD ESSA AKHUND | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.063](TAi.063.md) | MOHAMMAD AZAM ELMI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.064](TAi.064.md) | EZATULLAH HAQQANI KHAN SAYYID | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.066](TAi.066.md) | MOHAMMAD ABBAS AKHUND | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.067](TAi.067.md) | SHER MOHAMMAD ABBAS STANEKZAI PADSHAH KHAN | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.068](TAi.068.md) | MOHAMMADULLAH MATI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.069](TAi.069.md) | RUSTUM HANAFI HABIBULLAH | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.070](TAi.070.md) | ATIQULLAH WALI MOHAMMAD | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.071](TAi.071.md) | NAJIBULLAH HAQQANI HIDAYATULLAH | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.072](TAi.072.md) | SAYYED GHIASSOUDDINE AGHA | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.073](TAi.073.md) | MOHAMMAD MOSLIM HAQQANI MUHAMMADI GUL | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.075](TAi.075.md) | ABDUL RAQIB TAKHARI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.078](TAi.078.md) | MOHAMMAD WALI MOHAMMAD EWAZ | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.079](TAi.079.md) | MOHAMMAD SALIM HAQQANI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.080](TAi.080.md) | SAYED ESMATULLAH ASEM ABDUL QUDDUS | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.082](TAi.082.md) | ABDUL-HAQ WASSIQ | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.083](TAi.083.md) | EHSANULLAH SARFIDA HESAMUDDIN AKHUNDZADA | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.084](TAi.084.md) | HABIBULLAH RESHAD | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.085](TAi.085.md) | AHMED JAN AKHUNDZADA WAZIR | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.087](TAi.087.md) | SADUDDIN SAYYED | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.088](TAi.088.md) | ABDUL JABBAR OMARI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.089](TAi.089.md) | NURULLAH NURI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.091](TAi.091.md) | JANAN AGHA | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.092](TAi.092.md) | DOST MOHAMMAD | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.093](TAi.093.md) | KHAIRULLAH KHAIRKHWAH | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.094](TAi.094.md) | ABDUL BARI AKHUND | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.095](TAi.095.md) | WALIJAN | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.096](TAi.096.md) | MOHAMMAD HASAN RAHMANI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.097](TAi.097.md) | ABDUL MANAN NYAZI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.098](TAi.098.md) | ABDUL WAHED SHAFIQ | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.099](TAi.099.md) | MOHAMMAD SHAFIQ MOHAMMADI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.100](TAi.100.md) | NAZIR MOHAMMAD ABDUL BASIR | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.101](TAi.101.md) | MOHAMMAD ESHAQ AKHUNZADA | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.102](TAi.102.md) | ZIA-UR-RAHMAN MADANI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.103](TAi.103.md) | SHAMSUDDIN | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.104](TAi.104.md) | MOHAMMAD RASUL AYYUB | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.105](TAi.105.md) | AHMAD TAHA KHALID ABDUL QADIR | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.106](TAi.106.md) | MOHAMMAD SHAFIQULLAH AHMADI FATIH KHAN | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.107](TAi.107.md) | AMINULLAH AMIN QUDDUS | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.108](TAi.108.md) | ABDULHAI SALEK | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.109](TAi.109.md) | AHMAD JAN AKHUNDZADA SHUKOOR AKHUNDZADA | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.110](TAi.110.md) | NOOR MOHAMMAD SAQIB | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.111](TAi.111.md) | HAMDULLAH SUNANI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.113](TAi.113.md) | SHAHABUDDIN DELAWAR | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.114](TAi.114.md) | ABDUL RAHMAN AGHA | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.118](TAi.118.md) | HAMIDULLAH AKHUND SHER MOHAMMAD | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.119](TAi.119.md) | JAN MOHAMMAD MADANI IKRAM | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.121](TAi.121.md) | AZIZIRAHMAN ABDUL AHAD | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.122](TAi.122.md) | ABDUL MANAN MOHAMMAD ISHAK | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.126](TAi.126.md) | MOHAMMAD SARWAR SIDDIQMAL MOHAMMAD MASOOD | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.127](TAi.127.md) | MOHAMMAD ZAHID | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.128](TAi.128.md) | ABDUL QADEER BASIR ABDUL BASEER | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.129](TAi.129.md) | NAZIRULLAH HANAFI WALIULLAH | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.130](TAi.130.md) | ABDUL GHAFAR QURISHI ABDUL GHANI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.132](TAi.132.md) | NAJIBULLAH MUHAMMAD JUMA | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.133](TAi.133.md) | ABDUL WALI SEDDIQI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.135](TAi.135.md) | ABDUL QUDDUS MAZHARI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.136](TAi.136.md) | MOHAMMAD SADIQ AMIR MOHAMMAD | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.137](TAi.137.md) | RAHMATULLAH KAKAZADA | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.138](TAi.138.md) | MOHAMMAD ALEEM NOORANI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.139](TAi.139.md) | ABDUL GHAFAR SHINWARI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.140](TAi.140.md) | GUL AHMAD HAKIMI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.141](TAi.141.md) | ABDULLAH HAMAD MOHAMMAD KARIM | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.142](TAi.142.md) | ABDUL HAI HAZEM ABDUL QADER | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.143](TAi.143.md) | HAMDULLAH ALLAH NOOR | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.144](TAi.144.md) | SIRAJUDDIN JALLALOUDINE HAQQANI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.145](TAi.145.md) | AMIR ABDULLAH | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.146](TAi.146.md) | NASIRUDDIN HAQQANI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.147](TAi.147.md) | GUL AGHA ISHAKZAI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.148](TAi.148.md) | ABDUL HABIB ALIZAI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.149](TAi.149.md) | SALEH MOHAMMAD KAKAR AKHTAR MUHAMMAD | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.150](TAi.150.md) | KHALIL AHMED HAQQANI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.153](TAi.153.md) | FAIZULLAH KHAN NOORZAI na | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.154](TAi.154.md) | MALIK NOORZAI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.155](TAi.155.md) | ABDUL AZIZ ABBASIN | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.156](TAi.156.md) | AHMAD ZIA AGHA | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.157](TAi.157.md) | FAZL RABI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.158](TAi.158.md) | MOHAMMAD AMAN AKHUND | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.159](TAi.159.md) | AHMED JAN WAZIR AKHTAR MOHAMMAD | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.160](TAi.160.md) | ABDUL SAMAD ACHEKZAI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.161](TAi.161.md) | BAKHT GUL | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.162](TAi.162.md) | ABDUL SATAR ABDUL MANAN | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.163](TAi.163.md) | KHAIRULLAH BARAKZAI KHUDAI NAZAR | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.164](TAi.164.md) | ABDUL RAUF ZAKIR | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.165](TAi.165.md) | MOHAMMED QASIM MIR WALI KHUDAI RAHIM | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.166](TAi.166.md) | AHMED SHAH NOORZAI OBAIDULLAH | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.167](TAi.167.md) | ADAM KHAN ACHEKZAI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.168](TAi.168.md) | QARI SAIFULLAH TOKHI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.169](TAi.169.md) | YAHYA HAQQANI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.170](TAi.170.md) | SAIDULLAH JAN | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.171](TAi.171.md) | MUHAMMAD OMAR ZADRAN | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.172](TAi.172.md) | RAHMATULLAH SHAH NAWAZ | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.173](TAi.173.md) | ABDUL BASIR NOORZAI | Taliban | 0 | 0 |  | 2026-10-07 |
+| [TAi.174](TAi.174.md) | TOREK AGHA | Taliban | 0 | 0 |  | 2026-10-07 |
+| [YEe.001](YEe.001.md) | THE HOUTHIS | Yemen | 0 | 69 |  | 2026-10-07 |
+| [YEi.001](YEi.001.md) | ABD AL-KHALIQ AL-HOUTHI | Yemen | 0 | 0 |  | 2026-10-07 |
+| [YEi.002](YEi.002.md) | ABDULLAH YAHYA AL HAKIM | Yemen | 0 | 0 |  | 2026-10-07 |
+| [YEi.004](YEi.004.md) | ABDULMALIK AL-HOUTHI | Yemen | 0 | 0 |  | 2026-10-07 |
+| [YEi.006](YEi.006.md) | SULTAN SALEH AIDA AIDA ZABIN | Yemen | 0 | 0 |  | 2026-10-07 |
+| [YEi.007](YEi.007.md) | SALEH MESFER SALEH AL SHAER | Yemen | 0 | 0 |  | 2026-10-07 |
+| [YEi.008](YEi.008.md) | MUHAMMAD ABD AL-KARIM AL-GHAMARI | Yemen | 0 | 0 |  | 2026-10-07 |
+| [YEi.009](YEi.009.md) | YUSUF AL-MADANI | Yemen | 0 | 0 |  | 2026-10-07 |
+| [YEi.010](YEi.010.md) | MANSUR AL-SA’ADI | Yemen | 0 | 0 |  | 2026-10-07 |
+| [YEi.011](YEi.011.md) | MOTLAQ AMER AL-MARRANI | Yemen | 0 | 0 |  | 2026-10-07 |
+| [YEi.012](YEi.012.md) | AHMAD AL-HAMZI | Yemen | 0 | 0 |  | 2026-10-07 |

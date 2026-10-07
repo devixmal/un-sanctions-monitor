@@ -1,10 +1,216 @@
-2026-10-07 04:27:02,534 INFO Relevance filter: keyword heuristic (set ANTHROPIC_API_KEY for far fewer false positives)
-2026-10-07 04:27:02,815 INFO UN list: 1010 records (736 individuals, 274 entities)
-2026-10-07 04:27:03,042 INFO == Other sanctions lists: starting
-2026-10-07 04:27:07,768 INFO OpenSanctions: 72922 rows read, 1063 UN rows, 999 matched to the UN list
-2026-10-07 04:27:07,788 INFO OpenSanctions: 999 UN parties linked to other lists
-2026-10-07 04:27:07,789 INFO == Other sanctions lists: finished in 0.1 min
-2026-10-07 04:27:07,789 INFO == Watched feeds: starting
-2026-10-07 04:27:10,048 INFO == Watched feeds: finished in 0.0 min
-2026-10-07 04:27:10,049 INFO == Official releases: starting
-2026-10-07 04:28:47,836 INFO Official source US Treasury press releases: 10 listed, 4 new read
+2026-10-07 04:34:16,066 INFO Baseline mode: 90-day look-back for every party
+2026-10-07 04:34:16,351 INFO Review decisions synced: {'verified': 0, 'rejected': 0, 'pending': 0}
+2026-10-07 04:34:16,352 INFO Relevance filter: keyword heuristic (set ANTHROPIC_API_KEY for far fewer false positives)
+2026-10-07 04:34:16,739 INFO UN list: 1010 records (736 individuals, 274 entities)
+2026-10-07 04:34:16,974 INFO == Other sanctions lists: starting
+2026-10-07 04:34:19,707 INFO OpenSanctions: 72922 rows read, 1063 UN rows, 999 matched to the UN list
+2026-10-07 04:34:19,727 INFO OpenSanctions: 999 UN parties linked to other lists
+2026-10-07 04:34:19,728 INFO == Other sanctions lists: finished in 0.0 min
+2026-10-07 04:34:19,728 INFO == Watched feeds: starting
+2026-10-07 04:34:22,956 INFO == Watched feeds: finished in 0.1 min
+2026-10-07 04:34:22,956 INFO == Official releases: starting
+2026-10-07 04:35:57,898 INFO Official source US Treasury press releases: 10 listed, 4 new read
+2026-10-07 04:37:38,466 INFO Official source US OFAC recent actions: 10 listed, 10 new read
+2026-10-07 04:37:39,948 INFO Official source US Justice Department press releases: 25 listed, 15 new read
+2026-10-07 04:37:55,225 INFO Official source FBI press releases: 50 listed, 3 new read
+2026-10-07 04:37:59,123 INFO Official source UK Office of Financial Sanctions Implementation: 10 listed, 10 new read
+2026-10-07 04:37:59,124 INFO == Official releases: finished in 3.6 min
+2026-10-07 04:37:59,124 INFO == UN reports: starting
+2026-10-07 04:38:01,423 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1267/monitoring-team/reports: 66 documents listed
+2026-10-07 04:38:02,625 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1988/monitoring-team/reports: 30 documents listed
+2026-10-07 04:38:02,733 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1533/panel-of-experts/expert-reports: 56 documents listed
+2026-10-07 04:38:03,569 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1591/panel-of-experts/reports: 32 documents listed
+2026-10-07 04:38:04,292 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1718/panel_experts/reports: 33 documents listed
+2026-10-07 04:38:05,386 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1970/panel-experts/reports: 25 documents listed
+2026-10-07 04:38:06,255 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2127/panel-of-experts/reports: 35 documents listed
+2026-10-07 04:38:06,503 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2140/panel-of-experts/work-and-mandate/reports: 28 documents listed
+2026-10-07 04:38:07,341 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2206/panel-of-experts/reports: 35 documents listed
+2026-10-07 04:38:15,459 INFO Scanned report S/2026/714 (250836 chars)
+2026-10-07 04:38:15,459 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2653/PoE/Reports: 20 documents listed
+2026-10-07 04:38:16,054 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2713/work-and-mandate/reports: 39 documents listed
+2026-10-07 04:38:16,880 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2745/panel-of-experts/reports: 35 documents listed
+2026-10-07 04:38:17,343 INFO Reports page https://www.securitycouncilreport.org/un_documents_type/sanctions-committee-documents/: 13 documents listed
+2026-10-07 04:38:17,343 INFO == UN reports: finished in 0.3 min
+2026-10-07 04:38:17,343 INFO == News sweep: starting
+2026-10-07 04:38:17,744 INFO GDELT GKG: scanning 17280 files (2026-07-09T04:38:17+00:00 → 2026-10-07T04:38:17+00:00) for 2473 names + 960 nicknames
+2026-10-07 04:38:32,008 INFO GDELT GKG progress 100/17280 files, 121713 articles, 189 matches
+2026-10-07 04:38:44,771 INFO GDELT GKG progress 200/17280 files, 233072 articles, 408 matches
+2026-10-07 04:38:53,595 INFO GDELT GKG progress 300/17280 files, 293595 articles, 545 matches
+2026-10-07 04:39:02,906 INFO GDELT GKG progress 400/17280 files, 358323 articles, 689 matches
+2026-10-07 04:39:17,134 INFO GDELT GKG progress 500/17280 files, 477306 articles, 843 matches
+2026-10-07 04:39:30,803 INFO GDELT GKG progress 600/17280 files, 602253 articles, 961 matches
+2026-10-07 04:39:44,771 INFO GDELT GKG progress 700/17280 files, 729138 articles, 1270 matches
+2026-10-07 04:39:59,073 INFO GDELT GKG progress 800/17280 files, 856427 articles, 1379 matches
+2026-10-07 04:40:11,740 INFO GDELT GKG progress 900/17280 files, 958198 articles, 1557 matches
+2026-10-07 04:40:20,418 INFO GDELT GKG progress 1000/17280 files, 1013133 articles, 1612 matches
+2026-10-07 04:40:30,580 INFO GDELT GKG progress 1100/17280 files, 1087936 articles, 1695 matches
+2026-10-07 04:40:44,279 INFO GDELT GKG progress 1200/17280 files, 1209136 articles, 1786 matches
+2026-10-07 04:40:58,406 INFO GDELT GKG progress 1300/17280 files, 1335060 articles, 2035 matches
+2026-10-07 04:41:13,029 INFO GDELT GKG progress 1400/17280 files, 1462320 articles, 2373 matches
+2026-10-07 04:41:26,835 INFO GDELT GKG progress 1500/17280 files, 1585946 articles, 2514 matches
+2026-10-07 04:41:37,184 INFO GDELT GKG progress 1600/17280 files, 1669275 articles, 2605 matches
+2026-10-07 04:41:46,052 INFO GDELT GKG progress 1700/17280 files, 1726953 articles, 2706 matches
+2026-10-07 04:41:58,147 INFO GDELT GKG progress 1800/17280 files, 1828085 articles, 2839 matches
+2026-10-07 04:42:11,788 INFO GDELT GKG progress 1900/17280 files, 1951578 articles, 2968 matches
+2026-10-07 04:42:25,643 INFO GDELT GKG progress 2000/17280 files, 2076902 articles, 3065 matches
+2026-10-07 04:42:39,600 INFO GDELT GKG progress 2100/17280 files, 2200146 articles, 3285 matches
+2026-10-07 04:42:52,648 INFO GDELT GKG progress 2200/17280 files, 2316367 articles, 4048 matches
+2026-10-07 04:43:01,930 INFO GDELT GKG progress 2300/17280 files, 2379116 articles, 4120 matches
+2026-10-07 04:43:10,835 INFO GDELT GKG progress 2400/17280 files, 2435901 articles, 4238 matches
+2026-10-07 04:43:23,913 INFO GDELT GKG progress 2500/17280 files, 2547691 articles, 4360 matches
+2026-10-07 04:43:37,148 INFO GDELT GKG progress 2600/17280 files, 2664001 articles, 4466 matches
+2026-10-07 04:43:50,837 INFO GDELT GKG progress 2700/17280 files, 2785115 articles, 4709 matches
+2026-10-07 04:44:03,917 INFO GDELT GKG progress 2800/17280 files, 2902170 articles, 4857 matches
+2026-10-07 04:44:16,748 INFO GDELT GKG progress 2900/17280 files, 3006673 articles, 4945 matches
+2026-10-07 04:44:25,453 INFO GDELT GKG progress 3000/17280 files, 3063498 articles, 5092 matches
+2026-10-07 04:44:34,774 INFO GDELT GKG progress 3100/17280 files, 3127711 articles, 5201 matches
+2026-10-07 04:44:48,119 INFO GDELT GKG progress 3200/17280 files, 3244093 articles, 5372 matches
+2026-10-07 04:45:01,927 INFO GDELT GKG progress 3300/17280 files, 3365488 articles, 5524 matches
+2026-10-07 04:45:15,966 INFO GDELT GKG progress 3400/17280 files, 3487880 articles, 5856 matches
+2026-10-07 04:45:30,227 INFO GDELT GKG progress 3500/17280 files, 3610205 articles, 6084 matches
+2026-10-07 04:45:41,559 INFO GDELT GKG progress 3600/17280 files, 3701971 articles, 6254 matches
+2026-10-07 04:45:49,959 INFO GDELT GKG progress 3700/17280 files, 3755191 articles, 6378 matches
+2026-10-07 04:46:00,647 INFO GDELT GKG progress 3800/17280 files, 3841372 articles, 6495 matches
+2026-10-07 04:46:14,425 INFO GDELT GKG progress 3900/17280 files, 3960979 articles, 6635 matches
+2026-10-07 04:46:28,105 INFO GDELT GKG progress 4000/17280 files, 4081847 articles, 6786 matches
+2026-10-07 04:46:41,734 INFO GDELT GKG progress 4100/17280 files, 4203527 articles, 6925 matches
+2026-10-07 04:46:55,029 INFO GDELT GKG progress 4200/17280 files, 4318575 articles, 7054 matches
+2026-10-07 04:47:04,350 INFO GDELT GKG progress 4300/17280 files, 4384023 articles, 7108 matches
+2026-10-07 04:47:12,537 INFO GDELT GKG progress 4400/17280 files, 4435945 articles, 7161 matches
+2026-10-07 04:47:25,100 INFO GDELT GKG progress 4500/17280 files, 4542187 articles, 7277 matches
+2026-10-07 04:47:38,734 INFO GDELT GKG progress 4600/17280 files, 4660898 articles, 7398 matches
+2026-10-07 04:47:52,712 INFO GDELT GKG progress 4700/17280 files, 4786439 articles, 7481 matches
+2026-10-07 04:48:06,299 INFO GDELT GKG progress 4800/17280 files, 4905320 articles, 7598 matches
+2026-10-07 04:48:19,005 INFO GDELT GKG progress 4900/17280 files, 5011504 articles, 7744 matches
+2026-10-07 04:48:27,491 INFO GDELT GKG progress 5000/17280 files, 5069814 articles, 7814 matches
+2026-10-07 04:48:36,604 INFO GDELT GKG progress 5100/17280 files, 5130251 articles, 7886 matches
+2026-10-07 04:48:49,606 INFO GDELT GKG progress 5200/17280 files, 5242162 articles, 7974 matches
+2026-10-07 04:49:03,259 INFO GDELT GKG progress 5300/17280 files, 5363665 articles, 8055 matches
+2026-10-07 04:49:17,115 INFO GDELT GKG progress 5400/17280 files, 5483981 articles, 8136 matches
+2026-10-07 04:49:31,097 INFO GDELT GKG progress 5500/17280 files, 5604246 articles, 8214 matches
+2026-10-07 04:49:42,894 INFO GDELT GKG progress 5600/17280 files, 5705752 articles, 8325 matches
+2026-10-07 04:49:51,184 INFO GDELT GKG progress 5700/17280 files, 5760709 articles, 8393 matches
+2026-10-07 04:50:01,047 INFO GDELT GKG progress 5800/17280 files, 5832551 articles, 8497 matches
+2026-10-07 04:50:12,385 INFO GDELT GKG progress 5900/17280 files, 5926963 articles, 8623 matches
+2026-10-07 04:50:27,083 INFO GDELT GKG progress 6000/17280 files, 6053217 articles, 8766 matches
+2026-10-07 04:50:41,608 INFO GDELT GKG progress 6100/17280 files, 6179429 articles, 8909 matches
+2026-10-07 04:50:56,248 INFO GDELT GKG progress 6200/17280 files, 6303520 articles, 9380 matches
+2026-10-07 04:51:07,151 INFO GDELT GKG progress 6300/17280 files, 6387230 articles, 9635 matches
+2026-10-07 04:51:16,041 INFO GDELT GKG progress 6400/17280 files, 6443340 articles, 9902 matches
+2026-10-07 04:51:28,011 INFO GDELT GKG progress 6500/17280 files, 6540593 articles, 10034 matches
+2026-10-07 04:51:42,284 INFO GDELT GKG progress 6600/17280 files, 6661496 articles, 10155 matches
+2026-10-07 04:51:55,779 INFO GDELT GKG progress 6700/17280 files, 6786778 articles, 10386 matches
+2026-10-07 04:52:08,968 INFO GDELT GKG progress 6800/17280 files, 6904900 articles, 10558 matches
+2026-10-07 04:52:21,580 INFO GDELT GKG progress 6900/17280 files, 7014257 articles, 10847 matches
+2026-10-07 04:52:30,795 INFO GDELT GKG progress 7000/17280 files, 7077057 articles, 10987 matches
+2026-10-07 04:52:39,313 INFO GDELT GKG progress 7100/17280 files, 7135450 articles, 11056 matches
+2026-10-07 04:52:51,803 INFO GDELT GKG progress 7200/17280 files, 7245483 articles, 11238 matches
+2026-10-07 04:53:06,334 INFO GDELT GKG progress 7300/17280 files, 7363880 articles, 11371 matches
+2026-10-07 04:53:20,284 INFO GDELT GKG progress 7400/17280 files, 7488711 articles, 11542 matches
+2026-10-07 04:53:33,833 INFO GDELT GKG progress 7500/17280 files, 7606143 articles, 11869 matches
+2026-10-07 04:53:46,431 INFO GDELT GKG progress 7600/17280 files, 7714556 articles, 12039 matches
+2026-10-07 04:53:54,525 INFO GDELT GKG progress 7700/17280 files, 7771824 articles, 12201 matches
+2026-10-07 04:54:03,314 INFO GDELT GKG progress 7800/17280 files, 7838291 articles, 12291 matches
+2026-10-07 04:54:16,747 INFO GDELT GKG progress 7900/17280 files, 7955959 articles, 12396 matches
+2026-10-07 04:54:29,911 INFO GDELT GKG progress 8000/17280 files, 8079609 articles, 12531 matches
+2026-10-07 04:54:42,365 INFO GDELT GKG progress 8100/17280 files, 8203010 articles, 12679 matches
+2026-10-07 04:54:54,646 INFO GDELT GKG progress 8200/17280 files, 8322526 articles, 12787 matches
+2026-10-07 04:55:04,714 INFO GDELT GKG progress 8300/17280 files, 8416064 articles, 12908 matches
+2026-10-07 04:55:11,646 INFO GDELT GKG progress 8400/17280 files, 8468645 articles, 13005 matches
+2026-10-07 04:55:20,439 INFO GDELT GKG progress 8500/17280 files, 8549459 articles, 13276 matches
+2026-10-07 04:55:32,223 INFO GDELT GKG progress 8600/17280 files, 8666529 articles, 13449 matches
+2026-10-07 04:55:52,030 INFO GDELT GKG progress 8700/17280 files, 8890428 articles, 13591 matches
+2026-10-07 04:56:12,441 INFO GDELT GKG progress 8800/17280 files, 9117646 articles, 13744 matches
+2026-10-07 04:56:27,807 INFO GDELT GKG progress 8900/17280 files, 9275310 articles, 13869 matches
+2026-10-07 04:56:41,733 INFO GDELT GKG progress 9000/17280 files, 9416215 articles, 13975 matches
+2026-10-07 04:57:01,856 INFO GDELT GKG progress 9100/17280 files, 9638209 articles, 14131 matches
+2026-10-07 04:57:23,351 INFO GDELT GKG progress 9200/17280 files, 9875073 articles, 14289 matches
+2026-10-07 04:57:44,922 INFO GDELT GKG progress 9300/17280 files, 10111363 articles, 14436 matches
+2026-10-07 04:58:06,693 INFO GDELT GKG progress 9400/17280 files, 10344090 articles, 14587 matches
+2026-10-07 04:58:26,831 INFO GDELT GKG progress 9500/17280 files, 10565230 articles, 14720 matches
+2026-10-07 04:58:41,438 INFO GDELT GKG progress 9600/17280 files, 10713796 articles, 14793 matches
+2026-10-07 04:58:56,505 INFO GDELT GKG progress 9700/17280 files, 10862162 articles, 14905 matches
+2026-10-07 04:59:17,337 INFO GDELT GKG progress 9800/17280 files, 11085154 articles, 15097 matches
+2026-10-07 04:59:39,137 INFO GDELT GKG progress 9900/17280 files, 11325670 articles, 15253 matches
+2026-10-07 05:00:01,574 INFO GDELT GKG progress 10000/17280 files, 11570349 articles, 15464 matches
+2026-10-07 05:00:24,271 INFO GDELT GKG progress 10100/17280 files, 11814023 articles, 15705 matches
+2026-10-07 05:00:43,476 INFO GDELT GKG progress 10200/17280 files, 12019750 articles, 15861 matches
+2026-10-07 05:00:58,176 INFO GDELT GKG progress 10300/17280 files, 12166221 articles, 16010 matches
+2026-10-07 05:01:16,410 INFO GDELT GKG progress 10400/17280 files, 12349416 articles, 16138 matches
+2026-10-07 05:01:39,191 INFO GDELT GKG progress 10500/17280 files, 12588726 articles, 16340 matches
+2026-10-07 05:02:01,715 INFO GDELT GKG progress 10600/17280 files, 12830858 articles, 16547 matches
+2026-10-07 05:02:24,514 INFO GDELT GKG progress 10700/17280 files, 13074746 articles, 16702 matches
+2026-10-07 05:02:46,621 INFO GDELT GKG progress 10800/17280 files, 13312949 articles, 16940 matches
+2026-10-07 05:03:02,820 INFO GDELT GKG progress 10900/17280 files, 13483877 articles, 17082 matches
+2026-10-07 05:03:17,304 INFO GDELT GKG progress 11000/17280 files, 13626996 articles, 17160 matches
+2026-10-07 05:03:36,963 INFO GDELT GKG progress 11100/17280 files, 13838460 articles, 17339 matches
+2026-10-07 05:03:58,364 INFO GDELT GKG progress 11200/17280 files, 14069473 articles, 17539 matches
+2026-10-07 05:04:19,796 INFO GDELT GKG progress 11300/17280 files, 14303219 articles, 17752 matches
+2026-10-07 05:04:40,808 INFO GDELT GKG progress 11400/17280 files, 14532216 articles, 17941 matches
+2026-10-07 05:05:00,522 INFO GDELT GKG progress 11500/17280 files, 14752018 articles, 18091 matches
+2026-10-07 05:05:14,798 INFO GDELT GKG progress 11600/17280 files, 14902119 articles, 18234 matches
+2026-10-07 05:05:28,811 INFO GDELT GKG progress 11700/17280 files, 15042540 articles, 18371 matches
+2026-10-07 05:05:48,858 INFO GDELT GKG progress 11800/17280 files, 15263288 articles, 18595 matches
+2026-10-07 05:06:09,388 INFO GDELT GKG progress 11900/17280 files, 15491518 articles, 18847 matches
+2026-10-07 05:06:30,301 INFO GDELT GKG progress 12000/17280 files, 15722546 articles, 19073 matches
+2026-10-07 05:06:51,847 INFO GDELT GKG progress 12100/17280 files, 15952314 articles, 19279 matches
+2026-10-07 05:07:11,392 INFO GDELT GKG progress 12200/17280 files, 16164367 articles, 19447 matches
+2026-10-07 05:07:25,835 INFO GDELT GKG progress 12300/17280 files, 16307088 articles, 19588 matches
+2026-10-07 05:07:40,896 INFO GDELT GKG progress 12400/17280 files, 16464663 articles, 19814 matches
+2026-10-07 05:08:00,929 INFO GDELT GKG progress 12500/17280 files, 16689803 articles, 20036 matches
+2026-10-07 05:08:22,129 INFO GDELT GKG progress 12600/17280 files, 16928283 articles, 20285 matches
+2026-10-07 05:08:44,082 INFO GDELT GKG progress 12700/17280 files, 17169462 articles, 20572 matches
+2026-10-07 05:09:05,439 INFO GDELT GKG progress 12800/17280 files, 17405332 articles, 20770 matches
+2026-10-07 05:09:22,853 INFO GDELT GKG progress 12900/17280 files, 17592635 articles, 20873 matches
+2026-10-07 05:09:37,779 INFO GDELT GKG progress 13000/17280 files, 17739228 articles, 20980 matches
+2026-10-07 05:09:55,775 INFO GDELT GKG progress 13100/17280 files, 17935689 articles, 21116 matches
+2026-10-07 05:10:16,602 INFO GDELT GKG progress 13200/17280 files, 18169050 articles, 21342 matches
+2026-10-07 05:10:37,727 INFO GDELT GKG progress 13300/17280 files, 18409498 articles, 21475 matches
+2026-10-07 05:10:59,528 INFO GDELT GKG progress 13400/17280 files, 18649524 articles, 21669 matches
+2026-10-07 05:11:19,600 INFO GDELT GKG progress 13500/17280 files, 18879884 articles, 21832 matches
+2026-10-07 05:11:34,128 INFO GDELT GKG progress 13600/17280 files, 19038461 articles, 22036 matches
+2026-10-07 05:11:47,905 INFO GDELT GKG progress 13700/17280 files, 19181109 articles, 22136 matches
+2026-10-07 05:12:07,231 INFO GDELT GKG progress 13800/17280 files, 19400707 articles, 22244 matches
+2026-10-07 05:12:27,795 INFO GDELT GKG progress 13900/17280 files, 19639186 articles, 22392 matches
+2026-10-07 05:12:48,459 INFO GDELT GKG progress 14000/17280 files, 19875147 articles, 22488 matches
+2026-10-07 05:13:09,262 INFO GDELT GKG progress 14100/17280 files, 20112046 articles, 22627 matches
+2026-10-07 05:13:29,556 INFO GDELT GKG progress 14200/17280 files, 20335802 articles, 22743 matches
+2026-10-07 05:13:44,634 INFO GDELT GKG progress 14300/17280 files, 20486163 articles, 22875 matches
+2026-10-07 05:13:59,895 INFO GDELT GKG progress 14400/17280 files, 20635783 articles, 22989 matches
+2026-10-07 05:14:20,133 INFO GDELT GKG progress 14500/17280 files, 20861852 articles, 23174 matches
+2026-10-07 05:14:41,744 INFO GDELT GKG progress 14600/17280 files, 21103343 articles, 23483 matches
+2026-10-07 05:15:03,984 INFO GDELT GKG progress 14700/17280 files, 21349810 articles, 23744 matches
+2026-10-07 05:15:25,904 INFO GDELT GKG progress 14800/17280 files, 21594732 articles, 24517 matches
+2026-10-07 05:15:45,058 INFO GDELT GKG progress 14900/17280 files, 21809646 articles, 25872 matches
+2026-10-07 05:15:59,608 INFO GDELT GKG progress 15000/17280 files, 21961124 articles, 26188 matches
+2026-10-07 05:16:16,303 INFO GDELT GKG progress 15100/17280 files, 22141532 articles, 26450 matches
+2026-10-07 05:16:38,393 INFO GDELT GKG progress 15200/17280 files, 22388786 articles, 26734 matches
+2026-10-07 05:17:00,900 INFO GDELT GKG progress 15300/17280 files, 22638934 articles, 27007 matches
+2026-10-07 05:17:23,124 INFO GDELT GKG progress 15400/17280 files, 22886136 articles, 27256 matches
+2026-10-07 05:17:44,365 INFO GDELT GKG progress 15500/17280 files, 23126130 articles, 27465 matches
+2026-10-07 05:18:00,750 INFO GDELT GKG progress 15600/17280 files, 23301689 articles, 27679 matches
+2026-10-07 05:18:15,754 INFO GDELT GKG progress 15700/17280 files, 23449047 articles, 27912 matches
+2026-10-07 05:18:35,002 INFO GDELT GKG progress 15800/17280 files, 23661294 articles, 28146 matches
+2026-10-07 05:18:56,290 INFO GDELT GKG progress 15900/17280 files, 23900657 articles, 28356 matches
+2026-10-07 05:19:17,762 INFO GDELT GKG progress 16000/17280 files, 24139933 articles, 28507 matches
+2026-10-07 05:19:38,971 INFO GDELT GKG progress 16100/17280 files, 24377822 articles, 28720 matches
+2026-10-07 05:19:57,914 INFO GDELT GKG progress 16200/17280 files, 24595312 articles, 28927 matches
+2026-10-07 05:20:12,224 INFO GDELT GKG progress 16300/17280 files, 24744525 articles, 29103 matches
+2026-10-07 05:20:25,992 INFO GDELT GKG progress 16400/17280 files, 24885012 articles, 29221 matches
+2026-10-07 05:20:45,877 INFO GDELT GKG progress 16500/17280 files, 25107496 articles, 29561 matches
+2026-10-07 05:21:07,024 INFO GDELT GKG progress 16600/17280 files, 25345178 articles, 30143 matches
+2026-10-07 05:21:28,300 INFO GDELT GKG progress 16700/17280 files, 25585565 articles, 30361 matches
+2026-10-07 05:21:48,416 INFO GDELT GKG progress 16800/17280 files, 25820476 articles, 30575 matches
+2026-10-07 05:22:06,730 INFO GDELT GKG progress 16900/17280 files, 26032549 articles, 30758 matches
+2026-10-07 05:22:20,442 INFO GDELT GKG progress 17000/17280 files, 26179044 articles, 30986 matches
+2026-10-07 05:22:34,732 INFO GDELT GKG progress 17100/17280 files, 26333833 articles, 31166 matches
+2026-10-07 05:22:54,325 INFO GDELT GKG progress 17200/17280 files, 26568214 articles, 31514 matches
+2026-10-07 05:23:09,776 INFO GDELT GKG done: 17280 files ok, 0 missing, 0 failed, 26760233 articles scanned, 31784 matches
+2026-10-07 05:23:26,685 INFO Google News progress 0/1010
+2026-10-07 05:34:34,063 WARNING Google News is rate-limiting (HTTP 503); pausing 15 min
+2026-10-07 05:49:58,729 ERROR google_news switched off for this run: HTTP 503 (blocked again after pausing)
+2026-10-07 05:50:06,682 INFO 3983 new candidate items across 249 parties
+2026-10-07 05:56:10,354 INFO == News sweep: finished in 77.9 min
+2026-10-07 05:56:10,354 INFO Done in 81.9 min. 1125 news items on 144 parties; 10 mentions in new UN reports; 216 borderline items to review; ⚠ 1 source problem(s)
+2026-10-07 05:56:12,905 INFO Review checklists: https://github.com/devixmal/un-sanctions-monitor/issues/4, https://github.com/devixmal/un-sanctions-monitor/issues/5, https://github.com/devixmal/un-sanctions-monitor/issues/6, https://github.com/devixmal/un-sanctions-monitor/issues/7, https://github.com/devixmal/un-sanctions-monitor/issues/8
+2026-10-07 05:56:13,166 INFO Alerts delivered via: report file, review checklists

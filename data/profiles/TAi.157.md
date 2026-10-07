@@ -1,0 +1,24 @@
+# FAZL RABI
+
+**UN reference:** TAi.157 · **Type:** individual · **Regime:** Taliban · **Listed:** 2012-01-06
+
+**Also known as:** Fazl Rabbi; Fazal Rabi; Faisal Rabbi
+**Original script:** فضل ربيع
+**Nationality:** Afghanistan
+**Countries:** Afghanistan
+**Date(s) of birth:** 1972; 1975
+**Designation:** Senior official in Konar Province during the Taliban regime
+**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, EU Consolidated Travel Bans, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Indonesian List of Suspected Terrorists and Terrorist Organizations, Israel Terrorists Organizations and Unauthorized Associations lists, Japan Economic Sanctions and List of Eligible People, Moldovan Sanctions for Terrorism and Proliferation of WMD, Monaco National Fund Freezing List, Polish Sanctions Countering Money Laundering and Terror Financing, Qatar Unified Record of Persons and Entities on Sanction List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, Türkiye Asset Freezing Sanctions List (MASAK), UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
+
+## Status
+
+- Last checked: 2026-10-07 (news since 2026-07-09)
+- Verified activity records: 0; awaiting review: 0
+
+**UN listing notes:**
+
+> Represents and provides financial and logistical support to the Haqqani Network (TAe.012), which is based in Afghanistan/Pakistan border area. Member of the Taliban Financial Council. Has travelled abroad to raise funds on behalf of Sirajuddin Jallaloudine Haqqani (TAi.144), Jalaluddin Haqqani (TAi.040), the Haqqani network and the Taliban. Believed to be in Afghanistan/Pakistan border area INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Individuals
+
+## Verified activity history
+
+_No verified activity recorded yet._
