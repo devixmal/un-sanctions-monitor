@@ -17,7 +17,7 @@ from urllib.parse import urlencode
 import yaml
 
 from . import sources, unlist
-from .alerts import Report, dispatch, render_markdown
+from .alerts import Report, dispatch, render_markdown, write_report
 from .matching import (NameIndex, all_match_names, context_for, context_snippet, context_terms,
                        find_identifiers, find_mentions, fold, identifiers, news_match_names, plan_queries,
                        search_names)
@@ -258,6 +258,7 @@ def gdelt_bulk(cfg: dict, st: State, rep: Report, targets: list[dict]) -> dict[s
         rep.notes.append(f"GDELT: {stats['failed']} of {stats['files']} 15-minute files could not be read; "
                          "they will be re-read next run")
     rep.coverage["gdelt_articles"] = stats["rows"]
+    rep.coverage["gkg_since"] = {ref: t.date().isoformat() for ref, t in since.items()}
 
     def in_window(h) -> bool:
         try:
@@ -272,7 +273,7 @@ def gdelt_bulk(cfg: dict, st: State, rep: Report, targets: list[dict]) -> dict[s
         out.setdefault(h["ref"], []).append(Hit(
             "GDELT", h["title"], h["url"], h["date"], h["domain"],
             "translated" if h["stream"] == "translated" else "en", matched=[h["name"]],
-            themes=h.get("themes", ""), offset=h.get("offset")))
+            themes=h.get("themes", ""), offset=h.get("offset"), locations=h.get("locations", "")))
     return out
 
 
@@ -547,6 +548,10 @@ def news_sweep(cfg: dict, st: State, rep: Report, targets: list[dict], scorer, s
             "near_misses": len(rep.near_misses.get(ref, (None, []))[1]), "status": status,
         })
     st.set_meta("last_searched", last)
+    gk_since = rep.coverage.get("gkg_since", {})
+    rep.coverage["windows"] = {
+        r["ref"]: min([window(r["ref"]).date().isoformat()] + ([gk_since[r["ref"]]] if r["ref"] in gk_since else []))
+        for r in targets}
     rep.coverage.update({
         "parties": len(targets), "gdelt_ok": gkg_ok,
         "searched": len(targets) - len(deferred) - len(failed),
@@ -582,6 +587,9 @@ def main(argv=None) -> int:
                     help="dry run against an empty temporary state (re-scans the last week as if new); "
                          "the report is written to logs/replay_report.md")
     ap.add_argument("--skip-google-news", action="store_true", help="GDELT bulk only (faster)")
+    ap.add_argument("--baseline", action="store_true",
+                    help="status run for every party: long look-back (history.baseline_days), strongest "
+                         "findings per party go on the review checklist, a profile for every party")
     args = ap.parse_args(argv)
     (ROOT / "logs").mkdir(parents=True, exist_ok=True)
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s",
@@ -595,6 +603,15 @@ def main(argv=None) -> int:
         args.dry_run = True
     if args.skip_google_news:
         cfg["sources"].setdefault("google_news", {})["enabled"] = False
+    hcfg = cfg.get("history", {}) or {}
+    mode = "baseline" if args.baseline else "weekly"
+    if args.baseline:
+        days = int(hcfg.get("baseline_days", 90))
+        cfg["lookback_days"] = days
+        cfg["max_catchup_days"] = max(days, int(cfg.get("max_catchup_days", 30)))
+        cfg.setdefault("relevance", {}).setdefault("prominence", {})["applies_above_items"] = int(
+            hcfg.get("baseline_prominence_above", 40))
+        log.info("Baseline mode: %d-day look-back for every party", days)
     STATS.breaker = int(cfg.get("circuit_breaker_failures", 15))
     if args.replay:
         import tempfile
@@ -602,6 +619,15 @@ def main(argv=None) -> int:
     else:
         st = State(ROOT / "state/monitor.db")
     rep = Report(near_triggers=bool(cfg.get("scoring", {}).get("near_misses_trigger_alert", True)))
+    hist = None
+    if not args.dry_run and hcfg.get("enabled", True):
+        from .history import History
+        from . import review
+        hist = History(ROOT / "state/history.db")
+        try:
+            log.info("Review decisions synced: %s", review.sync(hist))
+        except Exception as e:  # noqa: BLE001
+            log.warning("Could not sync review decisions: %s", e)
     scorer = make_scorer(cfg.get("scoring", {}))
 
     records = sync_list(cfg, st, rep, save=not args.dry_run)
@@ -642,16 +668,39 @@ def main(argv=None) -> int:
         print(md)
         if args.replay:
             (ROOT / "logs/replay_report.md").write_text(md, encoding="utf-8")
-            from .alerts import write_report
-            import shutil, tempfile
+            import shutil
+            import tempfile
             tmp = Path(tempfile.mkdtemp()) / "reports"
             write_report(rep, md, tmp)
             shutil.copy(tmp.parent / "data" / "alerts" / f"{rep.run_date}.csv", ROOT / "logs/replay_items.csv")
         return 0
 
+    review_links: list[str] = []
+    if hist is not None:
+        ids = hist.add_report(rep, rep.run_date, mode,
+                              int(hcfg.get("baseline_top_per_individual", 5)),
+                              int(hcfg.get("baseline_top_per_entity", 3)))
+        now_iso = datetime.now(timezone.utc).date().isoformat()
+        windows = rep.coverage.get("windows", {})
+        for r in targets:
+            found = len(rep.news.get(r["ref"], (None, []))[1])
+            hist.record_check(r["ref"], now_iso, windows.get(r["ref"], ""), found, mode)
+        hist.commit()
+        if rep.count and ids:
+            report_path = write_report(rep, render_markdown(rep), ROOT / "reports")
+            try:
+                review_links = review.create_issues(hist, ids, records, rep.run_date, rep.headline(),
+                                                    report_path.relative_to(ROOT).as_posix(), mode)
+                log.info("Review checklists: %s", ", ".join(review_links) or "none needed")
+            except Exception as e:  # noqa: BLE001
+                log.error("Could not create review checklists: %s", e)
+        hist.export(ROOT, records, st.get_xref(), {"last_run": rep.run_date, "mode": mode,
+                                                   "coverage": {k: v for k, v in rep.coverage.items()
+                                                                if k not in ("windows", "gkg_since", "deferred")}})
     if rep.count:
-        sent = dispatch(rep, ROOT / "reports")
-        log.info("Alerts delivered via: %s", ", ".join(sent))
+        sent = dispatch(rep, ROOT / "reports", link=review_links[0] if review_links else None,
+                        make_issue=not review_links)
+        log.info("Alerts delivered via: %s", ", ".join(sent + (["review checklists"] if review_links else [])))
     else:
         log.info("Nothing new this week — no alert sent.")
     st.set_meta("last_run", rep.run_date)

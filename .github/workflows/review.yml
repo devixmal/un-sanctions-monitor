@@ -1,0 +1,43 @@
+name: Record review decisions
+
+# Runs when a review checklist is ticked, edited, closed or reopened. Re-reads every review issue,
+# records verified / rejected findings in the history database and rebuilds profiles + dashboard data.
+on:
+  issues:
+    types: [edited, closed, reopened]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: read
+
+concurrency:
+  group: sanctions-state        # never writes at the same time as a monitor run
+  cancel-in-progress: false
+
+jobs:
+  record:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.issue.labels.*.name, 'sanctions-review')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Sync decisions and rebuild profiles
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python -m monitor.review
+      - name: Save
+        run: |
+          git config user.name  "sanctions-monitor[bot]"
+          git config user.email "sanctions-monitor[bot]@users.noreply.github.com"
+          git add state/history.db data
+          if git diff --cached --quiet; then echo "No changes."; else
+            git commit -m "Review decisions recorded"
+            git pull --rebase --autostash || true
+            git push
+          fi

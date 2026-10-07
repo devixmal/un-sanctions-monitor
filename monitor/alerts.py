@@ -275,18 +275,18 @@ def telegram(rep: Report, link: str | None) -> bool:
     return True
 
 
-def dispatch(rep: Report, reports_dir: Path) -> list[str]:
+def dispatch(rep: Report, reports_dir: Path, link: str | None = None, make_issue: bool = True) -> list[str]:
     """Send everywhere configured. Returns channels that succeeded."""
     md = render_markdown(rep)
     path = write_report(rep, md, reports_dir)
-    sent, link = ["report file"], None
-    for name, fn in (("GitHub issue", lambda: github_issue(rep, md, path)),):
+    sent = ["report file"]
+    if make_issue:
         try:
-            link = fn()
+            link = github_issue(rep, md, path) or link
             if link:
-                sent.append(name)
+                sent.append("GitHub issue")
         except Exception as e:  # noqa: BLE001
-            log.error("%s delivery failed: %s", name, e)
+            log.error("GitHub issue delivery failed: %s", e)
     for name, fn in (("email", lambda: email(rep, md)), ("Slack", lambda: slack(rep, link)),
                      ("Telegram", lambda: telegram(rep, link))):
         try:

@@ -11,18 +11,18 @@ on:
         required: false
         default: ""
       mode:
-        description: "normal = real run. replay = re-check the last week with current rules; sends nothing, saves only logs/"
+        description: "normal = weekly run. baseline = 90-day status check of every party (one-off). replay = re-check last week with current rules; sends nothing"
         required: false
         default: normal
         type: choice
-        options: [normal, replay]
+        options: [normal, baseline, replay]
 
 permissions:
   contents: write   # commit state/ and reports/ back to the repo
   issues: write     # open an issue when there are alerts
 
 concurrency:
-  group: sanctions-monitor
+  group: sanctions-state        # shared with the review workflow: one writer at a time
   cancel-in-progress: false
 
 jobs:
@@ -59,6 +59,8 @@ jobs:
         run: |
           if [ "${{ github.event.inputs.mode }}" = "replay" ]; then
             python -m monitor.main --replay --skip-google-news
+          elif [ "${{ github.event.inputs.mode }}" = "baseline" ]; then
+            python -m monitor.main --baseline
           else
             python -m monitor.main
           fi

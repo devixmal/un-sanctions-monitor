@@ -37,6 +37,7 @@ class Hit:
     themes: str = ""                   # GDELT topic codes (bulk feed only)
     evidence: list[str] = field(default_factory=list)   # why it passed the context gate
     offset: int | None = None          # position of first name mention in the article
+    locations: str = ""                # countries the article is about (GDELT)
 
 
 class SourceStats:

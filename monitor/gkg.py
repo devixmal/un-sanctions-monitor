@@ -83,6 +83,20 @@ def _themes(cols: list[str]) -> str:
     return ";".join(sorted(codes))[:3000]
 
 
+def _locations(field: str, limit: int = 4) -> str:
+    """Countries the article is about, from GKG V1LOCATIONS ('type#Goma, Nord-Kivu, Congo#CG#…')."""
+    out = []
+    for part in field.split(";"):
+        bits = part.split("#")
+        if len(bits) > 1 and bits[1]:
+            country = bits[1].split(",")[-1].strip()
+            if country and country not in out:
+                out.append(country)
+        if len(out) >= limit:
+            break
+    return "; ".join(out)
+
+
 def _scan_row(cols: list[str]) -> list[tuple[str, str]]:
     """[(ref, matched_name)] for one GKG record."""
     if len(cols) < 27:
@@ -135,7 +149,7 @@ def process_file(stream: str, ts: str) -> tuple[str, str, int, list[dict]]:
                         out.append({"ref": ref, "name": name, "url": cols[4], "domain": cols[3],
                                     "date": cols[1], "title": (m.group(1).strip() if m else ""),
                                     "stream": stream, "themes": themes,
-                                    "offset": _offset(cols[23], name)})
+                                    "offset": _offset(cols[23], name), "locations": _locations(cols[9])})
     except Exception as e:  # noqa: BLE001
         return stream, ts, -1, [{"error": f"parse: {e}"}]
     return stream, ts, rows, out

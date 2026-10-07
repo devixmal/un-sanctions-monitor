@@ -105,6 +105,27 @@ news from the past 7 days. From then on it runs every **Monday 07:17 IST** by it
 - `scoring.threshold` — raise to get fewer, higher-confidence alerts
 - Change the schedule in `.github/workflows/weekly-monitor.yml` (cron is in UTC)
 
+## Reviewing findings and the history database
+
+Every finding is stored in `state/history.db` with a status: **pending** (on a checklist),
+**verified**, **rejected**, or **unreviewed** (stored and searchable, not on a checklist).
+
+1. After each run, findings are posted as GitHub issues labelled `sanctions-review`, one checkbox
+   per finding, grouped by party (several issues if there are many).
+2. **Tick** what you have checked and accept → it becomes part of that party's verified history.
+3. **Close** the issue when done → everything left unticked is recorded as rejected.
+   Unticking later, or reopening the issue, changes the decision; the latest one wins.
+4. The *Record review decisions* workflow runs on every tick/close and rebuilds:
+   - `data/profiles/<ref>.md` — a page per party: listing details, UN status notes, last checked,
+     verified activity timeline (`data/profiles/README.md` indexes all of them);
+   - `data/history.csv` — every verified record;
+   - `data/dashboard.json` — the data behind the search dashboard.
+
+**Baseline status run (one-off):** Actions → *Weekly UN sanctions monitor* → *Run workflow* → mode
+**baseline**. Every party is checked over the last 90 days; the strongest 5 findings per person
+and 3 per organisation go on the checklist, the rest stay searchable. Weekly runs then add only
+what is new.
+
 ## Re-checking a week with new rules
 
 Actions → *Weekly UN sanctions monitor* → *Run workflow* → mode **replay**. It re-scans the last week
