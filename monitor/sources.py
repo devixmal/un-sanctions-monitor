@@ -333,7 +333,7 @@ _BOT_WALL = ("a required part of this site couldn", "verify you are human", "che
 
 def is_bot_wall(text: str) -> bool:
     t = text.lower()[:2000]
-    return len(t.strip()) < 200 or any(m in t for m in _BOT_WALL)
+    return len(t.strip()) < 120 or any(m in t for m in _BOT_WALL)
 
 
 def main_text(html: str) -> str:

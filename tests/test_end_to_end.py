@@ -84,7 +84,7 @@ def test_two_runs(monkeypatch, tmp_path):
                 snippet="The Committee amended the entry of Sultani Makenga, M23 sanctions.")]
     m, args = _stub(monkeypatch, tmp_path, xml2, news, feed_items=feed,
                     reports=report_link + [("S/2026/950", "https://example.org/r2.pdf")],
-                    report_text="Panel of Experts: the Allied Democratic Forces expanded operations.",
+                    report_text="Panel of Experts: the Allied Democratic Forces expanded operations in Beni territory, North Kivu, recruiting fighters and raising funds through regional networks.",
                     xref={"CDi.008": ["us_ofac_sdn", "gb_hmt_sanctions"]},
                     official=[("https://home.treasury.example/sb0700", "Treasury sanctions ADF financiers")])
     assert m.main(args) == 0
