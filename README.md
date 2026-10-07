@@ -12,8 +12,21 @@ something new and relevant turns up**. Quiet weeks produce no notification.
 | Global news | **GDELT bulk feed**: every article GDELT processed worldwide since the last run (≈2 million a week, English + translated from 65+ languages), matched against every name, alias and nickname. **Google News**: per-party searches in English and the party's local languages, including document numbers and original-script names | A new article about the listed party since the last run |
 | Official feeds | UN SC list-update RSS + Google News topic feeds (sanctions committees, Panel of Experts, OFAC…) | Any listed name appears in a new item |
 | UN reports | Panel of Experts / Monitoring Team report pages for every regime | A **new** report's full PDF text mentions any listed name |
+| Official releases | UN Security Council press releases (incl. sanctions committees), US Treasury press releases, OFAC recent actions, US Justice Department (all + National Security Division), US State Department, FBI, UK OFSI | A **new** release's full text names any listed party |
 | Other authorities | OpenSanctions cross-reference (OFAC, EU, UK, etc.) | A UN-listed party is newly listed elsewhere |
 | Monitor health | All of the above | A source failed on ≥50% of requests, so you know coverage had a gap |
+
+### How it keeps out irrelevant news
+
+Every news item (GDELT, Google News, topic feeds) must pass a **context gate**: the article has to
+carry a security or sanctions topic — either GDELT's own topic codes (TERROR, ARMEDCONFLICT,
+ARREST, KILL, SANCTIONS…, assigned in every language) or a keyword from a multilingual list
+(terror, designated, jihad, militia, arrested, sanctions, financing, smuggling… in English, French,
+Arabic, Russian, Korean, Spanish, Portuguese, Turkish, Indonesian and Chinese). For heavily covered
+parties (more than 15 relevant items in a run, e.g. Al-Qaida or the Houthis) only articles naming
+them in the headline or opening are kept. Each alert shows the context that let it through, and the
+report counts everything discarded. Edit the lists under `relevance:` in `config.yaml`.
+Official releases, UN reports and document-number matches are high-signal and are not gated.
 
 ### How it avoids missing things
 

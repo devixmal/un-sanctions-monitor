@@ -34,6 +34,9 @@ class Hit:
     score: float = 0.0
     summary: str = ""
     category: str = ""
+    themes: str = ""                   # GDELT topic codes (bulk feed only)
+    evidence: list[str] = field(default_factory=list)   # why it passed the context gate
+    offset: int | None = None          # position of first name mention in the article
 
 
 class SourceStats:
@@ -316,6 +319,43 @@ def document_text(url: str, max_pages: int = 1500) -> str:
             text = (text + "\n" + ocr_pdf(r.content)).strip()
         return text
     return BeautifulSoup(r.text, "html.parser").get_text(" ")
+
+
+# ------------------------------------------------------- Official releases (UN/US/UK)
+def list_official_items(src: dict, limit: int = 60) -> list[tuple[str, str]] | None:
+    """[(url, title)] newest first from an RSS/Atom feed or an HTML listing page.
+
+    For HTML, links are kept only if they match the source's `link_pattern`. None = source failed.
+    """
+    try:
+        r = get(src["url"], timeout=60)
+        if r.status_code != 200:
+            raise RuntimeError(f"HTTP {r.status_code}")
+    except Exception as e:  # noqa: BLE001
+        STATS.fail("official_sources", f"{src.get('name', src['url'])}: {e}")
+        log.warning("Official source %s failed: %s", src.get("name", src["url"]), e)
+        return None
+    head = r.content[:500].lstrip().lower()
+    items: list[tuple[str, str]] = []
+    if head.startswith(b"<?xml") or b"<rss" in head or b"<feed" in head:
+        feed = feedparser.parse(r.content)
+        items = [(e.get("link", ""), e.get("title", "")) for e in feed.entries if e.get("link")]
+    else:
+        pat = re.compile(src.get("link_pattern", "."))
+        soup = BeautifulSoup(r.text, "html.parser")
+        seen = set()
+        for a in soup.find_all("a", href=True):
+            url = urljoin(src["url"], a["href"]).split("#")[0]
+            if url in seen or not pat.search(url) or url.rstrip("/") == src["url"].rstrip("/"):
+                continue
+            seen.add(url)
+            items.append((url, " ".join(a.get_text(" ").split())))
+    if not items:
+        STATS.fail("official_sources", f"{src.get('name', src['url'])}: no items found (page layout changed?)")
+        log.warning("Official source %s: no items found", src.get("name", src["url"]))
+        return None
+    STATS.ok("official_sources")
+    return items[:limit]
 
 
 # --------------------------------------------------------------- Page context

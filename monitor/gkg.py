@@ -63,6 +63,26 @@ def _grams(name: str):
             yield " ".join(t[i:j])
 
 
+def _offset(allnames: str, gram: str) -> int | None:
+    """Character position in the article of the first mention containing `gram` (GKG ALLNAMES)."""
+    best = None
+    for part in allnames.split(";"):
+        if "," not in part:
+            continue
+        name, pos = part.rsplit(",", 1)
+        if pos.isdigit() and gram in fold(name):
+            best = int(pos) if best is None else min(best, int(pos))
+    return best
+
+
+def _themes(cols: list[str]) -> str:
+    """GDELT topic codes for the article (language-independent: TERROR, ARREST, KILL…)."""
+    v1 = cols[7]
+    v2 = ";".join(t.rsplit(",", 1)[0] for t in cols[8].split(";") if t) if len(cols) > 8 else ""
+    codes = {c for c in (v1 + ";" + v2).split(";") if c}
+    return ";".join(sorted(codes))[:3000]
+
+
 def _scan_row(cols: list[str]) -> list[tuple[str, str]]:
     """[(ref, matched_name)] for one GKG record."""
     if len(cols) < 27:
@@ -106,11 +126,16 @@ def process_file(stream: str, ts: str) -> tuple[str, str, int, list[dict]]:
                 for raw in io.TextIOWrapper(f, encoding="utf-8", errors="replace"):
                     rows += 1
                     cols = raw.rstrip("\n").split("\t")
-                    for ref, name in _scan_row(cols):
-                        m = _TITLE.search(cols[26]) if len(cols) > 26 else None
+                    matches = _scan_row(cols)
+                    if not matches:
+                        continue
+                    m = _TITLE.search(cols[26]) if len(cols) > 26 else None
+                    themes = _themes(cols)
+                    for ref, name in matches:
                         out.append({"ref": ref, "name": name, "url": cols[4], "domain": cols[3],
                                     "date": cols[1], "title": (m.group(1).strip() if m else ""),
-                                    "stream": stream})
+                                    "stream": stream, "themes": themes,
+                                    "offset": _offset(cols[23], name)})
     except Exception as e:  # noqa: BLE001
         return stream, ts, -1, [{"error": f"parse: {e}"}]
     return stream, ts, rows, out

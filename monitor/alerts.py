@@ -26,6 +26,7 @@ class Report:
     xref_added: list = field(default_factory=list)       # (record, [datasets])
     news: dict = field(default_factory=dict)              # ref -> (record, [Hit])
     report_mentions: list = field(default_factory=list)  # (report_id, url, record, [(name, snippet)])
+    official_mentions: list = field(default_factory=list)  # (source, title, url, record, [(name, snippet)])
     feed_mentions: list = field(default_factory=list)    # (record, Hit)
     health: dict = field(default_factory=dict)            # source -> problem
     near_misses: dict = field(default_factory=dict)       # ref -> (record, [Hit]) below threshold
@@ -41,7 +42,8 @@ class Report:
     def count(self) -> int:
         return (len(self.list_added) + len(self.list_removed) + len(self.list_amended)
                 + len(self.xref_added) + sum(len(h) for _, h in self.news.values())
-                + len(self.report_mentions) + len(self.feed_mentions) + len(self.health)
+                + len(self.report_mentions) + len(self.official_mentions) + len(self.feed_mentions)
+                + len(self.health)
                 + (self.near_count if self.near_triggers else 0))
 
     def headline(self) -> str:
@@ -50,6 +52,8 @@ class Report:
             parts.append(f"UN list: +{len(self.list_added)} / -{len(self.list_removed)} / ~{len(self.list_amended)}")
         if self.news:
             parts.append(f"{sum(len(h) for _, h in self.news.values())} news items on {len(self.news)} parties")
+        if self.official_mentions:
+            parts.append(f"{len(self.official_mentions)} mentions in UN/US/UK official releases")
         if self.report_mentions:
             parts.append(f"{len(self.report_mentions)} mentions in new UN reports")
         if self.feed_mentions:
@@ -93,6 +97,13 @@ def render_markdown(rep: Report) -> str:
     if rep.xref_added:
         out += ["## Newly listed by other authorities", ""]
         out += [f"- {_who(r)} now also on: {', '.join(ds)}" for r, ds in rep.xref_added] + [""]
+    if rep.official_mentions:
+        out += ["## Named in official releases (UN Security Council, US Treasury/OFAC/State/Justice/FBI, UK)", ""]
+        for src, title, url, r, snippets in rep.official_mentions:
+            out.append(f"- {_who(r)} — {src}: [{title[:160]}]({url})")
+            for name, snip in snippets[:1]:
+                out.append(f"  - _“…{snip.strip()[:400]}…”_")
+        out.append("")
     if rep.report_mentions:
         out += ["## Named in new UN reports", ""]
         for rid, url, r, snippets in rep.report_mentions:
@@ -114,6 +125,8 @@ def render_markdown(rep: Report) -> str:
                            f"{nice_date(h.date)} (confidence {h.score:.2f})")
                 if h.summary:
                     out.append(f"  - {h.summary}")
+                if h.evidence:
+                    out.append(f"  - Context: {', '.join(h.evidence)}")
             if len(ranked) > TOP_PER_PARTY:
                 out.append(f"- …and {len(ranked) - TOP_PER_PARTY} more in `data/alerts/{rep.run_date}.csv`")
             out.append("")
@@ -140,9 +153,11 @@ def render_markdown(rep: Report) -> str:
                 f"- GDELT worldwide news articles scanned: {c.get('gdelt_articles', 0):,}",
                 f"- Searches run: {c['queries']} ({c['failed_queries']} failed); raw results: {c['raw_results']}; "
                 f"new items reviewed: {c['new_items']}",
-                f"- Discarded automatically: {c.get('dropped_no_context', 0)} nickname/acronym matches with no "
-                f"link to the party's organisation or country; {c.get('dropped_republished', 0)} old articles "
-                "re-published",
+                f"- Discarded automatically: {c.get('dropped_irrelevant', 0)} articles with no security or "
+                f"sanctions context (terror, designation, jihad, militia, arrest…); "
+                f"{c.get('dropped_not_prominent', 0)} passing mentions of heavily covered parties; "
+                f"{c.get('dropped_no_context', 0)} nickname/acronym matches with no link to the party; "
+                f"{c.get('dropped_republished', 0)} old articles re-published",
                 "- Per-party detail: `data/coverage.csv`"]
         if c.get("deferred") and len(c["deferred"]) <= 20:
             out.append(f"- Google News carried over to next run: {', '.join(c['deferred'])}")
@@ -167,16 +182,23 @@ def write_report(rep: Report, md: str, folder: Path) -> Path:
     with data.open("w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["status", "ref", "name", "regime", "confidence", "category", "date", "source",
-                    "title", "url", "summary", "matched"])
+                    "title", "url", "summary", "matched", "context"])
         for status, group in (("alert", rep.news), ("borderline", rep.near_misses)):
             for ref, (r, hits) in group.items():
                 for h in sorted(hits, key=lambda h: -h.score):
                     w.writerow([status, ref, r["name"], r.get("regime", ""), f"{h.score:.2f}", h.category,
                                 nice_date(h.date), h.domain or h.source, h.title, h.url, h.summary,
-                                "; ".join(h.matched)])
+                                "; ".join(h.matched), "; ".join(h.evidence)])
+        for src, title, url, r, snippets in rep.official_mentions:
+            w.writerow(["official", r["ref"], r["name"], r.get("regime", ""), "1.00", "official", "", src,
+                        title, url, (snippets[0][1][:300] if snippets else ""), "; ".join(n for n, _ in snippets), ""])
+        for rid, url, r, snippets in rep.report_mentions:
+            w.writerow(["un_report", r["ref"], r["name"], r.get("regime", ""), "1.00", "un_report", "", "UN",
+                        rid, url, (snippets[0][1][:300] if snippets else ""), "; ".join(n for n, _ in snippets), ""])
         for r, h in rep.feed_mentions:
             w.writerow(["feed", r["ref"], r["name"], r.get("regime", ""), f"{h.score:.2f}", h.category,
-                        nice_date(h.date), h.domain or h.source, h.title, h.url, h.summary, "; ".join(h.matched)])
+                        nice_date(h.date), h.domain or h.source, h.title, h.url, h.summary, "; ".join(h.matched),
+                        "; ".join(h.evidence)])
     return path
 
 

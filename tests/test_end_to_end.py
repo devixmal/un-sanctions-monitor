@@ -6,7 +6,8 @@ from monitor.sources import Hit
 from tests.test_monitor import SAMPLE
 
 
-def _stub(monkeypatch, tmp_path, xml, news, feed_items=(), reports=(), report_text="", xref=None, extra_cfg=""):
+def _stub(monkeypatch, tmp_path, xml, news, feed_items=(), reports=(), report_text="", xref=None, extra_cfg="",
+          official=()):
     monkeypatch.setenv("MONITOR_ROOT", str(tmp_path))
     for k in ("GITHUB_TOKEN", "ANTHROPIC_API_KEY", "SMTP_HOST", "SLACK_WEBHOOK_URL", "TELEGRAM_BOT_TOKEN"):
         monkeypatch.delenv(k, raising=False)
@@ -42,6 +43,8 @@ def _stub(monkeypatch, tmp_path, xml, news, feed_items=(), reports=(), report_te
     m.CALLS = calls
     monkeypatch.setattr(sources, "read_feed", lambda url: list(feed_items))
     monkeypatch.setattr(sources, "list_report_links", lambda page, quiet=False: list(reports))
+    monkeypatch.setattr(sources, "list_official_items",
+                        lambda src, limit=60: list(official) if "treasury" in src["url"] else [])
     monkeypatch.setattr(sources, "document_text", lambda url: report_text)
     monkeypatch.setattr(sources, "opensanctions_datasets", lambda url, recs: xref or {})
     monkeypatch.setattr(sources, "page_text", lambda url: "Rebel commander Sultani Makenga of the M23 was seen in Goma, DRC.")
@@ -82,12 +85,14 @@ def test_two_runs(monkeypatch, tmp_path):
     m, args = _stub(monkeypatch, tmp_path, xml2, news, feed_items=feed,
                     reports=report_link + [("S/2026/950", "https://example.org/r2.pdf")],
                     report_text="Panel of Experts: the Allied Democratic Forces expanded operations.",
-                    xref={"CDi.008": ["us_ofac_sdn", "gb_hmt_sanctions"]})
+                    xref={"CDi.008": ["us_ofac_sdn", "gb_hmt_sanctions"]},
+                    official=[("https://home.treasury.example/sb0700", "Treasury sanctions ADF financiers")])
     assert m.main(args) == 0
     md = next((tmp_path / "reports").glob("*.md")).read_text()
     assert "Amended" in md and "CDi.005" in md
     assert "S/2026/950" in md and "S/2026/900" not in md        # only the NEW report
     assert "gb_hmt_sanctions" in md
+    assert "Named in official releases" in md and "Treasury sanctions ADF financiers" in md
     assert "Committee amends entry" not in md   # first week a feed returns items = baseline only
     assert "Makenga in Goma talks" not in md                      # already reported last week
     gk = [c for c in m.CALLS if c[0] == "gkg"][0]

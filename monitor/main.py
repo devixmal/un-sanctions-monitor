@@ -21,6 +21,7 @@ from .alerts import Report, dispatch, render_markdown
 from .matching import (NameIndex, all_match_names, context_for, context_snippet, context_terms,
                        find_identifiers, find_mentions, fold, identifiers, news_match_names, plan_queries,
                        search_names)
+from .relevance import Relevance
 from .scoring import make_scorer
 from .sources import STATS, Hit
 from .state import State, canonical_url, key_of
@@ -87,6 +88,7 @@ def cross_lists(cfg: dict, st: State, rep: Report, records: dict[str, dict]) -> 
 
 # --------------------------------------------------------------------- step 3
 def watched_feeds(cfg: dict, st: State, rep: Report, records, index: NameIndex, scorer) -> None:
+    feed_rel = Relevance(cfg.get("relevance"))
     urls = list(cfg["sources"].get("feeds", []) or [])
     gn = cfg["sources"].get("google_news", {})
     for q in cfg["sources"].get("topic_queries", []) or []:
@@ -108,6 +110,10 @@ def watched_feeds(cfg: dict, st: State, rep: Report, records, index: NameIndex, 
                 rec = records[ref]
                 hit = Hit(**{**h.__dict__, "ref": ref, "matched": [n for n, _ in found],
                              "snippet": found[0][1]})
+                ok, ev = feed_rel.check(hit.title, hit.snippet)
+                if not ok:
+                    continue
+                hit.evidence = ev
                 kept, near = scorer(rec, [hit])
                 for k in kept:
                     rep.feed_mentions.append((rec, k))
@@ -115,6 +121,48 @@ def watched_feeds(cfg: dict, st: State, rep: Report, records, index: NameIndex, 
                     rep.near_misses.setdefault(ref, (rec, []))[1].append(n)
         if items:
             st.set_meta(init_key, True)
+
+
+# --------------------------------------------------------------------- step 3b
+def official_sources(cfg: dict, st: State, rep: Report, records, index: NameIndex) -> None:
+    """New UN Security Council, US Treasury/OFAC/State/Justice/FBI and UK OFSI releases, read in
+    full and checked for every listed name. Official text is high-signal: no context gate."""
+    c = cfg["sources"].get("official", {})
+    if not c.get("enabled"):
+        return
+    budget = int(c.get("max_pages_per_run", 400))
+    first_n = int(c.get("first_run_items", 15))
+    for src in c.get("sources", []) or []:
+        items = sources.list_official_items(src)
+        if items is None:
+            continue
+        init_key = "init:official:" + src["url"]
+        first = not st.get_meta(init_key, False)
+        scanned = 0
+        for i, (url, title) in enumerate(items):
+            k = key_of("official", canonical_url(url))
+            if st.is_seen(k):
+                continue
+            if first and i >= first_n:            # first run: recent items only, rest is history
+                st.mark(k, "official", url=url)
+                continue
+            if budget <= 0:
+                rep.notes.append("Official-release limit reached; the rest are read next run")
+                break
+            budget -= 1
+            try:
+                text = sources.document_text(url)
+                STATS.ok("official_pages")
+            except Exception as e:  # noqa: BLE001
+                STATS.fail("official_pages", e)
+                continue                           # not marked: retried next run
+            st.mark(k, "official", url=url)
+            scanned += 1
+            for ref, found in index.scan(f"{title}\n{text}").items():
+                rep.official_mentions.append((src.get("name", src["url"]), title or url, url,
+                                              records[ref], found))
+        log.info("Official source %s: %d listed, %d new read", src.get("name"), len(items), scanned)
+        st.set_meta(init_key, True)
 
 
 # --------------------------------------------------------------------- step 4
@@ -219,7 +267,8 @@ def gdelt_bulk(cfg: dict, st: State, rep: Report, targets: list[dict]) -> dict[s
     for h in hits:
         out.setdefault(h["ref"], []).append(Hit(
             "GDELT", h["title"], h["url"], h["date"], h["domain"],
-            "translated" if h["stream"] == "translated" else "en", matched=[h["name"]]))
+            "translated" if h["stream"] == "translated" else "en", matched=[h["name"]],
+            themes=h.get("themes", ""), offset=h.get("offset")))
     return out
 
 
@@ -352,6 +401,21 @@ def news_sweep(cfg: dict, st: State, rep: Report, targets: list[dict], scorer, s
                 st.mark(kt, src, ref, h.url)
             h.ref = ref
             fresh.setdefault(ref, []).append(h)
+    # Context gate, part 1 (before any cap): GDELT articles must carry a security/sanctions topic
+    # or keyword in the headline. GDELT tags topics in every language it reads.
+    rel = Relevance(cfg.get("relevance"))
+    dropped_irrelevant = 0
+    for ref in list(fresh):
+        keep = []
+        for h in fresh[ref]:
+            if h.source == "GDELT" and rel.enabled and not any(m.startswith("id:") for m in h.matched):
+                ok, ev = rel.check(h.title, "", h.themes)
+                if not ok:
+                    dropped_irrelevant += 1
+                    continue
+                h.evidence = ev
+            keep.append(h)
+        fresh[ref] = keep
     cap = int(cfg.get("scoring", {}).get("max_hits_per_entity", 100))
     for ref in fresh:
         names_f = [fold(n) for n in news_match_names(by_ref[ref], min_len)]
@@ -409,6 +473,33 @@ def news_sweep(cfg: dict, st: State, rep: Report, targets: list[dict], scorer, s
         fresh[ref] = keep
     rep.coverage["dropped_no_context"] = dropped_ctx
     rep.coverage["dropped_republished"] = dropped_old
+
+    # Context gate, part 2: every remaining item (Google News, feeds) must mention a security or
+    # sanctions topic in its headline, snippet or article text; then, for parties with heavy
+    # coverage, the party must be named in the headline or the opening of the article.
+    dropped_not_prominent = 0
+    for ref in list(fresh):
+        rec = by_ref[ref]
+        names = news_match_names(rec, min_len)
+        keep = []
+        for h in fresh[ref]:
+            if any(m.startswith("id:") for m in h.matched) or not rel.enabled:
+                keep.append(h)
+                continue
+            ok, ev = rel.check(h.title, f"{h.snippet} {page.get(id(h), '')}", h.themes)
+            if not ok:
+                dropped_irrelevant += 1
+                continue
+            h.evidence = sorted(set(getattr(h, "evidence", []) + ev))[:6]
+            keep.append(h)
+        if len(keep) > rel.prominence_above:
+            prominent = [h for h in keep if any(m.startswith("id:") for m in h.matched)
+                         or rel.prominent(h.title, page.get(id(h), "") or h.snippet, names, h.offset)]
+            dropped_not_prominent += len(keep) - len(prominent)
+            keep = prominent
+        fresh[ref] = keep
+    rep.coverage["dropped_irrelevant"] = dropped_irrelevant
+    rep.coverage["dropped_not_prominent"] = dropped_not_prominent
 
     def judge(item):
         ref, hs = item
@@ -521,6 +612,7 @@ def main(argv=None) -> int:
     steps = (
         ("Other sanctions lists", lambda: cross_lists(cfg, st, rep, records)),
         ("Watched feeds", lambda: watched_feeds(cfg, st, rep, records, index, scorer)),
+        ("Official releases", lambda: official_sources(cfg, st, rep, records, index)),
         ("UN reports", lambda: un_reports(cfg, st, rep, records, index)),
         ("News sweep", lambda: news_sweep(cfg, st, rep, targets, scorer, started,
                                           gdelt_bulk(cfg, st, rep, targets))),

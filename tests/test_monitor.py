@@ -238,3 +238,19 @@ def test_google_news_pauses_once_then_stops(monkeypatch):
     assert sources.google_news(["X Y"], t, t, ed) is None
     assert ("sleep", 900) in calls and sources.STATS.is_tripped("google_news")
     assert sources.google_news(["X Y"], t, t, ed) is None and calls.count(1) == 2   # no more requests
+
+
+def test_relevance_gate():
+    import yaml
+
+    from monitor.relevance import Relevance
+    r = Relevance(yaml.safe_load(open("config.yaml"))["relevance"])
+    assert r.check("Les FDLR ont commis plusieurs exactions", "")[0]
+    assert r.check("x", "", "WB_2433_CONFLICT_AND_VIOLENCE;TAX_TERROR_GROUP")[0]   # GDELT topic codes
+    assert r.check("العقوبات الأمريكية على الحوثي", "")[0]                          # Arabic, attached prefix
+    assert not r.check("Ty Jerome, nouveau leader des Grizzlies", "")[0]              # sports namesake
+    assert not r.check("Neil Armstrong anniversary", "")[0]                           # 'arms' is whole-word only
+    # prominence: headline or early mention
+    assert r.prominent("Houthis fire missile", "", ["The Houthis", "Houthis"], None)
+    assert r.prominent("Regional roundup", "", ["Houthis"], 300)
+    assert not r.prominent("Regional roundup", "x " * 3000 + "Houthis", ["Houthis"], None)

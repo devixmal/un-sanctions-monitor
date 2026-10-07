@@ -92,12 +92,88 @@ sources:
     pages:
       - https://www.securitycouncilreport.org/un_documents_type/sanctions-committee-documents/
 
+  # Official releases: every NEW item is read in full and checked for every listed name.
+  # First run reads the latest `first_run_items` per source and records the rest as history.
+  official:
+    enabled: true
+    first_run_items: 15
+    max_pages_per_run: 400
+    sources:
+      - name: UN Security Council press releases (incl. sanctions committees)
+        url: https://press.un.org/en/content/security-council/press-release
+        link_pattern: '/en/\d{4}/sc\d+\.doc\.htm'
+      - name: US Treasury press releases
+        url: https://home.treasury.gov/news/press-releases
+        link_pattern: '/news/press-releases/[a-z]{2}\d{3,5}/?$'
+      - name: US OFAC recent actions
+        url: https://ofac.treasury.gov/recent-actions
+        link_pattern: '/recent-actions/\d{8}'
+      - name: US Justice Department press releases
+        url: https://www.justice.gov/news/rss?type=press_release&m=1
+      - name: US Justice Department, National Security Division
+        url: https://www.justice.gov/news/press-releases?f%5B0%5D=facet_components%3A361
+        link_pattern: '/(opa|nsd|usao-[a-z]+)/pr/'
+      - name: US State Department releases (incl. terrorist designations)
+        url: https://www.state.gov/press-releases/
+        link_pattern: '/releases/'
+      - name: FBI press releases
+        url: https://www.fbi.gov/news/press-releases
+        link_pattern: '/news/press-releases/[^/]+$|/field-offices/[^/]+/news/[^/]+$'
+      - name: UK Office of Financial Sanctions Implementation
+        url: https://www.gov.uk/search/all.atom?organisations%5B%5D=office-of-financial-sanctions-implementation&order=updated-newest
+
   # Flags when a UN-listed party is newly added to another authority's list (OFAC, EU, UK, etc.).
   # NOTE: OpenSanctions data is free for non-commercial use only (CC BY-NC 4.0);
   # commercial users need a licence from opensanctions.org or should set enabled: false.
   opensanctions:
     enabled: true
     url: https://data.opensanctions.org/datasets/latest/sanctions/targets.simple.csv
+
+# Context gate applied to ALL news sources (GDELT, Google News, topic feeds). A name match only
+# counts if the article carries a security/sanctions topic. Official UN/US/UK releases, UN reports
+# and document-number matches are high-signal and are not gated.
+relevance:
+  enabled: true
+  # GDELT's own topic codes (assigned in every language it reads); matched as substrings,
+  # e.g. TERROR also covers TAX_TERROROGROUP_*, SANCTION covers SANCTIONS.
+  gdelt_themes: [TERROR, SANCTION, ARMEDCONFLICT, MILITANCY, MILITANT, INSURGEN, REBEL, EXTREMIS,
+                 RADICAL, JIHAD, WMD, WEAPON, ARMS_, SUICIDE_ATTACK, KIDNAP, SMUGGL, TRAFFICK, LAUNDER,
+                 MONEY_LAUNDERING, SEIGE, SECURITY_SERVICES, ARREST, KILL, TRIAL, EXTRADIT, PROLIFERAT,
+                 NUCLEAR, MISSILE, ASSASSINAT, FUGITIVE, WANTED, CONFLICT_AND_VIOLENCE, ORGANIZED_CRIME,
+                 CRIME_ILLICIT, BLACK_MARKET, PIRACY, HOSTAGE, MILITARY]
+  # Matched at word starts (so "terror" also matches terrorist, terrorisme, terrorista…).
+  keywords:
+    en: [terror, designat, sanction, jihad, mujahid, militant, militia, insurgen, extremis, radicali,
+         rebel, armed group, attack, bombing, bomb, explosive, suicide, killed, killing, kill, assassinat,
+         kidnap, hostage, arrest, detain, captured, extradit, indict, charged, convict, sentenced,
+         trial, prosecut, wanted, fugitive, bounty, reward, financ, launder, smuggl, traffick, arms,
+         weapon, missile, nuclear, proliferat, evasion, evade, asset freeze, travel ban, blacklist,
+         interpol, security council, panel of experts, ofac, treasury, al qaeda, al qaida, isis, isil,
+         daesh, islamic state, taliban, shabaab, houthi, ansarallah, hezbollah, hamas, boko haram,
+         jnim, lashkar, jaish, haqqani, ttp, m23, fdlr, adf]
+    fr: [terroris, djihad, jihad, milice, rebell, insurg, attaque, attentat, explosif, enlev, otage,
+         arrete, arrestation, interpell, condamn, inculp, proces, poursuiv, recherche, financement,
+         blanchiment, trafic, contrebande, groupe arme, conseil de securite, gel des avoirs]
+    ar: [إرهاب, ارهاب, إرهابي, عقوبات, جهاد, مسلح, ميليشيا, هجوم, تفجير, اغتيال, اختطاف, اعتقال,
+         القبض, محكمة, حكم, تمويل, غسل, تهريب, سلاح, صاروخ, مجلس الأمن, داعش, القاعدة, الشباب,
+         الحوثي, طالبان]
+    ru: [террор, санкц, джихад, боевик, теракт, вооружен, нападен, взрыв, похищ, арест, задерж,
+         убит, ликвидир, суд, приговор, финансир, отмыван, контрабанд, оружи, ракет, розыск]
+    ko: [제재, 테러, 미사일, 핵, 무기, 체포, 기소, 정찰총국, 해킹, 자금세탁, 밀수]
+    es: [terroris, sancion, yihad, milicia, insurg, ataque, atentado, secuestr, arrest, detenid,
+         captur, extradi, conden, juicio, acusad, armas, lavado, contraband, narcotrafic]
+    pt: [terroris, sancao, sancoes, jihad, milicia, insurg, ataque, atentado, sequestr, preso,
+         presos, detid, conden, julgamento, armas, lavagem, contraband]
+    tr: [teror, yaptirim, cihat, silahli, militan, saldiri, bombal, gozalti, tutuklan, yakalan,
+         mahkeme, finans, kacakcilik, silah]
+    id: [teror, sanksi, jihad, militan, ekstremis, serangan, bom, ditangkap, densus, pengadilan,
+         vonis, pendanaan, senjata]
+    zh: [恐怖, 制裁, 圣战, 武装, 袭击, 爆炸, 逮捕, 拘留, 法院, 判刑, 洗钱, 走私, 武器, 导弹]
+  prominence:
+    # For a party with more than this many relevant items in a run (e.g. Al-Qaida, the Houthis),
+    # keep only items naming it in the headline or within the first N characters of the article.
+    applies_above_items: 15
+    within_chars: 1500
 
 matching:
   # Every good-quality alias is searched (spread over as many queries as needed).
