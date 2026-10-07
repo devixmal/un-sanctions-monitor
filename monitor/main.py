@@ -152,9 +152,11 @@ def official_sources(cfg: dict, st: State, rep: Report, records, index: NameInde
             budget -= 1
             try:
                 text = sources.document_text(url)
+                if sources.is_bot_wall(text):
+                    raise RuntimeError("site served a bot-check page instead of the release")
                 STATS.ok("official_pages")
             except Exception as e:  # noqa: BLE001
-                STATS.fail("official_pages", e)
+                STATS.fail("official_pages", f"{src.get('name')}: {e}")
                 continue                           # not marked: retried next run
             st.mark(k, "official", url=url)
             scanned += 1

@@ -12,7 +12,7 @@ something new and relevant turns up**. Quiet weeks produce no notification.
 | Global news | **GDELT bulk feed**: every article GDELT processed worldwide since the last run (≈2 million a week, English + translated from 65+ languages), matched against every name, alias and nickname. **Google News**: per-party searches in English and the party's local languages, including document numbers and original-script names | A new article about the listed party since the last run |
 | Official feeds | UN SC list-update RSS + Google News topic feeds (sanctions committees, Panel of Experts, OFAC…) | Any listed name appears in a new item |
 | UN reports | Panel of Experts / Monitoring Team report pages for every regime | A **new** report's full PDF text mentions any listed name |
-| Official releases | UN Security Council press releases (incl. sanctions committees), US Treasury press releases, OFAC recent actions, US Justice Department (all + National Security Division), US State Department, FBI, UK OFSI | A **new** release's full text names any listed party |
+| Official releases | US Treasury press releases, OFAC recent actions, US Justice Department (incl. National Security Division cases), FBI, UK OFSI. (UN committee press releases and state.gov block automated readers: UN changes come from the official list XML, and State Department designations via Treasury/OFAC and news topic searches) | A **new** release's full text names any listed party |
 | Other authorities | OpenSanctions cross-reference (OFAC, EU, UK, etc.) | A UN-listed party is newly listed elsewhere |
 | Monitor health | All of the above | A source failed on ≥50% of requests, so you know coverage had a gap |
 

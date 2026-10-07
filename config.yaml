@@ -101,22 +101,8 @@ sources:
     first_run_items: 15
     max_pages_per_run: 400
     sources:
-      - name: UN Security Council sanctions committee press releases
-        urls:
-          - https://main.un.org/securitycouncil/en/sanctions/1267/press-releases
-          - https://main.un.org/securitycouncil/en/sanctions/1988/press-releases
-          - https://main.un.org/securitycouncil/en/sanctions/1518/press-releases
-          - https://main.un.org/securitycouncil/en/sanctions/1533/press-releases
-          - https://main.un.org/securitycouncil/en/sanctions/1591/press-releases
-          - https://main.un.org/securitycouncil/en/sanctions/1718/press-releases
-          - https://main.un.org/securitycouncil/en/sanctions/1970/press-releases
-          - https://main.un.org/securitycouncil/en/sanctions/2127/press-releases
-          - https://main.un.org/securitycouncil/en/sanctions/2140/press-releases
-          - https://main.un.org/securitycouncil/en/sanctions/2206/press-releases
-          - https://main.un.org/securitycouncil/en/sanctions/2653/press-releases
-          - https://main.un.org/securitycouncil/en/sanctions/2713/press-releases
-          - https://main.un.org/securitycouncil/en/sanctions/2745/press-releases
-        link_pattern: 'press\.un\.org/en/\d{4}/sc\d+\.doc\.htm'
+      # UN sanctions committee press releases (press.un.org) refuse automated readers; the same
+      # additions, amendments and removals are taken directly from the official UN list XML.
       - name: US Treasury press releases
         url: https://home.treasury.gov/news/press-releases
         link_pattern: '/news/press-releases/[a-z]{2}\d{3,5}/?$'

@@ -327,6 +327,15 @@ _CUT_MARKERS = ("Related Content", "Related Press Release", "Related Articles", 
                 "Related News", "More Press Releases", "Recent Press Releases", "Recommended")
 
 
+_BOT_WALL = ("a required part of this site couldn", "verify you are human", "checking your browser",
+             "enable javascript and cookies", "access denied", "request unsuccessful")
+
+
+def is_bot_wall(text: str) -> bool:
+    t = text.lower()[:2000]
+    return len(t.strip()) < 200 or any(m in t for m in _BOT_WALL)
+
+
 def main_text(html: str) -> str:
     """Text of the article itself, without menus, sidebars and 'related releases' lists (which on
     government sites name other cases and would otherwise be read as part of every page)."""

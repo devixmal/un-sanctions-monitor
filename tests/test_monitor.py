@@ -254,3 +254,10 @@ def test_relevance_gate():
     assert r.prominent("Houthis fire missile", "", ["The Houthis", "Houthis"], None)
     assert r.prominent("Regional roundup", "", ["Houthis"], 300)
     assert not r.prominent("Regional roundup", "x " * 3000 + "Houthis", ["Houthis"], None)
+
+
+def test_bot_wall_detection():
+    from monitor.sources import is_bot_wall
+    assert is_bot_wall("SC/16465 Committee amends one entry. A required part of this site couldn't load. " * 3)
+    assert is_bot_wall("short")
+    assert not is_bot_wall("The Department of the Treasury today designated three financiers. " * 10)

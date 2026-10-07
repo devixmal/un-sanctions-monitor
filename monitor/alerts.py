@@ -98,7 +98,7 @@ def render_markdown(rep: Report) -> str:
         out += ["## Newly listed by other authorities", ""]
         out += [f"- {_who(r)} now also on: {', '.join(ds)}" for r, ds in rep.xref_added] + [""]
     if rep.official_mentions:
-        out += ["## Named in official releases (UN Security Council, US Treasury/OFAC/State/Justice/FBI, UK)", ""]
+        out += ["## Named in official releases (US Treasury/OFAC, Justice Department, FBI, UK OFSI)", ""]
         for src, title, url, r, snippets in rep.official_mentions:
             out.append(f"- {_who(r)} — {src}: [{title[:160]}]({url})")
             for name, snip in snippets[:1]:
