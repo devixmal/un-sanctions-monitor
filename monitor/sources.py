@@ -318,15 +318,49 @@ def document_text(url: str, max_pages: int = 1500) -> str:
             log.info("Low text yield from %s; running OCR", url)
             text = (text + "\n" + ocr_pdf(r.content)).strip()
         return text
-    return BeautifulSoup(r.text, "html.parser").get_text(" ")
+    return main_text(r.text)
+
+
+_BOILERPLATE = re.compile(r"related|sidebar|menu|nav|footer|header|breadcrumb|share|social|promo|"
+                          r"recommend|newsletter|cookie|subscribe|more-news|latest", re.I)
+_CUT_MARKERS = ("Related Content", "Related Press Release", "Related Articles", "Related Stories",
+                "Related News", "More Press Releases", "Recent Press Releases", "Recommended")
+
+
+def main_text(html: str) -> str:
+    """Text of the article itself, without menus, sidebars and 'related releases' lists (which on
+    government sites name other cases and would otherwise be read as part of every page)."""
+    soup = BeautifulSoup(html, "html.parser")
+    for t in soup(["script", "style", "nav", "footer", "header", "aside", "form", "noscript"]):
+        t.decompose()
+    for t in soup.find_all(True):
+        if t.attrs is None:
+            continue
+        ident = " ".join([t.get("id") or "", *(t.get("class") or [])])
+        if ident and _BOILERPLATE.search(ident):
+            t.decompose()
+    candidates = soup.find_all(["article", "main"]) + soup.select('[role="main"]')
+    node = max(candidates, key=lambda n: len(n.get_text(" ")), default=None) or soup.body or soup
+    text = " ".join(node.get_text(" ").split())
+    for marker in _CUT_MARKERS:
+        i = text.find(marker)
+        if i > 300:
+            text = text[:i]
+    return text
 
 
 # ------------------------------------------------------- Official releases (UN/US/UK)
 def list_official_items(src: dict, limit: int = 60) -> list[tuple[str, str]] | None:
-    """[(url, title)] newest first from an RSS/Atom feed or an HTML listing page.
-
-    For HTML, links are kept only if they match the source's `link_pattern`. None = source failed.
-    """
+    """[(url, title)] newest first from an RSS/Atom feed or an HTML listing page (or several pages
+    given as `urls`). For HTML, only links matching `link_pattern` are kept. None = source failed."""
+    if src.get("urls"):
+        merged, ok = [], False
+        for u in src["urls"]:
+            got = list_official_items({**src, "url": u, "urls": None}, limit)
+            if got is not None:
+                ok = True
+                merged += [i for i in got if i not in merged]
+        return merged if ok else None
     try:
         r = get(src["url"], timeout=60)
         if r.status_code != 200:

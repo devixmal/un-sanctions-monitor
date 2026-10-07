@@ -69,6 +69,8 @@ sources:
     - '"sanctions evasion"'
     - 'Interpol "UN Security Council Special Notice"'
     - '"Security Council" committee amends sanctions list entry'
+    - '"State Department" designates terrorist'
+    - '"Rewards for Justice"'
 
   # Listing pages of UN sanctions reports. Each NEW report (PDF) is downloaded and its full text
   # scanned for every listed name. First run only records existing reports as a baseline.
@@ -99,9 +101,22 @@ sources:
     first_run_items: 15
     max_pages_per_run: 400
     sources:
-      - name: UN Security Council press releases (incl. sanctions committees)
-        url: https://press.un.org/en/content/security-council/press-release
-        link_pattern: '/en/\d{4}/sc\d+\.doc\.htm'
+      - name: UN Security Council sanctions committee press releases
+        urls:
+          - https://main.un.org/securitycouncil/en/sanctions/1267/press-releases
+          - https://main.un.org/securitycouncil/en/sanctions/1988/press-releases
+          - https://main.un.org/securitycouncil/en/sanctions/1518/press-releases
+          - https://main.un.org/securitycouncil/en/sanctions/1533/press-releases
+          - https://main.un.org/securitycouncil/en/sanctions/1591/press-releases
+          - https://main.un.org/securitycouncil/en/sanctions/1718/press-releases
+          - https://main.un.org/securitycouncil/en/sanctions/1970/press-releases
+          - https://main.un.org/securitycouncil/en/sanctions/2127/press-releases
+          - https://main.un.org/securitycouncil/en/sanctions/2140/press-releases
+          - https://main.un.org/securitycouncil/en/sanctions/2206/press-releases
+          - https://main.un.org/securitycouncil/en/sanctions/2653/press-releases
+          - https://main.un.org/securitycouncil/en/sanctions/2713/press-releases
+          - https://main.un.org/securitycouncil/en/sanctions/2745/press-releases
+        link_pattern: 'press\.un\.org/en/\d{4}/sc\d+\.doc\.htm'
       - name: US Treasury press releases
         url: https://home.treasury.gov/news/press-releases
         link_pattern: '/news/press-releases/[a-z]{2}\d{3,5}/?$'
@@ -110,12 +125,9 @@ sources:
         link_pattern: '/recent-actions/\d{8}'
       - name: US Justice Department press releases
         url: https://www.justice.gov/news/rss?type=press_release&m=1
-      - name: US Justice Department, National Security Division
-        url: https://www.justice.gov/news/press-releases?f%5B0%5D=facet_components%3A361
-        link_pattern: '/(opa|nsd|usao-[a-z]+)/pr/'
-      - name: US State Department releases (incl. terrorist designations)
-        url: https://www.state.gov/press-releases/
-        link_pattern: '/releases/'
+      # (The DOJ National Security Division page and state.gov refuse automated readers; NSD
+      #  releases are in the DOJ feed above, State designations are also published by Treasury/OFAC
+      #  and are picked up by the Google News topic query below.)
       - name: FBI press releases
         url: https://www.fbi.gov/news/press-releases
         link_pattern: '/news/press-releases/[^/]+$|/field-offices/[^/]+/news/[^/]+$'

@@ -136,7 +136,7 @@ def official_sources(cfg: dict, st: State, rep: Report, records, index: NameInde
         items = sources.list_official_items(src)
         if items is None:
             continue
-        init_key = "init:official:" + src["url"]
+        init_key = "init:official:" + (src.get("url") or src.get("name", ""))
         first = not st.get_meta(init_key, False)
         scanned = 0
         for i, (url, title) in enumerate(items):
@@ -159,7 +159,9 @@ def official_sources(cfg: dict, st: State, rep: Report, records, index: NameInde
             st.mark(k, "official", url=url)
             scanned += 1
             for ref, found in index.scan(f"{title}\n{text}").items():
-                rep.official_mentions.append((src.get("name", src["url"]), title or url, url,
+                if any(m[2] == url and m[3]["ref"] == ref for m in rep.official_mentions):
+                    continue
+                rep.official_mentions.append((src.get("name", src.get("url", "")), title or url, url,
                                               records[ref], found))
         log.info("Official source %s: %d listed, %d new read", src.get("name"), len(items), scanned)
         st.set_meta(init_key, True)

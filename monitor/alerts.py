@@ -116,10 +116,12 @@ def render_markdown(rep: Report) -> str:
         out += [f"- {_who(r)} — [{h.title}]({h.url}) ({h.domain}, {h.date})" for r, h in rep.feed_mentions] + [""]
     if rep.news:
         out += ["## News & web activity", ""]
-        for ref, (r, hits) in sorted(rep.news.items(), key=lambda kv: -max(h.score for h in kv[1][1])):
+        for ref, (r, hits) in sorted(rep.news.items(), key=lambda kv: (kv[1][0]["kind"] != "individual",
+                                                                       -max(h.score for h in kv[1][1]))):
             out.append(f"### {r['name']} ({ref}, {r.get('regime') or r['kind']})")
             ranked = sorted(hits, key=lambda h: -h.score)
-            for h in ranked[:TOP_PER_PARTY]:
+            top = TOP_PER_PARTY if r["kind"] == "individual" else TOP_PER_ORG
+            for h in ranked[:top]:
                 tag = f"[{h.category}] " if h.category else ""
                 out.append(f"- {tag}[{h.title or h.url}]({h.url}) — {h.domain or h.source}, "
                            f"{nice_date(h.date)} (confidence {h.score:.2f})")
@@ -127,8 +129,8 @@ def render_markdown(rep: Report) -> str:
                     out.append(f"  - {h.summary}")
                 if h.evidence:
                     out.append(f"  - Context: {', '.join(h.evidence)}")
-            if len(ranked) > TOP_PER_PARTY:
-                out.append(f"- …and {len(ranked) - TOP_PER_PARTY} more in `data/alerts/{rep.run_date}.csv`")
+            if len(ranked) > top:
+                out.append(f"- …and {len(ranked) - top} more in `data/alerts/{rep.run_date}.csv`")
             out.append("")
     if rep.near_misses:
         out += ["## Borderline — below the confidence threshold, review if relevant", "",
@@ -169,7 +171,8 @@ def render_markdown(rep: Report) -> str:
 
 
 # ------------------------------------------------------------------ delivery
-TOP_PER_PARTY = 10
+TOP_PER_PARTY = 10   # individuals
+TOP_PER_ORG = 5      # organisations draw far more routine coverage
 
 
 def write_report(rep: Report, md: str, folder: Path) -> Path:

@@ -44,7 +44,7 @@ def _stub(monkeypatch, tmp_path, xml, news, feed_items=(), reports=(), report_te
     monkeypatch.setattr(sources, "read_feed", lambda url: list(feed_items))
     monkeypatch.setattr(sources, "list_report_links", lambda page, quiet=False: list(reports))
     monkeypatch.setattr(sources, "list_official_items",
-                        lambda src, limit=60: list(official) if "treasury" in src["url"] else [])
+                        lambda src, limit=60: list(official) if "treasury" in src.get("url", "") else [])
     monkeypatch.setattr(sources, "document_text", lambda url: report_text)
     monkeypatch.setattr(sources, "opensanctions_datasets", lambda url, recs: xref or {})
     monkeypatch.setattr(sources, "page_text", lambda url: "Rebel commander Sultani Makenga of the M23 was seen in Goma, DRC.")
