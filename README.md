@@ -126,6 +126,15 @@ Every finding is stored in `state/history.db` with a status: **pending** (on a c
 and 3 per organisation go on the checklist, the rest stay searchable. Weekly runs then add only
 what is new.
 
+## Search dashboard
+
+`dashboard/index.html` is the search page (hosted privately at
+https://claude.ai/artifact/PWPJfnqjjiYhfLoKUcCaRr). It reads `data/dashboard.json` and lets you
+search parties and findings by name/alias/UN reference/headline text, regime, country or area
+(the party's countries or where the reported activity took place), individual/entity, review status,
+source type and date range, and opens a case file per party with its full activity timeline.
+A daily scheduled task republishes it with the latest `data/dashboard.json`.
+
 ## Re-checking a week with new rules
 
 Actions → *Weekly UN sanctions monitor* → *Run workflow* → mode **replay**. It re-scans the last week

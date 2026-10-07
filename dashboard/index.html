@@ -1,0 +1,435 @@
+<title>UN Sanctions Monitor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: registry desk — a filter rail over a dense, scannable list; a case-file panel slides over for one party. */
+:root {
+  --bg: #f4f5f7;
+  --panel: #ffffff;
+  --line: #dde1e7;
+  --ink: #1b2330;
+  --muted: #5d6878;
+  --accent: #1f4f8a;          /* registry blue: links, selection, focus */
+  --accent-soft: #e3ecf7;
+  --ok: #1e7a4c; --ok-soft: #e1f2e8;
+  --warn: #9a5b00; --warn-soft: #fbefd9;
+  --bad: #9b2c2c; --bad-soft: #f8e3e3;
+  --quiet-soft: #eceef2;
+  --bar: #1f4f8a;
+  --f-display: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11151b; --panel: #181e26; --line: #2a323d; --ink: #e4e8ee; --muted: #9aa5b4;
+    --accent: #8db8ec; --accent-soft: #1d2b3d;
+    --ok: #6fcf9a; --ok-soft: #173126; --warn: #f0b860; --warn-soft: #33270f;
+    --bad: #f08a8a; --bad-soft: #3a1c1c; --quiet-soft: #232a34; --bar: #8db8ec;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11151b; --panel: #181e26; --line: #2a323d; --ink: #e4e8ee; --muted: #9aa5b4;
+  --accent: #8db8ec; --accent-soft: #1d2b3d;
+  --ok: #6fcf9a; --ok-soft: #173126; --warn: #f0b860; --warn-soft: #33270f;
+  --bad: #f08a8a; --bad-soft: #3a1c1c; --quiet-soft: #232a34; --bar: #8db8ec;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 14px/1.5 var(--f-body); }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 18px 16px 48px; display: grid; gap: 16px; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 600; text-wrap: balance; margin: 0; letter-spacing: .01em; }
+h1 { font-size: 1.6rem; }
+h2 { font-size: 1.15rem; }
+h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); font-weight: 600; }
+a { color: var(--accent); }
+.mono { font-family: var(--f-mono); font-size: .86em; }
+.muted { color: var(--muted); }
+.num { font-variant-numeric: tabular-nums; }
+
+header.top { display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: baseline; justify-content: space-between; }
+.asof { color: var(--muted); font-size: .85rem; }
+.stats { display: flex; flex-wrap: wrap; gap: 6px 22px; font-size: .9rem; color: var(--muted); }
+.stats b { color: var(--ink); font-family: var(--f-mono); font-weight: 500; }
+
+.filters { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px;
+  display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.filters .q { grid-column: 1 / -1; }
+label.f { display: grid; gap: 3px; font-size: .72rem; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); min-width: 0; }
+input, select { font: 14px var(--f-body); color: var(--ink); background: var(--bg); border: 1px solid var(--line);
+  border-radius: 7px; padding: 8px 10px; width: 100%; min-width: 0; }
+input:focus-visible, select:focus-visible, button:focus-visible, .row:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.q input { font-size: 15px; padding: 10px 12px; }
+.actions { display: flex; gap: 8px; align-items: end; }
+button { font: 500 13px var(--f-body); border: 1px solid var(--line); background: var(--panel); color: var(--ink);
+  border-radius: 7px; padding: 8px 12px; cursor: pointer; }
+button:hover { border-color: var(--accent); }
+
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); }
+.tabs button { border: 0; border-bottom: 2px solid transparent; border-radius: 0; background: none; padding: 8px 12px; color: var(--muted); }
+.tabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.bar-row { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; justify-content: space-between; }
+
+.list { display: grid; gap: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 14px; padding: 11px 14px; border-top: 1px solid var(--line); cursor: pointer; text-align: left; }
+.row:first-child { border-top: 0; }
+.row:hover { background: var(--accent-soft); }
+.row .name { font-weight: 600; min-width: 0; overflow-wrap: anywhere; }
+.row .meta { display: flex; flex-wrap: wrap; gap: 4px 10px; color: var(--muted); font-size: .84rem; min-width: 0; }
+.row .right { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; align-items: start; }
+.empty { padding: 26px 16px; color: var(--muted); text-align: center; }
+
+.pill { display: inline-flex; align-items: center; gap: 4px; font: 500 .72rem var(--f-body); padding: 2px 8px; border-radius: 999px; white-space: nowrap; letter-spacing: .02em; }
+.p-verified { background: var(--ok-soft); color: var(--ok); }
+.p-pending { background: var(--warn-soft); color: var(--warn); }
+.p-rejected { background: var(--quiet-soft); color: var(--muted); text-decoration: line-through; }
+.p-unreviewed { background: transparent; color: var(--muted); border: 1px dashed var(--line); }
+.p-flag { background: var(--bad-soft); color: var(--bad); }
+.p-regime { background: var(--quiet-soft); color: var(--ink); font-family: var(--f-mono); }
+
+.chart { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px 4px; }
+.chart svg { width: 100%; height: 120px; display: block; }
+.chart text { fill: var(--muted); font: 10px var(--f-mono); }
+
+.find { display: grid; gap: 3px; padding: 11px 14px; border-top: 1px solid var(--line); min-width: 0; }
+.find:first-child { border-top: 0; }
+.find .head { display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center; font-size: .82rem; color: var(--muted); }
+.find .t { font-weight: 500; overflow-wrap: anywhere; }
+.find .s { color: var(--muted); font-size: .88rem; overflow-wrap: anywhere; }
+.find .party { font-weight: 600; color: var(--ink); background: none; border: 0; padding: 0; font-size: .84rem; text-decoration: underline; text-decoration-color: var(--line); }
+.more { justify-self: center; margin-top: 10px; }
+
+/* case file panel */
+.scrim { position: fixed; inset: 0; background: rgba(10, 14, 20, .38); }
+.case { position: fixed; top: 0; right: 0; bottom: 0; width: min(640px, 100%); background: var(--panel); border-left: 1px solid var(--line);
+  overflow-y: auto; padding: calc(16px + env(safe-area-inset-top, 0px)) 18px calc(28px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 16px; align-content: start; }
+.case .close { justify-self: end; }
+.kv { display: grid; grid-template-columns: 9.5em minmax(0, 1fr); gap: 6px 12px; font-size: .9rem; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; overflow-wrap: anywhere; }
+.notes { border-left: 3px solid var(--line); padding: 2px 0 2px 12px; color: var(--muted); font-size: .9rem; max-width: 65ch; }
+.timeline { display: grid; gap: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.month { font: 600 .72rem var(--f-mono); letter-spacing: .06em; color: var(--muted); background: var(--bg); padding: 6px 14px; border-top: 1px solid var(--line); }
+.month:first-child { border-top: 0; }
+.status-line { display: flex; flex-wrap: wrap; gap: 6px; }
+@media (max-width: 560px) {
+  .row { grid-template-columns: minmax(0, 1fr); }
+  .row .right { justify-content: flex-start; }
+  .kv { grid-template-columns: minmax(0, 1fr); gap: 0 0; }
+  .kv dt { margin-top: 6px; }
+}
+@media (prefers-reduced-motion: no-preference) { .case { animation: slide .18s ease-out; } }
+@keyframes slide { from { transform: translateX(24px); opacity: .6; } to { transform: none; opacity: 1; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>UN Sanctions Monitor</h1>
+      <div class="asof" id="asof">Loading the registry…</div>
+    </div>
+    <div class="stats" id="stats"></div>
+  </header>
+
+  <section class="filters" aria-label="Search and filters">
+    <label class="f q">Search names, aliases, UN reference or headline text
+      <input id="q" type="search" placeholder="e.g. Makenga, QDi.406, Houthis, Goma" autocomplete="off">
+    </label>
+    <label class="f">Regime<select id="regime"><option value="">All regimes</option></select></label>
+    <label class="f">Country / area<select id="area"><option value="">Anywhere</option></select></label>
+    <label class="f">Type<select id="kind"><option value="">Individuals and entities</option><option value="individual">Individuals</option><option value="entity">Entities</option></select></label>
+    <label class="f">Finding status<select id="status">
+      <option value="">Any status</option><option value="verified">Verified</option><option value="pending">Awaiting review</option>
+      <option value="unreviewed">Unreviewed</option><option value="rejected">Rejected</option></select></label>
+    <label class="f">Source<select id="src">
+      <option value="">All sources</option><option value="news">News</option><option value="official">Official releases</option>
+      <option value="un_report">UN reports</option><option value="un_list">UN list changes</option>
+      <option value="other_list">Other sanctions lists</option><option value="feed">Sanctions news feeds</option>
+      <option value="borderline">Borderline news</option></select></label>
+    <label class="f">Activity from<input id="from" type="date"></label>
+    <label class="f">Activity to<input id="to" type="date"></label>
+    <label class="f">Party status<select id="flag">
+      <option value="">Any</option><option value="active">Has activity</option><option value="quiet">No activity found</option>
+      <option value="deceased">UN notes: deceased</option><option value="detained">UN notes: detained</option>
+      <option value="convicted">UN notes: convicted</option></select></label>
+    <div class="actions"><button id="reset" type="button">Clear filters</button></div>
+  </section>
+
+  <div class="tabs" role="tablist">
+    <button role="tab" id="tab-parties" aria-selected="true" type="button">Parties</button>
+    <button role="tab" id="tab-activity" aria-selected="false" type="button">Activity timeline</button>
+  </div>
+
+  <section id="view-parties">
+    <div class="bar-row">
+      <div class="muted" id="pcount"></div>
+      <label class="f" style="min-width:12em">Sort<select id="sort">
+        <option value="recent">Latest activity first</option><option value="most">Most findings</option>
+        <option value="name">Name A–Z</option><option value="ref">UN reference</option></select></label>
+    </div>
+    <div class="list" id="plist"></div>
+    <button class="more" id="pmore" type="button" hidden>Show more parties</button>
+  </section>
+
+  <section id="view-activity" hidden>
+    <div class="chart" id="chart"></div>
+    <div class="bar-row"><div class="muted" id="fcount"></div></div>
+    <div class="list" id="flist"></div>
+    <button class="more" id="fmore" type="button" hidden>Show more findings</button>
+  </section>
+</div>
+
+<div id="case-wrap" hidden>
+  <div class="scrim" id="scrim"></div>
+  <aside class="case" id="case" role="dialog" aria-modal="true" aria-labelledby="case-title"></aside>
+</div>
+
+<script>
+const KIND = { news: "News", official: "Official release", un_report: "UN report", un_list: "UN list change",
+  other_list: "Other sanctions list", feed: "Sanctions news feed", borderline: "Borderline news" };
+const STATUS = { verified: "Verified", pending: "Awaiting review", unreviewed: "Unreviewed", rejected: "Rejected" };
+const FLAG = { deceased: "UN notes: deceased", detained: "UN notes: detained", convicted: "UN notes: convicted", released: "UN notes: released" };
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const fold = s => String(s ?? "").normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase();
+let D = null, byRef = {}, findingsByRef = {}, pShown = 60, fShown = 80;
+
+const F = { q: "", regime: "", area: "", kind: "", status: "", src: "", from: "", to: "", flag: "", sort: "recent" };
+const ids = ["q", "regime", "area", "kind", "status", "src", "from", "to", "flag", "sort"];
+
+function load() {
+  fetch("data.json").then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(init).catch(() => {
+      $("asof").textContent = "The data file could not be loaded. Ask Claude to refresh the dashboard.";
+    });
+}
+
+function init(data) {
+  D = data;
+  for (const p of D.parties) {
+    byRef[p.ref] = p;
+    p._text = fold([p.name, p.ref, p.script, ...(p.aliases || []), ...(p.low || [])].join(" | "));
+    p._places = new Set([...(p.nat || []), ...(p.countries || [])]);
+  }
+  for (const f of D.findings) {
+    (findingsByRef[f.ref] ||= []).push(f);
+    f._text = fold(f.title + " " + f.summary + " " + f.source);
+    f._places = new Set(String(f.loc || "").split(";").map(s => s.trim()).filter(Boolean));
+  }
+  for (const p of D.parties) {
+    const fs = findingsByRef[p.ref] || [];
+    p._count = fs.filter(f => f.kind !== "borderline").length;
+    p._verified = fs.filter(f => f.status === "verified").length;
+    p._pending = fs.filter(f => f.status === "pending").length;
+    p._last = fs.filter(f => f.kind !== "borderline" && f.status !== "rejected").reduce((m, f) => f.date > m ? f.date : m, "");
+  }
+  fillSelect("regime", [...new Set(D.parties.map(p => p.regime).filter(Boolean))].sort());
+  const places = new Map();
+  for (const p of D.parties) for (const c of p._places) places.set(c, (places.get(c) || 0) + 1);
+  for (const f of D.findings) for (const c of f._places) places.set(c, (places.get(c) || 0) + 1);
+  fillSelect("area", [...places.entries()].sort((a, b) => b[1] - a[1]).map(e => e[0]).slice(0, 250).sort());
+
+  const ver = D.findings.filter(f => f.status === "verified").length;
+  const pen = D.findings.filter(f => f.status === "pending").length;
+  const active = D.parties.filter(p => p._count).length;
+  const checked = D.parties.filter(p => p.checked).length;
+  $("asof").textContent = `Data as of ${String(D.generated || "").replace("T", " ")} UTC` +
+    (D.last_run ? ` · last run ${D.last_run}${D.mode === "baseline" ? " (baseline)" : ""}` : "");
+  $("stats").innerHTML = [
+    [D.parties.length, "parties listed"], [checked, "checked"], [active, "with activity"],
+    [ver, "verified records"], [pen, "awaiting review"]
+  ].map(([n, l]) => `<span><b class="num">${n.toLocaleString()}</b> ${l}</span>`).join("");
+
+  for (const id of ids) {
+    const el = $(id);
+    el.addEventListener(el.tagName === "INPUT" && el.type === "search" ? "input" : "change", () => {
+      F[id] = el.value; pShown = 60; fShown = 80; render();
+    });
+  }
+  $("reset").onclick = () => { for (const id of ids) { $(id).value = id === "sort" ? "recent" : ""; F[id] = $(id).value; } render(); };
+  $("tab-parties").onclick = () => tab("parties");
+  $("tab-activity").onclick = () => tab("activity");
+  $("pmore").onclick = () => { pShown += 100; renderParties(); };
+  $("fmore").onclick = () => { fShown += 120; renderActivity(); };
+  $("scrim").onclick = closeCase;
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeCase(); });
+  try { const t = localStorage.getItem("usm-tab"); if (t) tab(t, true); } catch (e) {}
+  if (location.hash && byRef[location.hash.slice(1)]) openCase(location.hash.slice(1));
+  render();
+}
+
+function fillSelect(id, vals) {
+  $(id).insertAdjacentHTML("beforeend", vals.map(v => `<option value="${esc(v)}">${esc(v)}</option>`).join(""));
+}
+
+function tab(which, quiet) {
+  const a = which === "activity";
+  $("view-activity").hidden = !a; $("view-parties").hidden = a;
+  $("tab-activity").setAttribute("aria-selected", a); $("tab-parties").setAttribute("aria-selected", !a);
+  if (!quiet) { try { localStorage.setItem("usm-tab", which); } catch (e) {} }
+}
+
+function findingMatch(f, withQuery) {
+  if (F.status && f.status !== F.status) return false;
+  if (!F.status && f.status === "rejected") return false;
+  if (F.src && f.kind !== F.src) return false;
+  if (!F.src && f.kind === "borderline" && F.status !== "unreviewed") return false;
+  if (F.from && f.date < F.from) return false;
+  if (F.to && f.date > F.to) return false;
+  if (F.area && !f._places.has(F.area) && !(byRef[f.ref] && byRef[f.ref]._places.has(F.area))) return false;
+  if (withQuery && F.q) {
+    const q = fold(F.q.trim());
+    if (q && !f._text.includes(q) && !(byRef[f.ref] && byRef[f.ref]._text.includes(q))) return false;
+  }
+  return true;
+}
+const findingFilters = () => F.status || F.src || F.from || F.to;
+
+function partyMatch(p) {
+  if (F.regime && p.regime !== F.regime) return false;
+  if (F.kind && p.kind !== F.kind) return false;
+  if (F.flag === "active" && !p._count) return false;
+  if (F.flag === "quiet" && p._count) return false;
+  if (["deceased", "detained", "convicted"].includes(F.flag) && !(p.flags || []).includes(F.flag)) return false;
+  const q = fold(F.q.trim());
+  const fs = (findingsByRef[p.ref] || []).filter(f => findingMatch(f, false));
+  if (q && !p._text.includes(q) && !fs.some(f => f._text.includes(q))) return false;
+  if (F.area && !p._places.has(F.area) && !fs.some(f => f._places.has(F.area))) return false;
+  if (findingFilters() && !fs.length) return false;
+  p._shown = fs.length;
+  return true;
+}
+
+function render() { renderParties(); renderActivity(); }
+
+function renderParties() {
+  const list = D.parties.filter(partyMatch);
+  const s = F.sort;
+  list.sort((a, b) => s === "name" ? a.name.localeCompare(b.name) : s === "ref" ? a.ref.localeCompare(b.ref, undefined, { numeric: true })
+    : s === "most" ? (b._shown - a._shown) || a.name.localeCompare(b.name)
+    : (b._last || "").localeCompare(a._last || "") || (b._shown - a._shown) || a.name.localeCompare(b.name));
+  $("pcount").textContent = `${list.length.toLocaleString()} of ${D.parties.length.toLocaleString()} parties`;
+  $("plist").innerHTML = list.slice(0, pShown).map(p => `
+    <div class="row" tabindex="0" role="button" data-ref="${esc(p.ref)}">
+      <div style="min-width:0">
+        <div class="name">${esc(p.name)}</div>
+        <div class="meta"><span class="mono">${esc(p.ref)}</span><span>${p.kind === "individual" ? "Individual" : "Entity"}</span>
+          ${(p.countries || []).length ? `<span>${esc(p.countries.slice(0, 3).join(", "))}</span>` : ""}
+          <span>${p._last ? "Latest activity " + esc(p._last) : (p.checked ? "No activity found · checked " + esc(p.checked) : "Not checked yet")}</span></div>
+      </div>
+      <div class="right">
+        <span class="pill p-regime">${esc(p.regime)}</span>
+        ${(p.flags || []).filter(f => FLAG[f]).map(f => `<span class="pill p-flag">${esc(FLAG[f].replace("UN notes: ", ""))}</span>`).join("")}
+        ${p._verified ? `<span class="pill p-verified">${p._verified} verified</span>` : ""}
+        ${p._pending ? `<span class="pill p-pending">${p._pending} to review</span>` : ""}
+      </div>
+    </div>`).join("") || `<div class="empty">No parties match these filters.</div>`;
+  $("pmore").hidden = list.length <= pShown;
+  for (const el of $("plist").querySelectorAll(".row")) {
+    el.onclick = () => openCase(el.dataset.ref);
+    el.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openCase(el.dataset.ref); } };
+  }
+}
+
+function findingHTML(f, showParty) {
+  const p = byRef[f.ref] || { name: f.ref };
+  return `<div class="find">
+    <div class="head"><span class="pill p-${esc(f.status)}">${esc(STATUS[f.status] || f.status)}</span>
+      <span class="mono">${esc(f.date)}</span><span>${esc(KIND[f.kind] || f.kind)}</span>
+      ${f.source ? `<span>${esc(f.source)}</span>` : ""}${f.loc ? `<span>${esc(f.loc)}</span>` : ""}
+      ${showParty ? `<button class="party" type="button" data-ref="${esc(f.ref)}">${esc(p.name)}</button>` : ""}</div>
+    <div class="t">${f.url ? `<a href="${esc(f.url)}" target="_blank" rel="noopener">${esc(f.title || f.url)}</a>` : esc(f.title)}</div>
+    ${f.summary && f.summary !== f.title ? `<div class="s">${esc(f.summary.slice(0, 320))}</div>` : ""}
+    ${f.context ? `<div class="s mono">Context: ${esc(f.context)}</div>` : ""}
+  </div>`;
+}
+
+function renderActivity() {
+  const allowed = new Set(D.parties.filter(p => (!F.regime || p.regime === F.regime) && (!F.kind || p.kind === F.kind)
+    && (!["deceased", "detained", "convicted"].includes(F.flag) || (p.flags || []).includes(F.flag))).map(p => p.ref));
+  const list = D.findings.filter(f => allowed.has(f.ref) && findingMatch(f, true))
+    .sort((a, b) => b.date.localeCompare(a.date) || (b.score - a.score));
+  $("fcount").textContent = `${list.length.toLocaleString()} findings`;
+  $("flist").innerHTML = list.slice(0, fShown).map(f => findingHTML(f, true)).join("") ||
+    `<div class="empty">No findings match these filters${D.findings.length ? "" : " yet. Findings appear here after the first run is recorded"}.</div>`;
+  $("fmore").hidden = list.length <= fShown;
+  for (const b of $("flist").querySelectorAll(".party")) b.onclick = () => openCase(b.dataset.ref);
+  drawChart(list);
+}
+
+function drawChart(list) {
+  // Findings per ISO week, on one shared x scale.
+  const dated = list.filter(f => /^\d{4}-\d{2}-\d{2}$/.test(f.date));
+  if (!dated.length) { $("chart").innerHTML = `<div class="empty">No dated findings to chart.</div>`; return; }
+  const wk = d => { const t = new Date(d + "T00:00:00Z"); const day = (t.getUTCDay() + 6) % 7; t.setUTCDate(t.getUTCDate() - day); return t.toISOString().slice(0, 10); };
+  const counts = new Map();
+  for (const f of dated) counts.set(wk(f.date), (counts.get(wk(f.date)) || 0) + 1);
+  const weeks = [...counts.keys()].sort();
+  const first = new Date(weeks[0] + "T00:00:00Z"), last = new Date(weeks[weeks.length - 1] + "T00:00:00Z");
+  const all = [];
+  for (let t = new Date(first); t <= last; t.setUTCDate(t.getUTCDate() + 7)) all.push(t.toISOString().slice(0, 10));
+  const max = Math.max(...all.map(w => counts.get(w) || 0));
+  const W = 600, H = 120, L = 30, B = 18, T = 8, bw = (W - L - 4) / all.length;
+  const y = v => H - B - (v / max) * (H - B - T);
+  let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Findings per week">`;
+  for (const v of [0, max]) svg += `<line x1="${L}" x2="${W}" y1="${y(v)}" y2="${y(v)}" stroke="var(--line)" stroke-width="1"/><text x="${L - 4}" y="${y(v) + 3}" text-anchor="end">${v}</text>`;
+  all.forEach((w, i) => {
+    const v = counts.get(w) || 0, x = L + 2 + i * bw;
+    if (v) svg += `<rect x="${x + 1}" y="${y(v)}" width="${Math.max(1, bw - 2)}" height="${H - B - y(v)}" fill="var(--bar)" rx="1"><title>Week of ${w}: ${v}</title></rect>`;
+  });
+  const step = Math.max(1, Math.ceil(all.length / 6));
+  all.forEach((w, i) => { if (i % step === 0) svg += `<text x="${L + 2 + i * bw}" y="${H - 4}">${w.slice(5)}</text>`; });
+  svg += `</svg>`;
+  $("chart").innerHTML = `<h3>Findings per week</h3>` + svg;
+}
+
+function openCase(ref) {
+  const p = byRef[ref]; if (!p) return;
+  const fs = (findingsByRef[ref] || []).slice().sort((a, b) => b.date.localeCompare(a.date));
+  const shown = fs.filter(f => f.status !== "rejected" && f.kind !== "borderline");
+  const hiddenN = fs.length - shown.length;
+  const kv = [
+    ["UN reference", `<span class="mono">${esc(p.ref)}</span> · ${p.kind === "individual" ? "Individual" : "Entity"} · ${esc(p.regime)}`],
+    ["Listed on", esc(p.listed)],
+    ["Also known as", esc((p.aliases || []).join("; "))],
+    ["Nicknames", esc((p.low || []).join("; "))],
+    ["Original script", esc(p.script)],
+    ["Nationality", esc((p.nat || []).join("; "))],
+    ["Countries", esc((p.countries || []).join("; "))],
+    ["Date(s) of birth", esc((p.dobs || []).join("; "))],
+    ["Designation", esc((p.desig || []).join("; "))],
+    ["Also sanctioned by", esc((p.xref || []).join(", "))],
+    ["Last checked", p.checked ? esc(p.checked) + (p.since ? ` (news since ${esc(p.since)})` : "") : "Not checked yet"],
+  ].filter(([, v]) => v);
+  let tl = "", month = "";
+  for (const f of shown) {
+    const m = f.date.slice(0, 7);
+    if (m !== month) { month = m; tl += `<div class="month">${esc(m)}</div>`; }
+    tl += findingHTML(f, false);
+  }
+  $("case").innerHTML = `
+    <button class="close" id="close" type="button">Close</button>
+    <div style="display:grid;gap:6px">
+      <h2 id="case-title">${esc(p.name)}</h2>
+      <div class="status-line">
+        ${(p.flags || []).filter(f => FLAG[f]).map(f => `<span class="pill p-flag">${esc(FLAG[f])}</span>`).join("")}
+        <span class="pill p-verified">${p._verified} verified</span>
+        ${p._pending ? `<span class="pill p-pending">${p._pending} awaiting review</span>` : ""}
+      </div>
+    </div>
+    <dl class="kv">${kv.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
+    ${p.notes ? `<div><h3>UN listing notes</h3><p class="notes">${esc(p.notes)}</p></div>` : ""}
+    <div style="display:grid;gap:8px"><h3>Activity record</h3>
+      ${shown.length ? `<div class="timeline">${tl}</div>` : `<div class="muted">No activity found${p.checked ? " in the period checked" : " yet"}.</div>`}
+      ${hiddenN ? `<div class="muted">${hiddenN} rejected or borderline items hidden (use the Finding status filter to see them).</div>` : ""}
+    </div>`;
+  $("case-wrap").hidden = false;
+  $("close").onclick = closeCase;
+  $("close").focus();
+}
+function closeCase() { $("case-wrap").hidden = true; }
+
+load();
+</script>
