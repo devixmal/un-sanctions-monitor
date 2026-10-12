@@ -7,12 +7,12 @@
 **Date(s) of birth:** 1947-04-26
 **Designation:** Major General; Deputy Chief of Staff of the Armed Forces
 **Documents:** Passport DA0002186
-**Also sanctioned by:** Australian Sanctions Consolidated List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, Ukraine NSDC State Register of Sanctions
+**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, Ukraine NSDC State Register of Sanctions
 
 ## Status
 
-- Last checked: 2026-10-07 (news since 2026-07-09)
-- Verified activity records: 0; awaiting review: 0
+- Last checked: 2026-10-12 (news since 2026-10-07)
+- Verified activity records: 0; awaiting review: 1
 
 **UN listing notes:**
 

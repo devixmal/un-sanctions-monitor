@@ -8,12 +8,12 @@
 **Date(s) of birth:** 1964-05-11
 **Designation:** Brigadier General; Chief of Staff of the Air Force
 **Documents:** Passport AAID00437
-**Also sanctioned by:** Australian Sanctions Consolidated List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine NSDC State Register of Sanctions
+**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine NSDC State Register of Sanctions
 
 ## Status
 
-- Last checked: 2026-10-07 (news since 2026-07-09)
-- Verified activity records: 0; awaiting review: 0
+- Last checked: 2026-10-12 (news since 2026-10-07)
+- Verified activity records: 0; awaiting review: 1
 
 **UN listing notes:**
 

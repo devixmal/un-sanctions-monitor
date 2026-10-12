@@ -8,12 +8,12 @@
 **Date(s) of birth:** 1962; 1960-12-04; 1960-04-12; 1962-01-01
 **Designation:** Former Chief of Staff of the Sudan People’s Liberation Army (SPLA); Former Governor, Northern Bahr el-Ghazal State
 **Documents:** Passport S00004370 South Sudan; Passport D00001369 South Sudan; Passport 003606 Sudan; Passport 00606 Sudan; Passport B002606 Sudan; Passport DA025963 Uganda
-**Also sanctioned by:** Australian Sanctions Consolidated List, Belgian Financial Sanctions, Canadian Consolidated Autonomous Sanctions List, EU Consolidated Travel Bans, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Japan Economic Sanctions and List of Eligible People, Monaco National Fund Freezing List, Nepal Prohibited Persons or Groups according per National Strategy and Action Plan (2076-2081), South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine NSDC State Register of Sanctions, Ukraine SFMS Blacklist
+**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, Canadian Consolidated Autonomous Sanctions List, EU Consolidated Travel Bans, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Japan Economic Sanctions and List of Eligible People, Monaco National Fund Freezing List, Nepal Prohibited Persons or Groups according per National Strategy and Action Plan (2076-2081), South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine NSDC State Register of Sanctions, Ukraine SFMS Blacklist
 
 ## Status
 
-- Last checked: 2026-10-07 (news since 2026-07-09)
-- Verified activity records: 0; awaiting review: 0
+- Last checked: 2026-10-12 (news since 2026-10-05)
+- Verified activity records: 0; awaiting review: 1
 - UN listing notes mention: detained (see notes below)
 
 **UN listing notes:**

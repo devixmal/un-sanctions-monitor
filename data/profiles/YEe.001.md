@@ -4,12 +4,12 @@
 
 **Also known as:** ANSARALLAH; ANSAR ALLAH; PARTISANS OF GOD; SUPPORTERS OF GOD
 **Countries:** Yemen
-**Also sanctioned by:** Australian Sanctions Consolidated List, Belgian Financial Sanctions, Canadian Listed Terrorist Entities, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), Israel Terrorists Organizations and Unauthorized Associations lists, Japan METI End User List, Malaysia MOHA Sanctions List, New Zealand Designated Terrorist Entities, Saudi Arabia National Terrorism List (UNSCR 1373), South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, US Department of State Foreign Terrorist Organizations, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), United Arab Emirates Local Terrorist List
+**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, Canadian Listed Terrorist Entities, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), Israel Terrorists Organizations and Unauthorized Associations lists, Japan METI End User List, Malaysia MOHA Sanctions List, New Zealand Designated Terrorist Entities, Saudi Arabia National Terrorism List (UNSCR 1373), South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, US Department of State Foreign Terrorist Organizations, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), United Arab Emirates Local Terrorist List
 
 ## Status
 
-- Last checked: 2026-10-07 (news since 2026-07-09)
-- Verified activity records: 0; awaiting review: 69
+- Last checked: 2026-10-12 (news since 2026-10-05)
+- Verified activity records: 0; awaiting review: 126
 
 **UN listing notes:**
 

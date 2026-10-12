@@ -8,12 +8,12 @@
 **Countries:** Jordan; United States of America
 **Date(s) of birth:** 1968-12-30
 **Documents:** National Identification Number 548-91-5411; National Identification Number 9681029476
-**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, Bulgarian Persons of Interest, EU Consolidated Travel Bans, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Indonesian List of Suspected Terrorists and Terrorist Organizations, Japan Economic Sanctions and List of Eligible People, Kingdom of Jordan National Sanctions List, Moldovan Sanctions for Terrorism and Proliferation of WMD, Monaco National Fund Freezing List, Polish Sanctions Countering Money Laundering and Terror Financing, Qatar Unified Record of Persons and Entities on Sanction List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, Türkiye Asset Freezing Sanctions List (MASAK), UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
+**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, Bulgarian Persons of Interest, EU Consolidated Travel Bans, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Indonesian List of Suspected Terrorists and Terrorist Organizations, Israel Terrorists Organizations and Unauthorized Associations lists, Japan Economic Sanctions and List of Eligible People, Kingdom of Jordan National Sanctions List, Moldovan Sanctions for Terrorism and Proliferation of WMD, Monaco National Fund Freezing List, Polish Sanctions Countering Money Laundering and Terror Financing, Qatar Unified Record of Persons and Entities on Sanction List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, Türkiye Asset Freezing Sanctions List (MASAK), UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
 
 ## Status
 
-- Last checked: 2026-10-07 (news since 2026-07-09)
-- Verified activity records: 0; awaiting review: 0
+- Last checked: 2026-10-12 (news since 2026-10-05)
+- Verified activity records: 0; awaiting review: 1
 - UN listing notes mention: detained (see notes below)
 
 **UN listing notes:**
