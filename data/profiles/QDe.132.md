@@ -8,12 +8,12 @@
 
 ## Status
 
-- Last checked: 2026-10-12 (news since 2026-10-05)
-- Verified activity records: 0; awaiting review: 54
+- Last checked: 2026-10-19 (news since 2026-10-12)
+- Verified activity records: 0; awaiting review: 88
 
 **UN listing notes:**
 
-> Tehrik-e Taliban is based in the tribal areas along the Afghanistan/Pakistan border. Formed in 2007, its leader is Maulana Fazlullah (QDi.352) INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Entities
+> Tehrik-e Taliban is based in the tribal areas along the Afghanistan/Pakistan border. Formed in 2007, its leader is Noor Wali Mehsud (QDi.427). INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Entities
 
 ## Verified activity history
 

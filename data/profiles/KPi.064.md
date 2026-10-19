@@ -10,12 +10,12 @@
 
 ## Status
 
-- Last checked: 2026-10-12 (news since 2026-10-05)
-- Verified activity records: 0; awaiting review: 1
+- Last checked: 2026-10-19 (news since 2026-10-12)
+- Verified activity records: 0; awaiting review: 2
 
 **UN listing notes:**
 
-> In 2016, Ch’oe So’k-min was the deputy representative at the Foreign Trade Bank branch office in that overseas location. He has been associated with cash transfers from that overseas Foreign Trade Bank office to banks affiliated with North Korean special organizations and Reconnaissance General Bureau operatives located overseas in an effort to evade sanctions. Gender: male.in response to the DPRK test of an ICBM on 28 November 2017
+> In 2016, Ch’oe So’k-min was the deputy representative at the Foreign Trade Bank branch office in that overseas location. He has been associated with cash transfers from that overseas Foreign Trade Bank office to banks affiliated with North Korean special organizations and Reconnaissance General Bureau operatives located overseas in an effort to evade sanctions. Gender: male.
 
 ## Verified activity history
 

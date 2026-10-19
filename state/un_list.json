@@ -9820,16 +9820,12 @@
    "1964-06-18"
   ],
   "doc_numbers": [
-   "381420754",
-   "381420754",
    "381420754"
   ],
   "documents": [
-   "Numéro de passeport 381420754",
-   "Número de pasaporte 381420754",
    "Passport 381420754"
   ],
-  "hash": "8d18245f3ef4c7d52cf1acedf1a6028639ba00d36e119e08b2d8d86ea3214721",
+  "hash": "b9a7b8af0c2331afa3abf39fe55a43cad88397470b40d6dc2f5981df2499e816",
   "kind": "individual",
   "last_updated": [],
   "listed_on": "2013-01-22",
@@ -9892,16 +9888,12 @@
    "1954-06-04"
   ],
   "doc_numbers": [
-   "645120196",
-   "645120196",
    "645120196"
   ],
   "documents": [
-   "Numéro de passeport 645120196",
-   "Número de pasaporte 645120196",
    "Passport 645120196"
   ],
-  "hash": "604f7382898a7896ba157359e123a248d1e872fbe5bec9d3c94b20210bab0ae4",
+  "hash": "5ad3cf713689e0a054c2b512832c1b8c0c8ae032a9ea7636582a401e4c10eab6",
   "kind": "individual",
   "last_updated": [
    "2016-03-02",
@@ -9931,16 +9923,12 @@
    "1969-09-01"
   ],
   "doc_numbers": [
-   "PS381420397",
-   "PS381420397",
    "PS381420397"
   ],
   "documents": [
-   "Numéro de passeport PS381420397",
-   "Número de pasaporte PS381420397",
    "Passport PS381420397"
   ],
-  "hash": "cf97e708f8e74d9bd36404f59d7b434d2a91a0021ebbc221b27169c5178c5a34",
+  "hash": "45a916770e07de9c19ebfb520cb85c606a9cd9b65000f7f1eee168162fcdd750",
   "kind": "individual",
   "last_updated": [],
   "listed_on": "2013-01-22",
@@ -10313,15 +10301,15 @@
   ],
   "doc_numbers": [
    "199421147",
-   "381110042 (Expired 25 Jan. 2016)",
-   "563210184 (Expires 18 Jun. 2018)"
+   "381110042",
+   "563210184"
   ],
   "documents": [
    "Passport 199421147",
-   "Passport 381110042 (Expired 25 Jan. 2016)",
-   "Passport 563210184 (Expires 18 Jun. 2018)"
+   "Passport 381110042",
+   "Passport 563210184"
   ],
-  "hash": "2aee46953c5b402302778acfaa759cf1694a375df08d037233ac2ea38c885bdf",
+  "hash": "5f56368db9300d13d282f8f13be7097070d947468b2894bbc00ffd6a4f6f1777",
   "kind": "individual",
   "last_updated": [
    "2017-06-01"
@@ -11669,7 +11657,7 @@
  },
  "KPi.064": {
   "aliases": [],
-  "comments": "In 2016, Ch’oe So’k-min was the deputy representative at the Foreign Trade Bank branch office in that overseas location. He has been associated with cash transfers from that overseas Foreign Trade Bank office to banks affiliated with North Korean special organizations and Reconnaissance General Bureau operatives located overseas in an effort to evade sanctions. Gender: male.in response to the DPRK test of an ICBM on 28 November 2017",
+  "comments": "In 2016, Ch’oe So’k-min was the deputy representative at the Foreign Trade Bank branch office in that overseas location. He has been associated with cash transfers from that overseas Foreign Trade Bank office to banks affiliated with North Korean special organizations and Reconnaissance General Bureau operatives located overseas in an effort to evade sanctions. Gender: male.",
   "countries": [
    "Democratic People's Republic of Korea"
   ],
@@ -11681,7 +11669,7 @@
   ],
   "doc_numbers": [],
   "documents": [],
-  "hash": "21a938a299e133e06906eae56012938b0833ee78b58e3d2fb3ef3698321115fb",
+  "hash": "41d7e98582bcdb139cd5ff4817668fc274c06d72ed67db429a871658521b2a2b",
   "kind": "individual",
   "last_updated": [
    "2023-06-29"
@@ -14744,17 +14732,18 @@
    "Pakistani Taliban",
    "Tehreek-e-Taliban"
   ],
-  "comments": "Tehrik-e Taliban is based in the tribal areas along the Afghanistan/Pakistan border. Formed in 2007, its leader is Maulana Fazlullah (QDi.352) INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Entities",
+  "comments": "Tehrik-e Taliban is based in the tribal areas along the Afghanistan/Pakistan border. Formed in 2007, its leader is Noor Wali Mehsud (QDi.427). INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Entities",
   "countries": [],
   "designation": [],
   "dobs": [],
   "doc_numbers": [],
   "documents": [],
-  "hash": "9bf34085d98c3c0747210b3dc745f9eb61dc5ee3829839bef631b95484af3c0d",
+  "hash": "14065914718ad69729b324030fe14831cf369a2825bc5274682f72036f801334",
   "kind": "entity",
   "last_updated": [
    "2015-06-15",
-   "2020-11-24"
+   "2020-11-24",
+   "2026-10-15"
   ],
   "listed_on": "2011-07-29",
   "low_aliases": [],
@@ -17134,7 +17123,7 @@
   "aliases": [
    "Mounir el Moutassadeq"
   ],
-  "comments": "Arrested on 28 Nov. 2001 and found guilty in Germany of being an accessory to murder and of membership in a terrorist organization and sentenced to 15 years of imprisonment on 8 Jan. 2007. Father's name is Brahim Brik. Mother's name is Habiba Abbes INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Individuals",
+  "comments": "Arrested on 28 Nov. 2001 and found guilty in Germany of being an accessory to murder and of membership in a terrorist organization and sentenced to 15 years of imprisonment on 8 Jan. 2007. Deported from Germany to Morocco in October 2018. Father's name is Brahim Brik. Mother's name is Habiba Abbes. Photo available for inclusion in the INTERPOL-UN Security Council Special Notice. INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Individuals",
   "countries": [
    "Morocco"
   ],
@@ -17150,13 +17139,14 @@
    "Passport H 236483 Morocco",
    "National Identification Number E-491591 Morocco"
   ],
-  "hash": "42b825f127544997a97b048711de13f7ebd0715af80c114932d8a6b076eeefa2",
+  "hash": "93173b2efa66d2ef59ad1f318867a8169fe57f1233ca52b089726a426db3bb77",
   "kind": "individual",
   "last_updated": [
    "2004-11-26",
    "2007-09-07",
    "2010-12-23",
-   "2019-12-06"
+   "2019-12-06",
+   "2026-10-15"
   ],
   "listed_on": "2002-09-30",
   "low_aliases": [],
@@ -25171,7 +25161,7 @@
   "aliases": [
    "Abu Mansoor Asim"
   ],
-  "comments": "Leader of Tehrik-e Taliban Pakistan (TTP) (QDe.132) following the death of former TTP leader Maulana Fazlullah (QDi.352) INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Individuals",
+  "comments": "Leader of Tehrik-e Taliban Pakistan (TTP) (QDe.132) following the death of former TTP leader Maulana Fazlullah (QDi.352). Photo available for inclusion in the INTERPOL-UN Security Council Special Notice. INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Individuals",
   "countries": [
    "Afghanistan",
    "Pakistan"
@@ -25182,11 +25172,12 @@
   ],
   "doc_numbers": [],
   "documents": [],
-  "hash": "8635527b27a6761c3db550b55dc473c0e373b093b0d2f32f0a4486fae6f4b04a",
+  "hash": "6ddb3066449535c959ba8cd7a71f1869dd74360eccd52320ee1b9069100f198a",
   "kind": "individual",
   "last_updated": [
    "2023-10-30",
-   "2023-12-19"
+   "2023-12-19",
+   "2026-10-15"
   ],
   "listed_on": "2020-07-16",
   "low_aliases": [],

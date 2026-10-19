@@ -10,13 +10,13 @@
 
 ## Status
 
-- Last checked: 2026-10-12 (news since 2026-10-05)
-- Verified activity records: 0; awaiting review: 7
+- Last checked: 2026-10-19 (news since 2026-10-12)
+- Verified activity records: 0; awaiting review: 9
 - UN listing notes mention: deceased (see notes below)
 
 **UN listing notes:**
 
-> Leader of Tehrik-e Taliban Pakistan (TTP) (QDe.132) following the death of former TTP leader Maulana Fazlullah (QDi.352) INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Individuals
+> Leader of Tehrik-e Taliban Pakistan (TTP) (QDe.132) following the death of former TTP leader Maulana Fazlullah (QDi.352). Photo available for inclusion in the INTERPOL-UN Security Council Special Notice. INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Individuals
 
 ## Verified activity history
 

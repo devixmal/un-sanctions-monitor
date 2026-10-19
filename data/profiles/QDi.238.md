@@ -12,7 +12,7 @@
 
 ## Status
 
-- Last checked: 2026-10-12 (news since 2026-10-05)
+- Last checked: 2026-10-19 (news since 2026-10-12)
 - Verified activity records: 0; awaiting review: 0
 - UN listing notes mention: detained, convicted (see notes below)
 

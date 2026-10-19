@@ -1,51 +1,57 @@
-2026-10-12 08:02:45,438 INFO Review decisions synced: {'verified': 0, 'rejected': 0, 'pending': 0}
-2026-10-12 08:02:45,438 INFO Relevance filter: keyword heuristic (set ANTHROPIC_API_KEY for far fewer false positives)
-2026-10-12 08:02:46,704 INFO UN list: 1010 records (736 individuals, 274 entities)
-2026-10-12 08:02:46,880 INFO == Other sanctions lists: starting
-2026-10-12 08:02:49,029 INFO OpenSanctions: 72629 rows read, 1063 UN rows, 999 matched to the UN list
-2026-10-12 08:02:49,046 INFO OpenSanctions: 999 UN parties linked to other lists
-2026-10-12 08:02:49,046 INFO == Other sanctions lists: finished in 0.0 min
-2026-10-12 08:02:49,047 INFO == Watched feeds: starting
-2026-10-12 08:02:57,364 INFO == Watched feeds: finished in 0.1 min
-2026-10-12 08:02:57,364 INFO == Official releases: starting
-2026-10-12 08:04:10,903 INFO Official source US Treasury press releases: 10 listed, 1 new read
-2026-10-12 08:04:43,667 INFO Official source US OFAC recent actions: 10 listed, 3 new read
-2026-10-12 08:04:44,957 INFO Official source US Justice Department press releases: 25 listed, 21 new read
-2026-10-12 08:06:46,605 INFO Official source FBI press releases: 46 listed, 9 new read
-2026-10-12 08:06:49,086 INFO Official source UK Office of Financial Sanctions Implementation: 10 listed, 2 new read
-2026-10-12 08:06:49,086 INFO == Official releases: finished in 3.9 min
-2026-10-12 08:06:49,086 INFO == UN reports: starting
-2026-10-12 08:06:56,065 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1267/monitoring-team/reports: 66 documents listed
-2026-10-12 08:07:02,753 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1988/monitoring-team/reports: 30 documents listed
-2026-10-12 08:07:02,829 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1533/panel-of-experts/expert-reports: 56 documents listed
-2026-10-12 08:07:07,537 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1591/panel-of-experts/reports: 32 documents listed
-2026-10-12 08:07:10,843 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1718/panel_experts/reports: 33 documents listed
-2026-10-12 08:07:16,384 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1970/panel-experts/reports: 25 documents listed
-2026-10-12 08:07:21,592 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2127/panel-of-experts/reports: 35 documents listed
-2026-10-12 08:07:22,565 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2140/panel-of-experts/work-and-mandate/reports: 28 documents listed
-2026-10-12 08:07:26,754 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2206/panel-of-experts/reports: 35 documents listed
-2026-10-12 08:07:28,597 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2653/PoE/Reports: 20 documents listed
-2026-10-12 08:07:31,670 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2713/work-and-mandate/reports: 39 documents listed
-2026-10-12 08:07:35,979 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2745/panel-of-experts/reports: 35 documents listed
-2026-10-12 08:07:36,607 INFO Reports page https://www.securitycouncilreport.org/un_documents_type/sanctions-committee-documents/: 13 documents listed
-2026-10-12 08:07:36,607 INFO == UN reports: finished in 0.8 min
-2026-10-12 08:07:36,607 INFO == News sweep: starting
-2026-10-12 08:07:36,886 INFO GDELT GKG: scanning 988 files (2026-10-07T04:38:17+00:00 → 2026-10-12T08:07:36+00:00) for 2473 names + 960 nicknames
-2026-10-12 08:07:52,184 INFO GDELT GKG progress 100/988 files, 118099 articles, 264 matches
-2026-10-12 08:08:06,790 INFO GDELT GKG progress 200/988 files, 238016 articles, 485 matches
-2026-10-12 08:08:20,813 INFO GDELT GKG progress 300/988 files, 343662 articles, 679 matches
-2026-10-12 08:08:27,567 INFO GDELT GKG progress 400/988 files, 402096 articles, 970 matches
-2026-10-12 08:08:34,335 INFO GDELT GKG progress 500/988 files, 469869 articles, 1251 matches
-2026-10-12 08:08:56,444 INFO GDELT GKG progress 600/988 files, 705597 articles, 1545 matches
-2026-10-12 08:09:18,514 INFO GDELT GKG progress 700/988 files, 942791 articles, 1860 matches
-2026-10-12 08:09:39,090 INFO GDELT GKG progress 800/988 files, 1158022 articles, 2176 matches
-2026-10-12 08:09:49,435 INFO GDELT GKG progress 900/988 files, 1306457 articles, 2701 matches
-2026-10-12 08:09:58,693 INFO GDELT GKG done: 988 files ok, 0 missing, 0 failed, 1441846 articles scanned, 3352 matches
-2026-10-12 08:10:07,215 INFO Google News progress 0/1010
-2026-10-12 08:22:03,968 WARNING Google News is rate-limiting (HTTP 503); pausing 15 min
-2026-10-12 08:37:25,530 ERROR google_news switched off for this run: HTTP 503 (blocked again after pausing)
-2026-10-12 08:37:26,299 INFO 811 new candidate items across 75 parties
-2026-10-12 08:39:50,951 INFO == News sweep: finished in 32.2 min
-2026-10-12 08:39:50,951 INFO Done in 37.1 min. 228 news items on 36 parties; 2 official-feed mentions; 534 newly listed by other authorities; 36 borderline items to review; ⚠ 2 source problem(s)
-2026-10-12 08:39:58,012 INFO Review checklists: https://github.com/devixmal/un-sanctions-monitor/issues/9, https://github.com/devixmal/un-sanctions-monitor/issues/10, https://github.com/devixmal/un-sanctions-monitor/issues/11, https://github.com/devixmal/un-sanctions-monitor/issues/12, https://github.com/devixmal/un-sanctions-monitor/issues/13, https://github.com/devixmal/un-sanctions-monitor/issues/14, https://github.com/devixmal/un-sanctions-monitor/issues/15, https://github.com/devixmal/un-sanctions-monitor/issues/16, https://github.com/devixmal/un-sanctions-monitor/issues/17
-2026-10-12 08:39:58,336 INFO Alerts delivered via: report file, review checklists
+2026-10-19 06:54:27,812 INFO Review decisions synced: {'verified': 0, 'rejected': 0, 'pending': 0}
+2026-10-19 06:54:27,812 INFO Relevance filter: keyword heuristic (set ANTHROPIC_API_KEY for far fewer false positives)
+2026-10-19 06:54:29,875 INFO UN list: 1010 records (736 individuals, 274 entities)
+2026-10-19 06:54:30,051 INFO == Other sanctions lists: starting
+2026-10-19 06:54:33,573 INFO OpenSanctions: 73567 rows read, 1063 UN rows, 999 matched to the UN list
+2026-10-19 06:54:33,590 INFO OpenSanctions: 999 UN parties linked to other lists
+2026-10-19 06:54:33,591 INFO == Other sanctions lists: finished in 0.1 min
+2026-10-19 06:54:33,591 INFO == Watched feeds: starting
+2026-10-19 06:54:36,331 INFO == Watched feeds: finished in 0.0 min
+2026-10-19 06:54:36,331 INFO == Official releases: starting
+2026-10-19 06:56:11,653 INFO Official source US Treasury press releases: 10 listed, 5 new read
+2026-10-19 06:57:06,659 INFO Official source US OFAC recent actions: 10 listed, 5 new read
+2026-10-19 06:57:08,232 INFO Official source US Justice Department press releases: 25 listed, 25 new read
+2026-10-19 06:58:59,456 INFO Official source FBI press releases: 49 listed, 15 new read
+2026-10-19 06:59:00,861 INFO Official source UK Office of Financial Sanctions Implementation: 10 listed, 1 new read
+2026-10-19 06:59:00,861 INFO == Official releases: finished in 4.4 min
+2026-10-19 06:59:00,861 INFO == UN reports: starting
+2026-10-19 06:59:07,831 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1267/monitoring-team/reports: 66 documents listed
+2026-10-19 06:59:14,352 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1988/monitoring-team/reports: 30 documents listed
+2026-10-19 06:59:14,589 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1533/panel-of-experts/expert-reports: 56 documents listed
+2026-10-19 06:59:18,782 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1591/panel-of-experts/reports: 32 documents listed
+2026-10-19 06:59:22,031 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1718/panel_experts/reports: 33 documents listed
+2026-10-19 06:59:27,412 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/1970/panel-experts/reports: 25 documents listed
+2026-10-19 06:59:31,733 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2127/panel-of-experts/reports: 35 documents listed
+2026-10-19 06:59:32,728 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2140/panel-of-experts/work-and-mandate/reports: 28 documents listed
+2026-10-19 06:59:37,019 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2206/panel-of-experts/reports: 35 documents listed
+2026-10-19 06:59:39,153 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2653/PoE/Reports: 20 documents listed
+2026-10-19 06:59:41,714 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2713/work-and-mandate/reports: 39 documents listed
+2026-10-19 06:59:45,878 INFO Reports page https://main.un.org/securitycouncil/en/sanctions/2745/panel-of-experts/reports: 35 documents listed
+2026-10-19 06:59:46,650 INFO Reports page https://www.securitycouncilreport.org/un_documents_type/sanctions-committee-documents/: 13 documents listed
+2026-10-19 06:59:46,650 INFO == UN reports: finished in 0.8 min
+2026-10-19 06:59:46,650 INFO == News sweep: starting
+2026-10-19 06:59:46,865 INFO GDELT GKG: scanning 1334 files (2026-10-12T08:07:36+00:00 → 2026-10-19T06:59:46+00:00) for 2473 names + 960 nicknames
+2026-10-19 06:59:57,984 INFO GDELT GKG progress 100/1334 files, 108697 articles, 304 matches
+2026-10-19 07:00:10,824 INFO GDELT GKG progress 200/1334 files, 230905 articles, 556 matches
+2026-10-19 07:00:22,801 INFO GDELT GKG progress 300/1334 files, 352717 articles, 711 matches
+2026-10-19 07:00:34,613 INFO GDELT GKG progress 400/1334 files, 472145 articles, 931 matches
+2026-10-19 07:00:46,459 INFO GDELT GKG progress 500/1334 files, 572277 articles, 1038 matches
+2026-10-19 07:00:52,221 INFO GDELT GKG progress 600/1334 files, 628154 articles, 1138 matches
+2026-10-19 07:01:03,822 INFO GDELT GKG progress 700/1334 files, 769263 articles, 1452 matches
+2026-10-19 07:01:21,534 INFO GDELT GKG progress 800/1334 files, 1000769 articles, 1811 matches
+2026-10-19 07:01:39,596 INFO GDELT GKG progress 900/1334 files, 1241819 articles, 2107 matches
+2026-10-19 07:01:57,708 INFO GDELT GKG progress 1000/1334 files, 1483241 articles, 2333 matches
+2026-10-19 07:02:15,490 INFO GDELT GKG progress 1100/1334 files, 1714902 articles, 2473 matches
+2026-10-19 07:02:27,576 INFO GDELT GKG progress 1200/1334 files, 1871691 articles, 2660 matches
+2026-10-19 07:02:37,128 INFO GDELT GKG progress 1300/1334 files, 2012920 articles, 2883 matches
+2026-10-19 07:02:40,499 INFO GDELT GKG done: 1331 files ok, 3 missing, 0 failed, 2054655 articles scanned, 2915 matches
+2026-10-19 07:03:00,889 INFO Google News progress 0/1010
+2026-10-19 07:11:08,917 INFO Google News progress 100/1010
+2026-10-19 07:13:12,922 INFO Google News progress 200/1010
+2026-10-19 07:14:19,862 WARNING Google News is rate-limiting (HTTP 503); pausing 15 min
+2026-10-19 07:29:50,358 ERROR google_news switched off for this run: HTTP 503 (blocked again after pausing)
+2026-10-19 07:29:51,024 INFO 1080 new candidate items across 92 parties
+2026-10-19 07:31:38,603 INFO == News sweep: finished in 31.9 min
+2026-10-19 07:31:38,603 INFO Done in 37.2 min. UN list: +0 / -0 / ~8; 358 news items on 61 parties; 1 official-feed mentions; 31 borderline items to review; ⚠ 1 source problem(s)
+2026-10-19 07:31:41,389 INFO Review checklists: https://github.com/devixmal/un-sanctions-monitor/issues/18, https://github.com/devixmal/un-sanctions-monitor/issues/19, https://github.com/devixmal/un-sanctions-monitor/issues/20, https://github.com/devixmal/un-sanctions-monitor/issues/21
+2026-10-19 07:31:41,800 INFO Alerts delivered via: report file, review checklists

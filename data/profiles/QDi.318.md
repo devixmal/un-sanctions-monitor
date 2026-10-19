@@ -12,8 +12,8 @@
 
 ## Status
 
-- Last checked: 2026-10-12 (news since 2026-10-05)
-- Verified activity records: 0; awaiting review: 42
+- Last checked: 2026-10-19 (news since 2026-10-12)
+- Verified activity records: 0; awaiting review: 65
 - UN listing notes mention: detained, released (see notes below)
 
 **UN listing notes:**
