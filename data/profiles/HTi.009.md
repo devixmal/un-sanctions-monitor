@@ -6,8 +6,8 @@
 
 ## Status
 
-- Last checked: 2026-10-19 (news since 2026-10-12)
-- Verified activity records: 0; awaiting review: 3
+- Last checked: 2026-10-26 (news since 2026-10-18)
+- Verified activity records: 0; awaiting review: 4
 
 ## Verified activity history
 
