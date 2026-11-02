@@ -8,13 +8,13 @@
 **Countries:** Afghanistan
 **Date(s) of birth:** 1971; 1975; 1968-09-20
 **Designation:** Deputy Minister of Security (Intelligence) under the Taliban regime (1996-2001)
-**Documents:** Passport D0009755 Afghanistan; Passport D0010689 Afghanistan
+**Documents:** Passport D0009755 Afghanistan; Passport D0010689 Afghanistan; Passport P00429350 Afghanistan
 **Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, Bulgarian Persons of Interest, EU Consolidated Travel Bans, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Indonesian List of Suspected Terrorists and Terrorist Organizations, Israel Terrorists Organizations and Unauthorized Associations lists, Japan Economic Sanctions and List of Eligible People, Moldovan Sanctions for Terrorism and Proliferation of WMD, Monaco National Fund Freezing List, Polish Sanctions Countering Money Laundering and Terror Financing, Qatar Unified Record of Persons and Entities on Sanction List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, Türkiye Asset Freezing Sanctions List (MASAK), UK FCDO Sanctions List, Ukraine SFMS Blacklist
 
 ## Status
 
-- Last checked: 2026-10-26 (news since 2026-10-19)
-- Verified activity records: 0; awaiting review: 4
+- Last checked: 2026-11-02 (news since 2026-10-26)
+- Verified activity records: 0; awaiting review: 5
 
 **UN listing notes:**
 

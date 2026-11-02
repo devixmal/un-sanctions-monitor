@@ -22304,30 +22304,30 @@
  },
  "QDi.340": {
   "aliases": [],
-  "comments": "French terrorist fighter who travelled to Syria and joined Islamic State in Iraq and the Levant, listed as Al-Qaida in Iraq (AQI) (QDe.115). Active in radicalizing and propagating Al-Qaida’s (QDe.004) ideology through the Internet. Incites violent activities against France. French arrest warrant issued on 12 Jun. 2015 by a magistrate of the anti-terrorism division of the Prosecutor’s Office in Paris for her participation in a terrorist criminal association INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Individuals",
+  "comments": "French terrorist fighter who travelled to Syria and joined Islamic State in Iraq and the Levant, listed as Al-Qaida in Iraq (AQI) (QDe.115). Active in radicalizing and propagating Al-Qaida’s (QDe.004) ideology through the Internet. Incites violent activities against France. Currently detained in France. Gender: Female. INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Individuals",
   "countries": [
-   "France",
-   "Syrian Arab Republic"
+   "France"
   ],
   "designation": [],
   "dobs": [
    "1984-12-09"
   ],
   "doc_numbers": [
-   "French passport number 05AT521433",
-   "French national identity card number 050456101445",
-   "French identity card number 0205561020089"
+   "05AT521433",
+   "050456101445",
+   "0205561020089"
   ],
   "documents": [
-   "Passport French passport number 05AT521433",
-   "National Identification Number French national identity card number 050456101445",
-   "National Identification Number French identity card number 0205561020089"
+   "Passport 05AT521433 France",
+   "National Identification Number 050456101445 France",
+   "National Identification Number 0205561020089 France"
   ],
-  "hash": "939af744131cf6477ba470d1ef77fcd7d37fcc922796fc308d63f9e68f0306bd",
+  "hash": "42a7855203fd12eb261ebdff95e58b840b6299b16f1aec00af4c2165fb98c932",
   "kind": "individual",
   "last_updated": [
    "2016-06-24",
-   "2021-11-15"
+   "2021-11-15",
+   "2026-10-26"
   ],
   "listed_on": "2014-09-23",
   "low_aliases": [
@@ -22380,7 +22380,7 @@
  },
  "QDi.342": {
   "aliases": [],
-  "comments": "A leader of an armed group linked to Al-Nusrah Front for the People of the Levant (formerly listed) and a key facilitator for a Syrian foreign terrorist fighter network. Active in terrorist propaganda through the Internet INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Individuals",
+  "comments": "A leader of an armed group linked to Al-Qaida (QDe.004) and Al-Nusrah Front for the People of the Levant (formerly listed) and a key facilitator for a network of foreign terrorist fighters travelling to Syria. Active in terrorist propaganda through the Internet. INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Individuals",
   "countries": [
    "Senegal",
    "Syrian Arab Republic"
@@ -22391,16 +22391,17 @@
   ],
   "doc_numbers": [],
   "documents": [],
-  "hash": "3c5972ecdd3d30c6c232916d2225c2bd63b4e1205549125ab9cf2968b30431e9",
+  "hash": "b4743d8b037420b73e7778898ee5cc529fa2581030dfff4c9a847fa6a23e96e6",
   "kind": "individual",
   "last_updated": [
    "2019-12-06",
-   "2023-10-30"
+   "2023-10-30",
+   "2026-10-26"
   ],
   "listed_on": "2014-09-23",
   "low_aliases": [
    "Omsen",
-   "Oumar Omsen"
+   "Omar Omsen"
   ],
   "name": "OUMAR DIABY",
   "nationality": [
@@ -23440,11 +23441,12 @@
   "regime": "Al-Qaida"
  },
  "QDi.376": {
-  "aliases": [],
-  "comments": "Member of Al-Qaida in the Arabian Peninsula (AQAP) (QDe.129). Convicted in absentia to five years in prison in France in 2012. Wanted by French authorities as of 2015. Sentenced to life imprisonment by a French court on 3 October 2024. INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Individuals",
+  "aliases": [
+   "Abou Hamza"
+  ],
+  "comments": "Member of Al-Qaida in the Arabian Peninsula (AQAP) (QDe.129). Convicted in absentia to five years in prison in France in 2012, and then sentenced to life imprisonment by a French court on 3 October 2024 for his involvement in a terrorist organisation. INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Individuals",
   "countries": [
-   "France",
-   "Yemen"
+   "France"
   ],
   "designation": [],
   "dobs": [
@@ -23452,12 +23454,13 @@
   ],
   "doc_numbers": [],
   "documents": [],
-  "hash": "164cc0f6a37fcea84741cf35ad8a7a3bc9d81d11d8c1d8276ce7e3cdae6ce676",
+  "hash": "7588816f6f592e1aefec990da76ad42fa9b8ad66f923f5b16198da80f9e9ae39",
   "kind": "individual",
   "last_updated": [
    "2016-06-24",
    "2021-11-15",
-   "2026-08-18"
+   "2026-08-18",
+   "2026-10-26"
   ],
   "listed_on": "2015-09-29",
   "low_aliases": [],
@@ -27349,13 +27352,15 @@
   ],
   "doc_numbers": [
    "D0009720",
-   "D0010442"
+   "D0010442",
+   "P05629010"
   ],
   "documents": [
    "Passport D0009720 Afghanistan",
-   "Passport D0010442 Afghanistan"
+   "Passport D0010442 Afghanistan",
+   "Passport P05629010 Afghanistan"
   ],
-  "hash": "82129d9309613f79316924299dc966241dcafd0d553f7754dbc47679b7e537c6",
+  "hash": "bfc9e15501f938a25c887fcaa9ff40b828c8c2eb620ac466cddadc3e3e303cb4",
   "kind": "individual",
   "last_updated": [
    "2003-09-03",
@@ -27365,7 +27370,8 @@
    "2012-05-18",
    "2013-04-22",
    "2026-03-10",
-   "2026-04-28"
+   "2026-04-28",
+   "2026-10-29"
   ],
   "listed_on": "2001-01-31",
   "low_aliases": [],
@@ -27863,13 +27869,15 @@
   ],
   "doc_numbers": [
    "D0009751",
-   "P04999950"
+   "P04999950",
+   "P02444826"
   ],
   "documents": [
    "Passport D0009751 Afghanistan",
-   "Passport P04999950 Afghanistan"
+   "Passport P04999950 Afghanistan",
+   "Passport P02444826 Afghanistan"
   ],
-  "hash": "cfe293a930078c59b9b69f59baa6d56593c8b3c50ac084c32f0c0fbe3f85df8f",
+  "hash": "d0f632b9e14bfd0daca5ff23f8e41df938f5bd6f413547aff2f6f79a91ec5ac2",
   "kind": "individual",
   "last_updated": [
    "2003-09-03",
@@ -27877,7 +27885,8 @@
    "2007-09-21",
    "2012-02-13",
    "2026-03-10",
-   "2026-04-13"
+   "2026-04-13",
+   "2026-10-29"
   ],
   "listed_on": "2001-02-23",
   "low_aliases": [],
@@ -27943,20 +27952,25 @@
   ],
   "doc_numbers": [
    "D0009716",
-   "D0009803"
+   "D0009803",
+   "D0010741",
+   "P02444824"
   ],
   "documents": [
    "Passport D0009716 Afghanistan",
-   "Passport D0009803 Afghanistan"
+   "Passport D0009803 Afghanistan",
+   "Passport D0010741 Afghanistan",
+   "Passport P02444824 Afghanistan"
   ],
-  "hash": "53a427e917cd982c94551905371eaf6365de1272ab42476fcab590ebcceb6714",
+  "hash": "f521cd54e11c5a8d19eba823335f97e6e914ead7b96a621388859152eddd8fae",
   "kind": "individual",
   "last_updated": [
    "2003-09-03",
    "2007-09-21",
    "2011-11-29",
    "2026-03-10",
-   "2026-04-13"
+   "2026-04-13",
+   "2026-10-29"
   ],
   "listed_on": "2001-01-25",
   "low_aliases": [],
@@ -29311,13 +29325,15 @@
   ],
   "doc_numbers": [
    "D0009755",
-   "D0010689"
+   "D0010689",
+   "P00429350"
   ],
   "documents": [
    "Passport D0009755 Afghanistan",
-   "Passport D0010689 Afghanistan"
+   "Passport D0010689 Afghanistan",
+   "Passport P00429350 Afghanistan"
   ],
-  "hash": "9fef2060318b03384157536b49f39bf609037107f973840eccaa309664dcb703",
+  "hash": "d6fe754a2e0c97b4450136a53b59cbdaa9207021e0c99a7ede63b619337463d9",
   "kind": "individual",
   "last_updated": [
    "2003-09-03",
@@ -29329,7 +29345,8 @@
    "2016-09-07",
    "2026-03-10",
    "2026-04-28",
-   "2026-07-30"
+   "2026-07-30",
+   "2026-10-29"
   ],
   "listed_on": "2001-01-31",
   "low_aliases": [],
@@ -29643,12 +29660,14 @@
    "1969-06-04"
   ],
   "doc_numbers": [
-   "D0009770"
+   "D0009770",
+   "P04411676"
   ],
   "documents": [
-   "Passport D0009770 Afghanistan"
+   "Passport D0009770 Afghanistan",
+   "Passport P04411676 Afghanistan"
   ],
-  "hash": "3c696af44eedc946d01f6c183e1d958fad481d13dc2a0142e25e151cbc398818",
+  "hash": "f6b1e6e2e56303f1cb325198baf30ba7cd5f7d3fa04b7d33bd7d9ff67665fe16",
   "kind": "individual",
   "last_updated": [
    "2003-09-03",
@@ -29659,7 +29678,8 @@
    "2013-12-31",
    "2016-09-07",
    "2026-03-10",
-   "2026-04-28"
+   "2026-04-28",
+   "2026-10-29"
   ],
   "listed_on": "2001-01-25",
   "low_aliases": [],

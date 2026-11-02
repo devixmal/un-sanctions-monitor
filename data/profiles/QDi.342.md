@@ -9,12 +9,12 @@
 
 ## Status
 
-- Last checked: 2026-10-26 (news since 2026-10-19)
-- Verified activity records: 0; awaiting review: 0
+- Last checked: 2026-11-02 (news since 2026-10-26)
+- Verified activity records: 0; awaiting review: 3
 
 **UN listing notes:**
 
-> A leader of an armed group linked to Al-Nusrah Front for the People of the Levant (formerly listed) and a key facilitator for a Syrian foreign terrorist fighter network. Active in terrorist propaganda through the Internet INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Individuals
+> A leader of an armed group linked to Al-Qaida (QDe.004) and Al-Nusrah Front for the People of the Levant (formerly listed) and a key facilitator for a network of foreign terrorist fighters travelling to Syria. Active in terrorist propaganda through the Internet. INTERPOL-UN Security Council Special Notice:https://www.interpol.int/en/How-we-work/Notices/View-UN-Notices-Individuals
 
 ## Verified activity history
 

@@ -10,8 +10,8 @@
 
 ## Status
 
-- Last checked: 2026-10-26 (news since 2026-10-19)
-- Verified activity records: 0; awaiting review: 9
+- Last checked: 2026-11-02 (news since 2026-10-26)
+- Verified activity records: 0; awaiting review: 15
 - UN listing notes mention: deceased (see notes below)
 
 **UN listing notes:**
