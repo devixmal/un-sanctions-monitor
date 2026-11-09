@@ -4,12 +4,12 @@
 
 **Also known as:** HONG KONG ELECTRONICS KISH CO.
 **Countries:** Iran (Islamic Republic of)
-**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Israel Prevention of Distribution and Financing of WMDs designations, Japan Economic Sanctions and List of Eligible People, Japan METI End User List, Moldovan Sanctions for Terrorism and Proliferation of WMD, Monaco National Fund Freezing List, Qatar Unified Record of Persons and Entities on Sanction List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, Türkiye Asset Freezing Sanctions List (MASAK), UK FCDO Sanctions List, US FinCEN 311 and 9714 Special Measures, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
+**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Hong Kong Targeted Financial Sanctions (Cap. 537), Israel Prevention of Distribution and Financing of WMDs designations, Japan Economic Sanctions and List of Eligible People, Japan METI End User List, Moldovan Sanctions for Terrorism and Proliferation of WMD, Monaco National Fund Freezing List, Qatar Unified Record of Persons and Entities on Sanction List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, Türkiye Asset Freezing Sanctions List (MASAK), UK FCDO Sanctions List, US FinCEN 311 and 9714 Special Measures, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
 
 ## Status
 
-- Last checked: 2026-11-02 (news since 2026-10-18)
-- Verified activity records: 0; awaiting review: 5
+- Last checked: 2026-11-09 (news since 2026-10-18)
+- Verified activity records: 0; awaiting review: 6
 
 **UN listing notes:**
 

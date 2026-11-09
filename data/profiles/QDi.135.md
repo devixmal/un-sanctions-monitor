@@ -7,12 +7,12 @@
 **Countries:** India; Pakistan
 **Date(s) of birth:** 1955-12-26
 **Documents:** Passport A-333602 India; Passport M110522 India; Passport R841697 India; Passport F823692 India; Passport A501801 India; Passport K560098 India; Passport V57865; Passport P537849 India; Passport A717288; Passport G866537 Pakistan; Passport C-267185; Passport H-123259; Passport G-869537; Passport KC-285901
-**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, Bulgarian Persons of Interest, EU Consolidated Travel Bans, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Indian Ministry of Home Affairs Banned Organizations, Indonesian List of Suspected Terrorists and Terrorist Organizations, Israel Terrorists Organizations and Unauthorized Associations lists, Japan Economic Sanctions and List of Eligible People, Moldovan Sanctions for Terrorism and Proliferation of WMD, Monaco National Fund Freezing List, Polish Sanctions Countering Money Laundering and Terror Financing, Qatar Unified Record of Persons and Entities on Sanction List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, Türkiye Asset Freezing Sanctions List (MASAK), UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
+**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, Bulgarian Persons of Interest, EU Consolidated Travel Bans, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Hong Kong Targeted Financial Sanctions (Cap. 537), Indian Ministry of Home Affairs Banned Organizations, Indonesian List of Suspected Terrorists and Terrorist Organizations, Israel Terrorists Organizations and Unauthorized Associations lists, Japan Economic Sanctions and List of Eligible People, Moldovan Sanctions for Terrorism and Proliferation of WMD, Monaco National Fund Freezing List, Polish Sanctions Countering Money Laundering and Terror Financing, Qatar Unified Record of Persons and Entities on Sanction List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, Türkiye Asset Freezing Sanctions List (MASAK), UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
 
 ## Status
 
-- Last checked: 2026-11-02 (news since 2026-10-26)
-- Verified activity records: 0; awaiting review: 4
+- Last checked: 2026-11-09 (news since 2026-11-02)
+- Verified activity records: 0; awaiting review: 5
 
 **UN listing notes:**
 

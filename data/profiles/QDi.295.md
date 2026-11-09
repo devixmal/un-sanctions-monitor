@@ -7,12 +7,12 @@
 **Countries:** Indonesia
 **Date(s) of birth:** 1984-05-28; 1979-12-03; 1979-03-03; 1980-08-08
 **Documents:** National Identification Number 3219222002.2181558; National Identification Number 2181558; Passport S335026 Indonesia
-**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, EU Consolidated Travel Bans, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Indonesian List of Suspected Terrorists and Terrorist Organizations, Israel Terrorists Organizations and Unauthorized Associations lists, Japan Economic Sanctions and List of Eligible People, Moldovan Sanctions for Terrorism and Proliferation of WMD, Monaco National Fund Freezing List, Polish Sanctions Countering Money Laundering and Terror Financing, Qatar Unified Record of Persons and Entities on Sanction List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, Türkiye Asset Freezing Sanctions List (MASAK), UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
+**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, EU Consolidated Travel Bans, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Hong Kong Targeted Financial Sanctions (Cap. 537), Indonesian List of Suspected Terrorists and Terrorist Organizations, Israel Terrorists Organizations and Unauthorized Associations lists, Japan Economic Sanctions and List of Eligible People, Moldovan Sanctions for Terrorism and Proliferation of WMD, Monaco National Fund Freezing List, Polish Sanctions Countering Money Laundering and Terror Financing, Qatar Unified Record of Persons and Entities on Sanction List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, Türkiye Asset Freezing Sanctions List (MASAK), UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
 
 ## Status
 
-- Last checked: 2026-11-02 (news since 2026-10-26)
-- Verified activity records: 0; awaiting review: 0
+- Last checked: 2026-11-09 (news since 2026-11-02)
+- Verified activity records: 0; awaiting review: 1
 - UN listing notes mention: detained, convicted (see notes below)
 
 **UN listing notes:**

@@ -4,12 +4,12 @@
 
 **Also known as:** 2ND ACADEMY OF NATURAL SCIENCES; CHE 2 CHAYON KWAHAKWON; ACADEMY OF NATURAL SCIENCES; CHAYON KWAHAK-WON; NATIONAL DEFENSE ACADEMY; KUKPANG KWAHAK-WON; SECOND ACADEMY OF NATURAL SCIENCES RESEARCH INSTITUTE; SANSRI
 **Countries:** Democratic People's Republic of Korea
-**Also sanctioned by:** Australian Sanctions Consolidated List, Belgian Financial Sanctions, Israel Prevention of Distribution and Financing of WMDs designations, Japan METI End User List, Taiwan Strategic High-Tech Commodities Entity List, Ukraine SFMS Blacklist
+**Also sanctioned by:** Australian Sanctions Consolidated List, Belgian Financial Sanctions, Hong Kong Targeted Financial Sanctions (Cap. 537), Israel Prevention of Distribution and Financing of WMDs designations, Japan METI End User List, Taiwan Strategic High-Tech Commodities Entity List, Ukraine SFMS Blacklist
 
 ## Status
 
-- Last checked: 2026-11-02 (news since 2026-10-25)
-- Verified activity records: 0; awaiting review: 1
+- Last checked: 2026-11-09 (news since 2026-10-25)
+- Verified activity records: 0; awaiting review: 2
 
 **UN listing notes:**
 

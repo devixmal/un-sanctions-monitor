@@ -8,12 +8,12 @@
 **Date(s) of birth:** 1970; 1969; 1971; 1970-01-01; 1971-01-01
 **Designation:** General; Minister for Security; Director General of the "Extraordinary Committee for the Defence of Democratic Achievements
 **Documents:** Passport D00001184 Central African Republic; Passport P04838205; National Identification Number 20227088368 Sudan
-**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, EU Consolidated Travel Bans, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Japan Economic Sanctions and List of Eligible People, Monaco National Fund Freezing List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
+**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, EU Consolidated Travel Bans, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Hong Kong Targeted Financial Sanctions (Cap. 537), Japan Economic Sanctions and List of Eligible People, Monaco National Fund Freezing List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
 
 ## Status
 
-- Last checked: 2026-11-02 (news since 2026-10-11)
-- Verified activity records: 0; awaiting review: 1
+- Last checked: 2026-11-09 (news since 2026-10-11)
+- Verified activity records: 0; awaiting review: 2
 
 **UN listing notes:**
 

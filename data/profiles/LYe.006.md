@@ -2,12 +2,12 @@
 
 **UN reference:** LYe.006 · **Type:** entity · **Regime:** Libya · **Listed:** 2026-07-22
 
-**Also sanctioned by:** Argentina RePET Sanctions, South Africa Targeted Financial Sanctions, Ukraine SFMS Blacklist
+**Also sanctioned by:** Argentina RePET Sanctions, Hong Kong Targeted Financial Sanctions (Cap. 537), South Africa Targeted Financial Sanctions, Ukraine SFMS Blacklist
 
 ## Status
 
-- Last checked: 2026-11-02 (news since 2026-10-26)
-- Verified activity records: 0; awaiting review: 1
+- Last checked: 2026-11-09 (news since 2026-11-02)
+- Verified activity records: 0; awaiting review: 2
 
 **UN listing notes:**
 

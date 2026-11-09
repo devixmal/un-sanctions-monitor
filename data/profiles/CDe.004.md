@@ -2,12 +2,12 @@
 
 **UN reference:** CDe.004 · **Type:** entity · **Regime:** DRC · **Listed:** 2007-03-29
 
-**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Japan Economic Sanctions and List of Eligible People, Monaco National Fund Freezing List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, Ukraine SFMS Blacklist
+**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Hong Kong Targeted Financial Sanctions (Cap. 537), Japan Economic Sanctions and List of Eligible People, Monaco National Fund Freezing List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, Ukraine SFMS Blacklist
 
 ## Status
 
-- Last checked: 2026-11-02 (news since 2026-10-06)
-- Verified activity records: 0; awaiting review: 1
+- Last checked: 2026-11-09 (news since 2026-10-10)
+- Verified activity records: 0; awaiting review: 2
 
 **UN listing notes:**
 

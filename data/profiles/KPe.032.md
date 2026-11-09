@@ -3,12 +3,12 @@
 **UN reference:** KPe.032 · **Type:** entity · **Regime:** DPRK · **Listed:** 2016-03-02
 
 **Countries:** Democratic People's Republic of Korea
-**Also sanctioned by:** EU Financial Sanctions Files (FSF), Israel Prevention of Distribution and Financing of WMDs designations, Japan Economic Sanctions and List of Eligible People, Japan METI End User List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, Türkiye Asset Freezing Sanctions List (MASAK), UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
+**Also sanctioned by:** EU Financial Sanctions Files (FSF), Hong Kong Targeted Financial Sanctions (Cap. 537), Israel Prevention of Distribution and Financing of WMDs designations, Japan Economic Sanctions and List of Eligible People, Japan METI End User List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, Türkiye Asset Freezing Sanctions List (MASAK), UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
 
 ## Status
 
-- Last checked: 2026-11-02 (news since 2026-10-25)
-- Verified activity records: 0; awaiting review: 4
+- Last checked: 2026-11-09 (news since 2026-10-25)
+- Verified activity records: 0; awaiting review: 5
 
 **UN listing notes:**
 
