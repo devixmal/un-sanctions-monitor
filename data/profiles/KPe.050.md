@@ -8,12 +8,12 @@
 
 ## Status
 
-- Last checked: 2026-11-09 (news since 2026-10-25)
-- Verified activity records: 0; awaiting review: 2
+- Last checked: 2026-11-16 (news since 2026-10-25)
+- Verified activity records: 0; awaiting review: 3
 
 **UN listing notes:**
 
-> Mansudae Overseas Project Group of Companies engaged in, facilitated, or was responsible for the exportation of workers from the DPRK to other nations for construction-related activities including for statues and monuments to generate revenue for the Government of the DPRK or the Workers’ Party of Korea. The Mansudae Overseas Project Group of Companies has been reported to conduct business in countries in Africa and Southeast Asia including Algeria, Angola, Botswana, Benin, Cambodia, Chad, the Democratic Republic of the Congo, Equatorial Guinea, Malaysia, Mozambique, Madagascar, Namibia, Syria, Togo, and Zimbabwe.
+> Mansudae Overseas Project Group of Companies engaged in, facilitated, or was responsible for the exportation of workers from the DPRK to other nations for construction-related activities including for statues and monuments to generate revenue for the Government of the DPRK or the Workers’ Party of Korea. The Mansudae Overseas Project Group of Companies has been reported to conduct business in countries in Africa and Southeast Asia including Angola, Botswana, Benin, Cambodia, Chad, the Democratic Republic of the Congo, Equatorial Guinea, Malaysia, Mozambique, Madagascar, Namibia, Syria, Togo, and Zimbabwe.
 
 ## Verified activity history
 

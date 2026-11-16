@@ -12,7 +12,7 @@
 
 ## Status
 
-- Last checked: 2026-11-09 (news since 2026-10-25)
+- Last checked: 2026-11-16 (news since 2026-10-25)
 - Verified activity records: 0; awaiting review: 3
 
 **UN listing notes:**

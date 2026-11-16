@@ -7,12 +7,12 @@
 **Date(s) of birth:** 1978-08-06
 **Designation:** Colonel; M23 intelligence chief (CDe.006)
 **Documents:** Passport OP0204168 Democratic Republic of the Congo; Passport OB0072391 Democratic Republic of the Congo; National Identification Number 1 1978 8 0137555 3 27 Rwanda
-**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Japan Economic Sanctions and List of Eligible People, Monaco National Fund Freezing List, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
+**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Hong Kong Targeted Financial Sanctions (Cap. 537), Japan Economic Sanctions and List of Eligible People, Monaco National Fund Freezing List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
 
 ## Status
 
-- Last checked: 2026-11-09 (news since 2026-10-11)
-- Verified activity records: 0; awaiting review: 3
+- Last checked: 2026-11-16 (news since 2026-10-17)
+- Verified activity records: 0; awaiting review: 4
 
 **UN listing notes:**
 

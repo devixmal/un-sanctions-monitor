@@ -8,8 +8,8 @@
 
 ## Status
 
-- Last checked: 2026-11-09 (news since 2026-10-18)
-- Verified activity records: 0; awaiting review: 47
+- Last checked: 2026-11-16 (news since 2026-10-18)
+- Verified activity records: 0; awaiting review: 48
 
 **UN listing notes:**
 
