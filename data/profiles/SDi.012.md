@@ -7,12 +7,12 @@
 **Date(s) of birth:** 1967-07-18
 **Designation:** Founder of International Services Agency (A4SI)
 **Documents:** Passport AP628498 Colombia; Passport YB7731256 Italy; National Identification Number Cedula No. 80413253 Colombia
-**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, EU Council Official Journal Sanctioned Entities, French National Asset Freezing System, Japan Economic Sanctions and List of Eligible People, Monaco National Fund Freezing List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
+**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, EU Council Official Journal Sanctioned Entities, French National Asset Freezing System, Japan Economic Sanctions and List of Eligible People, Monaco National Fund Freezing List, South Africa Targeted Financial Sanctions, Switzerland SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
 
 ## Status
 
-- Last checked: 2026-11-16 (news since 2026-11-09)
-- Verified activity records: 0; awaiting review: 2
+- Last checked: 2026-11-23 (news since 2026-11-16)
+- Verified activity records: 0; awaiting review: 3
 
 **UN listing notes:**
 

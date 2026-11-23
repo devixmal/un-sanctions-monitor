@@ -7,12 +7,12 @@
 **Date(s) of birth:** 1954-05-28
 **Designation:** Lieutenant-colonel; Head of Intelligence
 **Documents:** Passport DA0001564
-**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, EU Consolidated Travel Bans, EU Sanctions Map, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, Ukraine NSDC State Register of Sanctions
+**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, EU Consolidated Travel Bans, EU Sanctions Map, South Africa Targeted Financial Sanctions, Switzerland SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, Ukraine NSDC State Register of Sanctions
 
 ## Status
 
-- Last checked: 2026-11-16 (news since 2026-10-17)
-- Verified activity records: 0; awaiting review: 1
+- Last checked: 2026-11-23 (news since 2026-10-24)
+- Verified activity records: 0; awaiting review: 2
 
 **UN listing notes:**
 

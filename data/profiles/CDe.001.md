@@ -4,12 +4,12 @@
 
 **Also known as:** Allied Democratic Forces; Forces Démocratiques Alliées-Armée Nationale de Libération de l’Ouganda; ADF/NALU; NALU
 **Countries:** Democratic Republic of the Congo
-**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, Canadian Listed Terrorist Entities, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Hong Kong Targeted Financial Sanctions (Cap. 537), Japan Economic Sanctions and List of Eligible People, Moldovan Sanctions for Terrorism and Proliferation of WMD, Monaco National Fund Freezing List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, US Department of State Foreign Terrorist Organizations, US Department of State Terrorist Exclusion, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
+**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, Canadian Listed Terrorist Entities, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Hong Kong Targeted Financial Sanctions (Cap. 537), Japan Economic Sanctions and List of Eligible People, Moldovan Sanctions for Terrorism and Proliferation of WMD, Monaco National Fund Freezing List, South Africa Targeted Financial Sanctions, Switzerland SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, US Department of State Foreign Terrorist Organizations, US Department of State Terrorist Exclusion, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
 
 ## Status
 
-- Last checked: 2026-11-16 (news since 2026-10-17)
-- Verified activity records: 0; awaiting review: 83
+- Last checked: 2026-11-23 (news since 2026-10-24)
+- Verified activity records: 0; awaiting review: 91
 - UN listing notes mention: detained (see notes below)
 
 **UN listing notes:**

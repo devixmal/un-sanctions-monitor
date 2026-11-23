@@ -4,12 +4,12 @@
 
 **Date(s) of birth:** 1946
 **Designation:** Head of Muammar Qadhafi's personal security
-**Also sanctioned by:** Australian Sanctions Consolidated List, EU Consolidated Travel Bans, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), EU Sanctions Map, French National Asset Freezing System, Monaco National Fund Freezing List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, UK FCDO Sanctions List
+**Also sanctioned by:** Australian Sanctions Consolidated List, EU Consolidated Travel Bans, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), EU Sanctions Map, French National Asset Freezing System, Monaco National Fund Freezing List, South Africa Targeted Financial Sanctions, Switzerland SECO Sanctions/Embargoes, UK FCDO Sanctions List
 
 ## Status
 
-- Last checked: 2026-11-16 (news since 2026-11-08)
-- Verified activity records: 0; awaiting review: 0
+- Last checked: 2026-11-23 (news since 2026-11-08)
+- Verified activity records: 0; awaiting review: 1
 
 **UN listing notes:**
 

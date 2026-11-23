@@ -4,12 +4,12 @@
 
 **Also known as:** LIVING TOGETHER; G-9; G9 FAMILY AND ALLIES; G9 FANMI E ALYE; THE REVOLUTIONARY FORCES OF THE G9 FAMILY AND ALLIES; FÒS REVOLISYONÈ G9 AN FANMI E ALYE; G-PÈP; G-PEOPLE
 **Countries:** Haiti
-**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Japan Economic Sanctions and List of Eligible People, Monaco National Fund Freezing List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, US Department of State Foreign Terrorist Organizations, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
+**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Japan Economic Sanctions and List of Eligible People, Monaco National Fund Freezing List, South Africa Targeted Financial Sanctions, Switzerland SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, UK FCDO Sanctions List, US Department of State Foreign Terrorist Organizations, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
 
 ## Status
 
-- Last checked: 2026-11-16 (news since 2026-10-18)
-- Verified activity records: 0; awaiting review: 52
+- Last checked: 2026-11-23 (news since 2026-10-24)
+- Verified activity records: 0; awaiting review: 58
 
 **UN listing notes:**
 

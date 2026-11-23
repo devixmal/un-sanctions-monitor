@@ -7,12 +7,12 @@
 **Date(s) of birth:** 1968-06-25
 **Designation:** Official for Korea Ryonbong General Corporation, specializes in acquisition for DPRK’s defence industries and support to Pyongyang’s military-related sales. Its procurements also probably support the DPRK’s chemical weapons programme
 **Documents:** Passport 654310175
-**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, EU Consolidated Travel Bans, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Hong Kong Targeted Financial Sanctions (Cap. 537), Israel Prevention of Distribution and Financing of WMDs designations, Japan Economic Sanctions and List of Eligible People, Moldovan Sanctions for Terrorism and Proliferation of WMD, Monaco National Fund Freezing List, Qatar Unified Record of Persons and Entities on Sanction List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, Türkiye Asset Freezing Sanctions List (MASAK), UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
+**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, EU Consolidated Travel Bans, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Hong Kong Targeted Financial Sanctions (Cap. 537), Israel Prevention of Distribution and Financing of WMDs designations, Japan Economic Sanctions and List of Eligible People, Moldovan Sanctions for Terrorism and Proliferation of WMD, Monaco National Fund Freezing List, Qatar Unified Record of Persons and Entities on Sanction List, South Africa Targeted Financial Sanctions, Switzerland SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, Türkiye Asset Freezing Sanctions List (MASAK), UK FCDO Sanctions List, US OFAC Specially Designated Nationals (SDN) List, US Trade Consolidated Screening List (CSL), Ukraine SFMS Blacklist
 
 ## Status
 
-- Last checked: 2026-11-16 (news since 2026-11-01)
-- Verified activity records: 0; awaiting review: 4
+- Last checked: 2026-11-23 (news since 2026-11-01)
+- Verified activity records: 0; awaiting review: 5
 
 **UN listing notes:**
 

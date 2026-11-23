@@ -5,12 +5,12 @@
 **Also known as:** Halen Bakhtiar; Haleh Bakhtiari; Haleh Bakhtiyar
 **Date(s) of birth:** 1975
 **Designation:** Designated for involvement in the production of magnesium at a concentration of 99.9%.
-**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Israel Prevention of Distribution and Financing of WMDs designations, Japan Economic Sanctions and List of Eligible People, Monaco National Fund Freezing List, Qatar Unified Record of Persons and Entities on Sanction List, South Africa Targeted Financial Sanctions, Swiss SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, Türkiye Asset Freezing Sanctions List (MASAK), UK FCDO Sanctions List, Ukraine SFMS Blacklist
+**Also sanctioned by:** Argentina RePET Sanctions, Australian Sanctions Consolidated List, Belgian Financial Sanctions, EU Council Official Journal Sanctioned Entities, EU Financial Sanctions Files (FSF), French National Asset Freezing System, Israel Prevention of Distribution and Financing of WMDs designations, Japan Economic Sanctions and List of Eligible People, Monaco National Fund Freezing List, Qatar Unified Record of Persons and Entities on Sanction List, South Africa Targeted Financial Sanctions, Switzerland SECO Sanctions/Embargoes, Taiwan Strategic High-Tech Commodities Entity List, Türkiye Asset Freezing Sanctions List (MASAK), UK FCDO Sanctions List, Ukraine SFMS Blacklist
 
 ## Status
 
-- Last checked: 2026-11-16 (news since 2026-10-18)
-- Verified activity records: 0; awaiting review: 1
+- Last checked: 2026-11-23 (news since 2026-10-24)
+- Verified activity records: 0; awaiting review: 2
 
 **UN listing notes:**
 
