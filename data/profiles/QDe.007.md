@@ -17,4 +17,4 @@
 
 ## Verified activity history
 
-_No verified activity recorded yet._
+- **2026-11-23:** Listed by another authority: Also listed by: Switzerland SECO Sanctions/Embargoes (OpenSanctions) <!-- id:1d80f425f069 -->

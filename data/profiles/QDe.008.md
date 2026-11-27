@@ -16,4 +16,4 @@
 
 ## Verified activity history
 
-_No verified activity recorded yet._
+- **2026-11-19:** News: Hania Aamir to star in Saim Sadiq's next film (samaa.tv) · _topic:TRIAL_ <!-- id:a9a0c7ebf3d5 -->
