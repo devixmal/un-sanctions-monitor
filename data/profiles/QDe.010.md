@@ -16,4 +16,5 @@
 
 ## Verified activity history
 
-_No verified activity recorded yet._
+- **2026-11-23:** Listed by another authority: Also listed by: Switzerland SECO Sanctions/Embargoes (OpenSanctions) <!-- id:3b3be7a85f8b -->
+- **2026-11-17:** News: Russia Increases Engagement with Taliban-Led Afghanistan (jamestown.org) · _arms, attack, islamic state, jihad, taliban, topic:ARMEDCONFLICT_ <!-- id:4e723531b9c8 -->
